@@ -2,16 +2,13 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 use App\Http\Controllers\ProfileController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
-| 🌐 Frontend Routes (localized)
+| 🌐 Frontend Routes (localized) — Pure HTML/Blade
 |--------------------------------------------------------------------------
-| These routes are wrapped with locale prefixes like /en or /de
-| Example: /en/contact-us, /de/about
 */
 Route::group(
     [
@@ -19,9 +16,9 @@ Route::group(
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
     ],
     function () {
-        // Public Frontend Pages
+        // Home Page (Blade)
         Route::get('/', function () {
-            return Inertia::render('Welcome', [
+            return view('frontend.welcome', [
                 'canLogin' => Route::has('login'),
                 'canRegister' => Route::has('register'),
                 'laravelVersion' => Application::VERSION,
@@ -29,21 +26,17 @@ Route::group(
             ]);
         })->name('home');
 
-        // Example frontend localized pages
-        Route::get('/contact-us', fn() => Inertia::render('Frontend/Contact'))->name('contact');
-        Route::get('/about-us', fn() => Inertia::render('Frontend/About'))->name('about');
-        Route::get('/plans', fn() => Inertia::render('Frontend/Plans'))->name('plans');
-
-        // You can keep adding more localized pages here...
+        // Frontend Pages (Blade)
+        Route::get('/contact-us', fn() => view('frontend.contact'))->name('contact');
+        Route::get('/about-us', fn() => view('frontend.about'))->name('about');
+        Route::get('/plans', fn() => view('frontend.plans'))->name('plans');
     }
 );
 
 /*
 |--------------------------------------------------------------------------
-| 🔐 Backend Routes (no locale prefix)
+| 🔐 Backend Routes (NO Inertia)
 |--------------------------------------------------------------------------
-| These are admin, customer, and authenticated routes.
-| URLs will remain plain: /dashboard, /admin/dashboard, /customer/dashboard
 */
 
 // Redirect based on role
@@ -59,19 +52,19 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Admin-only routes
+// Admin Dashboard (Blade)
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', function () {
-        return Inertia::render('Admin/Dashboard');
+        return view('admin.dashboard');
     })->name('admin.dashboard');
 });
 
-// Customer-only routes
+// Customer Dashboard (Blade)
 Route::middleware(['auth', 'role:customer'])->group(function () {
     Route::get('/customer/dashboard', function () {
-        return Inertia::render('Customer/Dashboard');
+        return view('customer.dashboard');
     })->name('customer.dashboard');
 });
 
-// Auth routes (from Breeze)
+// Auth routes
 require __DIR__ . '/auth.php';

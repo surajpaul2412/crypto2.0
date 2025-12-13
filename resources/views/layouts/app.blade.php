@@ -1,80 +1,50 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta charset="UTF-8">
+
+    <title>Rayo - Digital Agency & Personal Portfolio</title>
+
+    <meta name="description" content="Elevate your digital presence with Rayo...">
+    <meta name="keywords" content="mix_design, resume, portfolio">
+    <meta name="author" content="mix_design">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <base href="{{ url('/') }}/">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Favicons -->
+    <link rel="icon" href="{{ asset('assets/img/favicon/favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ asset('assets/img/favicon/apple-touch-icon.png') }}">
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <!-- OG -->
+    <meta property="og:image" content="{{ asset('assets/img/og-image.jpg') }}">
 
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('assets/css/loaders/loader.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/plugins.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/main.min.css') }}">
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+  <body>
+    @include('partials.loader')
+    @include('partials.header')
 
-                    </ul>
+    @yield('content')
+    
+    @include('partials.footer')
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+    <!-- To Top Button Start -->
+    <a href="#0" id="to-top" class="btn btn-to-top slide-up anim-no-delay">
+      <i class="ph ph-arrow-up"></i>
+    </a>
+    <!-- To Top Button End -->
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-</body>
+    <!-- Load Scripts Start -->
+    <script src="{{ asset('assets/js/libs.min.js') }}"></script>
+    <script src="{{ asset('assets/js/app.min.js') }}"></script>
+    <!-- Load Scripts End -->    
+  </body>
 </html>
