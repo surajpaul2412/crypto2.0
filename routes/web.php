@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Http\Controllers\Customer\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +28,15 @@ Route::group(
         })->name('home');
 
         // Frontend Pages (Blade)
+        Route::get('/about-us', fn() => view('frontend.about'))->name('about');
+        Route::get('/team', fn() => view('frontend.team'))->name('team');
+
         Route::get('/contact-us', fn() => view('frontend.contact'))->name('contact');
         Route::get('/about-us', fn() => view('frontend.about'))->name('about');
         Route::get('/plans', fn() => view('frontend.plans'))->name('plans');
+
+        // Route::get('/login', fn() => view('frontend.login'))->name('login');
+        // Route::get('/register', fn() => view('frontend.register'))->name('register');
     }
 );
 
@@ -60,10 +67,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 });
 
 // Customer Dashboard (Blade)
-Route::middleware(['auth', 'role:customer'])->group(function () {
-    Route::get('/customer/dashboard', function () {
-        return view('customer.dashboard');
-    })->name('customer.dashboard');
+Route::middleware(['auth','role:customer'])->group(function () {
+    Route::get('/customer/dashboard', [DashboardController::class, 'index'])
+        ->name('customer.dashboard');
 });
 
 // Auth routes

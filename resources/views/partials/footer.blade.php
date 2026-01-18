@@ -1,4 +1,4 @@
-<footer class="mxd-demo-footer">
+<footer class="mxd-demo-footer" style="padding-top: 10rem;">
 
   <!-- Footer Background Start -->
   <div class="mxd-demo-footer__bg">

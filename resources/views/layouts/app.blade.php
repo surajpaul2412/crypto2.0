@@ -4,11 +4,11 @@
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta charset="UTF-8">
 
-    <title>Rayo - Digital Agency & Personal Portfolio</title>
+    <title>Crypto Cipher</title>
 
-    <meta name="description" content="Elevate your digital presence with Rayo...">
-    <meta name="keywords" content="mix_design, resume, portfolio">
-    <meta name="author" content="mix_design">
+    <meta name="description" content="Crypto Cipher">
+    <meta name="keywords" content="Crypto Cipher">
+    <meta name="author" content="Suraj Paul">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
