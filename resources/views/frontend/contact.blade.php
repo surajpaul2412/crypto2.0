@@ -343,40 +343,20 @@
                   <div class="mxd-paragraph__lists">
                     <div class="container-fluid p-0">
                       <div class="row g-0">
-                        <div class="col-12 col-md-6 col-xl-5 mxd-paragraph__lists-item">
+                        <div class="col-12 col-md-12 col-xl-12 mxd-paragraph__lists-item">
                           <div class="mxd-paragraph__lists-title">
-                            <p class="t-large t-bright t-caption anim-uni-in-up">New York</p>
+                            <p class="t-large t-bright t-caption anim-uni-in-up">New Delhi</p>
                           </div>
                           <ul>
                             <li class="anim-uni-in-up">
-                              <a class="anim-uni-in-up" href="https://goo.gl/maps/nWXKpGaDPuyH6gxRA" target="_blank">
-                                11 West 53 Street,<br>New York, NY<br>10019
+                              <a class="anim-uni-in-up" href="https://share.google/QVihAtEvdEsmKz0JH" target="_blank">
+                                Space No: 1, Second Floor DA - Block Market (Ramji Lal Commercial Shopping Complex) Shalimar Bagh, New Delhi - 110088
                               </a>
                             </li>
                           </ul>
                           <ul>
                             <li class="anim-uni-in-up">
                               <a href="tel:+12127089400">+1 212-708-9400</a>
-                            </li>
-                            <li class="anim-uni-in-up">
-                              <a href="mailto:example@example.com?subject=Message%20from%20your%20site">hello@rayo.com</a>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="col-12 col-md-6 col-xl-5 mxd-paragraph__lists-item">
-                          <div class="mxd-paragraph__lists-title">
-                            <p class="t-large t-bright t-caption anim-uni-in-up">Oakland</p>
-                          </div>
-                          <ul>
-                            <li class="anim-uni-in-up">
-                              <a href="https://goo.gl/maps/xap5o3MZBuC6DFHz8" target="_blank">
-                                3400 Broadway,<br>Oakland, CA<br>94611
-                              </a>
-                            </li>
-                          </ul>
-                          <ul>
-                            <li class="anim-uni-in-up">
-                              <a href="tel:+15104570211">+1 510-457-0211</a>
                             </li>
                             <li class="anim-uni-in-up">
                               <a href="mailto:example@example.com?subject=Message%20from%20your%20site">hello@rayo.com</a>
@@ -397,45 +377,6 @@
     </div>
   </div>
   <!-- Section - Text Block End -->
-
-  <!-- Section - CTA Start -->
-  <div class="mxd-section overflow-hidden">
-    <div class="mxd-container">
-
-      <!-- Block - CTA Start -->
-      <div class="mxd-block">
-        <div class="mxd-promo">
-          <div class="mxd-promo__inner anim-zoom-out-container">
-            <!-- background -->
-            <div class="mxd-promo__bg"></div>
-            <!-- caption -->
-            <div class="mxd-promo__content">
-              <p class="mxd-promo__title anim-uni-in-up">
-                <span class="mxd-promo__icon">
-                  <img src="img/icons/300x300_obj-cta-01.webp" alt="Icon">
-                </span>
-                <span class="mxd-promo__caption reveal-type">Let's talk about your project!</span>
-              </p>
-              <div class="mxd-promo__controls anim-uni-in-up">
-                <a class="btn btn-anim btn-default btn-large btn-additional slide-right-up" href="#contact-form">
-                  <span class="btn-caption">Say Hello</span>
-                  <i class="ph-bold ph-arrow-up-right"></i>
-                </a>
-              </div>
-            </div>
-            <!-- parallax images -->
-            <div class="mxd-promo__images">
-              <img class="promo-image promo-image-1" src="img/illustrations/cta-img-01.webp" alt="Image">
-              <img class="promo-image promo-image-2" src="img/illustrations/cta-img-02.webp" alt="Image">
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Block - CTA End -->
-
-    </div>
-  </div>
-  <!-- Section - CTA End -->
 
 </main>
 @endsection

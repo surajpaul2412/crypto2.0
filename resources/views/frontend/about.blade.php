@@ -29,7 +29,7 @@
                       c0,0,0-3.1,0-4.1c0-0.4,0.2-1.7,0.2-1.7c0.1-0.6,0.2-1.1,0.6-1.6c0.3-0.4,0.7-0.8,1.1-1.1c0.5-0.3,1-0.5,1.6-0.6
                       c0,0,1.3-0.1,1.8-0.2c1,0,4,0,4,0c0.2,0,0.4-0.2,0.4-0.4C20,9.8,19.8,9.6,19.6,9.6L19.6,9.6z"/>
                   </svg>
-                  <span>About me</span>
+                  <span>About Us</span>
                 </p>
               </div>
             </div>
@@ -42,16 +42,13 @@
                 <div class="mxd-block__inner-headline">
                   <h1 class="inner-headline__title animated-type loading__item">
                     <span id="typed-strings">
-                      <b>UI designer</b>
-                      <b>3D Artist</b>
-                      <b>Illustrator</b>
+                      <b>Crypto cipher</b>
+                      <b>Music Library</b>
+                      <b>Indian Music</b>
                     </span>
                     <span id="typed"></span>
                   </h1>
-                  <p class="inner-headline__text t-large t-bright loading__item">👋 Hey! I am Alex Walker. I'm 
-                    passionate about crafting designs that tell stories, spark emotions, and make an 
-                    impact. Whether I'm crafting digital experiences or creating illustrations, 
-                    I pour creativity and precision into every detail.</p>
+                  <p class="inner-headline__text t-large t-bright loading__item">Crypto Cipher is driven by the vision of Sumit Kumar, an electronic music composer, sample library developer, and trainer. With a deep passion for music rooted in his early years, he combines artistic creativity with technical mastery to deliver soundscapes that resonate emotionally with listeners. Guided by his love for music and sound, Sumit has established Crypto Cipher as a pioneer in the field, inspiring musicians and composers worldwide.</p>
                 </div>
               </div>
 
@@ -84,7 +81,7 @@
               <use xlink:href="#textPath" fill="none"></use>
               <text>
                 <!-- button text here!!! -->
-                <textPath xlink:href="#textPath">Download CV * Download CV * Download CV * </textPath>
+                <textPath xlink:href="#textPath">crypto Cipher * An Indian Sample Library * </textPath>
               </text>
             </g>
           </svg>

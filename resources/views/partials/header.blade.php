@@ -31,7 +31,7 @@
                 <li class="main-menu__item">
                   <div class="main-menu__toggle">
                     <span class="main-menu__link btn btn-anim">
-                      <span class="btn-caption">Instruments</span>
+                      <span class="btn-caption">Libraries</span>
                     </span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" version="1.1" viewBox="0 0 20 20">
                       <path d="M19.6,9.6h-3.9c-.4,0-1.8-.2-1.8-.2-.6,0-1.1-.2-1.6-.6-.5-.3-.9-.8-1.2-1.2-.3-.4-.4-.9-.5-1.4,0,0,0-1.1-.2-1.5V.4c0-.2-.2-.4-.4-.4s-.4.2-.4.4v4.4c0,.4-.2,1.5-.2,1.5,0,.5-.2,1-.5,1.4-.3.5-.7.9-1.2,1.2s-1,.5-1.6.6c0,0-1.2,0-1.7.2H.4c-.2,0-.4.2-.4.4s.2.4.4.4h4.1c.4,0,1.7.2,1.7.2.6,0,1.1.2,1.6.6.4.3.8.7,1.1,1.1.3.5.5,1,.6,1.6,0,0,0,1.3.2,1.7v4.1c0,.2.2.4.4.4s.4-.2.4-.4v-4.1c0-.4.2-1.7.2-1.7,0-.6.2-1.1.6-1.6.3-.4.7-.8,1.1-1.1.5-.3,1-.5,1.6-.6,0,0,1.3,0,1.8-.2h3.9c.2,0,.4-.2.4-.4s-.2-.4-.4-.4h0Z"/>
@@ -39,32 +39,26 @@
                   </div>
                   <ul class="submenu">
                     <li class="submenu__item">
-                      <a href="index-main.html">All Instruments</a>
+                      <a href="">Kontakt</a>
                     </li>
                     <li class="submenu__item">
-                      <a href="index-software-development-company.html">Free Instruments</a>
+                      <a href="">Loops</a>
                     </li>
                     <li class="submenu__item">
-                      <a href="index-freelancer-portfolio.html">Orchestral</a>
+                      <a href="">Instruments</a>
                     </li>
                     <li class="submenu__item">
-                      <a href="index-digital-agency.html">Cinematic</a>
+                      <a href="">Incredible Music Heritage</a>
                     </li>
                     <li class="submenu__item">
-                      <a href="index-creative-design-studio.html">Synths</a>
-                    </li>
-                    <li class="submenu__item">
-                      <a href="index-personal-portfolio.html">Keys & Pianos</a>
-                    </li>
-                    <li class="submenu__item">
-                      <a href="index-web-agency.html">Experimental</a>
+                      <a href="">Free Sounds</a>
                     </li>
                   </ul>
                 </li>
                 <li class="main-menu__item">
                   <div class="main-menu__toggle">
                     <span class="main-menu__link btn btn-anim">
-                      <span class="btn-caption">Sounds</span>
+                      <span class="btn-caption">Services</span>
                     </span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" version="1.1" viewBox="0 0 20 20">
                       <path d="M19.6,9.6h-3.9c-.4,0-1.8-.2-1.8-.2-.6,0-1.1-.2-1.6-.6-.5-.3-.9-.8-1.2-1.2-.3-.4-.4-.9-.5-1.4,0,0,0-1.1-.2-1.5V.4c0-.2-.2-.4-.4-.4s-.4.2-.4.4v4.4c0,.4-.2,1.5-.2,1.5,0,.5-.2,1-.5,1.4-.3.5-.7.9-1.2,1.2s-1,.5-1.6.6c0,0-1.2,0-1.7.2H.4c-.2,0-.4.2-.4.4s.2.4.4.4h4.1c.4,0,1.7.2,1.7.2.6,0,1.1.2,1.6.6.4.3.8.7,1.1,1.1.3.5.5,1,.6,1.6,0,0,0,1.3.2,1.7v4.1c0,.2.2.4.4.4s.4-.2.4-.4v-4.1c0-.4.2-1.7.2-1.7,0-.6.2-1.1.6-1.6.3-.4.7-.8,1.1-1.1.5-.3,1-.5,1.6-.6,0,0,1.3,0,1.8-.2h3.9c.2,0,.4-.2.4-.4s-.2-.4-.4-.4h0Z"/>
@@ -72,16 +66,10 @@
                   </div>
                   <ul class="submenu">
                     <li class="submenu__item">
-                      <a href="works-simple.html">Browse Sounds</a>
+                      <a href="works-simple.html">Remote Recordings</a>
                     </li>
                     <li class="submenu__item">
-                      <a href="works-masonry.html">Genres</a>
-                    </li>
-                    <li class="submenu__item">
-                      <a href="project-details.html">Instruments</a>
-                    </li>
-                    <li class="submenu__item">
-                      <a href="project-details.html">Free Sounds</a>
+                      <a href="works-masonry.html">Education</a>
                     </li>
                   </ul>
                 </li>
@@ -96,16 +84,16 @@
                   </div>
                   <ul class="submenu">
                     <li class="submenu__item">
-                      <a href="about-me.html">Who We Are ?</a>
+                      <a href="{{route('about')}}">Who We Are ?</a>
                     </li>
                     <li class="submenu__item">
-                      <a href="about-us.html">Success Stories</a>
+                      <a href="{{route('success-stories')}}">Success Stories</a>
                     </li>
                     <li class="submenu__item">
-                      <a href="about-us.html">Our Team</a>
+                      <a href="{{route('team')}}">Our Team</a>
                     </li>
                     <li class="submenu__item">
-                      <a href="services.html">FAQs</a>
+                      <a href="{{route('faq')}}">FAQs</a>
                     </li>
                   </ul>
                 </li>
@@ -204,7 +192,7 @@
   <!-- header controls -->
   <div class="mxd-header__controls loading__fade">
     <button id="color-switcher" class="mxd-color-switcher" type="button" role="switch" aria-label="light/dark mode" aria-checked="true"></button>
-    <a class="btn btn-anim btn-default btn-mobile-icon btn-outline slide-right" href="https://1.envato.market/kOvmWN" target="_blank">
+    <a class="btn btn-anim btn-default btn-mobile-icon btn-outline slide-right" href="" target="_blank">
       <span class="btn-caption">Purchase</span>
       <i class="ph-bold ph-shopping-cart-simple"></i>
     </a>

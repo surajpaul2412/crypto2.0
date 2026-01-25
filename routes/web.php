@@ -29,14 +29,18 @@ Route::group(
 
         // Frontend Pages (Blade)
         Route::get('/about-us', fn() => view('frontend.about'))->name('about');
+        
+
+        
+        Route::get('/about-us', fn() => view('frontend.about'))->name('about');
+        Route::get('/success-stories', fn() => view('frontend.success-stories'))->name('success-stories');
         Route::get('/team', fn() => view('frontend.team'))->name('team');
+        Route::get('/faq', fn() => view('frontend.faq'))->name('faq');
 
         Route::get('/contact-us', fn() => view('frontend.contact'))->name('contact');
-        Route::get('/about-us', fn() => view('frontend.about'))->name('about');
-        Route::get('/plans', fn() => view('frontend.plans'))->name('plans');
 
-        // Route::get('/login', fn() => view('frontend.login'))->name('login');
-        // Route::get('/register', fn() => view('frontend.register'))->name('register');
+        // others
+        Route::get('/plans', fn() => view('frontend.plans'))->name('plans');
     }
 );
 
