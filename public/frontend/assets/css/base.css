@@ -1,0 +1,40 @@
+/* base.css — reset, body, background, scrollbar, selection, @font-face
+ * AUTO-EMITTED by extract.py --emit. Do not hand-edit;
+ * re-emit from source pages. Rules copied byte-for-byte.
+ */
+
+/* Site-wide canonical: reserve scrollbar space on every page so the fixed nav
+   centers identically and scroll-lock (modals/popups) never shifts layout.
+   MANUAL addition — was inline on 01+07 only (below the --emit ≥8 share bar),
+   so re-add this after any base.css re-emit. Pages with their own
+   scrollbar-gutter override keep it; 08 (no base.css link) is unaffected. */
+html { scrollbar-gutter: stable; }
+
+body {
+  font-family: "Outfit", sans-serif;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.5;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+*, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 3. Focus-visible halo · accessibility + DNA */
+*:focus { outline: none; }
+
+*:focus-visible {
+  outline: 2px solid rgba(117,194,73, 0.65);
+  outline-offset: 3px;
+  border-radius: 6px;
+  transition: outline-offset 0.2s var(--ease);
+}
+

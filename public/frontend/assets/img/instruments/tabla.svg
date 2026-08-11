@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" preserveAspectRatio="xMidYMid meet">
+                <defs>
+  <linearGradient id="ig10" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#BBD67A" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#75C249" stop-opacity="0.85"/>
+  </linearGradient>
+  <linearGradient id="ig10b" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#BBD67A" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#75C249" stop-opacity="0.06"/>
+  </linearGradient>
+</defs>
+                
+    <!-- Tabla: two drums, left bayan + right dayan -->
+    <ellipse cx="60" cy="180" rx="42" ry="8" fill="url(#ig10)" opacity="0.25"/>
+    <ellipse cx="145" cy="180" rx="32" ry="6" fill="url(#ig10)" opacity="0.25"/>
+    <path d="M22 80 Q22 60 60 60 Q98 60 98 80 L98 165 Q98 178 60 178 Q22 178 22 165 Z" fill="url(#ig10b)" stroke="url(#ig10)" stroke-width="1.6"/>
+    <ellipse cx="60" cy="80" rx="38" ry="10" fill="url(#ig10b)" stroke="url(#ig10)" stroke-width="1.6"/>
+    <circle cx="60" cy="80" r="14" fill="url(#ig10)" opacity="0.35"/>
+    <path d="M115 90 Q115 75 145 75 Q175 75 175 90 L175 165 Q175 175 145 175 Q115 175 115 165 Z" fill="url(#ig10b)" stroke="url(#ig10)" stroke-width="1.6"/>
+    <ellipse cx="145" cy="90" rx="30" ry="8" fill="url(#ig10b)" stroke="url(#ig10)" stroke-width="1.6"/>
+    <circle cx="145" cy="90" r="11" fill="url(#ig10)" opacity="0.4"/>
+    <!-- tension cords -->
+    <line x1="30" y1="85" x2="33" y2="170" stroke="url(#ig10)" stroke-width="0.6" opacity="0.5"/>
+    <line x1="50" y1="83" x2="48" y2="172" stroke="url(#ig10)" stroke-width="0.6" opacity="0.5"/>
+    <line x1="70" y1="83" x2="72" y2="172" stroke="url(#ig10)" stroke-width="0.6" opacity="0.5"/>
+    <line x1="90" y1="85" x2="87" y2="170" stroke="url(#ig10)" stroke-width="0.6" opacity="0.5"/>
+    <line x1="120" y1="92" x2="121" y2="168" stroke="url(#ig10)" stroke-width="0.6" opacity="0.5"/>
+    <line x1="135" y1="90" x2="135" y2="170" stroke="url(#ig10)" stroke-width="0.6" opacity="0.5"/>
+    <line x1="155" y1="90" x2="155" y2="170" stroke="url(#ig10)" stroke-width="0.6" opacity="0.5"/>
+    <line x1="170" y1="92" x2="169" y2="168" stroke="url(#ig10)" stroke-width="0.6" opacity="0.5"/>
+  
+              </svg>

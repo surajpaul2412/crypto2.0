@@ -1,0 +1,214 @@
+/* ═══ CRYPTO CIPHER · standard demo-player component CSS ═══
+   Extracted from 03_library-inner (the locked design). Pages that
+   already include these rules inline simply get identical values. */
+/* backdrop-filter cull · 59 instances → ~10 essentials kept.
+   Per HANDOFF perf ceilings: ≤4 per page is the target, but sticky-
+   nav + modal + sticky price-panel + footer cards are structurally
+   necessary glass surfaces. Page-body cards do NOT need frosting —
+   they sit on dark backgrounds where backdrop-filter has no visible
+   effect anyway (it's painting cost for nothing).
+   Kept: .cc-nav, .cc-nav__dropdown, .cc-nav__mobile-panel,
+         .modal__backdrop, .booking-modal__backdrop, .video-embed__close,
+         .price-panel, .sidenav, footer (.ft__*).
+   Culled: every other page-body surface. */
+.cc-card,
+.cc-format-chip,
+.libs__card,
+.libs__card-price,
+.lib-hero__play-btn,
+.patch,
+.credit-card,
+.description__quote,
+.description__stat,
+.bundle-cta,
+.buybar,
+.buybox,
+.player-box,
+.process-step,
+.rec-card__price,
+.sidenav__pull,
+.soft-cta,
+.videos__panel-btn,
+.videos__thumb-play{backdrop-filter: none !important; -webkit-backdrop-filter: none !important;}
+/* ───────────────────────────────────────────────
+   §2 COMPOSER CUES — framed box wrapping SoundCloud-style player
+   Box: dark glass card with internal heading
+   Player: vertical stack · 10+ demos · all visible · no scroll
+   Each row: compressed (~35% smaller than v1) — round play btn · meta/title/wave on right
+   ─────────────────────────────────────────────── */
+
+/* ── Outer box (frames the whole demo reel) ── */
+.player-box{position: relative; padding: 1.5rem 1.6rem; border-radius: 18px; background: linear-gradient(135deg, rgba(15,20,28,0.78), rgba(8,12,18,0.78)); border: 1px solid var(--glass-border, rgba(255,255,255,0.05)); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 22px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.03), inset 0 1px 0 rgba(255,255,255,0.04); isolation: isolate;}
+.player-box::before{content: ''; position: absolute; inset: -1px; border-radius: 19px; background: linear-gradient(160deg, rgba(90,160,70,0.06) 0%, transparent 35%, transparent 70%, rgba(75,145,65,0.04) 100%); z-index: -1; pointer-events: none;}
+/* Box header */
+.player-box__head{display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; padding-bottom: 1.2rem; margin-bottom: 1.2rem; border-bottom: 1px solid var(--glass-border, rgba(255,255,255,0.05));}
+.player-box__head-left{display: flex; flex-direction: column; gap: 0.35rem; min-width: 0;}
+.player-box__eyebrow{display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--green-light, #BBD67A);}
+.player-box__eyebrow svg{width: 12px; height: 12px;}
+.player-box__title{font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 800; line-height: 1.2; color: var(--text-primary, #ffffff); margin: 0;}
+.player-box__sub{font-size: 0.68rem; color: var(--text-muted, rgba(255,255,255,0.45)); font-weight: 300; line-height: 1.45; margin: 0;}
+.player-box__sub em{/* Auto-play hint — reads as a system label, not body copy */ font-style: italic; color: var(--green-light, #BBD67A); opacity: 0.85;}
+.player-box__count{font-size: 0.6rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-quiet, rgba(255,255,255,0.3)); font-variant-numeric: tabular-nums; white-space: nowrap; flex-shrink: 0;}
+/* ── Player-box right cluster · count ── */
+.player-box__head-right{display: flex; align-items: center; gap: 1.2rem; flex-shrink: 0;}
+/* ── Loading + error states ── */
+.player__row.is-loading .player__play{pointer-events: none;}
+.player__row.is-loading .player__play-icon,
+.player__row.is-loading .player__pause-icon{opacity: 0 !important;}
+.player__row.is-loading .player__play::after{content: ''; position: absolute; inset: 25%; border: 2px solid var(--green-light, #BBD67A); border-top-color: transparent; border-radius: 50%; animation: playerSpin 0.8s linear infinite;}
+.player__row.is-error{opacity: 0.5;}
+.player__row.is-error .player__title::after{content: ' · audio unavailable'; font-size: 0.65rem; color: #d44; font-style: italic; font-weight: 400;}
+/* Autoplay-blocked state (mobile only typically) — user must tap to continue.
+   Browser blocks audio.play() mid-chain when the page is backgrounded or
+   the chain exceeds the original user-gesture credit. Visible hint replaces
+   the standard play icon with a subtle pulse so the user sees the next row
+   is ready, just waiting for a tap. */
+.player__row.is-blocked .player__play{animation: playerBlockedPulse 1.6s ease-in-out infinite; background: linear-gradient(135deg, rgba(212, 169, 85, 0.28), rgba(180, 140, 50, 0.18)); border-color: rgba(212, 169, 85, 0.55);}
+.player__row.is-blocked .player__title::after{content: ' · tap to play'; font-size: 0.65rem; color: #d4a955; font-style: italic; font-weight: 400; margin-left: 0.4rem;}
+/* ── Waveform cursor states · scrub-ready ── */
+.player__wave{cursor: pointer;}
+.player__wave:hover::before{background: rgba(255,255,255,0.26);}
+.player__row{display: grid; /* Single-line layout: play btn · info (badge+title+meta) · waveform · duration */ grid-template-columns: 40px minmax(0, 1fr) 180px 60px; gap: 1rem; padding: 0.55rem 0.85rem; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); transition: all 0.3s var(--ease, cubic-bezier(0.22, 1, 0.36, 1)); align-items: center; position: relative;}
+.player__row:hover{border-color: rgba(117,194,73,0.18); background: rgba(117,194,73,0.025);}
+.player__row.playing{border-color: rgba(117,194,73,0.22); background: rgba(117,194,73,0.05); box-shadow: 0 6px 18px rgba(0,0,0,0.25);}
+/* Tablet (600–1100px): compact waveform (don't hide it — that was a bug,
+   killed scrub on tablets too). Reduced height + lower padding column. */
+
+/* Mobile: drop dedicated duration col — duration moves inline with title.
+   Waveform moves to its own row spanning full width below info. */
+
+
+/* ── Round play/pause button ── */
+.player__play{width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, rgba(117,194,73,0.20), rgba(47,105,66,0.30)); border: 1px solid rgba(117,194,73,0.32); display: flex; align-items: center; justify-content: center; flex-shrink: 0; cursor: pointer; transition: all 0.35s var(--ease, cubic-bezier(0.22, 1, 0.36, 1)); position: relative; box-shadow: 0 4px 12px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05);}
+.player__play:hover{background: linear-gradient(135deg, rgba(117,194,73,0.36), rgba(117,194,73,0.18)); border-color: rgba(117,194,73,0.5); transform: scale(1.06); box-shadow: 0 6px 18px rgba(0,0,0,0.4), 0 0 16px rgba(117,194,73,0.18);}
+.player__row.playing .player__play{background: linear-gradient(135deg, var(--green-primary, #75C249), var(--green-light, #BBD67A)); border-color: rgba(187,214,122,0.6); box-shadow: 0 4px 18px rgba(117,194,73,0.32), 0 0 18px rgba(117,194,73,0.18);}
+.player__play svg{position: absolute; width: 12px; height: 12px; fill: #fff; transition: opacity 0.3s ease, transform 0.3s ease;}
+.player__play .player__play-icon{transform: translateX(1px); opacity: 1;}
+.player__play .player__pause-icon{opacity: 0;}
+.player__row.playing .player__play .player__play-icon{opacity: 0;}
+.player__row.playing .player__play .player__pause-icon{opacity: 1; fill: var(--bg-deep, #0d1117);}
+/* ── Info column (2-line micro-stack: badge+title / composer+context) ── */
+.player__info{display: flex; flex-direction: column; gap: 0.15rem; min-width: 0;}
+.player__head{display: flex; align-items: baseline; gap: 0.55rem; min-width: 0;}
+.player__type{font-size: 0.46rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green-light, #BBD67A); padding: 0.16rem 0.48rem; border-radius: 50px; background: rgba(117,194,73,0.06); border: 1px solid rgba(117,194,73,0.18); white-space: nowrap; flex-shrink: 0; line-height: 1; align-self: center;}
+/* Title sits in head row alongside badge — single line, ellipsis */
+.player__head .player__title{flex: 1 1 auto; min-width: 0;}
+/* Time hidden on desktop (duration column shows it instead).
+   On mobile the duration column is dropped, so time becomes the only indicator inline. */
+.player__time{display: none;}
+.player__elapsed{color: var(--text-muted, rgba(255,255,255,0.45));}
+.player__row.playing .player__elapsed{color: var(--green-light, #BBD67A);}
+/* Title — single-line, ellipsis when too long. Tooltip via title attr (added in HTML) */
+.player__title{font-family: 'Playfair Display', serif; font-size: 0.84rem; font-weight: 700; line-height: 1.25; color: var(--text-primary, #ffffff); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;}
+.player__row.playing .player__title{color: #fff;}
+/* Meta line: composer + context, single line, ellipsis when too long */
+.player__meta{display: flex; align-items: baseline; gap: 0.4rem; font-size: 0.6rem; color: var(--text-muted, rgba(255,255,255,0.45)); line-height: 1.35; font-weight: 300; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;}
+.player__composer{color: var(--text-secondary, rgba(255,255,255,0.65)); font-style: italic; font-weight: 400; flex-shrink: 0;}
+.player__sep{color: var(--text-quiet, rgba(255,255,255,0.3)); flex-shrink: 0;}
+.player__context{color: var(--text-quiet, rgba(255,255,255,0.3)); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;}
+/* Mobile premium player layout override · runs AFTER desktop so wins cascade */
+
+
+/* ── Compact waveform · sits in its own column · 16px hairline ── */
+.player__wave{position: relative; height: 18px; margin-top: 0; border-radius: 2px; overflow: hidden; cursor: pointer; /* touch-action: none prevents browser from intercepting horizontal drags as page scroll — required for drag-to-scrub on mobile. */ touch-action: none; -webkit-user-select: none; user-select: none;}
+/* ── Duration column · right side · always visible on desktop ── */
+.player__duration{font-size: 0.62rem; color: var(--text-muted, rgba(255,255,255,0.45)); font-variant-numeric: tabular-nums; letter-spacing: 0.08em; text-align: right; white-space: nowrap;}
+.player__row.playing .player__duration{color: var(--green-light, #BBD67A);}
+/* Layered SVG-style waveform using gradients: gives a real sound-shape feel
+   without per-bar DOM. Two layers — bg (untouched) + progress (filled with green). */
+.player__wave-bg,
+.player__wave-progress{position: absolute; top: 0; bottom: 0; left: 0; background-image: linear-gradient(to bottom, transparent 0%, transparent 30%, currentColor 30%, currentColor 70%, transparent 70%, transparent 100%), repeating-linear-gradient(to right, currentColor 0px, currentColor 1px, transparent 1px, transparent 4px); background-blend-mode: multiply; /* Use mask to randomize bar heights — generated as data URL */ -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 8%, black 8%, black 92%, transparent 92%, transparent 100%);}
+.player__wave-bg{width: 100%; color: rgba(255,255,255,0.18);}
+.player__wave-progress{width: 0%; color: var(--green-primary, #75C249); transition: width 0.2s linear;}
+.player__row.playing .player__wave-progress{width: 35%; animation: waveAdvance 5s linear infinite;}
+/* ── Procedural waveform via inline SVG bars (more realistic than gradient) ── */
+.player__wave-bg, .player__wave-progress{background: none; background-image: none;}
+.player__wave::before,
+.player__wave::after{content: ''; position: absolute; inset: 0; pointer-events: none; background-image: /* Wave bars — 80 pseudo-bars with varied heights via repeating-conic + linear masking */ repeating-linear-gradient( 90deg, currentColor 0px, currentColor 1.5px, transparent 1.5px, transparent 5px ); /* SVG mask gives realistic varied bar heights */ -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 36' preserveAspectRatio='none'><g fill='black'><rect x='0' y='14' width='3' height='8'/><rect x='5' y='10' width='3' height='16'/><rect x='10' y='6' width='3' height='24'/><rect x='15' y='12' width='3' height='12'/><rect x='20' y='8' width='3' height='20'/><rect x='25' y='4' width='3' height='28'/><rect x='30' y='10' width='3' height='16'/><rect x='35' y='14' width='3' height='8'/><rect x='40' y='6' width='3' height='24'/><rect x='45' y='2' width='3' height='32'/><rect x='50' y='10' width='3' height='16'/><rect x='55' y='14' width='3' height='8'/><rect x='60' y='8' width='3' height='20'/><rect x='65' y='4' width='3' height='28'/><rect x='70' y='12' width='3' height='12'/><rect x='75' y='16' width='3' height='4'/><rect x='80' y='8' width='3' height='20'/><rect x='85' y='4' width='3' height='28'/><rect x='90' y='10' width='3' height='16'/><rect x='95' y='14' width='3' height='8'/><rect x='100' y='6' width='3' height='24'/><rect x='105' y='10' width='3' height='16'/><rect x='110' y='4' width='3' height='28'/><rect x='115' y='12' width='3' height='12'/><rect x='120' y='8' width='3' height='20'/><rect x='125' y='14' width='3' height='8'/><rect x='130' y='2' width='3' height='32'/><rect x='135' y='10' width='3' height='16'/><rect x='140' y='6' width='3' height='24'/><rect x='145' y='14' width='3' height='8'/><rect x='150' y='4' width='3' height='28'/><rect x='155' y='10' width='3' height='16'/><rect x='160' y='12' width='3' height='12'/><rect x='165' y='6' width='3' height='24'/><rect x='170' y='14' width='3' height='8'/><rect x='175' y='10' width='3' height='16'/><rect x='180' y='2' width='3' height='32'/><rect x='185' y='8' width='3' height='20'/><rect x='190' y='12' width='3' height='12'/><rect x='195' y='6' width='3' height='24'/><rect x='200' y='14' width='3' height='8'/><rect x='205' y='4' width='3' height='28'/><rect x='210' y='10' width='3' height='16'/><rect x='215' y='14' width='3' height='8'/><rect x='220' y='8' width='3' height='20'/><rect x='225' y='12' width='3' height='12'/><rect x='230' y='6' width='3' height='24'/><rect x='235' y='2' width='3' height='32'/><rect x='240' y='10' width='3' height='16'/><rect x='245' y='14' width='3' height='8'/><rect x='250' y='4' width='3' height='28'/><rect x='255' y='8' width='3' height='20'/><rect x='260' y='12' width='3' height='12'/><rect x='265' y='6' width='3' height='24'/><rect x='270' y='14' width='3' height='8'/><rect x='275' y='10' width='3' height='16'/><rect x='280' y='4' width='3' height='28'/><rect x='285' y='12' width='3' height='12'/><rect x='290' y='8' width='3' height='20'/><rect x='295' y='14' width='3' height='8'/><rect x='300' y='2' width='3' height='32'/><rect x='305' y='10' width='3' height='16'/><rect x='310' y='6' width='3' height='24'/><rect x='315' y='14' width='3' height='8'/><rect x='320' y='4' width='3' height='28'/><rect x='325' y='10' width='3' height='16'/><rect x='330' y='12' width='3' height='12'/><rect x='335' y='8' width='3' height='20'/><rect x='340' y='14' width='3' height='8'/><rect x='345' y='6' width='3' height='24'/><rect x='350' y='10' width='3' height='16'/><rect x='355' y='2' width='3' height='32'/><rect x='360' y='14' width='3' height='8'/><rect x='365' y='8' width='3' height='20'/><rect x='370' y='12' width='3' height='12'/><rect x='375' y='6' width='3' height='24'/><rect x='380' y='14' width='3' height='8'/><rect x='385' y='4' width='3' height='28'/><rect x='390' y='10' width='3' height='16'/><rect x='395' y='14' width='3' height='8'/><rect x='400' y='6' width='3' height='24'/><rect x='405' y='12' width='3' height='12'/><rect x='410' y='8' width='3' height='20'/><rect x='415' y='2' width='3' height='32'/><rect x='420' y='10' width='3' height='16'/><rect x='425' y='14' width='3' height='8'/><rect x='430' y='4' width='3' height='28'/><rect x='435' y='8' width='3' height='20'/><rect x='440' y='12' width='3' height='12'/><rect x='445' y='6' width='3' height='24'/><rect x='450' y='14' width='3' height='8'/><rect x='455' y='10' width='3' height='16'/><rect x='460' y='4' width='3' height='28'/><rect x='465' y='12' width='3' height='12'/><rect x='470' y='8' width='3' height='20'/><rect x='475' y='14' width='3' height='8'/><rect x='480' y='2' width='3' height='32'/><rect x='485' y='10' width='3' height='16'/><rect x='490' y='6' width='3' height='24'/><rect x='495' y='14' width='3' height='8'/><rect x='500' y='4' width='3' height='28'/><rect x='505' y='10' width='3' height='16'/><rect x='510' y='12' width='3' height='12'/><rect x='515' y='8' width='3' height='20'/><rect x='520' y='14' width='3' height='8'/><rect x='525' y='6' width='3' height='24'/><rect x='530' y='10' width='3' height='16'/><rect x='535' y='2' width='3' height='32'/><rect x='540' y='14' width='3' height='8'/><rect x='545' y='8' width='3' height='20'/><rect x='550' y='12' width='3' height='12'/><rect x='555' y='6' width='3' height='24'/><rect x='560' y='14' width='3' height='8'/><rect x='565' y='4' width='3' height='28'/><rect x='570' y='10' width='3' height='16'/><rect x='575' y='14' width='3' height='8'/><rect x='580' y='6' width='3' height='24'/><rect x='585' y='12' width='3' height='12'/><rect x='590' y='8' width='3' height='20'/><rect x='595' y='2' width='3' height='32'/><rect x='600' y='10' width='3' height='16'/><rect x='605' y='14' width='3' height='8'/><rect x='610' y='4' width='3' height='28'/><rect x='615' y='8' width='3' height='20'/><rect x='620' y='12' width='3' height='12'/><rect x='625' y='6' width='3' height='24'/><rect x='630' y='14' width='3' height='8'/><rect x='635' y='10' width='3' height='16'/><rect x='640' y='4' width='3' height='28'/><rect x='645' y='12' width='3' height='12'/><rect x='650' y='8' width='3' height='20'/><rect x='655' y='14' width='3' height='8'/><rect x='660' y='2' width='3' height='32'/><rect x='665' y='10' width='3' height='16'/><rect x='670' y='6' width='3' height='24'/><rect x='675' y='14' width='3' height='8'/><rect x='680' y='4' width='3' height='28'/><rect x='685' y='10' width='3' height='16'/><rect x='690' y='12' width='3' height='12'/><rect x='695' y='8' width='3' height='20'/><rect x='700' y='14' width='3' height='8'/><rect x='705' y='6' width='3' height='24'/><rect x='710' y='10' width='3' height='16'/><rect x='715' y='2' width='3' height='32'/><rect x='720' y='14' width='3' height='8'/><rect x='725' y='8' width='3' height='20'/><rect x='730' y='12' width='3' height='12'/><rect x='735' y='6' width='3' height='24'/><rect x='740' y='14' width='3' height='8'/><rect x='745' y='4' width='3' height='28'/><rect x='750' y='10' width='3' height='16'/><rect x='755' y='14' width='3' height='8'/><rect x='760' y='6' width='3' height='24'/><rect x='765' y='12' width='3' height='12'/><rect x='770' y='8' width='3' height='20'/><rect x='775' y='14' width='3' height='8'/><rect x='780' y='10' width='3' height='16'/><rect x='785' y='4' width='3' height='28'/><rect x='790' y='12' width='3' height='12'/><rect x='795' y='14' width='3' height='8'/></g></svg>"); -webkit-mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 36' preserveAspectRatio='none'><g fill='black'><rect x='0' y='14' width='3' height='8'/><rect x='5' y='10' width='3' height='16'/><rect x='10' y='6' width='3' height='24'/><rect x='15' y='12' width='3' height='12'/><rect x='20' y='8' width='3' height='20'/><rect x='25' y='4' width='3' height='28'/><rect x='30' y='10' width='3' height='16'/><rect x='35' y='14' width='3' height='8'/><rect x='40' y='6' width='3' height='24'/><rect x='45' y='2' width='3' height='32'/><rect x='50' y='10' width='3' height='16'/><rect x='55' y='14' width='3' height='8'/><rect x='60' y='8' width='3' height='20'/><rect x='65' y='4' width='3' height='28'/><rect x='70' y='12' width='3' height='12'/><rect x='75' y='16' width='3' height='4'/><rect x='80' y='8' width='3' height='20'/><rect x='85' y='4' width='3' height='28'/><rect x='90' y='10' width='3' height='16'/><rect x='95' y='14' width='3' height='8'/><rect x='100' y='6' width='3' height='24'/><rect x='105' y='10' width='3' height='16'/><rect x='110' y='4' width='3' height='28'/><rect x='115' y='12' width='3' height='12'/><rect x='120' y='8' width='3' height='20'/><rect x='125' y='14' width='3' height='8'/><rect x='130' y='2' width='3' height='32'/><rect x='135' y='10' width='3' height='16'/><rect x='140' y='6' width='3' height='24'/><rect x='145' y='14' width='3' height='8'/><rect x='150' y='4' width='3' height='28'/><rect x='155' y='10' width='3' height='16'/><rect x='160' y='12' width='3' height='12'/><rect x='165' y='6' width='3' height='24'/><rect x='170' y='14' width='3' height='8'/><rect x='175' y='10' width='3' height='16'/><rect x='180' y='2' width='3' height='32'/><rect x='185' y='8' width='3' height='20'/><rect x='190' y='12' width='3' height='12'/><rect x='195' y='6' width='3' height='24'/><rect x='200' y='14' width='3' height='8'/><rect x='205' y='4' width='3' height='28'/><rect x='210' y='10' width='3' height='16'/><rect x='215' y='14' width='3' height='8'/><rect x='220' y='8' width='3' height='20'/><rect x='225' y='12' width='3' height='12'/><rect x='230' y='6' width='3' height='24'/><rect x='235' y='2' width='3' height='32'/><rect x='240' y='10' width='3' height='16'/><rect x='245' y='14' width='3' height='8'/><rect x='250' y='4' width='3' height='28'/><rect x='255' y='8' width='3' height='20'/><rect x='260' y='12' width='3' height='12'/><rect x='265' y='6' width='3' height='24'/><rect x='270' y='14' width='3' height='8'/><rect x='275' y='10' width='3' height='16'/><rect x='280' y='4' width='3' height='28'/><rect x='285' y='12' width='3' height='12'/><rect x='290' y='8' width='3' height='20'/><rect x='295' y='14' width='3' height='8'/><rect x='300' y='2' width='3' height='32'/><rect x='305' y='10' width='3' height='16'/><rect x='310' y='6' width='3' height='24'/><rect x='315' y='14' width='3' height='8'/><rect x='320' y='4' width='3' height='28'/><rect x='325' y='10' width='3' height='16'/><rect x='330' y='12' width='3' height='12'/><rect x='335' y='8' width='3' height='20'/><rect x='340' y='14' width='3' height='8'/><rect x='345' y='6' width='3' height='24'/><rect x='350' y='10' width='3' height='16'/><rect x='355' y='2' width='3' height='32'/><rect x='360' y='14' width='3' height='8'/><rect x='365' y='8' width='3' height='20'/><rect x='370' y='12' width='3' height='12'/><rect x='375' y='6' width='3' height='24'/><rect x='380' y='14' width='3' height='8'/><rect x='385' y='4' width='3' height='28'/><rect x='390' y='10' width='3' height='16'/><rect x='395' y='14' width='3' height='8'/><rect x='400' y='6' width='3' height='24'/><rect x='405' y='12' width='3' height='12'/><rect x='410' y='8' width='3' height='20'/><rect x='415' y='2' width='3' height='32'/><rect x='420' y='10' width='3' height='16'/><rect x='425' y='14' width='3' height='8'/><rect x='430' y='4' width='3' height='28'/><rect x='435' y='8' width='3' height='20'/><rect x='440' y='12' width='3' height='12'/><rect x='445' y='6' width='3' height='24'/><rect x='450' y='14' width='3' height='8'/><rect x='455' y='10' width='3' height='16'/><rect x='460' y='4' width='3' height='28'/><rect x='465' y='12' width='3' height='12'/><rect x='470' y='8' width='3' height='20'/><rect x='475' y='14' width='3' height='8'/><rect x='480' y='2' width='3' height='32'/><rect x='485' y='10' width='3' height='16'/><rect x='490' y='6' width='3' height='24'/><rect x='495' y='14' width='3' height='8'/><rect x='500' y='4' width='3' height='28'/><rect x='505' y='10' width='3' height='16'/><rect x='510' y='12' width='3' height='12'/><rect x='515' y='8' width='3' height='20'/><rect x='520' y='14' width='3' height='8'/><rect x='525' y='6' width='3' height='24'/><rect x='530' y='10' width='3' height='16'/><rect x='535' y='2' width='3' height='32'/><rect x='540' y='14' width='3' height='8'/><rect x='545' y='8' width='3' height='20'/><rect x='550' y='12' width='3' height='12'/><rect x='555' y='6' width='3' height='24'/><rect x='560' y='14' width='3' height='8'/><rect x='565' y='4' width='3' height='28'/><rect x='570' y='10' width='3' height='16'/><rect x='575' y='14' width='3' height='8'/><rect x='580' y='6' width='3' height='24'/><rect x='585' y='12' width='3' height='12'/><rect x='590' y='8' width='3' height='20'/><rect x='595' y='2' width='3' height='32'/><rect x='600' y='10' width='3' height='16'/><rect x='605' y='14' width='3' height='8'/><rect x='610' y='4' width='3' height='28'/><rect x='615' y='8' width='3' height='20'/><rect x='620' y='12' width='3' height='12'/><rect x='625' y='6' width='3' height='24'/><rect x='630' y='14' width='3' height='8'/><rect x='635' y='10' width='3' height='16'/><rect x='640' y='4' width='3' height='28'/><rect x='645' y='12' width='3' height='12'/><rect x='650' y='8' width='3' height='20'/><rect x='655' y='14' width='3' height='8'/><rect x='660' y='2' width='3' height='32'/><rect x='665' y='10' width='3' height='16'/><rect x='670' y='6' width='3' height='24'/><rect x='675' y='14' width='3' height='8'/><rect x='680' y='4' width='3' height='28'/><rect x='685' y='10' width='3' height='16'/><rect x='690' y='12' width='3' height='12'/><rect x='695' y='8' width='3' height='20'/><rect x='700' y='14' width='3' height='8'/><rect x='705' y='6' width='3' height='24'/><rect x='710' y='10' width='3' height='16'/><rect x='715' y='2' width='3' height='32'/><rect x='720' y='14' width='3' height='8'/><rect x='725' y='8' width='3' height='20'/><rect x='730' y='12' width='3' height='12'/><rect x='735' y='6' width='3' height='24'/><rect x='740' y='14' width='3' height='8'/><rect x='745' y='4' width='3' height='28'/><rect x='750' y='10' width='3' height='16'/><rect x='755' y='14' width='3' height='8'/><rect x='760' y='6' width='3' height='24'/><rect x='765' y='12' width='3' height='12'/><rect x='770' y='8' width='3' height='20'/><rect x='775' y='14' width='3' height='8'/><rect x='780' y='10' width='3' height='16'/><rect x='785' y='4' width='3' height='28'/><rect x='790' y='12' width='3' height='12'/><rect x='795' y='14' width='3' height='8'/></g></svg>"); mask-size: 100% 100%; mask-repeat: no-repeat;}
+.player__wave::before{background: rgba(255,255,255,0.18); z-index: 1;}
+.player__wave::after{background: var(--green-primary, #75C249); z-index: 2; width: var(--player-progress, 0%); transition: width 0.12s linear;}
+.player__wave-bg, .player__wave-progress{display: none;}
+/* 10. Composer + meta italics · refined to brand · for premium feel */
+.composer-tag, .player__composer, .credit-card__role{font-feature-settings: "liga", "kern";}
+
+@media (prefers-reduced-motion: reduce) {
+.player__row.is-blocked .player__play{animation: none;}
+}
+
+@media (max-width: 600px) {
+.player-box{padding: 1.2rem 1rem; border-radius: 14px;}
+.player-box__head{flex-direction: column; align-items: flex-start; gap: 0.6rem; padding-bottom: 0.9rem; margin-bottom: 0.9rem;}
+.player-box__title{font-size: 1.05rem;}
+.player-box__head-right{width: 100%; justify-content: space-between; gap: 0.5rem;}
+}
+
+@media (max-width: 1100px) and (min-width: 601px) {
+.player__row{grid-template-columns: 44px minmax(0, 1fr) 80px 60px; gap: 0.8rem;}
+.player__wave{height: 22px;}
+}
+
+@media (max-width: 600px) {
+/* Premium card · generous breathing room · 2-row grid: [play|info] / [waveform spans both] */
+  .player__row{grid-template-columns: 44px minmax(0, 1fr); /* 44px col for 44px button */ grid-template-rows: auto auto; gap: 0.6rem 0.85rem; padding: 1rem 1rem; border-radius: 12px; align-items: start;}
+/* Play button aligns with title row (not the type tag above) */
+  .player__play{align-self: start; margin-top: 1.3rem; /* tuned for 44px button (was 1.55 for 36px) */ grid-row: 1; grid-column: 1;}
+.player__info{grid-row: 1; grid-column: 2; gap: 0.55rem;}
+/* Waveform shows on mobile · spans full card width · compact 18px */
+  .player__wave{display: block; grid-row: 2; grid-column: 1 / -1; height: 22px; margin-top: 0.4rem; border-radius: 3px;}
+}
+
+@media (max-width: 600px) {
+.player__play{width: 44px; height: 44px;}
+/* Apple HIG min touch target */
+  .player__play svg{width: 13px; height: 13px;}
+}
+
+@media (max-width: 600px) {
+.player__time{display: inline; font-size: 0.55rem; color: var(--text-quiet, rgba(255,255,255,0.3)); font-variant-numeric: tabular-nums; letter-spacing: 0.08em; white-space: nowrap; flex-shrink: 0; margin-left: auto; font-weight: 500;}
+/* Mobile player__head becomes a 2-row layout:
+     ROW 1: [TYPE TAG] ──────── [TIME CODE]   (meta row · subtle)
+     ROW 2: full-width title    (hero · gets visual weight)
+  */
+  .player__head{flex-wrap: wrap; row-gap: 0.55rem; align-items: center;}
+/* Type tag stays small, anchored top-left */
+  .player__type{order: 1;}
+/* Time goes after type on same row, pushed to right by margin-left:auto */
+  .player__time{order: 2;}
+/* Title takes full width on its own row · the hero element */
+  .player__head .player__title{order: 3; flex-basis: 100%; white-space: normal; overflow: visible; text-overflow: clip; font-size: 0.95rem; /* up from 0.78rem · hero size */ line-height: 1.3; letter-spacing: -0.01em; /* tightens for editorial feel */ margin-top: 0.1rem;}
+/* Meta context wrap on mobile · refined spacing */
+  .player__meta{flex-wrap: wrap; row-gap: 0.3rem; font-size: 0.72rem; color: var(--text-secondary, rgba(255,255,255,0.65)); margin-top: 0.1rem;}
+.player__composer{color: var(--green-light, #BBD67A); font-weight: 500; font-style: normal; letter-spacing: 0.01em;}
+.player__sep{display: none;}
+/* hide separator since composer + context now stack */
+  .player__context{flex-basis: 100%; white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.5; color: var(--text-muted, rgba(255,255,255,0.45)); font-weight: 300; font-size: 0.7rem;}
+}
+
+@media (max-width: 600px) {
+.player__time{display: inline; font-size: 0.6rem; color: var(--text-quiet, rgba(255,255,255,0.3)); font-variant-numeric: tabular-nums; letter-spacing: 0.08em; white-space: nowrap; flex-shrink: 0; margin-left: auto; font-weight: 500;}
+.player__head{flex-wrap: wrap; row-gap: 0.55rem; align-items: center; white-space: normal; overflow: visible;}
+.player__type{order: 1;}
+.player__time{order: 2;}
+.player__head .player__title{order: 3; flex-basis: 100%; white-space: normal; overflow: visible; text-overflow: clip; font-size: 0.95rem; line-height: 1.3; letter-spacing: -0.01em; margin: 0.1rem 0 0 0;}
+.player__meta{flex-wrap: wrap; row-gap: 0.3rem; font-size: 0.72rem; color: var(--text-secondary, rgba(255,255,255,0.65)); white-space: normal; overflow: visible; margin-top: 0.1rem;}
+.player__composer{color: var(--green-light, #BBD67A); font-weight: 500; font-style: normal; letter-spacing: 0.01em;}
+.player__sep{display: none;}
+.player__context{flex-basis: 100%; white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.5; color: var(--text-muted, rgba(255,255,255,0.45)); font-weight: 300; font-size: 0.7rem;}
+}
+
+@media (max-width: 600px) {
+.player__duration{display: none;}
+}
+
+@media (prefers-reduced-motion: reduce) {
+.player__row.playing .player__wave::after{animation: none; width: 50%;}
+}
+
+/* once real peaks render, the decorative overlay retires — progress
+   is painted by the waveform itself (brand green) */
+.player__wave::before,.player__wave::after{transition:opacity .35s ease;}
+
+/* GUARANTEE: while a row is playing, the pause icon is visible - period. */
+.player__row.playing .player__play .player__pause-icon{opacity:1 !important;}
+.player__row.playing .player__play .player__play-icon{opacity:0 !important;}
+.player__row.playing.is-loading .player__play .player__pause-icon{opacity:1 !important;}

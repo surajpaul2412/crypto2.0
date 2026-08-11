@@ -1,0 +1,2970 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.className+=" js";</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>About — Crypto Cipher® Audio Lab · Sampled Indian Instruments Since 2010</title>
+<meta name="description" content="Crypto Cipher Audio Lab: Indian sample libraries, remote recording, music education &amp; heritage films. Sampling Indian instruments since 2010, India.">
+<!-- ═══ SEO · Stage 2 ═══ -->
+<link rel="canonical" href="https://cryptocipher.in/about">
+<meta name="robots" content="index,follow">
+<meta http-equiv="content-language" content="en-IN">
+<!-- Open Graph base (full custom images: Stage 7) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Crypto Cipher Audio Lab">
+<meta property="og:locale" content="en_IN">
+<meta property="og:url" content="https://cryptocipher.in/about">
+<meta property="og:title" content="About — Crypto Cipher® Audio Lab · Sampled Indian Instruments Since 2010">
+<meta property="og:description" content="Crypto Cipher Audio Lab: Indian sample libraries, remote recording, music education &amp; heritage films. Sampling Indian instruments since 2010, India.">
+<!-- Twitter Card base -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About — Crypto Cipher® Audio Lab · Sampled Indian Instruments Since 2010">
+<meta name="twitter:description" content="Crypto Cipher Audio Lab: Indian sample libraries, remote recording, music education &amp; heritage films. Sampling Indian instruments since 2010, India.">
+<meta property="og:image" content="https://cryptocipher.in/og/about.png?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Crypto Cipher Audio Lab — About">
+<meta name="twitter:image" content="https://cryptocipher.in/og/about.png?v=1">
+<!-- Search engine verification — HUMAN: paste tokens from GSC + Bing -->
+<meta name="google-site-verification" content="REPLACE_GSC_TOKEN">
+<meta name="msvalidate.01" content="REPLACE_BING_TOKEN">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="preload" href="logo.svg" as="image" type="image/svg+xml">
+
+<!-- Consolidated shared layers (Phase 1+2) · load before inline <style>, before polish.css -->
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="system.css">
+<link rel="stylesheet" href="shell.css">
+
+<style>
+/* Critical: park skip-link before first paint (FOUC). */
+.skip-link { position: absolute; left: 12px; top: -56px; z-index: 10000; }
+
+/* ═══ SHARED · tokens + reset + cosmic-bg + generic layout (verbatim from canonical) ═══ */
+:root {
+  /* Surface colors */
+  --bg-deep: #0d1117;
+  --bg-surface: #151b23;
+  --bg-darker: #080c12;
+  --bg-darkest: #050810;
+  --bg-mid: #0a0e14;
+
+  /* Brand greens */
+  --green-primary: #75C249;
+  --green-light: #BBD67A;
+  --green-dark: #2F6942;
+  --green-glow: rgba(117, 194, 73, 0.35);
+
+  /* Text hierarchy */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255,255,255,0.65);
+  --text-muted: rgba(255,255,255,0.45);
+  --text-quiet: rgba(255,255,255,0.3);
+  --text-whisper: rgba(255,255,255,0.15);
+
+  /* Glass surfaces */
+  --glass-bg: rgba(255,255,255,0.04);
+  --glass-bg-hover: rgba(255,255,255,0.08);
+  --glass-border: rgba(255,255,255,0.05);
+  --glass-border-hover: rgba(255,255,255,0.08);
+
+  /* Card surfaces · solid base for readability over cosmic bg */
+  --card-bg: rgba(8, 12, 18, 0.65);
+  --card-bg-tint: linear-gradient(160deg, rgba(255,255,255, 0.025) 0%, rgba(255,255,255, 0.01) 60%);
+  --card-border: rgba(255,255,255, 0.07);
+
+  /* Accents */
+  --amber-glow: rgba(180,140,50,0.03);
+  --warning: #d4b56e;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Layout */
+  --side-index-w: 340px;
+
+  /* Section rhythm */
+  --section-gap-desktop: 4rem;   /* 64px */
+  --section-gap-tablet: 3rem;    /* 48px */
+  --section-gap-mobile: 2.5rem;  /* 40px */
+
+  /* Page padding (top accounts for floating nav) */
+  --page-pad-top: 10rem;
+  --page-pad-x-desktop: 3rem;
+  --page-pad-x-mobile: 1.25rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GLOBAL RESETS + TYPOGRAPHY BASELINE
+   ═══════════════════════════════════════════════════════════════ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { /* scroll-behavior:smooth removed — Safari scroll-back jank; Lenis handles Chrome */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-deep, #0d1117);   /* solid floor — guarantees no white gap anywhere */
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  /* Transparent so .cosmic-bg (fixed, z-index 0) shows through across
+     ALL sections, not just hero. The ambient star + glow layer is the
+     page's dwell-time motion — it must be visible the whole scroll. */
+  background: transparent;
+  color: var(--text-primary);
+  line-height: 1.5;
+  overflow-x: clip;            /* TEST: clip not hidden — no scroll container */
+  overflow-anchor: none;       /* TEST: stop first-paint scroll anchoring */
+  position: relative;
+}
+
+::selection { background: rgba(117,194,73,0.25); color: #fff; }
+
+/* Subtle noise overlay · part of design DNA */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px;
+  /* mix-blend-mode removed — DESIGN-SYSTEM §11: mix-blend-mode on a fixed
+     full-page layer re-blends the entire viewport every scroll frame (the
+     whole-screen green repaint + first-scroll jump). Noise still shows at
+     0.035 opacity; the blend mode was the scroll-perf killer. */
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COSMIC BG · floating stars + radial depth gradients
+   Edge-loaded so center reading lane stays clear
+   ═══════════════════════════════════════════════════════════════ */
+.cosmic-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  /* GPU isolation (DESIGN-SYSTEM §8) — was missing; without it the fixed,
+     blurred background re-rasterized every scroll frame -> full-viewport
+     repaint + first-scroll jump. Promote to one cached layer. */
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  contain: strict;
+  /* Pure cool dark · canonical from homepage_148 · no brand wash */
+  background: linear-gradient(180deg,
+    #0d1117 0%,
+    #0b1014 30%,
+    #0a0e12 60%,
+    #080b10 100%
+  );
+}
+/* Layer 1 · Subtle edge atmosphere · cool neutral only */
+.cosmic-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    /* Bottom · cinematic floor depth · cool neutral */
+    radial-gradient(ellipse 100% 50% at 50% 110%, rgba(20, 28, 38, 0.4) 0%, transparent 60%),
+    /* Side vignettes · cool darkening for cinematic letterbox feel */
+    radial-gradient(ellipse 30% 100% at 0% 50%, rgba(0,0,0, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 30% 100% at 100% 50%, rgba(0,0,0, 0.35) 0%, transparent 50%);
+  opacity: 1;
+}
+/* Layer 2 · Slow drifting atmospheric clouds · cool neutral nebula */
+.cosmic-bg::after {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  background:
+    radial-gradient(circle 700px at 12% 18%, rgba(40, 65, 90, 0.08), transparent 60%),
+    radial-gradient(circle 800px at 88% 80%, rgba(35, 55, 80, 0.06), transparent 60%);
+  filter: blur(18px);
+  animation: cosmicDrift 90s ease-in-out infinite alternate;
+  opacity: 0.85;
+}
+@keyframes cosmicDrift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(2%, -1%, 0) scale(1.04); }
+}
+
+/* Layer 3 · Volumetric beam · cool neutral, supports center reading lane */
+.cosmic-bg__beam {
+  position: absolute;
+  inset: 0;
+  background:
+    /* Soft top light shaft · neutral white */
+    linear-gradient(180deg, rgba(255,255,255, 0.018) 0%, transparent 25%),
+    /* Floor reflection · grounds the cinematic frame */
+    linear-gradient(0deg, rgba(0,0,0, 0.35) 0%, transparent 22%);
+  pointer-events: none;
+}
+
+/* Star particles · neutral white-cool, restrained · 3 variants */
+.cosmic-bg__star {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+  /* will-change removed — 88 stars x standing will-change = 88 permanent GPU
+     layers updating every frame (measured: 102 layers x 63 frame-updates).
+     The animation promotes per-element only while compositing is needed. */
+  animation:
+    starDrift var(--dur, 30s) linear infinite,
+    starTwinkle var(--twink, 4s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s), var(--twinkDelay, 0s);
+}
+.cosmic-bg__star--green {
+  background: rgba(220, 230, 240, 0.75);
+  box-shadow:
+    0 0 5px rgba(180, 200, 220, 0.40),
+    0 0 12px rgba(160, 185, 210, 0.16);
+}
+.cosmic-bg__star--bright {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 0 6px rgba(255, 255, 255, 0.55),
+    0 0 14px rgba(255, 255, 255, 0.22);
+}
+/* Far stars · depth parallax · barely visible */
+.cosmic-bg__star--far {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 1.5px rgba(255, 255, 255, 0.2);
+  animation: starTwinkle var(--twink, 5s) ease-in-out infinite;
+  animation-delay: var(--twinkDelay, 0s);
+}
+
+/* Drifting glow orbs · cool neutral, not brand */
+.cosmic-bg__glow {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(40, 65, 90, 0.10) 0%, rgba(40, 65, 90, 0.025) 50%, transparent 70%);
+  filter: blur(18px);
+  animation: glowDrift var(--dur, 50s) ease-in-out infinite alternate,
+             glowPulse var(--pulse, 10s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s), 0s;
+  will-change: transform, opacity;
+}
+@keyframes glowDrift {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(var(--driftX, 60px), var(--driftY, -100px), 0); }
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 0.6; }
+}
+
+@keyframes starDrift {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(var(--driftX, 100px), var(--driftY, -200px), 0); }
+}
+@keyframes starTwinkle {
+  /* DWELL-TIME BOOST · was opacity: var(--twinkMin, 0.55) → var(--twinkMax, 1).
+     Per-star variables ranged 0.47–0.97, dimming most stars below
+     perception. Fixed floor 0.55 / ceiling 1.0 → legible across all
+     sections, no new motion pattern added. */
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1;    }
+}
+/* Tighter twinkle periods · was 4–5s per variant (too slow to register
+   while scrolling past). 2.2–3.4s reads as rhythmic, not frantic. */
+.cosmic-bg__star          { animation-duration: var(--dur, 30s), 2.8s; }
+.cosmic-bg__star--bright  { animation-duration: var(--dur, 30s), 2.2s; }
+/* PERF: freeze decorative star/glow animations. 88 infinitely-animating stars
+   = 88 perpetual GPU layers churning every frame (measured 102 layers x 63
+   updates) -> the scroll jump. Static stars look identical at rest. (DS §13:
+   ungated infinite loops are banned anyway.) */
+.cosmic-bg__star, .cosmic-bg__star--green, .cosmic-bg__star--bright,
+.cosmic-bg__star--far, .cosmic-bg__glow, .cosmic-bg::after {
+  animation: none !important;
+}
+.cosmic-bg__star--far     { animation-duration: 3.4s; }
+@media (prefers-reduced-motion: reduce) {
+  .cosmic-bg__star { animation: none; opacity: 0.6; }
+  .cosmic-bg__glow { animation: none; opacity: 0.4; }
+  .cosmic-bg::after { animation: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION RHYTHM · main column
+   Use .main-col on the parent that holds all section blocks
+   ═══════════════════════════════════════════════════════════════ */
+.main-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap-desktop);
+  min-width: 0;
+}
+@media (max-width: 1024px) { .main-col { gap: var(--section-gap-tablet); } }
+@media (max-width: 560px)  { .main-col { gap: var(--section-gap-mobile); } }
+
+/* ═══════════════════════════════════════════════════════════════
+   TYPOGRAPHY SCALE · use these classes/tokens for every section
+   ═══════════════════════════════════════════════════════════════ */
+
+
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: 0;
+}
+.section-title-accent {
+  display: inline-block;
+  font-style: normal;
+  background: linear-gradient(135deg, #ffffff 0%, #BBD67A 55%, #75C249 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.1em;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   CARD BASE · use this for any content card across the site
+   ═══════════════════════════════════════════════════════════════ */
+.cc-card {
+  position: relative;
+  background: var(--card-bg-tint), var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow:
+    0 6px 18px rgba(0,0,0, 0.28),
+    inset 0 1px 0 rgba(255,255,255, 0.04);
+  isolation: isolate;
+}
+@keyframes logoTextureDrift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(5%, -3%) rotate(1deg); }
+  66% { transform: translate(-3%, 4%) rotate(-1deg); }
+}
+@keyframes logoShimmer { 0%,100% { left: -100%; } 50% { left: 150%; } }
+@keyframes svantraDrift {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 220% 50%; }
+}
+@keyframes svantraPulse {
+  0%, 100% { opacity: 0.32; }
+  50%      { opacity: 0.6; }
+}
+@keyframes svantraShine {
+  to { left: 130%; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   INSTR LAYOUT — 2 column with sticky side index (mirrors LIBINNER)
+   Critical: on mobile, .instr must NOT form a stacking context.
+   z-index: auto ensures fixed sidenav (z=90) escapes to body level
+   so it paints above the footer (anti-pattern #4 from handoff).
+
+   Background continuity: body owns the dark surface + noise (already
+   set above). .instr is a transparent container so the page bg flows
+   uninterrupted — no boxed-in feel at any viewport width.
+   ═══════════════════════════════════════════════════════════════ */
+
+
+</style>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   ABOUT-001 · page-specific CSS
+   Maximal/cinematic voice — motion budget intentionally exceeded
+   (scoped to this page only; see lockfile motion-exception clause).
+   Tokens inherited from shared sheet. Heritage-gold added below
+   because the canonical :root omits it (DESIGN-SYSTEM §2 has it).
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Heritage gold — present in DESIGN-SYSTEM §2, absent from canonical :root */
+  --heritage-gold: #D4A656;
+  --heritage-gold-soft: rgba(212, 166, 86, 0.22);
+  --heritage-gold-faint: rgba(212, 166, 86, 0.08);
+}
+
+/* ─── Page container · §5 main page container ──────────────────── */
+
+/* ─── §HUE · whisper section-glow (color psychology, one crossfading layer) ─── */
+.abt-huelayer {
+  position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(120% 80% at 50% 18%, var(--glow, transparent) 0%, transparent 60%);
+  opacity: 0;                       /* fades in once a hue is set */
+  transition: background 1100ms ease, opacity 1100ms ease;
+  transform: translateZ(0); will-change: background, opacity;
+  contain: strict;
+}
+.abt-huelayer.is-on { opacity: 1; }
+@media (max-width: 768px) {
+  /* phones: glow needs a touch more presence to register on small bright panels */
+  .abt-huelayer { background: radial-gradient(150% 75% at 50% 22%, var(--glow, transparent) 0%, var(--glow, transparent) 18%, transparent 70%); }
+}
+@media (prefers-reduced-motion: reduce) { .abt-huelayer { transition: none; } }
+
+.abt-main {
+  position: relative;
+  z-index: 2;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: var(--page-pad-top) 4rem 4rem;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 1024px) { .abt-main { padding: 8.5rem 1.5rem 3rem; } }
+@media (max-width: 560px)  { .abt-main { padding: 7rem 1.25rem 2.5rem; } }
+
+/* ─── Section rhythm · no two adjacent sections share padding ───
+   Alternating tall/short per ABOUT-SPEC §1 rhythm rule.
+   Implemented as per-section vertical padding, not container gap. */
+.abt-sec { position: relative; scroll-margin-top: 5rem; }
+.abt-main > .abt-sec:first-of-type { padding-top: 0; }
+/* Clean 2-tier rhythm — GENEROUS (feature sections) alternating with TIGHT
+   (connectors). Consistent, intentional spacing; no random tiers, no dead gaps,
+   no cramping. Same class names so markup is untouched. */
+.abt-sec--tall,
+.abt-sec--tall-plus { padding-block: 5rem; }      /* GENEROUS */
+/* feature-section cadence: hairline + faint vapor at the top edge (no tints) */
+.abt-sec[aria-labelledby="abt-story-title"]::before,
+.abt-sec[aria-labelledby="abt-pillars-title"]::before,
+.abt-sec[aria-labelledby="abt-gallery-title"] { padding-bottom: 3rem; }   /* tighten gap to the closing heritage line */
+.abt-sec[aria-labelledby="abt-gallery-title"]::before {
+  content: ""; position: absolute; left: 50%; top: 0; transform: translateX(-50%);
+  width: min(100%, 1100px); height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-border) 22%, var(--glass-border) 78%, transparent);
+  opacity: 0.7; pointer-events: none;
+}
+.abt-sec--med,
+.abt-sec--med-tight,
+.abt-sec--short     { padding-block: 3.25rem; }   /* TIGHT */
+@media (max-width: 1024px) {
+  .abt-sec--tall, .abt-sec--tall-plus { padding-block: 3.75rem; }
+  .abt-sec--med, .abt-sec--med-tight, .abt-sec--short { padding-block: 2.5rem; }
+}
+@media (max-width: 768px) {
+  .abt-sec--tall, .abt-sec--tall-plus { padding-block: 3rem; }
+  .abt-sec--med, .abt-sec--med-tight, .abt-sec--short { padding-block: 2rem; }
+}
+
+/* ─── Section head (reuses shared .section-eyebrow/.section-title) ── */
+.abt-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* centered heads — no ragged right edge */
+  text-align: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Heritage-gold italic eyebrow variant for "Since 2010" handcrafted moment */
+.abt-eyebrow-italic {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);   /* was 0.95rem — too small under the giant title */
+  letter-spacing: 0.01em;
+  color: var(--text-secondary);
+}
+.abt-eyebrow-italic .gold { color: var(--heritage-gold); font-style: normal; }
+
+/* ─── §1 HERO ──────────────────────────────────────────────────── */
+.abt-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+  padding-bottom: 1rem;   /* natural height — content sizes itself, no forced void */
+}
+.abt-hero__eyebrow { margin-bottom: 1rem; }
+.abt-hero__title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.1rem, 4vw, 3.4rem);   /* trimmed — was 6vw/5rem (oversized) */
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  color: #fff;
+  margin: 0;
+  max-width: 24ch;        /* breaks into ~3 balanced lines, not 5 thin ones */
+  text-wrap: balance;
+}
+@media (max-width: 560px) {
+  .abt-hero__title { font-size: 1.7rem; line-height: 1.2; max-width: 18ch; }   /* balanced for mobile — not oversized */
+  .abt-hero__sub { font-size: 0.95rem; margin-top: 1.3rem; }
+}
+.abt-hero__title em {
+  font-style: normal;
+  display: inline-block;
+  background: linear-gradient(135deg, #ffffff 0%, #BBD67A 55%, #75C249 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.08em;
+}
+.abt-hero__sub {
+  margin-top: 1.8rem;
+  max-width: 56ch;
+  font-family: "Outfit", sans-serif;
+  font-weight: 300;
+  font-size: clamp(0.95rem, 1.3vw, 1.12rem);  /* lead para, distinct from body */
+  line-height: 1.7;
+  color: var(--text-secondary);
+  text-align: center;
+}
+@media (max-width: 860px) {
+  .abt-hero { min-height: auto; }
+}
+
+/* Left-aligned head variant — breaks the centered default for asymmetry (§2) */
+.abt-head--left {
+  align-items: flex-start;
+  text-align: left;
+  margin-left: 0;
+}
+@media (max-width: 720px) {
+  /* whole page reads centred on mobile — align the left-variant heads too */
+  .abt-head--left { align-items: center; text-align: center; margin-left: auto; margin-right: auto; }
+}
+
+/* ─── §2 MISSION & VISION · editorial numerals · asymmetric ──────
+   Large Playfair "01 / 02" lead each stanza; left-aligned; stanza 2 drops
+   lower than stanza 1 for intentional rhythm (not a flat centered grid). */
+.abt-mv {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem 4rem;
+  max-width: none;
+  align-items: start;
+}
+/* ─── FRAME SYSTEM · premium glass panels (tiered, hue-varied, perf-guarded) ───
+   .abt-frame = base glass surface. Hue modifiers tint the inner wash to echo the
+   section's color (ties to the §HUE glow system). Used sparingly — only on
+   "contained thought" sections, not every section, so frames stay meaningful. */
+.abt-frame {
+  position: relative;
+  padding: clamp(2rem, 4vw, 3.25rem);
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(20,26,34,0.42));
+  border: 1px solid var(--glass-border);
+  border-top-color: rgba(255,255,255,0.14);     /* faint top-edge highlight = glass */
+  box-shadow: 0 24px 60px -32px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.04);
+  /* backdrop-blur removed — re-blurring the cosmic bg every scroll frame caused shimmer/flicker on every frame (team, pillars, MV, credits). Flat tint keeps the glass look without the repaint. */
+  overflow: hidden;
+}
+.abt-frame::before {          /* section-hued inner wash (felt, not seen) */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(120% 80% at 0% 0%, var(--frame-wash, rgba(255,255,255,0.04)), transparent 55%);
+}
+.abt-frame > * { position: relative; z-index: 1; }
+.abt-frame--indigo { --frame-wash: rgba(120,134,255,0.06); }   /* MV · belief */
+.abt-frame--green  { --frame-wash: rgba(117,194,73,0.06); }    /* Pillars · craft */
+.abt-frame--gold   { --frame-wash: rgba(214,168,96,0.06); }    /* Credits · recognition */
+/* §6 family frame (B2) — small inset tag, centred title, family held in one frame */
+.abt-team-frame {
+  padding-top: 1.25rem;
+  /* kill live backdrop-blur on THIS frame only — re-blurring the cosmic bg every scroll frame caused the background shimmer/flicker. Flat tint keeps the glass look without the repaint. */
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(20,26,34,0.42));
+}
+.abt-team-frame__tag {
+  display: table;   /* own line, shrink-wrapped to text — title always below */                 /* in normal flow, top-left — title clears it naturally */
+  font-family: "Outfit", sans-serif; font-weight: 500;
+  font-size: 0.62rem; letter-spacing: 0.26em; text-transform: uppercase;
+  color: var(--green-light);
+  padding: 0.32rem 0.75rem; border-radius: 999px;
+  background: rgba(117,194,73,0.08); border: 1px solid rgba(117,194,73,0.22);
+}
+.abt-team-frame__title { text-align: center; margin: 1.1rem 0 0.25rem; }   /* clear gap below the tag */
+.abt-team-frame .abt-team__field { margin-top: 0.5rem; }
+@media (max-width: 560px) {
+  /* tag centred + small on mobile; title centred below */
+  .abt-team-frame__tag {
+    margin-left: auto; margin-right: auto;   /* display:table + auto margins = centred */
+    font-size: 0.54rem; letter-spacing: 0.18em; padding: 0.26rem 0.66rem;
+  }
+  .abt-team-frame__title { font-size: clamp(1.6rem, 7vw, 2.1rem); margin-top: 0.8rem; }
+}
+.abt-credit-frame .abt-credit-head { margin-bottom: 1.25rem; }
+/* credits frame holds a moving slider — kill backdrop blur here (it re-rasterizes
+   the moving cards every frame = flicker). Gradient surface keeps the glass look. */
+.abt-credit-frame { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+.abt-credit-frame { background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(20,26,34,0.6)); }
+/* perf escape hatch: if blur is heavy on a device, drop it sitewide via this flag */
+.no-frame-blur .abt-frame { -webkit-backdrop-filter: none; backdrop-filter: none; }
+@media (max-width: 560px) {
+  .abt-frame { padding: 1.5rem 1.25rem; border-radius: 16px; }
+}
+.abt-mv__stanza { position: relative; text-align: left; }
+.abt-mv__stanza:nth-child(2) { margin-top: 3rem; }   /* drop the second lower — asymmetry */
+.abt-mv__stanza-lead {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+.abt-mv__stanza p {
+  font-family: "Outfit", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 52ch;
+}
+@media (max-width: 720px) {
+  .abt-mv { grid-template-columns: 1fr; gap: 2.2rem; }
+  .abt-mv__stanza:nth-child(2) { margin-top: 0; }   /* no offset when stacked */
+  .abt-mv__stanza { text-align: center; }           /* centred to match the theme */
+  .abt-mv__stanza p { max-width: none; margin-left: auto; margin-right: auto; }
+}
+
+/* ─── §3 THE STORY · two-column balanced (prose + anchored pull-quote) ─── */
+.abt-story {
+  max-width: 720px;
+  margin: 0 auto;          /* single centered measure — no orphaned right rail */
+}
+.abt-story__prose { min-width: 0; }
+.abt-story p {
+  font-family: "Outfit", sans-serif;
+  font-weight: 300;
+  font-size: 1.02rem;
+  line-height: 1.78;
+  color: var(--text-secondary);
+  margin-bottom: 1.4rem;
+}
+.abt-story p:first-of-type {
+  font-size: 1.08rem;
+  color: var(--text-primary);
+}
+.abt-story p:first-of-type .leadword {
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--heritage-gold);
+}
+/* Stat now sits inline UNDER the prose as a quiet centered strip,
+   not a floating right sidebar (the asymmetric rail read awkwardly). */
+.abt-story__aside {
+  margin-top: 2.5rem; padding-top: 2rem;
+  border-top: 1px solid var(--heritage-gold-soft);
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.abt-story__fact {
+  display: flex; flex-direction: column; align-items: center;
+  margin-bottom: 1rem;
+}
+.abt-story__fact-num {
+  font-family: "Playfair Display", serif;
+  font-weight: 900;
+  font-size: clamp(1.9rem, 2.4vw, 2.2rem);
+  line-height: 1;
+  background: linear-gradient(135deg, #ffffff 0%, #BBD67A 55%, #75C249 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.abt-story__fact-label {
+  font-family: "Outfit", sans-serif; font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+.abt-story__aside-note {
+  font-family: "Outfit", sans-serif; font-weight: 300;
+  font-size: 0.9rem; line-height: 1.7; color: var(--text-secondary);
+  max-width: 52ch;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   §4 FOUR PILLARS · ORBITAL (centerpiece)
+   Built per ABOUT-SPEC mandatory edits:
+   - NO logo breath keyframe
+   - hover/focus pauses rotation (via wrapper, transitioned)
+   - node discs de-blurred (NO backdrop-filter on discs)
+   - cards KEEP backdrop-filter (dialog-like)
+   - greens reconciled to shared :root tokens
+   - "Pillar I–IV" labels
+   - Svantra 5th node disabled, "In Preparation", single line
+   ═══════════════════════════════════════════════════════════════ */
+.abt-orbital-wrap { display: flex; justify-content: center; }
+
+/* §4 left/right split — orbit on the left, heading + intro on the right */
+.abt-pillars-split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 3rem;
+}
+.abt-pillars-copy { max-width: 30rem; }
+.abt-pillars-copy .eyebrow { margin-bottom: 1rem; display: inline-flex; }
+.abt-pillars-copy .section-title { margin-bottom: 1.2rem; }
+.abt-pillars-copy__lead {
+  font-family: "Outfit", sans-serif; font-weight: 300;
+  font-size: 1rem; line-height: 1.7; color: var(--text-secondary);
+  max-width: 42ch;
+}
+@media (max-width: 968px) {
+  /* Orbit hidden on mobile (fallback list shows); copy stacks above it */
+  .abt-pillars-split { display: block; }
+  .abt-pillars-copy { max-width: none; margin-bottom: 2rem; text-align: center; }
+  .abt-pillars-copy .eyebrow,
+  .abt-pillars-copy__lead { margin-left: auto; margin-right: auto; }
+  .abt-pillars-copy__hint { display: none; }   /* no hover on touch — fallback list shows below */
+}
+.abt-orbital {
+  --orbit-r: 250px;
+  position: relative;
+  width: min(540px, 100%);
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+/* Centre studio mark — static, NO breath animation (§13 ban) */
+.abt-orbital__core {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 128px; height: 128px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(117,194,73,0.10), transparent 70%),
+    rgba(8, 12, 18, 0.7);
+  border: 1px solid var(--glass-border);
+  border-top-color: rgba(255,255,255,0.10);
+  z-index: 3;
+}
+.abt-orbital__core img { width: 64px; height: auto; opacity: 0.92; }
+.abt-orbital__core-label {
+  position: absolute; bottom: -1.6rem; left: 50%; transform: translateX(-50%);
+  font-family: "Outfit", sans-serif; font-size: 0.5rem; font-weight: 700;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Rotating ring — wrapper carries the animation so hover can pause it
+   with a transition rather than a hard stop (tactile/reversible §3). */
+.abt-orbital__orbit {
+  position: absolute; inset: 0;
+  /* static radial diagram — no infinite rotation (DESIGN-SYSTEM §11/§13 ban).
+     The ring + nodes sit still; hover reveals each pillar card. */
+  transition: none;
+}
+/* The orbit path ring (single ambient stroke, reconciled green) */
+.abt-orbital__ring {
+  position: absolute; inset: 6%;
+  border-radius: 50%;
+  border: 1px solid rgba(117,194,73,0.14);
+  pointer-events: none;
+}
+.abt-orbital__ring::after {  /* faint inner second ring for depth, neutral */
+  content: ""; position: absolute; inset: 12%;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Nodes positioned around the ring via polar coords (--angle, --radius).
+   Positioning lives HERE (static). Counter-rotation lives on a separate
+   child so the two transforms never collide. */
+.abt-orbital__node {
+  position: absolute; top: 50%; left: 50%;
+  width: 0; height: 0;
+  z-index: 5;  /* above core (z:3) — a node at the top never clips behind the logo */
+  /* place the node on the ring: rotate to angle, push out by radius, then
+     un-rotate so the child sits axis-aligned at that point */
+  transform: rotate(var(--angle)) translateY(calc(var(--orbit-r, 250px) * -1)) rotate(calc(var(--angle) * -1));
+}
+.abt-orbital__node-inner {
+  position: absolute;
+  top: 0; left: 0;
+  transform: translate(-50%, -50%);  /* centre the disc on the node point */
+}
+/* Node wrapper — discs sit upright in a static diagram (no counter-spin needed). */
+.abt-orbital__node-spin {
+  display: inline-flex;
+}
+/* Node disc — NO backdrop-filter (§8 cull: nodes not on keep-list) */
+.abt-orbital__node-disc {
+  width: 76px; height: 76px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(8, 12, 18, 0.82);
+  border: 1px solid var(--glass-border);
+  border-top-color: rgba(255,255,255,0.10);
+  color: var(--green-light);
+  cursor: pointer;
+  transition: border-color var(--motion-fast, .35s) var(--ease, cubic-bezier(.22,1,.36,1)),
+              transform   var(--motion-fast, .35s) var(--ease, cubic-bezier(.22,1,.36,1));
+}
+.abt-orbital__node-disc svg { width: 28px; height: 28px; }
+.abt-orbital__node-num {
+  position: absolute; top: -0.4rem; right: -0.4rem;
+  font-family: "Playfair Display", serif; font-size: 0.7rem; font-weight: 700;
+  color: var(--text-muted);
+}
+@media (hover: hover) and (pointer: fine) {
+  .abt-orbital__node-disc:hover { border-top-color: rgba(255,255,255,0.18); transform: scale(1.06); }
+}
+
+/* Svantra 5th node · dimmed until launch. Same behaviour as other pillars
+   (hover reveals its card) — just muted. Remove --disabled to fully activate. */
+.abt-orbital__node--disabled .abt-orbital__node-disc {
+  opacity: 0.42; color: var(--text-muted);
+}
+@media (hover: hover) and (pointer: fine) {
+  .abt-orbital__node--disabled .abt-orbital__node-disc:hover {
+    opacity: 0.6; border-top-color: rgba(255,255,255,0.14); transform: scale(1.04);
+  }
+}
+/* Its card carries a muted "coming" treatment so it never overstates Svantra */
+.abt-orbital__card--coming .abt-orbital__card-eyebrow { color: var(--text-muted); }
+.abt-orbital__card--coming .abt-orbital__card-title { color: var(--text-secondary); }
+
+/* Pillar card — KEEPS backdrop-filter (dialog/modal-like §8 keep-list).
+   Revealed on node hover/focus; one card visible at a time. */
+.abt-orbital__card {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) translateY(8px);
+  width: min(300px, 70vw);
+  padding: 1.5rem 1.6rem 1.7rem;
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02), rgba(255,255,255,0.06)),
+    linear-gradient(180deg, rgba(15,22,30,0.72), rgba(10,14,19,0.82));
+  backdrop-filter: blur(18px) saturate(1.8) contrast(1.05);
+  -webkit-backdrop-filter: blur(18px) saturate(1.8) contrast(1.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-top-color: rgba(255,255,255,0.18);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45), 0 32px 80px rgba(0,0,0,0.35);
+  opacity: 0; pointer-events: none; z-index: 4;
+  transition: opacity var(--motion-medium, .6s) var(--ease, cubic-bezier(.22,1,.36,1)),
+              transform var(--motion-medium, .6s) var(--ease, cubic-bezier(.22,1,.36,1));
+}
+.abt-orbital__card.is-active {
+  opacity: 1; pointer-events: auto;
+  transform: translate(-50%, -50%) translateY(0);
+}
+.abt-orbital__card-eyebrow {
+  font-family: "Outfit", sans-serif; font-size: 0.5rem; font-weight: 700;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--green-light);
+  margin-bottom: 0.6rem; display: block;
+}
+.abt-orbital__card-title {
+  font-family: "Playfair Display", serif; font-size: 1.15rem; font-weight: 700;
+  color: #fff; margin-bottom: 0.6rem; line-height: 1.25;
+}
+.abt-orbital__card-body {
+  font-family: "Outfit", sans-serif; font-size: 0.82rem; font-weight: 300;
+  line-height: 1.6; color: var(--text-secondary);
+}
+
+/* Single ambient pulse on core glow — gated, kept as the ONE allowed ambient.
+   (Spec flagged this as acceptable single ambient OR cut. Kept, gated.) */
+.abt-orbital__core::before {
+  content: ""; position: absolute; inset: -18%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(117,194,73,0.10), transparent 70%);
+  z-index: -1;
+}
+
+/* Mobile fallback — orbital hidden, vertical pillar list shown instead */
+.abt-pillars-fallback { display: none; }
+@media (max-width: 968px) {
+  /* Orbital is desktop-only (owner decision). On mobile the readable fallback
+     list below carries the pillars; the orbit would be cramped at 360. */
+  .abt-orbital-wrap { display: none; }
+
+  /* Premium single-column cards — text fits, comfortable rhythm, icon beside title */
+  .abt-pillars-fallback {
+    display: flex; flex-direction: column; gap: 0.85rem; margin-top: 1.75rem;
+  }
+  .abt-pillar-row {
+    padding: 1.5rem 1.25rem;
+    background: rgba(255,255,255,0.03);
+    border-top-color: rgba(255,255,255,0.12);
+  }
+  .abt-pillar-row__icon { width: 36px; height: 36px; }
+  .abt-pillar-row__icon svg { width: 17px; height: 17px; }
+  .abt-pillar-row__title { font-size: 1.05rem; }
+  .abt-pillar-row__body { font-size: 0.8rem; line-height: 1.6; color: var(--text-secondary); }
+  .abt-pillar-row--muted { opacity: 0.6; }
+}
+.abt-pillar-row {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: 0.5rem;
+  padding: 1.6rem 1.4rem;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--glass-border);
+  border-top-color: rgba(255,255,255,0.10);
+}
+.abt-pillar-row > div:not(.abt-pillar-row__icon) {   /* unwrap text block so children stack centred */
+  display: contents;
+}
+.abt-pillar-row__icon {
+  width: 38px; height: 38px; border-radius: 50%;   /* small, centred on top */
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(8,12,18,0.7); border: 1px solid var(--glass-border);
+  color: var(--green-light);
+  margin-bottom: 0.3rem;
+}
+.abt-pillar-row__icon svg { width: 18px; height: 18px; }
+.abt-pillar-row__num {
+  font-family: "Outfit", sans-serif; font-size: 0.6rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--green-light); line-height: 1;
+}
+.abt-pillar-row__title {
+  font-family: "Playfair Display", serif; font-size: 1.1rem; font-weight: 700;
+  color: #fff; line-height: 1.2; margin-top: 0.1rem;
+}
+.abt-pillar-row__body {
+  font-family: "Outfit", sans-serif; font-size: 0.82rem; font-weight: 300;
+  line-height: 1.6; color: var(--text-muted); margin-top: 0.45rem; max-width: 34ch;
+}
+.abt-pillar-row--muted { opacity: 0.55; }
+.abt-pillar-row--muted .abt-pillar-row__icon { color: var(--text-muted); }
+
+
+
+/* ─── §5 FOUNDER · full-bleed shot · text overlay on left negative space ─────
+   Full-viewport-width image (breaks out of .abt-main padding via 100vw trick).
+   Text sits in the LEFT third over composed negative space, with a scrim only
+   under the text for guaranteed legibility. Mobile: scrim flips to bottom and
+   text drops below the image's lower half (no cramped side-overlay at 360). */
+.abt-founder-bleed {
+  position: relative;
+  /* break out of the centered .abt-main (max 1320 + 4rem padding) to true full-bleed */
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+  padding: 0;            /* override .abt-sec padding-block — image owns the band */
+  display: flex;
+  align-items: stretch;
+}
+.abt-founder-bleed__media {
+  position: relative;
+  width: 100%;
+  height: clamp(440px, 60vh, 660px);
+  overflow: hidden;
+  border-radius: 4px;                                   /* whisper radius — framed photo, not a hard rectangle */
+  box-shadow: 0 40px 90px -50px rgba(0,0,0,0.8);        /* depth — media lifts off the cosmic ground */
+  isolation: isolate;                                   /* contain the layer stack (no mix-blend leakage) */
+}
+/* studio KEY-GLOW — faint warm light bloom on the subject (left) side */
+.abt-founder-bleed__keyglow {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(60% 80% at 22% 42%, rgba(255,224,178,0.16), transparent 60%);
+}
+/* GRADE — very faint warm->cool wash unifies any image with the page palette */
+.abt-founder-bleed__grade {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(120deg, rgba(214,168,96,0.05), transparent 45%, rgba(80,110,160,0.06));
+}
+/* cinematic VIGNETTE — wraps all four edges, pulls the eye to the subject */
+.abt-founder-bleed__vignette {
+  position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  box-shadow: inset 0 0 140px 30px rgba(0,0,0,0.55);
+  background: radial-gradient(120% 120% at 50% 45%, transparent 55%, rgba(0,0,0,0.32) 100%);
+}
+/* inner MAT line — thin light inset like a gallery mat (framed, not boxed) */
+.abt-founder-bleed__mat {
+  position: absolute; inset: 14px; z-index: 5; pointer-events: none;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 2px;
+}
+.abt-founder-bleed__img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;   /* focal anchor on the face; cover crops differ per aspect ratio */
+}
+/* scrim — darkens the RIGHT for text legibility, fades out toward the left */
+.abt-founder-bleed__scrim {
+  position: absolute; inset: 0; z-index: 4;
+  background: linear-gradient(270deg,
+    rgba(5,8,14,0.92) 0%,
+    rgba(5,8,14,0.78) 28%,
+    rgba(5,8,14,0.35) 52%,
+    transparent 72%);
+}
+.abt-founder-bleed__overlay {
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  z-index: 10;
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+  max-width: 38%;
+  padding: 2.5rem clamp(1.5rem, 5vw, 5rem);
+}
+.abt-founder-bleed__overlay .eyebrow { margin-bottom: 1rem; display: inline-block; }
+.abt-founder-bleed__quote {
+  font-family: "Playfair Display", serif;
+  font-style: italic; font-weight: 400;
+  font-size: clamp(1.2rem, 1.7vw, 1.55rem);
+  line-height: 1.45; color: #fff;
+  margin: 0 0 1.2rem; max-width: 32ch;
+}
+.abt-founder-bleed__name {
+  font-family: "Outfit", sans-serif; font-size: 0.85rem; font-weight: 600;
+  color: var(--text-secondary); letter-spacing: 0.02em;
+}
+.abt-founder-bleed__role {
+  font-family: "Outfit", sans-serif; font-size: 0.72rem; font-weight: 300;
+  color: var(--text-muted); margin-top: 0.2rem;
+}
+/* Mobile — overlay can't sit safely beside a short image; scrim flips to the
+   bottom and text anchors to the lower portion (text-on-lower-image, legible). */
+@media (max-width: 720px) {
+  .abt-founder-bleed__media { height: clamp(440px, 78vh, 600px); }
+  .abt-founder-bleed__scrim {
+    background: linear-gradient(180deg, transparent 32%, rgba(5,8,14,0.55) 56%, rgba(5,8,14,0.94) 100%);
+  }
+  .abt-founder-bleed__overlay {
+    max-width: 100%; right: 0;
+    justify-content: flex-end;
+    padding: 1.8rem 1.3rem 2rem;
+  }
+  .abt-founder-bleed__quote { font-size: 1.05rem; line-height: 1.5; max-width: none; }
+}
+@media (max-width: 768px) {
+  .abt-founder-bleed__mat { inset: 10px; }
+  .abt-founder-bleed__keyglow { background: radial-gradient(70% 50% at 50% 30%, rgba(255,224,178,0.14), transparent 62%); }
+  .abt-founder-bleed__vignette { box-shadow: inset 0 0 90px 20px rgba(0,0,0,0.5); }
+}
+
+/* ─── §6 TEAM · node field (desktop) + circular roster (mobile) ─────────
+   One family, no hierarchy. Desktop: draggable node field (drag to arrange,
+   tap to reveal) — static until the user acts, so no infinite motion.
+   Mobile (≤968): the field is hidden and the circular roster shows instead
+   (a node field needs width it doesn't have at 360). Same data drives both. */
+
+.abt-team__hint {
+  font-family: "Outfit", sans-serif; font-weight: 300;
+  font-size: 0.8rem; color: var(--text-muted); margin-top: 0.4rem;
+}
+
+/* Node field — desktop only */
+.abt-team__field {
+  position: relative;
+  width: 100%;
+  height: 540px;
+  margin-top: 0.25rem;
+  touch-action: none;
+  user-select: none; -webkit-user-select: none;   /* stop double-click selecting the field (green ::selection flash) */
+  contain: paint;                 /* isolate field paint -> SVG link layer stops re-rasterizing on scroll */
+  transform: translateZ(0);       /* stable composite layer (built once, cached) */
+}
+.abt-team__links { position: absolute; inset: 0; pointer-events: none; transform: translateZ(0); }
+.abt-team__links line { stroke: rgba(187,214,122,0.13); stroke-width: 1; }
+.abt-team__node {
+  position: absolute; width: 78px; height: 78px; margin: -39px 0 0 -39px;
+  border-radius: 50%; cursor: grab; user-select: none; touch-action: none;
+  border: 1px solid var(--glass-border); border-top-color: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04); overflow: hidden;
+  transition: transform .25s var(--ease, cubic-bezier(.22,1,.36,1)),
+              box-shadow .25s var(--ease, cubic-bezier(.22,1,.36,1)),
+              border-color .25s var(--ease, cubic-bezier(.22,1,.36,1));
+}
+.abt-team__node img { width: 100%; height: 100%; object-fit: cover; object-position: 50% var(--focus-y, 50%); display: block; pointer-events: none; }
+.abt-team__node-ph {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  color: var(--text-whisper);
+}
+.abt-team__node-ph svg { width: 40%; height: 40%; }
+.abt-team__node.is-dragging {
+  cursor: grabbing; transform: scale(1.08);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.5); border-color: rgba(187,214,122,0.5); z-index: 50;
+}
+.abt-team__node.is-active { border-color: rgba(187,214,122,0.6); }
+@media (hover:hover) and (pointer:fine) {
+  .abt-team__node:hover { border-color: rgba(187,214,122,0.4); transform: scale(1.05); }
+}
+.abt-team__node:focus-visible { outline: 2px solid var(--green-light); outline-offset: 3px; }
+
+/* Reveal popover — premium framed card, centred, with bio space */
+.abt-team__reveal {
+  position: fixed; z-index: 1100; width: 236px; padding: 2rem 1.4rem 1.6rem;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(20,26,34,0.99), rgba(9,12,17,0.99));   /* solid, lifted card (not flat glass) */
+  border: 1px solid rgba(255,255,255,0.10); border-top-color: rgba(117,194,73,0.5);
+  border-radius: 18px;
+  /* layered depth shadow — reads as a card floating well above the page */
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.06) inset,
+    0 2px 8px rgba(0,0,0,0.5),
+    0 18px 40px rgba(0,0,0,0.55),
+    0 50px 100px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(117,194,73,0.06);
+  opacity: 0; transform: translateY(10px) scale(0.96); pointer-events: none;
+  transition: opacity .32s var(--ease, cubic-bezier(.22,1,.36,1)), transform .32s var(--ease, cubic-bezier(.22,1,.36,1));
+}
+.abt-team__reveal::before {            /* green accent bar at the top — family hue, distinct from frames */
+  content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 46px; height: 3px; border-radius: 0 0 3px 3px;
+  background: linear-gradient(90deg, transparent, var(--green-light), transparent);
+}
+.abt-team__reveal.is-open { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+/* mobile bottom-centre sheet */
+.abt-team__reveal--sheet {
+  left: 50% !important; right: auto;
+  bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px)); top: auto !important;
+  width: calc(100vw - 4rem); max-width: 300px;
+  transform: translateX(-50%) translateY(12px) scale(0.98);
+}
+.abt-team__reveal--sheet.is-open { transform: translateX(-50%) translateY(0) scale(1); }
+/* desktop screen-centred modal · consistent at any roster size, never below the field */
+.abt-team__reveal.abt-team__reveal--modal {
+  /* centre via inset+margin so TRANSFORM is free for scale/fade only — no centering in transform => no conflict with base .is-open */
+  left: 0 !important; right: 0 !important; top: 0 !important; bottom: 0 !important;
+  margin: auto !important;
+  width: 236px; height: -moz-fit-content; height: fit-content; max-height: calc(100vh - 4rem);
+  transform: translateY(10px) scale(0.96) !important;
+}
+.abt-team__reveal.abt-team__reveal--modal.is-open {
+  transform: translateY(0) scale(1) !important;
+}
+/* backdrop scrim behind the centred reveal */
+.abt-team__scrim {
+  position: fixed; inset: 0; z-index: 1099;
+  background: rgba(6, 9, 13, 0.72);
+  opacity: 0; pointer-events: none;
+  transition: opacity .32s var(--ease, cubic-bezier(.22,1,.36,1));
+}
+.abt-team__scrim.is-open { opacity: 1; pointer-events: auto; }
+/* circular framed portrait, centred */
+.abt-team__reveal-pic {
+  position: relative;
+  width: 132px; height: 150px; margin: 0 auto 1.1rem;   /* taller portrait — premium, less avatar-like */
+  border-radius: 14px; overflow: hidden;
+  background: rgba(255,255,255,0.04);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.10),
+    0 0 0 5px rgba(117,194,73,0.10),       /* soft green mat ring */
+    0 14px 34px rgba(0,0,0,0.5);
+}
+.abt-team__reveal-pic::after {            /* inner vignette + top highlight on the portrait */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  border-radius: 14px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -30px 40px -20px rgba(0,0,0,0.55);
+}
+.abt-team__reveal-pic img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.abt-team__reveal-name { font-family: "Playfair Display", serif; font-weight: 700; font-size: 1.18rem; line-height: 1.2; color: #fff; }
+.abt-team__reveal-role {
+  font-family: "Outfit", sans-serif; font-size: 0.58rem; font-weight: 600; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--green-light); margin-top: 0.4rem;
+}
+/* hairline divider before the bio */
+.abt-team__reveal-bio {
+  margin-top: 0.85rem; padding-top: 0.85rem;
+  border-top: 1px solid var(--glass-border);
+  font-family: "Outfit", sans-serif; font-size: 0.72rem; font-weight: 300; line-height: 1.6;
+  color: var(--text-secondary);
+}
+.abt-team__reveal-bio:empty { display: none; }
+.abt-team__reveal-close {
+  position: absolute; top: 0.6rem; right: 0.7rem; width: 26px; height: 26px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 50%;
+  color: var(--text-muted); font-size: 1.1rem; line-height: 1; cursor: pointer;
+  transition: all .2s var(--ease, cubic-bezier(.22,1,.36,1));
+}
+@media (hover:hover){ .abt-team__reveal-close:hover { background: rgba(255,255,255,0.1); color: #fff; } }
+
+/* ─── circular roster · mobile fallback + data source ───────────── */
+.abt-team__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.6rem 1.6rem;
+}
+@media (max-width: 980px) { .abt-team__grid { grid-template-columns: repeat(3, 1fr); gap: 2.2rem 1.2rem; } }
+@media (max-width: 680px) { .abt-team__grid { grid-template-columns: repeat(2, 1fr); gap: 1.9rem 1rem; } }
+.abt-team__person {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.abt-team__avatar {
+  width: 96px; height: 96px; border-radius: 50%;   /* circular — reads as people, not tiles */
+  background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border);
+  border-top-color: rgba(255,255,255,0.10);
+  display: flex; align-items: center; justify-content: center;
+  font-family: "Playfair Display", serif; font-size: 1.8rem; color: var(--text-whisper);
+  overflow: hidden;
+  margin-bottom: 0.95rem;
+  transition: transform var(--motion-fast,.35s) var(--ease,cubic-bezier(.22,1,.36,1)),
+              box-shadow var(--motion-fast,.35s) var(--ease,cubic-bezier(.22,1,.36,1));
+}
+.abt-team__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (hover:hover) and (pointer:fine){
+  .abt-team__person:hover .abt-team__avatar { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,.35); }
+}
+.abt-team__name {
+  font-family: "Playfair Display", serif; font-size: 0.98rem; font-weight: 700; color: #fff;
+  display: block; line-height: 1.2;
+}
+.abt-team__desig {
+  font-family: "Outfit", sans-serif; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--green-light);
+  margin-top: 0.3rem;
+}
+
+/* Desktop = node field + hidden roster.  Mobile = SAME connected graph, smaller + static.
+   Very small phones (<=479) = simple circular roster (graph too cramped). */
+@media (min-width: 360px) {
+  .abt-team__grid { display: none; }              /* roster = data source only, kept in DOM */
+}
+@media (max-width: 968px) and (min-width: 360px) {
+  .abt-team__field { display: block; touch-action: pan-y; }
+  .abt-team__node  { cursor: default; touch-action: pan-y; }
+  .abt-team__hint  { display: block; }
+}
+/* tablet/large-phone graph */
+@media (max-width: 968px) and (min-width: 521px) {
+  .abt-team__field { height: auto; }
+  .abt-team__node  { width: 52px; height: 52px; margin: -26px 0 0 -26px; }
+}
+/* narrow phone (<=520, incl. 360): taller field + smaller nodes so 8 breathe */
+@media (max-width: 520px) and (min-width: 360px) {
+  .abt-team__field { height: auto; min-height: 460px; }
+  .abt-team__node  { width: 46px; height: 46px; margin: -23px 0 0 -23px; }
+}
+/* tiny (<360): roster fallback */
+@media (max-width: 359px) {
+  .abt-team__field, .abt-team__hint { display: none; }
+  .abt-team__grid { display: grid; }
+}
+
+/* ─── §7 PAST COLLABORATORS · manual drag slider · name + role only · 50+ ────
+   No years. No infinite motion (DS §11/§13). Native horizontal overflow =
+   touch-swipe free; desktop pointer-drag + arrow paging in page-local JS.
+   Edge fades + progress hairline give position sense across many cards. ──── */
+.abt-credit-head {
+  flex-direction: row; align-items: center; justify-content: space-between;
+  max-width: none; text-align: left; gap: 1rem;
+}
+.abt-credit-arrows { display: flex; gap: 0.5rem; }
+.abt-credit-arrow {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--cta-secondary-border);
+  color: var(--cta-secondary-fg);
+  font-family: "Outfit", sans-serif; font-size: 1.2rem; line-height: 1;
+  cursor: pointer;
+  transition: background .35s cubic-bezier(.22,1,.36,1),
+              border-color .35s cubic-bezier(.22,1,.36,1),
+              opacity .35s cubic-bezier(.22,1,.36,1);
+}
+@media (hover:hover) and (pointer:fine){
+  .abt-credit-arrow:hover { background: rgba(117,194,73,0.10); border-color: rgba(117,194,73,0.5); }
+}
+.abt-credit-arrow[disabled] { opacity: 0.3; cursor: default; }
+@media (max-width: 720px){ .abt-credit-arrows { display: none; } }  /* touch swipes — no arrows */
+
+.abt-credit-slider { position: relative; }
+/* edge fade via gradient overlays (NOT mask-image — mask re-rasterizes every
+   scroll frame and stutters on first composite in Chrome/Safari). Matches the
+   ::before/::after pattern used by the canonical carousel on page 03. */
+.abt-credit-slider::before,
+.abt-credit-slider::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 4%;
+  z-index: 2; pointer-events: none;
+}
+.abt-credit-slider::before { left: 0;  background: linear-gradient(90deg, var(--bg-deep), transparent); }
+.abt-credit-slider::after  { right: 0; background: linear-gradient(270deg, var(--bg-deep), transparent); }
+/* edge-fade inside the framed credits panel blends to the glass surface, not page bg */
+.abt-credit-frame .abt-credit-slider::before { background: linear-gradient(90deg, rgba(22,28,38,0.92), transparent); }
+.abt-credit-frame .abt-credit-slider::after  { background: linear-gradient(270deg, rgba(22,28,38,0.92), transparent); }
+.abt-credit-track {
+  display: flex;
+  gap: 0.9rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;            /* arrow paging eases; drag overrides via JS */
+  padding: 0.25rem 0.25rem 0.6rem;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  scrollbar-width: none;
+  transform: translateZ(0);           /* own composite layer — repaint doesn't flicker the frame */
+}
+.abt-credit-track::-webkit-scrollbar { display: none; }
+.abt-credit-track.is-dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
+.abt-credit-track:focus-visible { outline: 1px solid var(--cta-secondary-border); outline-offset: 4px; border-radius: 12px; }
+
+/* Scroll-container reveal exception: the credit slider wraps a horizontal
+   scroll track. The canonical translateY reveal recomputes the track's
+   scroll/snap geometry on its first pass -> one-time scroll stutter. Reveal
+   it with opacity only (same fade, same duration/easing) — no transform. */
+.abt-team__field[data-reveal],
+.abt-team__field[data-reveal].is-revealed { transform: none; }
+
+
+.abt-credit-card {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  min-width: 9.5rem; max-width: 14rem;   /* long names wrap within this, no overflow */
+  display: flex; flex-direction: column; gap: 0.3rem;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--glass-border);
+  border-top-color: rgba(255,255,255,0.10);
+  user-select: none;
+}
+/* 50+ cards: skip off-screen layout — desktop only, and intrinsic size must
+   match real height (name+role ≈ 5rem) or it inflates the card on mobile. */
+/* content-visibility removed — Safari/FF rendered the intrinsic-size
+   placeholder height (tall boxes) before scroll-in; Chrome didn't. Card count
+   is small, so the optimisation isn't needed and the cross-browser bug is gone. */
+.abt-credit-card__name {
+  font-family: "Playfair Display", serif;
+  font-size: 0.98rem; font-weight: 700; line-height: 1.25; color: #fff;
+  white-space: normal;          /* long names wrap instead of overflowing */
+  overflow-wrap: break-word;
+}
+.abt-credit-card__role {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.64rem; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--green-light);
+}
+
+/* scroll-position hairline — static track, width reflects how far through 50+ */
+.abt-credit-progress {
+  position: relative; height: 2px; margin-top: 0.9rem;
+  background: var(--glass-border); border-radius: 2px; overflow: hidden;
+}
+.abt-credit-progress i {
+  position: absolute; left: 0; top: 0; height: 100%; width: 0;
+  background: linear-gradient(90deg, var(--green-dark), var(--green-primary));
+  border-radius: 2px;
+}
+@media (max-width: 560px) {
+  .abt-credit-card { min-width: 8.5rem; padding: 0.85rem 1.05rem; }
+  .abt-credit-card__name { font-size: 0.9rem; }
+}
+
+/* ─── Mobile type scale · keep body/labels subordinate to headings ── */
+@media (max-width: 560px) {
+  .abt-story p { font-size: 0.95rem; line-height: 1.7; }
+  .abt-story p:first-of-type { font-size: 1rem; }
+  .abt-team__name { font-size: 0.95rem; }
+  .abt-team__desig { font-size: 0.6rem; letter-spacing: 0.06em; margin-top: 0.25rem; }
+  .abt-pillars-copy__lead { font-size: 0.9rem; }
+  
+}
+
+/* ─── §8 STUDIO GALLERY · irregular editorial grid ───────────────
+   A curated wall, not a contact sheet. 4 cols × fixed row height; chosen
+   tiles span 2×2 or 2×1 to break the uniform rhythm. grid-auto-flow:dense
+   backfills holes so it tiles cleanly. Tiles stay .abt-gallery__item in DOM
+   order (lightbox indexes them) — only their span changes. */
+.abt-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 150px;
+  gap: 1rem;
+}
+.abt-gallery__item {
+  position: relative; overflow: hidden; border-radius: 12px;
+  background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
+  transition: transform var(--motion-fast, .35s) var(--ease, cubic-bezier(.22,1,.36,1)),
+              box-shadow var(--motion-fast, .35s) var(--ease, cubic-bezier(.22,1,.36,1));
+}
+/* Feature tiles — the intentional asymmetry. 1 large hero (2×2), two wide
+   landscape tiles (2×1). Everything else is a 1×1 square. */
+/* feature rhythm repeats every 12 tiles — scales to any gallery size */
+.abt-gallery__item:nth-child(12n/**/+1) { grid-column: span 2; grid-row: span 2; }  /* big hero */
+.abt-gallery__item:nth-child(12n/**/+6) { grid-column: span 2; }                    /* wide */
+.abt-gallery__item:nth-child(12n/**/+9) { grid-column: span 2; grid-row: span 2; }  /* big */
+.abt-gallery__item:nth-child(12n)   { grid-column: span 2; }                    /* wide (12,24,..) */
+.abt-gallery__ph { position: absolute; inset: 0; }   /* backdrop; img overlays it, falls back if img fails */
+.abt-gallery__item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% var(--focus-y, 50%); display: block; z-index: 1; }
+.abt-gallery__ph {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  font-family: "Outfit", sans-serif; font-size: 0.6rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-whisper);
+}
+.abt-gallery__cap {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 0.6rem 0.7rem 0.5rem;
+  background: linear-gradient(180deg, transparent, rgba(5,8,14,0.85));
+  font-family: "Outfit", sans-serif; font-size: 0.6rem; color: var(--text-secondary);
+  opacity: 0; transition: opacity var(--motion-fast, .35s) var(--ease, cubic-bezier(.22,1,.36,1));
+}
+@media (hover: hover) and (pointer: fine) {
+  .abt-gallery__item:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.3); }
+  .abt-gallery__item:hover .abt-gallery__cap { opacity: 1; }
+}
+/* Tablet — 3 cols, smaller feature spans so it still tiles */
+@media (max-width: 860px) {
+  .abt-gallery { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 130px; }
+  .abt-gallery__item:nth-child(12n/**/+1),
+  .abt-gallery__item:nth-child(12n/**/+9) { grid-column: span 2; grid-row: span 2; }
+  .abt-gallery__item:nth-child(12n/**/+6),
+  .abt-gallery__item:nth-child(12n) { grid-column: span 1; grid-row: span 1; }
+}
+/* Phone — uniform 2-up squares (irregular spans don't read at 360) */
+@media (max-width: 540px) {
+  .abt-gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; grid-auto-flow: row; }
+  .abt-gallery__item { aspect-ratio: 4 / 3; }
+  .abt-gallery__item:nth-child(n) { grid-column: auto; grid-row: auto; }   /* reset all spans */
+}
+.abt-gallery__item { cursor: pointer; }
+
+/* ─── Gallery lightbox ─────────────────────────────────────────── */
+.abt-lightbox {
+  position: fixed; inset: 0; z-index: 12000;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(5, 8, 12, 0.92);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  opacity: 0; transition: opacity .28s var(--ease, cubic-bezier(.22,1,.36,1));
+  padding: clamp(1rem, 5vw, 4rem);
+}
+.abt-lightbox[hidden] { display: none; }
+.abt-lightbox.is-open { opacity: 1; }
+.abt-lightbox__stage {
+  margin: 0; max-width: 92vw; max-height: 86vh;
+  display: flex; flex-direction: column; align-items: center; gap: 0.9rem;
+}
+.abt-lightbox__img {
+  max-width: 100%; max-height: 78vh; object-fit: contain;
+  border-radius: 10px; border: 1px solid var(--glass-border);
+  background: var(--bg-surface, #151b23);
+  transform: scale(0.985); transition: transform .28s var(--ease, cubic-bezier(.22,1,.36,1));
+}
+.abt-lightbox.is-open .abt-lightbox__img { transform: scale(1); }
+.abt-lightbox__cap {
+  font-family: "Outfit", sans-serif; font-size: 0.8rem; letter-spacing: 0.04em;
+  color: var(--text-secondary); text-align: center;
+}
+.abt-lightbox__close,
+.abt-lightbox__nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(255,255,255,0.06); border: 1px solid var(--glass-border);
+  color: var(--text-primary); font-size: 1.6rem; line-height: 1; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .25s var(--ease, cubic-bezier(.22,1,.36,1));
+}
+.abt-lightbox__close { top: clamp(1rem, 4vw, 2rem); right: clamp(1rem, 4vw, 2rem); transform: none; font-size: 1.9rem; }
+.abt-lightbox__nav--prev { left: clamp(0.5rem, 3vw, 2rem); }
+.abt-lightbox__nav--next { right: clamp(0.5rem, 3vw, 2rem); }
+@media (hover: hover) {
+  .abt-lightbox__close:hover, .abt-lightbox__nav:hover { background: rgba(255,255,255,0.14); }
+}
+@media (max-width: 560px) {
+  .abt-lightbox__nav { width: 40px; height: 40px; font-size: 1.3rem; }
+}
+
+/* ─── §9 HERITAGE NOTE · heading alone in whitespace ───────────── */
+/* ─── §9 HERITAGE · the page's one cinematic breath ──────────────
+   One line owning a full viewport band, near-hero scale, generous air.
+   The single heritage-gold moment on the page (brief: gold for heritage only).
+   This is the §10 checklist "heading alone with 50%+ whitespace". */
+.abt-heritage {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: 60vh;
+  gap: 2rem;
+  text-align: center;
+}
+.abt-heritage::before {
+  content: "";
+  width: 40px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--heritage-gold), transparent);
+  opacity: 0.7;
+}
+.abt-heritage__line {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.4vw, 3rem);
+  line-height: 1.4;
+  color: rgba(255,255,255,0.92);
+  text-align: center;
+  max-width: 46ch;
+  margin: 0;
+  text-wrap: balance;
+}
+.abt-heritage__line em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--heritage-gold) 0%, #e9cd92 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.abt-heritage--closer {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: 1.6rem;
+  padding-block: 4rem 4.5rem;        /* closing breath — tighter top (below gallery) + bottom */
+}
+.abt-heritage__eyebrow {
+  font-family: "Outfit", sans-serif; font-weight: 400;
+  font-size: 0.7rem; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--heritage-gold); opacity: 0.7;
+}
+.abt-heritage__rule {
+  display: block; width: 48px; height: 1px; margin-top: 0.4rem;
+  background: linear-gradient(90deg, transparent, var(--heritage-gold), transparent);
+  opacity: 0.6;
+}
+@media (max-width: 560px) {
+  .abt-heritage--closer { gap: 1.1rem; padding-block: 2.75rem 3.25rem; min-height: auto; }
+  .abt-heritage__line { font-size: clamp(1.15rem, 5vw, 1.5rem); max-width: 32ch; }
+  .abt-heritage__eyebrow { font-size: 0.62rem; letter-spacing: 0.26em; }
+}
+
+/* ─── §10 COLLABORATE CTA ──────────────────────────────────────── */
+
+
+
+
+
+
+</style>
+
+<link rel="stylesheet" href="polish.css">
+
+<style id="cc-about-hero-motion">
+/* PAGE-UNIQUE · About hero signature "Settle" (Phase-5 motion).
+   Enriches the EXISTING hero entrance only: polish.js already staggers .is-revealed
+   on [data-reveal-hero] (eyebrow ~160ms / title ~240ms / sub ~320ms). Here the H1
+   becomes the focal gesture — rises + a micro scale-settle on a long expo curve;
+   eyebrow + sub fade-rise around it, calmer. No new JS, no keyframes, no markup change;
+   driven by the existing .is-revealed toggle. Transform + opacity ONLY (this page runs
+   fixed cosmic orbs — no blur/filter). Desktop + no-reduced-motion only; below 1025px or
+   reduced-motion keeps polish's plain fade / instant-visible (print stays visible via
+   polish's !important rule). */
+@media (min-width: 1025px) and (prefers-reduced-motion: no-preference) {
+  /* focal — the title settles into place */
+  .abt-hero__title[data-reveal-hero] {
+    opacity: 0;
+    transform: translateY(26px) scale(0.985);
+    transform-origin: 50% 100%;
+    transition:
+      opacity   0.95s cubic-bezier(0.16, 1, 0.30, 1),
+      transform 0.95s cubic-bezier(0.16, 1, 0.30, 1);
+  }
+  .abt-hero__title[data-reveal-hero].is-revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  /* eyebrow — quick, sets the stage */
+  .abt-hero__eyebrow[data-reveal-hero] {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity   0.70s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.70s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .abt-hero__eyebrow[data-reveal-hero].is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* subtitle — soft fade-rise after the title lands */
+  .abt-hero__sub[data-reveal-hero] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity   0.85s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .abt-hero__sub[data-reveal-hero].is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+<!-- ─── Stage 3 JSON-LD: AboutPage ─── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "url": "https://cryptocipher.in/about",
+  "isPartOf": { "@id": "https://cryptocipher.in/#website" },
+  "about": { "@id": "https://cryptocipher.in/#organization" },
+  "mainEntity": { "@id": "https://cryptocipher.in/#organization" }
+}
+</script>
+<!-- ─── Stage 5 GEO: brand disambiguation + Academy reference (head/JSON-LD only) ─── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://cryptocipher.in/#organization",
+  "disambiguatingDescription": "Crypto Cipher Audio Lab is a music production company and audio studio founded in 2010 in India, specializing in Kontakt sample libraries, remote recording services, and audio education. It is not associated with cryptocurrency, blockchain, online gambling, or any non-music business.",
+  "subOrganization": { "@id": "https://cryptocipheracademy.com/#academy" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "@id": "https://cryptocipheracademy.com/#academy",
+  "name": "Crypto Cipher Academy",
+  "url": "https://cryptocipheracademy.com",
+  "foundingDate": "2010",
+  "description": "Crypto Cipher Academy offers Music Production courses, Sound Engineering courses, and Live Sound Engineering courses in India.",
+  "parentOrganization": { "@id": "https://cryptocipher.in/#organization" }
+}
+</script>
+<!-- ===== STAGE 6 · Favicons + PWA (head-only; body untouched) ===== -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#75C249">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0d1117">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Crypto Cipher">
+<meta name="application-name" content="Crypto Cipher">
+<meta name="msapplication-TileColor" content="#0d1117">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<link rel="apple-touch-startup-image" media="(device-width:320px) and (device-height:568px) and (-webkit-device-pixel-ratio:2)" href="/apple-splash-640-1136.png">
+<link rel="apple-touch-startup-image" media="(device-width:393px) and (device-height:852px) and (-webkit-device-pixel-ratio:3)" href="/apple-splash-1179-2556.png">
+<link rel="apple-touch-startup-image" media="(device-width:402px) and (device-height:874px) and (-webkit-device-pixel-ratio:3)" href="/apple-splash-1206-2622.png">
+<link rel="apple-touch-startup-image" media="(device-width:440px) and (device-height:956px) and (-webkit-device-pixel-ratio:3)" href="/apple-splash-1320-2868.png">
+<link rel="apple-touch-startup-image" media="(device-width:430px) and (device-height:932px) and (-webkit-device-pixel-ratio:3)" href="/apple-splash-1290-2796.png">
+<link rel="apple-touch-startup-image" media="(device-width:820px) and (device-height:1180px) and (-webkit-device-pixel-ratio:2)" href="/apple-splash-1640-2360.png">
+<link rel="apple-touch-startup-image" media="(device-width:834px) and (device-height:1194px) and (-webkit-device-pixel-ratio:2)" href="/apple-splash-1668-2388.png">
+<link rel="apple-touch-startup-image" media="(device-width:1024px) and (device-height:1366px) and (-webkit-device-pixel-ratio:2)" href="/apple-splash-2048-2732.png">
+<link rel="apple-touch-startup-image" media="(device-width:393px) and (device-height:852px) and (orientation:landscape) and (-webkit-device-pixel-ratio:3)" href="/apple-splash-1179-2556-land.png">
+<link rel="apple-touch-startup-image" media="(device-width:1024px) and (device-height:1366px) and (orientation:landscape) and (-webkit-device-pixel-ratio:2)" href="/apple-splash-2048-2732-land.png">
+<!-- ===== /STAGE 6 ===== -->
+<!-- ═══ Analytics + Monitoring · Stage 10 (Plausible cookieless; Sentry errors) ═══
+     Both blocks are intentionally COMMENTED OUT. Dev: set values + uncomment at deploy.
+     Plausible is consent-exempt per cookie-policy §04/§06 (no cookies, no banner gate).
+     Do NOT add GA4 / Meta Pixel / LinkedIn Insight Tag — the locked cookie-policy §03
+     names them as deliberately NOT used. Adding them = policy breach. See Stage-10-LOCK.md.
+
+  <script defer data-domain="cryptocipher.in" src="https://plausible.io/js/script.js"></script>
+
+  <script>
+    // Sentry.init({ dsn: 'SENTRY_DSN_HERE', environment: 'production', tracesSampleRate: 0.1 });
+  </script>
+-->
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="cosmic-bg" aria-hidden="true">
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:81vw;top:14vh;width:1px;height:1px;--driftX:-10px;--driftY:-138px;--dur:32s;--delay:-8s;--twink:4.71s;--twinkDelay:-3.19s;--twinkMin:0.58;--twinkMax:0.86" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:3vw;top:11vh;width:2px;height:2px;--driftX:-31px;--driftY:-71px;--dur:44s;--delay:-1s;--twink:4.18s;--twinkDelay:-3.00s;--twinkMin:0.54;--twinkMax:0.91" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--bright" style="left:35vw;top:0vh;width:4px;height:4px;--driftX:-69px;--driftY:-92px;--dur:35s;--delay:-17s;--twink:2.97s;--twinkDelay:-2.84s;--twinkMin:0.47;--twinkMax:0.86" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:44vw;top:77vh;width:2px;height:2px;--driftX:-128px;--driftY:-83px;--dur:42s;--delay:-7s;--twink:5.42s;--twinkDelay:-2.05s;--twinkMin:0.51;--twinkMax:0.97" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:46vw;top:73vh;width:2px;height:2px;--driftX:-115px;--driftY:-189px;--dur:46s;--delay:-14s;--twink:4.82s;--twinkDelay:-4.75s;--twinkMin:0.57;--twinkMax:0.98" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:58vw;top:81vh;width:4px;height:4px;--driftX:36px;--driftY:-159px;--dur:36s;--delay:-22s;--twink:3.13s;--twinkDelay:-0.84s;--twinkMin:0.59;--twinkMax:0.95" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:21vw;top:68vh;width:3px;height:3px;--driftX:-25px;--driftY:-159px;--dur:39s;--delay:-24s;--twink:3.31s;--twinkDelay:-3.06s;--twinkMin:0.54;--twinkMax:0.88" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:98vw;top:99vh;width:1px;height:1px;--driftX:-33px;--driftY:-192px;--dur:50s;--delay:-20s;--twink:3.70s;--twinkDelay:-0.25s;--twinkMin:0.58;--twinkMax:0.94" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:27vw;top:83vh;width:2px;height:2px;--driftX:52px;--driftY:-83px;--dur:29s;--delay:-8s;--twink:2.92s;--twinkDelay:-2.17s;--twinkMin:0.51;--twinkMax:0.96" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:74vw;top:51vh;width:2px;height:2px;--driftX:-38px;--driftY:-165px;--dur:41s;--delay:-31s;--twink:2.77s;--twinkDelay:-0.13s;--twinkMin:0.42;--twinkMax:0.94" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:54vw;top:76vh;width:1px;height:1px;--driftX:47px;--driftY:-103px;--dur:44s;--delay:-29s;--twink:4.09s;--twinkDelay:-3.97s;--twinkMin:0.57;--twinkMax:0.85" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:87vw;top:68vh;width:4px;height:4px;--driftX:-14px;--driftY:-113px;--dur:28s;--delay:-9s;--twink:3.80s;--twinkDelay:-1.73s;--twinkMin:0.59;--twinkMax:0.98" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:64vw;top:97vh;width:2px;height:2px;--driftX:109px;--driftY:-173px;--dur:52s;--delay:-40s;--twink:3.40s;--twinkDelay:-2.17s;--twinkMin:0.52;--twinkMax:0.87" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:69vw;top:99vh;width:3px;height:3px;--driftX:-150px;--driftY:-118px;--dur:40s;--delay:-1s;--twink:2.84s;--twinkDelay:-1.03s;--twinkMin:0.6;--twinkMax:0.97" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:30vw;top:72vh;width:1px;height:1px;--driftX:-107px;--driftY:-76px;--dur:51s;--delay:-4s;--twink:5.43s;--twinkDelay:-2.89s;--twinkMin:0.43;--twinkMax:0.95" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:21vw;top:33vh;width:3px;height:3px;--driftX:66px;--driftY:-146px;--dur:54s;--delay:-34s;--twink:4.77s;--twinkDelay:-3.29s;--twinkMin:0.54;--twinkMax:0.91" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--bright" style="left:47vw;top:56vh;width:3px;height:3px;--driftX:81px;--driftY:-170px;--dur:32s;--delay:-14s;--twink:2.69s;--twinkDelay:-0.06s;--twinkMin:0.51;--twinkMax:0.94" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:90vw;top:80vh;width:1px;height:1px;--driftX:-33px;--driftY:-183px;--dur:53s;--delay:-2s;--twink:5.08s;--twinkDelay:-0.36s;--twinkMin:0.45;--twinkMax:0.95" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:16vw;top:92vh;width:3px;height:3px;--driftX:145px;--driftY:-79px;--dur:32s;--delay:-30s;--twink:4.92s;--twinkDelay:-0.94s;--twinkMin:0.42;--twinkMax:0.91" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--bright" style="left:59vw;top:93vh;width:1px;height:1px;--driftX:-100px;--driftY:-185px;--dur:37s;--delay:-21s;--twink:4.90s;--twinkDelay:-0.54s;--twinkMin:0.44;--twinkMax:0.93" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--bright" style="left:23vw;top:35vh;width:2px;height:2px;--driftX:-23px;--driftY:-181px;--dur:39s;--delay:-35s;--twink:2.79s;--twinkDelay:-1.82s;--twinkMin:0.51;--twinkMax:0.85" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:96vw;top:30vh;width:2px;height:2px;--driftX:58px;--driftY:-76px;--dur:40s;--delay:-13s;--twink:5.09s;--twinkDelay:-4.60s;--twinkMin:0.43;--twinkMax:0.85" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:100vw;top:100vh;width:2px;height:2px;--driftX:-4px;--driftY:-92px;--dur:47s;--delay:-46s;--twink:5.49s;--twinkDelay:-3.05s;--twinkMin:0.54;--twinkMax:0.87" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--bright" style="left:7vw;top:74vh;width:3px;height:3px;--driftX:127px;--driftY:-185px;--dur:48s;--delay:-20s;--twink:2.67s;--twinkDelay:-1.56s;--twinkMin:0.5;--twinkMax:0.98" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:65vw;top:10vh;width:4px;height:4px;--driftX:-55px;--driftY:-183px;--dur:44s;--delay:-4s;--twink:4.53s;--twinkDelay:-1.06s;--twinkMin:0.42;--twinkMax:0.98" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:76vw;top:5vh;width:3px;height:3px;--driftX:-109px;--driftY:-93px;--dur:46s;--delay:-37s;--twink:4.20s;--twinkDelay:-1.33s;--twinkMin:0.45;--twinkMax:0.95" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:33vw;top:50vh;width:2px;height:2px;--driftX:3px;--driftY:-83px;--dur:35s;--delay:-4s;--twink:2.53s;--twinkDelay:-1.57s;--twinkMin:0.51;--twinkMax:0.86" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:64vw;top:33vh;width:2px;height:2px;--driftX:28px;--driftY:-183px;--dur:53s;--delay:-15s;--twink:3.61s;--twinkDelay:-0.57s;--twinkMin:0.57;--twinkMax:0.96" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:83vw;top:67vh;width:1px;height:1px;--driftX:133px;--driftY:-124px;--dur:54s;--delay:-42s;--twink:2.81s;--twinkDelay:-2.47s;--twinkMin:0.45;--twinkMax:0.98" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:19vw;top:34vh;width:2px;height:2px;--driftX:-43px;--driftY:-113px;--dur:31s;--delay:-16s;--twink:4.02s;--twinkDelay:-1.01s;--twinkMin:0.58;--twinkMax:0.86" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--bright" style="left:35vw;top:5vh;width:1px;height:1px;--driftX:20px;--driftY:-167px;--dur:45s;--delay:-16s;--twink:2.98s;--twinkDelay:-1.32s;--twinkMin:0.54;--twinkMax:0.93" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:88vw;top:19vh;width:3px;height:3px;--driftX:-132px;--driftY:-106px;--dur:43s;--delay:-35s;--twink:2.94s;--twinkDelay:-0.38s;--twinkMin:0.46;--twinkMax:0.98" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:5vw;top:45vh;width:2px;height:2px;--driftX:-23px;--driftY:-174px;--dur:36s;--delay:-35s;--twink:5.15s;--twinkDelay:-2.09s;--twinkMin:0.52;--twinkMax:0.87" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:20vw;top:22vh;width:2px;height:2px;--driftX:-138px;--driftY:-155px;--dur:48s;--delay:-21s;--twink:4.85s;--twinkDelay:-2.00s;--twinkMin:0.53;--twinkMax:0.96" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:20vw;top:100vh;width:3px;height:3px;--driftX:-95px;--driftY:-103px;--dur:52s;--delay:-2s;--twink:5.08s;--twinkDelay:-1.13s;--twinkMin:0.56;--twinkMax:0.92" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:29vw;top:28vh;width:1px;height:1px;--driftX:-52px;--driftY:-98px;--dur:35s;--delay:-17s;--twink:5.09s;--twinkDelay:-4.92s;--twinkMin:0.46;--twinkMax:0.95" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:68vw;top:42vh;width:1px;height:1px;--driftX:-91px;--driftY:-134px;--dur:30s;--delay:-18s;--twink:5.39s;--twinkDelay:-1.43s;--twinkMin:0.42;--twinkMax:0.92" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:40vw;top:55vh;width:3px;height:3px;--driftX:111px;--driftY:-171px;--dur:37s;--delay:-36s;--twink:3.07s;--twinkDelay:-0.14s;--twinkMin:0.49;--twinkMax:0.93" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--bright" style="left:87vw;top:92vh;width:3px;height:3px;--driftX:-50px;--driftY:-107px;--dur:38s;--delay:-4s;--twink:5.35s;--twinkDelay:-4.92s;--twinkMin:0.52;--twinkMax:0.95" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:38vw;top:64vh;width:2px;height:2px;--driftX:59px;--driftY:-117px;--dur:37s;--delay:-18s;--twink:4.16s;--twinkDelay:-0.80s;--twinkMin:0.53;--twinkMax:0.91" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:22vw;top:78vh;width:3px;height:3px;--driftX:4px;--driftY:-97px;--dur:42s;--delay:0s;--twink:3.41s;--twinkDelay:-0.72s;--twinkMin:0.56;--twinkMax:0.94" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--bright" style="left:56vw;top:56vh;width:3px;height:3px;--driftX:-41px;--driftY:-70px;--dur:40s;--delay:-10s;--twink:4.48s;--twinkDelay:-1.27s;--twinkMin:0.53;--twinkMax:0.94" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:96vw;top:30vh;width:3px;height:3px;--driftX:8px;--driftY:-143px;--dur:50s;--delay:-12s;--twink:2.94s;--twinkDelay:-0.14s;--twinkMin:0.6;--twinkMax:0.94" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:58vw;top:53vh;width:3px;height:3px;--driftX:144px;--driftY:-151px;--dur:47s;--delay:-44s;--twink:3.65s;--twinkDelay:-1.46s;--twinkMin:0.43;--twinkMax:0.95" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:98vw;top:13vh;width:4px;height:4px;--driftX:67px;--driftY:-144px;--dur:30s;--delay:-25s;--twink:5.37s;--twinkDelay:-2.78s;--twinkMin:0.41;--twinkMax:0.89" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:58vw;top:17vh;width:4px;height:4px;--driftX:87px;--driftY:-65px;--dur:42s;--delay:-38s;--twink:3.45s;--twinkDelay:-2.61s;--twinkMin:0.49;--twinkMax:0.97" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:54vw;top:70vh;width:2px;height:2px;--driftX:-69px;--driftY:-79px;--dur:39s;--delay:-16s;--twink:4.76s;--twinkDelay:-3.99s;--twinkMin:0.46;--twinkMax:0.97" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:30vw;top:35vh;width:2px;height:2px;--driftX:-111px;--driftY:-127px;--dur:32s;--delay:-17s;--twink:3.51s;--twinkDelay:-3.13s;--twinkMin:0.42;--twinkMax:0.87" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:19vw;top:90vh;width:1px;height:1px;--twink:3.26s;--twinkDelay:-1.33s;--twinkMin:0.31;--twinkMax:0.6" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:26vw;top:53vh;width:2px;height:2px;--twink:6.62s;--twinkDelay:-3.87s;--twinkMin:0.34;--twinkMax:0.71" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:97vw;top:73vh;width:2px;height:2px;--twink:4.91s;--twinkDelay:-4.63s;--twinkMin:0.26;--twinkMax:0.6" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:53vw;top:68vh;width:1px;height:1px;--twink:4.95s;--twinkDelay:-1.35s;--twinkMin:0.3;--twinkMax:0.6" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:85vw;top:86vh;width:2px;height:2px;--twink:5.90s;--twinkDelay:-4.96s;--twinkMin:0.38;--twinkMax:0.75" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:68vw;top:3vh;width:2px;height:2px;--twink:5.37s;--twinkDelay:-3.56s;--twinkMin:0.22;--twinkMax:0.61" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:59vw;top:23vh;width:1px;height:1px;--twink:4.04s;--twinkDelay:-1.32s;--twinkMin:0.29;--twinkMax:0.58" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:48vw;top:35vh;width:2px;height:2px;--twink:4.01s;--twinkDelay:-0.33s;--twinkMin:0.2;--twinkMax:0.63" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:44vw;top:28vh;width:1px;height:1px;--twink:6.12s;--twinkDelay:-3.99s;--twinkMin:0.35;--twinkMax:0.74" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:25vw;top:2vh;width:1px;height:1px;--twink:3.95s;--twinkDelay:-1.87s;--twinkMin:0.22;--twinkMax:0.74" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:59vw;top:89vh;width:1px;height:1px;--twink:6.07s;--twinkDelay:-1.02s;--twinkMin:0.32;--twinkMax:0.69" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:14vw;top:99vh;width:1px;height:1px;--twink:6.86s;--twinkDelay:-0.74s;--twinkMin:0.21;--twinkMax:0.58" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:86vw;top:48vh;width:2px;height:2px;--twink:6.77s;--twinkDelay:-1.34s;--twinkMin:0.32;--twinkMax:0.71" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:31vw;top:13vh;width:1px;height:1px;--twink:6.40s;--twinkDelay:-3.84s;--twinkMin:0.22;--twinkMax:0.75" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:100vw;top:5vh;width:1px;height:1px;--twink:5.13s;--twinkDelay:-3.39s;--twinkMin:0.21;--twinkMax:0.66" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:1vw;top:53vh;width:2px;height:2px;--twink:3.42s;--twinkDelay:-3.29s;--twinkMin:0.33;--twinkMax:0.71" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:90vw;top:19vh;width:2px;height:2px;--twink:3.70s;--twinkDelay:-1.93s;--twinkMin:0.33;--twinkMax:0.65" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:68vw;top:99vh;width:2px;height:2px;--twink:4.86s;--twinkDelay:-4.01s;--twinkMin:0.32;--twinkMax:0.58" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:31vw;top:11vh;width:1px;height:1px;--twink:6.53s;--twinkDelay:-1.59s;--twinkMin:0.29;--twinkMax:0.65" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:48vw;top:43vh;width:1px;height:1px;--twink:4.98s;--twinkDelay:-1.62s;--twinkMin:0.3;--twinkMax:0.59" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:33vw;top:43vh;width:1px;height:1px;--twink:6.52s;--twinkDelay:-4.57s;--twinkMin:0.26;--twinkMax:0.5" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:24vw;top:10vh;width:1px;height:1px;--twink:5.88s;--twinkDelay:-2.87s;--twinkMin:0.35;--twinkMax:0.67" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:82vw;top:91vh;width:2px;height:2px;--twink:4.79s;--twinkDelay:-0.08s;--twinkMin:0.26;--twinkMax:0.6" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:31vw;top:39vh;width:1px;height:1px;--twink:4.89s;--twinkDelay:-2.60s;--twinkMin:0.29;--twinkMax:0.69" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:42vw;top:45vh;width:2px;height:2px;--twink:4.08s;--twinkDelay:-1.03s;--twinkMin:0.22;--twinkMax:0.55" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:15vw;top:95vh;width:1px;height:1px;--twink:3.77s;--twinkDelay:-2.78s;--twinkMin:0.26;--twinkMax:0.65" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:97vw;top:67vh;width:1px;height:1px;--twink:6.92s;--twinkDelay:-5.76s;--twinkMin:0.26;--twinkMax:0.59" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:38vw;top:1vh;width:1px;height:1px;--twink:4.10s;--twinkDelay:-3.99s;--twinkMin:0.31;--twinkMax:0.67" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:16vw;top:81vh;width:2px;height:2px;--twink:3.41s;--twinkDelay:-0.04s;--twinkMin:0.26;--twinkMax:0.62" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:43vw;top:23vh;width:1px;height:1px;--twink:4.01s;--twinkDelay:-3.46s;--twinkMin:0.22;--twinkMax:0.52" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:62vw;top:9vh;width:1px;height:1px;--twink:3.61s;--twinkDelay:-2.93s;--twinkMin:0.39;--twinkMax:0.52" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:31vw;top:15vh;width:2px;height:2px;--twink:5.43s;--twinkDelay:-4.29s;--twinkMin:0.25;--twinkMax:0.63" aria-hidden="true"></span>
+  <span class="cosmic-bg__glow" style="left:62vw;top:61vh;width:196px;height:196px;--driftX:50px;--driftY:-96px;--dur:49s;--delay:-36s;--pulse:9.7s" aria-hidden="true"></span>
+  <span class="cosmic-bg__glow" style="left:83vw;top:17vh;width:173px;height:173px;--driftX:60px;--driftY:-123px;--dur:48s;--delay:-42s;--pulse:6.5s" aria-hidden="true"></span>
+  <span class="cosmic-bg__glow" style="left:35vw;top:27vh;width:261px;height:261px;--driftX:-81px;--driftY:-130px;--dur:40s;--delay:-26s;--pulse:8.7s" aria-hidden="true"></span>
+  <span class="cosmic-bg__glow" style="left:81vw;top:65vh;width:194px;height:194px;--driftX:-92px;--driftY:-121px;--dur:49s;--delay:-45s;--pulse:7.7s" aria-hidden="true"></span>
+  <span class="cosmic-bg__glow" style="left:63vw;top:14vh;width:179px;height:179px;--driftX:-33px;--driftY:-50px;--dur:65s;--delay:-25s;--pulse:8.6s" aria-hidden="true"></span>
+  <span class="cosmic-bg__glow" style="left:74vw;top:33vh;width:158px;height:158px;--driftX:-32px;--driftY:-45px;--dur:44s;--delay:-4s;--pulse:6.4s" aria-hidden="true"></span>
+  <div class="cosmic-bg__beam" aria-hidden="true"></div>
+</div>
+
+
+<!-- COMPONENT: nav START -->
+<nav class="cc-nav" id="cc-nav" role="navigation" aria-label="Main navigation">
+  <a href="/" class="cc-nav__logo" aria-label="Crypto Cipher® Home">
+    <img src="logo.svg" alt="Crypto Cipher® Audio Lab" height="40" width="102" decoding="async">
+  </a>
+
+  <ul class="cc-nav__menu">
+    <!-- 1. Libraries · Revenue stream #1 -->
+    <li class="cc-nav__item"><a class="cc-nav__link" href="/instruments"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg><span class="cc-nav__label">Instruments</span></a></li>
+
+    <!-- 2. Recordings · Revenue stream #2 (custom sessions) -->
+    <li class="cc-nav__item"><a class="cc-nav__link" href="/recording-services"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg><span class="cc-nav__label">Recordings</span></a></li>
+
+    <!-- 3. Heritage · Brand / cultural authority -->
+    <li class="cc-nav__item"><a class="cc-nav__link" href="/heritage"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span class="cc-nav__label">Heritage</span></a></li>
+
+    <!-- 4. Collaborate · Partnership / co-creation -->
+    <li class="cc-nav__item"><a class="cc-nav__link" href="/collaboration"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="cc-nav__label">Collaborate</span></a></li>
+
+    <!-- 5. License · Sync + AI data licensing -->
+
+    <!-- 6. About · Brand foundation -->
+    <li class="cc-nav__item"><a class="cc-nav__link" href="/about"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="cc-nav__label">About</span></a></li>
+
+    <!-- 7. Contact · Foundational -->
+    <li class="cc-nav__item"><a class="cc-nav__link" href="/contact"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="cc-nav__label">Contact</span></a></li>
+
+    <!-- 8. Social · Single icon · click opens dropdown straight below with IG / FB / LinkedIn -->
+    <li class="cc-nav__item cc-nav__item--social">
+      <button class="cc-nav__link cc-nav__link--social" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="cc-nav-social-dropdown" aria-label="Social media">
+        <svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        <span class="cc-nav__label">Social</span>
+      </button>
+      <div class="cc-nav__dropdown" id="cc-nav-social-dropdown" role="menu" aria-hidden="true">
+        <a href="https://www.instagram.com/cryptocipher/" class="cc-nav__dropdown-item" role="menuitem" target="_blank" rel="noopener noreferrer">
+          <svg class="cc-nav__dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.facebook.com/CryptoCipherAudioLab/" class="cc-nav__dropdown-item" role="menuitem" target="_blank" rel="noopener noreferrer">
+          <svg class="cc-nav__dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          <span>Facebook</span>
+        </a>
+        <a href="https://in.linkedin.com/company/crypto-cipher" class="cc-nav__dropdown-item" role="menuitem" target="_blank" rel="noopener noreferrer">
+          <svg class="cc-nav__dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </li>
+    <li class="cc-nav__item cc-nav__item--account">
+      <button class="cc-nav__link cc-nav__link--account" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="cc-nav-account-dropdown" aria-label="Account">
+        <svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span class="cc-nav__label">Login</span>
+        <span class="cc-nav__badge" data-cart-total hidden aria-hidden="true">0</span>
+      </button>
+      <div class="cc-nav__dropdown cc-nav__dropdown--right" id="cc-nav-account-dropdown" role="menu" aria-hidden="true">
+        <a href="#" class="cc-nav__dropdown-item" role="menuitem" data-auth="signin">
+          <svg class="cc-nav__dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          <span>Sign in</span>
+        </a>
+        <a href="#" class="cc-nav__dropdown-item" role="menuitem" data-auth="signup">
+          <svg class="cc-nav__dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+          <span>Sign up</span>
+        </a>
+        <span class="cc-nav__dropdown-divider" role="separator"></span>
+        <a href="#" class="cc-nav__dropdown-item" role="menuitem" data-action="wishlist-view">
+          <svg class="cc-nav__dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span>Wishlist</span>
+          <span class="cc-nav__dropdown-count" data-wishlist-count hidden>0</span>
+        </a>
+        <a href="#" class="cc-nav__dropdown-item" role="menuitem" data-action="cart-view">
+          <svg class="cc-nav__dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span>Cart</span>
+          <span class="cc-nav__dropdown-count" data-cart-count hidden>0</span>
+        </a>
+      </div>
+    </li>
+  </ul>
+
+  <!-- Svantra CTA · Awwwards-level external link · upcoming loops marketplace -->
+  <a href="https://svantra.in" class="cc-nav__svantra" target="_blank" rel="noopener noreferrer" aria-label="Svantra — opens in new tab" data-magnetic>
+    <span class="cc-nav__svantra-bg" aria-hidden="true"></span>
+    <span class="cc-nav__svantra-glow" aria-hidden="true"></span>
+    <span class="cc-nav__svantra-shine" aria-hidden="true"></span>
+    <span class="cc-nav__svantra-content">
+      <span class="cc-nav__svantra-text">Svantra</span>
+      <span class="cc-nav__svantra-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+      </span>
+    </span>
+    <span class="cc-nav__svantra-edge" aria-hidden="true"></span>
+  </a>
+
+  <button class="cc-nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+
+<!-- ═══ MOBILE NAV PANEL · required by DESIGN-SYSTEM §9 (absent from canonical) ═══ -->
+<div class="cc-nav__mobile-panel" id="cc-nav-mobile">
+  <a href="/instruments" class="cc-nav__mobile-link"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>Instruments</a>
+  <a href="/recording-services" class="cc-nav__mobile-link"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>Recordings</a>
+  <a href="/heritage" class="cc-nav__mobile-link"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>Heritage</a>
+  <a href="/collaboration" class="cc-nav__mobile-link"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Collaborate</a>
+  <a href="/about" class="cc-nav__mobile-link"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>About</a>
+  <a href="/contact" class="cc-nav__mobile-link"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact</a>
+
+  <div class="cc-nav__mobile-divider" aria-hidden="true"></div>
+  <span class="cc-nav__mobile-section-label">Account</span>
+  <a href="#" class="cc-nav__mobile-link" data-auth="signin"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>Sign in</a>
+  <a href="#" class="cc-nav__mobile-link" data-auth="signup"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>Sign up</a>
+  <a href="#" class="cc-nav__mobile-link" data-action="wishlist-view"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Wishlist <span class="cc-nav__badge cc-nav__badge--inline" data-wishlist-count hidden>0</span></a>
+  <a href="#" class="cc-nav__mobile-link" data-action="cart-view"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>Cart <span class="cc-nav__badge cc-nav__badge--inline" data-cart-count hidden>0</span></a>
+
+  <div class="cc-nav__mobile-divider" aria-hidden="true"></div>
+
+  <span class="cc-nav__mobile-section-label">Follow us</span>
+  <div class="cc-nav__mobile-social-row">
+    <a href="https://www.instagram.com/cryptocipher/" class="cc-nav__mobile-social" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a href="https://www.facebook.com/CryptoCipherAudioLab/" class="cc-nav__mobile-social" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    </a>
+    <a href="https://in.linkedin.com/company/crypto-cipher" class="cc-nav__mobile-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+  </div>
+
+  <div class="cc-nav__mobile-divider" aria-hidden="true"></div>
+
+  <a href="https://svantra.in" class="cc-nav__mobile-cta" target="_blank" rel="noopener noreferrer">
+    <span>Svantra</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;margin-left:0.5rem;"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+  </a>
+</div>
+<!-- COMPONENT: nav END -->
+
+
+<div class="abt-huelayer" aria-hidden="true"></div>
+<main id="main" tabindex="-1" class="abt-main">
+
+  <!-- ═══ §1 · HERO [TALL] ═══ -->
+  <section class="abt-sec abt-sec--tall abt-hero" aria-labelledby="abt-hero-title">
+    <div class="abt-hero__eyebrow abt-eyebrow-italic" data-reveal-hero data-reveal-delay="80">
+      Since <span class="gold">2010</span> · India
+    </div>
+    <h1 class="abt-hero__title" id="abt-hero-title" data-reveal-hero data-reveal-delay="160">
+      Sampled Indian instruments — from India, <em>for the entire world.</em>
+    </h1>
+    <p class="abt-hero__sub" data-reveal-hero data-reveal-delay="240">
+      A sample-library studio built from the ground up to put the real sound of India into the hands of composers everywhere.
+    </p>
+  </section>
+
+  <!-- ═══ §2 · MISSION & VISION [MED] ═══ -->
+  <section class="abt-sec abt-sec--med abt-mv-sec" aria-label="What we believe">
+    <div class="abt-mv abt-frame abt-frame--indigo" data-reveal>
+      <div class="abt-mv__stanza" data-reveal data-reveal-group="mv">
+        <div class="abt-mv__stanza-lead">The culture.</div>
+        <p>Indian music is vast, regional, and mostly undocumented in the formats modern producers actually use. We sample it properly — at depth, with the masters who carry it — so it survives in the work of the next generation, not just in memory.</p>
+      </div>
+      <div class="abt-mv__stanza" data-reveal data-reveal-group="mv">
+        <div class="abt-mv__stanza-lead">The people.</div>
+        <p>Every sound here was played by someone. We credit the artist, the recording director, and the collaborators by name — and we pay them. Not as a gesture. As the model. Contribution is compensated, morally and financially, the way a healthy creative economy should work.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ §3 · THE STORY [TALL] · drop-cap ═══ -->
+  <section class="abt-sec abt-sec--tall" aria-labelledby="abt-story-title">
+    <div class="abt-head" data-reveal>
+      <span class="eyebrow">The studio</span>
+      <h2 class="section-title" id="abt-story-title">It started with a room we built ourselves.</h2>
+    </div>
+    <div class="abt-story" data-reveal>
+      <div class="abt-story__prose">
+        <p><span class="leadword">It began in 2010</span> with a stubborn idea and almost nothing else: that the instruments of India deserved to be deeply sampled — captured with their culture and history intact. We had no studio, no resources, and just a name: Crypto Cipher. So we started slowly, building the dream one step at a time — saving for the first microphones, finding the players, and raising a studio from scratch, tuned specifically for these instruments and the people who play them.</p>
+        <p>We record talented musicians from across the country — players of instruments that are rare, regional, and often impossible to track down outside India. The libraries go deep: the breath of a harmonium's bellows, the click of its keys, percussion patterns played the way the tradition intends. That depth is why the work travels — from bedroom producers to composers scoring for Hollywood.</p>
+        <p>The mission was never only software. It's local jobs, performances recorded at historical locations, and Indian classical music carried to a global audience ready to discover it.</p>
+      </div>
+      <div class="abt-story__aside">
+        <div class="abt-story__fact">
+          <span class="abt-story__fact-num">2010</span>
+          <span class="abt-story__fact-label">The year the room was built</span>
+        </div>
+        <p class="abt-story__aside-note">Recorded with classical masters at historical locations across India — and used by composers from bedroom studios to Hollywood scoring stages.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ §4 · FOUR PILLARS · ORBITAL [TALL] · centerpiece · left/right split ═══ -->
+  <section class="abt-sec abt-sec--tall-plus" aria-labelledby="abt-pillars-title">
+    <div class="abt-pillars-split abt-frame abt-frame--green" data-reveal>
+
+    <!-- DESKTOP · orbital -->
+    <div class="abt-orbital-wrap" data-reveal>
+      <div class="abt-orbital" id="abtOrbital">
+        <div class="abt-orbital__orbit" aria-hidden="true">
+          <div class="abt-orbital__ring"></div>
+
+          <!-- Node I · 0° (top) -->
+          <div class="abt-orbital__node" style="--angle:0deg; ">
+            <div class="abt-orbital__node-inner">
+              <div class="abt-orbital__node-spin">
+                <button class="abt-orbital__node-disc" type="button" data-pillar="1" aria-label="Sample Libraries">
+                  <span class="abt-orbital__node-num">I</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Node II · 72° -->
+          <div class="abt-orbital__node" style="--angle:72deg; ">
+            <div class="abt-orbital__node-inner">
+              <div class="abt-orbital__node-spin">
+                <button class="abt-orbital__node-disc" type="button" data-pillar="2" aria-label="Recording Services">
+                  <span class="abt-orbital__node-num">II</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Node III · 144° -->
+          <div class="abt-orbital__node" style="--angle:144deg; ">
+            <div class="abt-orbital__node-inner">
+              <div class="abt-orbital__node-spin">
+                <button class="abt-orbital__node-disc" type="button" data-pillar="3" aria-label="The Academy">
+                  <span class="abt-orbital__node-num">III</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Node IV · 216° -->
+          <div class="abt-orbital__node" style="--angle:216deg; ">
+            <div class="abt-orbital__node-inner">
+              <div class="abt-orbital__node-spin">
+                <button class="abt-orbital__node-disc" type="button" data-pillar="4" aria-label="Heritage Preservation">
+                  <span class="abt-orbital__node-num">IV</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Node V · 288° · DISABLED (Svantra · In Preparation · no positioning) -->
+          <!-- Node V · 288° · Svantra · dimmed until launch (remove --disabled to activate) -->
+          <div class="abt-orbital__node abt-orbital__node--disabled" style="--angle:288deg; ">
+            <div class="abt-orbital__node-inner">
+              <div class="abt-orbital__node-spin">
+                <button class="abt-orbital__node-disc" type="button" data-pillar="5" aria-label="Svantra — coming soon">
+                  <span class="abt-orbital__node-num">V</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M8.5 12a3.5 3.5 0 0 1 7 0" opacity="0.85"/><path d="M5.5 12a6.5 6.5 0 0 1 13 0" opacity="0.5"/><path d="M2.5 12a9.5 9.5 0 0 1 19 0" opacity="0.28"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Centre -->
+        <div class="abt-orbital__core">
+          <img src="logo.svg" alt="Crypto Cipher® Audio Lab">
+          <span class="abt-orbital__core-label">The Studio</span>
+        </div>
+
+        <!-- Pillar cards (revealed on node activation) -->
+        <div class="abt-orbital__card" data-card="1">
+          <span class="abt-orbital__card-eyebrow">Pillar I</span>
+          <div class="abt-orbital__card-title">Sample Libraries</div>
+          <div class="abt-orbital__card-body">Indian instruments &amp; voices sampled at depth — multi-mic, multi-articulation, scripted. Used by film and game studios across continents.</div>
+        </div>
+        <div class="abt-orbital__card" data-card="2">
+          <span class="abt-orbital__card-eyebrow">Pillar II</span>
+          <div class="abt-orbital__card-title">Recording Services</div>
+          <div class="abt-orbital__card-body">Live sessions with classical masters — sitar, sarod, tabla, shehnai, vocals — for productions worldwide. Recording director plus full legal and licensing handled.</div>
+        </div>
+        <div class="abt-orbital__card" data-card="3">
+          <span class="abt-orbital__card-eyebrow">Pillar III</span>
+          <div class="abt-orbital__card-title">The Academy</div>
+          <div class="abt-orbital__card-body">An audio-engineering and music-production school since 2010. Studio and live-sound engineering, DAW certifications — taught by people doing the work commercially.</div>
+        </div>
+        <div class="abt-orbital__card" data-card="4">
+          <span class="abt-orbital__card-eyebrow">Pillar IV</span>
+          <div class="abt-orbital__card-title">Heritage Preservation</div>
+          <div class="abt-orbital__card-body">The quietest pillar. Master musicians, ragas, and performances captured into a global audio archive.</div>
+        </div>
+        <div class="abt-orbital__card abt-orbital__card--coming" data-card="5">
+          <span class="abt-orbital__card-eyebrow">Pillar V</span>
+          <div class="abt-orbital__card-title">Svantra</div>
+          <div class="abt-orbital__card-body">In preparation.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT · heading + intro (paired with the orbit on the left) -->
+    <div class="abt-pillars-copy" data-reveal>
+      <span class="eyebrow">What we do</span>
+      <h2 class="section-title" id="abt-pillars-title">Four pillars. <em class="section-title-accent">One studio at the centre.</em></h2>
+      <p class="abt-pillars-copy__lead">Everything we make radiates from one studio in India — four lines of work, one centre.<span class="abt-pillars-copy__hint"> Hover a node to see each pillar.</span></p>
+    </div>
+
+    <!-- MOBILE · vertical stacked fallback -->
+    <div class="abt-pillars-fallback" data-reveal>
+      <div class="abt-pillar-row">
+        <div class="abt-pillar-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></div>
+        <div>
+          <div class="abt-pillar-row__num">Pillar I</div>
+          <div class="abt-pillar-row__title">Sample Libraries</div>
+          <div class="abt-pillar-row__body">Indian instruments &amp; voices sampled at depth — multi-mic, multi-articulation, scripted. Used by film and game studios across continents.</div>
+        </div>
+      </div>
+      <div class="abt-pillar-row">
+        <div class="abt-pillar-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></div>
+        <div>
+          <div class="abt-pillar-row__num">Pillar II</div>
+          <div class="abt-pillar-row__title">Recording Services</div>
+          <div class="abt-pillar-row__body">Live sessions with classical masters — sitar, sarod, tabla, shehnai, vocals — for productions worldwide. Recording director plus full legal and licensing handled.</div>
+        </div>
+      </div>
+      <div class="abt-pillar-row">
+        <div class="abt-pillar-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg></div>
+        <div>
+          <div class="abt-pillar-row__num">Pillar III</div>
+          <div class="abt-pillar-row__title">The Academy</div>
+          <div class="abt-pillar-row__body">An audio-engineering and music-production school since 2010. Studio and live-sound engineering, DAW certifications — taught by people doing the work commercially.</div>
+        </div>
+      </div>
+      <div class="abt-pillar-row">
+        <div class="abt-pillar-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+        <div>
+          <div class="abt-pillar-row__num">Pillar IV</div>
+          <div class="abt-pillar-row__title">Heritage Preservation</div>
+          <div class="abt-pillar-row__body">The quietest pillar. Master musicians, ragas, and performances captured into a global audio archive.</div>
+        </div>
+      </div>
+      <div class="abt-pillar-row abt-pillar-row--muted">
+        <div class="abt-pillar-row__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M8.5 12a3.5 3.5 0 0 1 7 0" opacity="0.85"/><path d="M5.5 12a6.5 6.5 0 0 1 13 0" opacity="0.5"/><path d="M2.5 12a9.5 9.5 0 0 1 19 0" opacity="0.28"/></svg></div>
+        <div>
+          <div class="abt-pillar-row__num">Svantra</div>
+          <div class="abt-pillar-row__title">In preparation.</div>
+        </div>
+      </div>
+    </div>
+
+    </div><!-- /.abt-pillars-split -->
+  </section>
+
+  <!-- ═══ §5 · FOUNDER · full-bleed shot · text overlay on left negative space ═══ -->
+  <section class="abt-sec abt-founder-bleed" aria-labelledby="abt-founder-title" data-reveal>
+    <div class="abt-founder-bleed__media">
+      <!-- [PLACEHOLDER: FOUNDER — wide environmental shot, subject LEFT-of-centre,
+           negative space kept on the RIGHT for the text overlay. Swap src for real file.] -->
+      <!-- [PLACEHOLDER: two founder images — WEB = wide (subject left-of-centre, right negative space for text);
+           MOBILE = tall/portrait crop. Swap both src for real compressed files (~1400px web / ~900px mobile).] -->
+      <picture>
+        <!-- MOBILE: tall portrait crop -->
+        <source media="(max-width: 768px)" srcset="Gallery/Foundermobile.jpeg">
+        <!-- WEB: wide environmental studio shot — full-bleed, subject left, space right -->
+        <img src="Gallery/Foundermdekstop.jpg" alt="Founder, Crypto Cipher" decoding="async" fetchpriority="high" class="abt-founder-bleed__img" onerror="this.style.opacity=0">
+      </picture>
+      <div class="abt-founder-bleed__keyglow" aria-hidden="true"></div>
+      <div class="abt-founder-bleed__vignette" aria-hidden="true"></div>
+      <div class="abt-founder-bleed__grade" aria-hidden="true"></div>
+      <div class="abt-founder-bleed__mat" aria-hidden="true"></div>
+      <div class="abt-founder-bleed__scrim" aria-hidden="true"></div>
+    </div>
+    <div class="abt-founder-bleed__overlay">
+      <span class="eyebrow" id="abt-founder-title">Founder</span>
+      <blockquote class="abt-founder-bleed__quote">
+        <!-- [PLACEHOLDER: FOUNDER QUOTE — his real voice, 1–2 lines] -->
+        "We didn't build this to sell plugins. We built it so the people who actually play these instruments get heard — and get paid — far beyond the room we recorded them in."
+      </blockquote>
+      <div class="abt-founder-bleed__name">Sumit Kumar</div>
+      <div class="abt-founder-bleed__role">Founder · Crypto Cipher Audio Lab</div>
+    </div>
+  </section>
+
+  <!-- ═══ §6 · TEAM · one family · node field (desktop) / roster (mobile) ═══ -->
+  <section class="abt-sec abt-sec--med-tight" aria-labelledby="abt-team-title">
+    <div class="abt-team-frame abt-frame abt-frame--green" data-reveal>
+      <span class="abt-team-frame__tag">The people</span>
+      <h2 class="section-title abt-team-frame__title" id="abt-team-title">The <em class="section-title-accent">Crypto Cipher</em> Family</h2>
+
+    <!-- Desktop: draggable node field (JS populates from the roster below — single source of truth) -->
+    <div class="abt-team__field" id="abtTeamField" aria-hidden="true">
+      <svg class="abt-team__links" id="abtTeamLinks"></svg>
+    </div>
+
+    <!-- Mobile + data source: circular roster. JS reads name/role/img from here to build the field.
+         [PLACEHOLDER: TEAM ROSTER — name · role · headshot at /team/*.jpg. Add/remove freely; both views update. ] -->
+    <div class="abt-team__grid" data-reveal>
+      <div class="abt-team__person" style="--focus-y:50%" data-bio="A short bio goes here — role, instruments, and a line of background. Editable per person in the backend.">
+        <span class="abt-team__avatar"><img src="Family/01.jpg" alt="" decoding="async" onerror="this.style.display='none'"></span>
+        <span class="abt-team__name">[Name]</span>
+        <span class="abt-team__desig">Sitar · Sarod</span>
+      </div>
+      <div class="abt-team__person" style="--focus-y:50%" data-bio="A short bio goes here — role, instruments, and a line of background. Editable per person in the backend.">
+        <span class="abt-team__avatar"><img src="Family/02.jpg" alt="" decoding="async" onerror="this.style.display='none'"></span>
+        <span class="abt-team__name">[Name]</span>
+        <span class="abt-team__desig">Tabla · Percussion</span>
+      </div>
+      <div class="abt-team__person" style="--focus-y:50%" data-bio="A short bio goes here — role, instruments, and a line of background. Editable per person in the backend.">
+        <span class="abt-team__avatar"><img src="Family/03.jpg" alt="" decoding="async" onerror="this.style.display='none'"></span>
+        <span class="abt-team__name">[Name]</span>
+        <span class="abt-team__desig">Recording Director</span>
+      </div>
+      <div class="abt-team__person" style="--focus-y:50%" data-bio="A short bio goes here — role, instruments, and a line of background. Editable per person in the backend.">
+        <span class="abt-team__avatar"><img src="Family/04.jpg" alt="" decoding="async" onerror="this.style.display='none'"></span>
+        <span class="abt-team__name">[Name]</span>
+        <span class="abt-team__desig">Producer</span>
+      </div>
+      <div class="abt-team__person" style="--focus-y:50%" data-bio="A short bio goes here — role, instruments, and a line of background. Editable per person in the backend.">
+        <span class="abt-team__avatar"><img src="Family/05.jpg" alt="" decoding="async" onerror="this.style.display='none'"></span>
+        <span class="abt-team__name">[Name]</span>
+        <span class="abt-team__desig">Producer · Editing</span>
+      </div>
+      <div class="abt-team__person" style="--focus-y:50%" data-bio="A short bio goes here — role, instruments, and a line of background. Editable per person in the backend.">
+        <span class="abt-team__avatar"><img src="Family/06.jpg" alt="" decoding="async" onerror="this.style.display='none'"></span>
+        <span class="abt-team__name">[Name]</span>
+        <span class="abt-team__desig">Project Manager</span>
+      </div>
+      <div class="abt-team__person" style="--focus-y:50%" data-bio="A short bio goes here — role, instruments, and a line of background. Editable per person in the backend.">
+        <span class="abt-team__avatar"><img src="Family/07.jpg" alt="" decoding="async" onerror="this.style.display='none'"></span>
+        <span class="abt-team__name">[Name]</span>
+        <span class="abt-team__desig">Lead Instructor · Academy</span>
+      </div>
+      <div class="abt-team__person" style="--focus-y:50%" data-bio="A short bio goes here — role, instruments, and a line of background. Editable per person in the backend.">
+        <span class="abt-team__avatar"><img src="Family/01.jpg" alt="" decoding="async" onerror="this.style.display='none'"></span>
+        <span class="abt-team__name">[Name]</span>
+        <span class="abt-team__desig">Live-Sound Engineering</span>
+      </div>
+    </div>
+    </div><!-- /.abt-team-frame -->
+  </section>
+
+  <!-- ═══ §7 · PAST COLLABORATORS [SHORT] · drag slider · name + role only · scales to 50+ ═══ -->
+  <section class="abt-sec abt-sec--short" aria-labelledby="abt-collab-title">
+    <div class="abt-credit-frame abt-frame abt-frame--gold" data-reveal>
+    <div class="abt-head abt-credit-head">
+      <span class="eyebrow" id="abt-collab-title">Over the years</span>
+      <div class="abt-credit-arrows" aria-hidden="true">
+        <button class="abt-credit-arrow" type="button" data-dir="-1" aria-label="Previous collaborators">&#8249;</button>
+        <button class="abt-credit-arrow" type="button" data-dir="1" aria-label="More collaborators">&#8250;</button>
+      </div>
+    </div>
+    <!-- [PLACEHOLDER: PAST COLLABORATORS — name + role only. Add/remove .abt-credit-card freely; track scrolls, scales to 50+. ] -->
+    <div class="abt-credit-slider">
+      <div class="abt-credit-track" id="abtCreditTrack" role="list" tabindex="0" aria-label="Past collaborators, drag, swipe or use arrows to browse">
+        <div class="abt-credit-card" role="listitem"><span class="abt-credit-card__name">[Collaborator Name]</span><span class="abt-credit-card__role">Vocals</span></div>
+        <div class="abt-credit-card" role="listitem"><span class="abt-credit-card__name">[Collaborator Name]</span><span class="abt-credit-card__role">Bansuri</span></div>
+        <div class="abt-credit-card" role="listitem"><span class="abt-credit-card__name">[Collaborator Name]</span><span class="abt-credit-card__role">Mixing</span></div>
+        <div class="abt-credit-card" role="listitem"><span class="abt-credit-card__name">[Collaborator Name]</span><span class="abt-credit-card__role">Santoor</span></div>
+        <div class="abt-credit-card" role="listitem"><span class="abt-credit-card__name">[Collaborator Name]</span><span class="abt-credit-card__role">Recording</span></div>
+        <div class="abt-credit-card" role="listitem"><span class="abt-credit-card__name">[Collaborator Name]</span><span class="abt-credit-card__role">Sarangi</span></div>
+        <div class="abt-credit-card" role="listitem"><span class="abt-credit-card__name">[Collaborator Name]</span><span class="abt-credit-card__role">Mastering</span></div>
+        <div class="abt-credit-card" role="listitem"><span class="abt-credit-card__name">[Collaborator Name]</span><span class="abt-credit-card__role">Vocals</span></div>
+        <div class="abt-credit-card" role="listitem"><span class="abt-credit-card__name">[Collaborator Name]</span><span class="abt-credit-card__role">Tabla</span></div>
+        <div class="abt-credit-card" role="listitem"><span class="abt-credit-card__name">[Collaborator Name]</span><span class="abt-credit-card__role">Flute</span></div>
+        <div class="abt-credit-card" role="listitem"><span class="abt-credit-card__name">[Collaborator Name]</span><span class="abt-credit-card__role">Sitar</span></div>
+        <div class="abt-credit-card" role="listitem"><span class="abt-credit-card__name">[Collaborator Name]</span><span class="abt-credit-card__role">Mixing</span></div>
+        <div class="abt-credit-card" role="listitem"><span class="abt-credit-card__name">[Collaborator Name]</span><span class="abt-credit-card__role">Sarod</span></div>
+        <div class="abt-credit-card" role="listitem"><span class="abt-credit-card__name">[Collaborator Name]</span><span class="abt-credit-card__role">Vocals</span></div>
+      </div>
+      <div class="abt-credit-progress" aria-hidden="true"><i id="abtCreditBar"></i></div>
+    </div>
+    </div><!-- /.abt-credit-frame -->
+  </section>
+
+  <!-- ═══ §8 · STUDIO GALLERY [TALL] · uniform symmetric grid ═══ -->
+  <section class="abt-sec abt-sec--tall" aria-labelledby="abt-gallery-title">
+    <div class="abt-head" data-reveal>
+      <span class="eyebrow" id="abt-gallery-title">Inside the studio</span>
+    </div>
+    <!-- [PLACEHOLDER: 12 STUDIO IMAGES — swap .abt-gallery__ph for <img> at content stage] -->
+    <div class="abt-gallery" data-reveal>
+      <div class="abt-gallery__item" style="--focus-y:50%"><img src="Gallery/Gallery00001.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 01</div></div>
+      <div class="abt-gallery__item" style="--focus-y:50%"><img src="Gallery/Gallery00002.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 02</div></div>
+      <div class="abt-gallery__item" style="--focus-y:50%"><img src="Gallery/Gallery00003.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 03</div></div>
+      <div class="abt-gallery__item" style="--focus-y:50%"><img src="Gallery/Gallery00004.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 04</div></div>
+      <div class="abt-gallery__item" style="--focus-y:50%"><img src="Gallery/Gallery00005.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 05</div></div>
+      <div class="abt-gallery__item" style="--focus-y:50%"><img src="Gallery/Gallery00006.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 06</div></div>
+      <div class="abt-gallery__item" style="--focus-y:50%"><img src="Gallery/Gallery00007.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 07</div></div>
+      <div class="abt-gallery__item" style="--focus-y:50%"><img src="Gallery/Gallery00001.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 08</div></div>
+      <div class="abt-gallery__item" style="--focus-y:50%"><img src="Gallery/Gallery00002.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 09</div></div>
+      <div class="abt-gallery__item" style="--focus-y:50%"><img src="Gallery/Gallery00003.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 10</div></div>
+      <div class="abt-gallery__item" style="--focus-y:50%"><img src="Gallery/Gallery00004.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 11</div></div>
+      <div class="abt-gallery__item" style="--focus-y:50%"><img src="Gallery/Gallery00005.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 12</div></div>
+    </div>
+  </section>
+
+  <!-- Gallery lightbox overlay (page-local; opens on tile click/Enter) -->
+  <div class="abt-lightbox" id="abtLightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+    <button class="abt-lightbox__close" type="button" aria-label="Close">&times;</button>
+    <button class="abt-lightbox__nav abt-lightbox__nav--prev" type="button" aria-label="Previous">&#8249;</button>
+    <figure class="abt-lightbox__stage">
+      <img class="abt-lightbox__img" id="abtLightboxImg" src="" alt="">
+      <figcaption class="abt-lightbox__cap" id="abtLightboxCap"></figcaption>
+    </figure>
+    <button class="abt-lightbox__nav abt-lightbox__nav--next" type="button" aria-label="Next">&#8250;</button>
+  </div>
+
+  <!-- ═══ §9 · HERITAGE NOTE [SHORT] · whitespace moment ═══ -->
+  <!-- ═══ §9 · HERITAGE — premium closing statement (page ends here) ═══ -->
+  <section class="abt-sec abt-heritage abt-heritage--closer" aria-label="Heritage note">
+    <span class="abt-heritage__eyebrow" data-reveal>Our quiet work</span>
+    <p class="abt-heritage__line" data-reveal>Quietly preserving Indian classical heritage —<br><em>one recording at a time.</em></p>
+    <span class="abt-heritage__rule" data-reveal aria-hidden="true"></span>
+  </section>
+
+
+</main>
+
+
+<footer class="ft" id="footer" data-reveal>
+  <div class="ft__bg"></div>
+  <div class="ft__glow"></div>
+
+  <div class="ft__wrap">
+
+    <!-- ═══ 5-COLUMN GRID ═══ -->
+    <div class="ft__grid">
+
+      <div class="ft__col">
+        <div class="ft__col-head">Navigation</div>
+        <a href="/">Home</a>
+        <a href="/instruments">Instruments</a>
+        <a href="/recording-services">Recordings</a>
+        <a href="/heritage">Heritage</a>
+        <a href="/academy">Academy</a>
+        <a href="/collaboration">Collaboration</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+
+      <div class="ft__col">
+        <div class="ft__col-head">Catalogue</div>
+        <a href="/instruments">Virtual Instruments</a>
+        <a href="/instruments/new">New Releases</a>
+        <a href="/instruments/best-sellers">Best Sellers</a>
+        <a href="/licensing">Licensing</a>
+      </div>
+
+      <div class="ft__col">
+        <div class="ft__col-head">Collaboration</div>
+        <a href="/collaboration/artists">Artists &amp; Musicians</a>
+        <a href="/collaboration/composers">Composers &amp; Producers</a>
+        <a href="/collaboration/ai-audio">AI &amp; Audio Technology</a>
+        <a href="/collaboration/software-developers">Audio Software Developers</a>
+        <a href="/collaboration/designers">UI &amp; Graphic Designers</a>
+        <a href="/collaboration/sound-design">Sound Designers</a>
+        <a href="/collaboration/creators">Content Creators</a>
+        <a href="/collaboration/web-developers">Web &amp; Platform Developers</a>
+        <a href="/affiliates">Affiliates</a>
+      </div>
+
+      <div class="ft__col">
+        <div class="ft__col-head">Company</div>
+        <a href="/about">About Crypto Cipher</a>
+        <a href="/competitions">Competitions</a>
+        <a href="/blog">Blog</a>
+        <a href="/news">News</a>
+        <a href="/careers">Careers</a>
+        <a href="/help">Help Center</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/do-not-share">Do Not Share My Personal Information</a>
+      </div>
+
+      <div class="ft__col">
+        <div class="ft__col-head">Connect</div>
+        <a href="https://www.instagram.com/cryptocipher/" rel="noopener" target="_blank">Instagram</a>
+        <a href="https://www.youtube.com/@CryptoCipherLab" rel="noopener" target="_blank">YouTube</a>
+        <a href="https://in.linkedin.com/company/crypto-cipher" rel="noopener" target="_blank">LinkedIn</a>
+        <a href="/newsletter">Newsletter</a>
+        <a href="/subscribe">Subscribe</a>
+        <a href="/community-spotlight">Community Spotlight</a>
+      </div>
+
+    </div>
+
+    <!-- ═══ SVANTRA BEACON · canonical glass panel ═══ -->
+    <a href="https://svantra.in" class="ft__svantra" target="_blank" rel="noopener noreferrer" aria-label="Svantra — opens in new tab" itemscope itemtype="https://schema.org/Brand">
+      <div class="ft__svantra-inner">
+        <div class="ft__svantra-text">
+          <span class="ft__svantra-eyebrow"><span class="ft__svantra-dot" aria-hidden="true"></span>Crypto Cipher Universe</span>
+          <span class="ft__svantra-name" itemprop="name">Svantra</span>
+          <span class="ft__svantra-tag" itemprop="description">Coming soon from Crypto Cipher.</span>
+        </div>
+        <div class="ft__svantra-foot">
+          <span class="ft__svantra-status">Coming Soon</span>
+          <span class="ft__svantra-cta">Visit<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- ═══ TRUST STRIP ═══ -->
+    <div class="ft__trust">
+
+      <div class="ft__trust-card">
+        <div class="ft__trust-icon"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></div>
+        <div class="ft__trust-title">Your privacy is protected</div>
+        <div class="ft__trust-desc">We never share or sell your personal information.</div>
+      </div>
+
+      <div class="ft__trust-card">
+        <div class="ft__trust-icon"><svg viewBox="0 0 24 24"><path d="M4 12h2M9 12V7M9 12v5M14 12V4M14 12v8M19 12V9M19 12v3"/></svg></div>
+        <div class="ft__trust-title">100% AI-free authentic recordings</div>
+        <div class="ft__trust-desc">Every sample is performed by real musicians and professionally recorded.</div>
+      </div>
+
+      <div class="ft__trust-card">
+        <div class="ft__trust-icon"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 13l2 2 4-4"/></svg></div>
+        <div class="ft__trust-title">License included with every download</div>
+        <div class="ft__trust-desc">Commercial usage rights and ownership, cleared for global use.</div>
+      </div>
+
+      <div class="ft__trust-card">
+        <div class="ft__trust-icon"><svg viewBox="0 0 24 24"><path d="M4 8h16v11H4z"/><path d="M4 8l2.5-3 3 3M9 8l2.5-3 3 3M14 8l2.5-3 3 3"/></svg></div>
+        <div class="ft__trust-title">Built for film &amp; media</div>
+        <div class="ft__trust-desc">Studio-mastered and cleared for sync — ready for any cue.</div>
+      </div>
+
+    </div>
+
+    <!-- ═══ BOTTOM BAR · brand + copyright + trust line ═══ -->
+    <div class="ft__bottom">
+      <div class="ft__bottom-brand">
+        <div class="ft__logo-wrap" id="ft-logo">
+          <div class="ft__logo-stage">
+            <img src="logo.svg" alt="Crypto Cipher®" class="ft__logo" decoding="async">
+          </div>
+        </div>
+        <div class="ft__bottom-meta">
+          <div class="ft__bottom-tagline">Preserving India's sonic heritage. Building the future of global music technology.</div>
+          <div class="ft__copy">© 2026 Crypto Cipher® — All Rights Reserved</div>
+        </div>
+      </div>
+      <div class="ft__trusted">Trusted by composers worldwide</div>
+    </div>
+
+  </div>
+</footer>
+
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   CRYPTO CIPHER® · ABOUT · COMPONENT JS
+   Nav scroll + hamburger + mobile panel + social dropdown + svantra magnetic.
+   Reveals are owned by polish.js (.is-revealed) — NO duplicate .visible IO here
+   (closes the HANDOFF #16 trap that the canonical page still ships).
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  'use strict';
+
+  var nav        = document.getElementById('cc-nav');
+  var hamburger  = nav && nav.querySelector('.cc-nav__hamburger');
+  var mobilePanel= document.getElementById('cc-nav-mobile');
+  var scrollTick = false;
+
+  if (nav) {
+    window.addEventListener('scroll', function(){
+      if (scrollTick) return;
+      scrollTick = true;
+      requestAnimationFrame(function(){
+        nav.classList.toggle('scrolled', window.scrollY > 80);
+        scrollTick = false;
+      });
+    }, { passive: true });
+  }
+
+  if (hamburger && mobilePanel) {
+    hamburger.addEventListener('click', function(){
+      var open = mobilePanel.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobilePanel.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        mobilePanel.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  /* Social dropdown */
+  (function initNavDropdowns(){
+    var pairs = [
+      ['.cc-nav__link--social',  'cc-nav-social-dropdown'],
+      ['.cc-nav__link--account', 'cc-nav-account-dropdown']
+    ].map(function (p) {
+      var trigger = nav && nav.querySelector(p[0]);
+      var dropdown = document.getElementById(p[1]);
+      return (trigger && dropdown) ? { trigger: trigger, dropdown: dropdown } : null;
+    }).filter(Boolean);
+    if (!pairs.length) return;
+    function setOpen(pair, open) {
+      pair.dropdown.classList.toggle('open', open);
+      pair.trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      pair.dropdown.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+    function closeAll(except) { pairs.forEach(function (p) { if (p !== except) setOpen(p, false); }); }
+    pairs.forEach(function (pair) {
+      pair.trigger.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var willOpen = !pair.dropdown.classList.contains('open');
+        closeAll(pair); setOpen(pair, willOpen);
+      });
+      pair.dropdown.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { setOpen(pair, false); });
+      });
+    });
+    document.addEventListener('click', function (e) {
+      pairs.forEach(function (pair) {
+        if (!pair.dropdown.contains(e.target) && !pair.trigger.contains(e.target)) setOpen(pair, false);
+      });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      pairs.forEach(function (pair) {
+        if (pair.dropdown.classList.contains('open')) { setOpen(pair, false); pair.trigger.focus(); }
+      });
+    });
+  })();
+
+  /* CC · cart/wishlist count stub */
+  window.CC = window.CC || {};
+  window.CC.getCounts = window.CC.getCounts || function () { return { cart: 0, wishlist: 0 }; };
+  window.CC.refreshBadges = function () {
+    var c = window.CC.getCounts();
+    document.querySelectorAll('[data-cart-count]').forEach(function (el) { el.textContent = c.cart; el.hidden = !(c.cart > 0); });
+    document.querySelectorAll('[data-wishlist-count]').forEach(function (el) { el.textContent = c.wishlist; el.hidden = !(c.wishlist > 0); });
+    document.querySelectorAll('[data-cart-total]').forEach(function (el) { el.textContent = c.cart; el.hidden = !(c.cart > 0); });
+  };
+  window.CC.refreshBadges();
+
+  /* Svantra magnetic (nav) — desktop/fine-pointer only */
+  (function initSvantraMagnetic(){
+    var btn = nav && nav.querySelector('.cc-nav__svantra[data-magnetic]');
+    if (!btn) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+    var STRENGTH = 0.18, MAX = 4;
+    btn.addEventListener('mousemove', function(e){
+      var r = btn.getBoundingClientRect();
+      var dx = Math.max(-MAX, Math.min(MAX, (e.clientX - (r.left + r.width/2)) * STRENGTH));
+      var dy = Math.max(-MAX, Math.min(MAX, (e.clientY - (r.top + r.height/2)) * STRENGTH));
+      btn.style.setProperty('--mx', dx + 'px');
+      btn.style.setProperty('--my', dy + 'px');
+    });
+    function reset(){ btn.style.setProperty('--mx','0px'); btn.style.setProperty('--my','0px'); }
+    btn.addEventListener('mouseleave', reset);
+    btn.addEventListener('blur', reset);
+  })();
+
+  /* ════════════════════════════
+     ORBITAL · pillar card activation
+     Hover or focus a node disc → show its card; leave/blur → hide.
+     Desktop only (mobile uses the stacked fallback).
+     ════════════════════════════ */
+  (function initOrbital(){
+    var orbital = document.getElementById('abtOrbital');
+    if (!orbital) return;
+    if (window.matchMedia('(max-width: 968px)').matches) return;
+
+    var cards = {};
+    orbital.querySelectorAll('.abt-orbital__card').forEach(function(c){
+      cards[c.getAttribute('data-card')] = c;
+    });
+    var discs = orbital.querySelectorAll('.abt-orbital__node-disc[data-pillar]');
+
+    function show(id){
+      Object.keys(cards).forEach(function(k){ cards[k].classList.toggle('is-active', k === id); });
+    }
+    function clear(){ Object.keys(cards).forEach(function(k){ cards[k].classList.remove('is-active'); }); }
+
+    discs.forEach(function(disc){
+      var id = disc.getAttribute('data-pillar');
+      disc.addEventListener('mouseenter', function(){ show(id); });
+      disc.addEventListener('focus',      function(){ show(id); });
+      disc.addEventListener('click',      function(){ show(id); });
+    });
+    orbital.addEventListener('mouseleave', clear);
+    /* focus leaving the orbital clears */
+    orbital.addEventListener('focusout', function(e){
+      if (!orbital.contains(e.relatedTarget)) clear();
+    });
+  })();
+
+})();
+</script>
+
+
+<!-- footer reveal + accordion handled by shared polish.js (canonical) -->
+
+
+<script>
+/* Gallery lightbox · page-local (not in shared polish.js).
+   Click/Enter a tile → fullscreen view; arrows / swipe to move; Esc / backdrop to close. */
+(function(){
+  'use strict';
+  var grid = document.querySelector('.abt-gallery');
+  var box  = document.getElementById('abtLightbox');
+  if (!grid || !box) return;
+  if (box.parentElement !== document.body) document.body.appendChild(box); // escape page stacking context -> above nav
+  var imgEl = document.getElementById('abtLightboxImg');
+  var capEl = document.getElementById('abtLightboxCap');
+  var btnClose = box.querySelector('.abt-lightbox__close');
+  var btnPrev  = box.querySelector('.abt-lightbox__nav--prev');
+  var btnNext  = box.querySelector('.abt-lightbox__nav--next');
+  var tiles = [].slice.call(grid.querySelectorAll('.abt-gallery__item'));
+  var idx = 0, lastFocus = null;
+
+  function dataFor(tile){
+    var img = tile.querySelector('img');
+    var ph  = tile.querySelector('.abt-gallery__ph');
+    var cap = tile.querySelector('.abt-gallery__cap');
+    return {
+      src: img ? img.currentSrc || img.src : '',
+      alt: img ? (img.alt || '') : (ph ? ph.textContent.trim() : ''),
+      cap: cap ? cap.textContent.trim() : (img ? img.alt : (ph ? ph.textContent.trim() : ''))
+    };
+  }
+  function render(){
+    var d = dataFor(tiles[idx]);
+    if (d.src){ imgEl.src = d.src; imgEl.alt = d.alt; imgEl.style.display=''; }
+    else { imgEl.removeAttribute('src'); imgEl.style.display='none'; }   // placeholder stage: caption only
+    capEl.textContent = d.cap || '';
+  }
+  function open(i){
+    idx = i; lastFocus = document.activeElement; render();
+    box.hidden = false;
+    requestAnimationFrame(function(){ box.classList.add('is-open'); });
+    document.body.style.overflow = 'hidden';
+    btnClose.focus();
+  }
+  function close(){
+    box.classList.remove('is-open');
+    document.body.style.overflow = '';
+    setTimeout(function(){ box.hidden = true; }, 280);
+    if (lastFocus) lastFocus.focus();
+  }
+  function step(n){ idx = (idx + n + tiles.length) % tiles.length; render(); }
+
+  tiles.forEach(function(t, i){
+    t.setAttribute('tabindex','0');
+    t.setAttribute('role','button');
+    t.setAttribute('aria-label','View image ' + (i+1));
+    t.addEventListener('click', function(){ open(i); });
+    t.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(i); }
+    });
+  });
+  btnClose.addEventListener('click', close);
+  btnPrev.addEventListener('click', function(){ step(-1); });
+  btnNext.addEventListener('click', function(){ step(1); });
+  box.addEventListener('click', function(e){ if (e.target === box) close(); });
+  document.addEventListener('keydown', function(e){
+    if (box.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') step(-1);
+    else if (e.key === 'ArrowRight') step(1);
+  });
+  // touch swipe
+  var x0 = null;
+  box.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+  box.addEventListener('touchend', function(e){
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
+    x0 = null;
+  }, {passive:true});
+})();
+</script>
+
+
+<script>
+/* §7 collaborators · pointer drag + arrow paging + progress (touch swipe is native).
+   Horizontal only — does not touch Lenis (vertical). No momentum, no infinite. */
+(function () {
+  var track = document.getElementById('abtCreditTrack');
+  if (!track) return;
+  var bar = document.getElementById('abtCreditBar');
+  var arrows = document.querySelectorAll('.abt-credit-arrow');
+
+  function maxScroll(){ return track.scrollWidth - track.clientWidth; }
+  function update(){
+    var max = maxScroll();
+    if (bar) bar.style.width = (max <= 1 ? 100 : (track.scrollLeft / max) * 100) + '%';
+    arrows.forEach(function(a){
+      var dir = +a.getAttribute('data-dir');
+      var atEnd = dir > 0 ? track.scrollLeft >= max - 1 : track.scrollLeft <= 1;
+      if (atEnd) a.setAttribute('disabled',''); else a.removeAttribute('disabled');
+    });
+  }
+  // arrow paging — scroll by ~80% of viewport width
+  arrows.forEach(function(a){
+    a.addEventListener('click', function(){
+      track.scrollBy({ left: (+a.getAttribute('data-dir')) * track.clientWidth * 0.8, behavior: 'smooth' });
+    });
+  });
+  // desktop pointer drag (touch handled natively)
+  var down = false, startX = 0, startScroll = 0, moved = 0;
+  track.addEventListener('pointerdown', function (e) {
+    if (e.pointerType === 'touch') return;
+    down = true; moved = 0; startX = e.clientX; startScroll = track.scrollLeft;
+    track.classList.add('is-dragging'); track.setPointerCapture(e.pointerId);
+  });
+  track.addEventListener('pointermove', function (e) {
+    if (!down) return;
+    var dx = e.clientX - startX; moved = Math.abs(dx);
+    track.scrollLeft = startScroll - dx;
+  });
+  function end(){ down = false; track.classList.remove('is-dragging'); }
+  track.addEventListener('pointerup', end);
+  track.addEventListener('pointercancel', end);
+  track.addEventListener('click', function (e) { if (moved > 6) { e.preventDefault(); e.stopPropagation(); } }, true);
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+
+<script>
+/* §6 team · draggable node field (desktop ≥969 only).
+   Reads the roster (.abt-team__person) as the single data source, builds nodes,
+   drag-to-arrange (session only), tap/click reveals photo+name+role. No infinite
+   motion — nodes are static until the user drags. Mobile shows the roster instead. */
+(function () {
+  var field = document.getElementById('abtTeamField');
+  if (!field) return;
+  var mq = window.matchMedia('(min-width: 360px)');
+  var svg = document.getElementById('abtTeamLinks');
+  var built = false, nodes = [], panel = null;
+
+  function readRoster() {
+    return [].slice.call(document.querySelectorAll('.abt-team__grid .abt-team__person')).map(function (p) {
+      var img = p.querySelector('img');
+      return {
+        name: (p.querySelector('.abt-team__name') || {}).textContent || '',
+        role: (p.querySelector('.abt-team__desig') || {}).textContent || '',
+        img: img ? img.getAttribute('src') : '',
+        focusY: p.style.getPropertyValue('--focus-y') || '50%',
+        bio: p.getAttribute('data-bio') || ''
+      };
+    });
+  }
+  // Geometry that fits ANY roster size (8 or 50+) without cram/overlap/break.
+  //   small N (<=16): organic random scatter (looks alive)
+  //   large N:        grid-jitter packing (proven 0-overlap up to 60+ at 360px)
+  // Field height auto-grows from row count either way. Input N -> area -> height.
+  function fieldMetrics() {
+    var W = field.clientWidth || 1, narrow = W < 520;
+    var nodePx = narrow ? 46 : 78, gap = narrow ? 16 : 28, cell = nodePx + gap;
+    return { W: W, narrow: narrow, nodePx: nodePx, gap: gap, cell: cell };
+  }
+  function scatter(people) {
+    var m = fieldMetrics(), n = people.length, floor = m.narrow ? 460 : 540;
+    if (n <= 16) {
+      // organic scatter into an area sized for n
+      var rowsApprox = Math.ceil(n / Math.max(1, Math.floor((m.W * 0.76) / m.cell)));
+      var H = Math.max(floor, rowsApprox * m.cell + m.cell);
+      field.style.height = H + 'px';
+      var R = m.narrow ? 58 : 86, tries;
+      people.forEach(function (p) {
+        tries = 0;
+        do {
+          p.x = (0.12 + Math.random() * 0.76) * m.W;
+          p.y = (0.10 + Math.random() * 0.80) * H;
+          tries++;
+        } while (tries < 80 && people.some(function (q) {
+          return q !== p && q.x != null && Math.hypot(p.x - q.x, p.y - q.y) < R;
+        }));
+      });
+    } else {
+      // grid-jitter — guaranteed no overlap at scale
+      var usableW = m.W * 0.84;
+      var cols = Math.max(1, Math.floor(usableW / m.cell));
+      var rows = Math.ceil(n / cols);
+      var H2 = Math.max(floor, rows * m.cell + m.cell);
+      field.style.height = H2 + 'px';
+      var insetX = (m.W - cols * m.cell) / 2 + m.cell / 2;
+      var insetY = m.cell * 0.8;
+      var jit = Math.max(0, (m.cell - m.nodePx) * 0.5 - 2);
+      people.forEach(function (p, k) {
+        var c = k % cols, r = Math.floor(k / cols);
+        p.x = insetX + c * m.cell + (Math.random() * 2 - 1) * jit;
+        p.y = insetY + r * m.cell + (Math.random() * 2 - 1) * jit;
+      });
+    }
+  }
+  function drawLinks() {
+    var W = field.clientWidth, H = field.clientHeight;
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    svg.innerHTML = '';
+    if (nodes.length < 2) return;
+    var seen = {};
+    function addLine(a, b) {
+      var key = a.i < b.i ? a.i + '-' + b.i : b.i + '-' + a.i;
+      if (seen[key]) return; seen[key] = 1;
+      var l = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      l.setAttribute('x1', a.x); l.setAttribute('y1', a.y);
+      l.setAttribute('x2', b.x); l.setAttribute('y2', b.y);
+      svg.appendChild(l);
+    }
+    // 1) CLOSED RING — order nodes by angle around the centroid so the loop
+    //    never self-crosses, then join each to the next AND last back to first.
+    //    Result: one unbroken circle, every member on it -> reads as family.
+    var cx = 0, cy = 0;
+    nodes.forEach(function (n) { cx += n.x; cy += n.y; });
+    cx /= nodes.length; cy /= nodes.length;
+    var ring = nodes.slice().sort(function (a, b) {
+      return Math.atan2(a.y - cy, a.x - cx) - Math.atan2(b.y - cy, b.x - cx);
+    });
+    for (var r = 0; r < ring.length; r++) {
+      addLine(ring[r], ring[(r + 1) % ring.length]);   // %length closes the loop
+    }
+    // 2) INNER CROSS-LINKS — short interior strands for the constellation web.
+    var deg = {};
+    nodes.forEach(function (n) { deg[n.i] = 0; });
+    // recount degree from the ring already drawn
+    Object.keys(seen).forEach(function (k) { var p = k.split('-'); deg[p[0]]++; deg[p[1]]++; });
+    function link(a, b) {
+      var key = a.i < b.i ? a.i + '-' + b.i : b.i + '-' + a.i;
+      if (seen[key]) return false;
+      addLine(a, b); deg[a.i]++; deg[b.i]++; return true;
+    }
+    nodes.forEach(function (a) {
+      nodes.filter(function (b) { return b !== a; })
+        .map(function (b) { return { b: b, d: Math.hypot(a.x - b.x, a.y - b.y) }; })
+        .sort(function (m, n) { return m.d - n.d; })
+        .slice(0, 2)
+        .forEach(function (o) { link(a, o.b); });
+    });
+    // 3) GUARANTEE no node feels isolated — every node gets >=3 total strands.
+    //    If any ended with fewer (sparse corner), wire its nearest neighbours
+    //    until it reaches 3. Closed ring already prevents true islands; this
+    //    ensures each node is VISIBLY woven in, not loosely dangling.
+    var MIN = Math.min(3, nodes.length - 1);   // can't exceed available neighbours (tiny rosters)
+    nodes.forEach(function (a) {
+      if (deg[a.i] >= MIN) return;
+      var cands = nodes.filter(function (b) { return b !== a; })
+        .map(function (b) { return { b: b, d: Math.hypot(a.x - b.x, a.y - b.y) }; })
+        .sort(function (m, n) { return m.d - n.d; });
+      for (var k = 0; k < cands.length && deg[a.i] < MIN; k++) link(a, cands[k].b);
+    });
+  }
+  var scrim = null;
+  function makePanel() {
+    scrim = document.createElement('div');
+    scrim.className = 'abt-team__scrim';
+    document.body.appendChild(scrim);
+    scrim.addEventListener('click', closePanel);
+    panel = document.createElement('div');
+    panel.className = 'abt-team__reveal';
+    panel.innerHTML = '<button class="abt-team__reveal-close" aria-label="Close">&times;</button>' +
+      '<div class="abt-team__reveal-pic"></div><div class="abt-team__reveal-name"></div>' +
+      '<div class="abt-team__reveal-role"></div><div class="abt-team__reveal-bio"></div>';
+    document.body.appendChild(panel);
+    panel.querySelector('.abt-team__reveal-close').addEventListener('click', function (e) {
+      e.stopPropagation(); closePanel();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && panel.classList.contains('is-open')) closePanel();
+    });
+  }
+  var activeEl = null;
+  function openPanel(p) {
+    if (activeEl) activeEl.classList.remove('is-active');
+    panel.querySelector('.abt-team__reveal-pic').innerHTML = p.img ? '<img src="' + p.img + '" style="object-position:50% ' + p.focusY + '" alt="">' : '';
+    panel.querySelector('.abt-team__reveal-name').textContent = p.name;
+    panel.querySelector('.abt-team__reveal-role').textContent = p.role;
+    panel.querySelector('.abt-team__reveal-bio').textContent = p.bio;
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      // mobile: centred sheet near the bottom — easy thumb reach, premium feel
+      panel.classList.add('abt-team__reveal--sheet');
+      panel.classList.remove('abt-team__reveal--modal');
+      panel.style.left = ''; panel.style.top = '';
+    } else {
+      // desktop: screen-centred modal — consistent at any roster size, never below the field
+      panel.classList.remove('abt-team__reveal--sheet');
+      panel.classList.add('abt-team__reveal--modal');
+      panel.style.left = ''; panel.style.top = '';
+    }
+    if (scrim) scrim.classList.add('is-open');
+    panel.classList.add('is-open');
+    p.el.classList.add('is-active'); activeEl = p.el;
+  }
+  function closePanel() {
+    panel.classList.remove('is-open');
+    if (scrim) scrim.classList.remove('is-open');
+    if (activeEl) { activeEl.classList.remove('is-active'); activeEl = null; }
+  }
+  function wire(el, p) {
+    var fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+    var down = false, moved = 0, sx, sy, ox, oy, pid;
+    el.addEventListener('pointerdown', function (e) {
+      if (activeEl && activeEl !== el) closePanel();   // only dismiss another node's panel, not the one we're opening
+      if (!fine) return;                 // touch: no drag, page keeps scrolling
+      down = true; moved = 0; sx = e.clientX; sy = e.clientY; ox = p.x; oy = p.y; pid = e.pointerId;
+      el.setPointerCapture(pid); el.classList.add('is-dragging');
+    });
+    el.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - sx, dy = e.clientY - sy; moved = Math.hypot(dx, dy);
+      var W = field.clientWidth, H = field.clientHeight;
+      p.x = Math.min(Math.max(ox + dx, 40), W - 40);
+      p.y = Math.min(Math.max(oy + dy, 40), H - 40);
+      el.style.left = p.x + 'px'; el.style.top = p.y + 'px';
+      drawLinks();
+    });
+    function up() {
+      if (!fine) return;                 // touch: opening handled by click (pan-y can steal pointerup)
+      if (!down) return; down = false; el.classList.remove('is-dragging'); if (moved < 10) openPanel(p);
+    }
+    el.addEventListener('pointerup', up);
+    el.addEventListener('click', function () { if (!fine) openPanel(p); });   // touch tap — click survives pan-y, fires only on a real tap
+    el.addEventListener('pointercancel', function () { down = false; el.classList.remove('is-dragging'); });
+    el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPanel(p); } });
+  }
+  function build() {
+    if (built) return;
+    var people = readRoster();
+    if (!people.length) return;
+    nodes = people;
+    scatter(nodes);
+    nodes.forEach(function (p, i) {
+      p.i = i;
+      var el = document.createElement('div');
+      el.className = 'abt-team__node'; el.setAttribute('role', 'button'); el.tabIndex = 0;
+      el.setAttribute('aria-label', p.name + ' — ' + p.role);
+      el.innerHTML = '<div class="abt-team__node-ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg></div>';
+      if (p.img) { var im = new Image(); im.decoding = 'async'; im.onload = function () { el.innerHTML = ''; im.style.objectPosition = '50% ' + p.focusY; el.appendChild(im); }; im.src = p.img; }
+      el.style.left = p.x + 'px'; el.style.top = p.y + 'px';
+      field.appendChild(el); p.el = el; wire(el, p);
+    });
+    makePanel();
+    drawLinks();
+    field.addEventListener('pointerdown', function (e) { if (e.target === field || e.target === svg) closePanel(); });
+    built = true;
+  }
+  function check() { if (mq.matches) build(); }
+  check();
+  if (mq.addEventListener) mq.addEventListener('change', check); else mq.addListener(check);
+  var lastW = window.innerWidth, rT;
+  window.addEventListener('resize', function () {
+    if (window.innerWidth === lastW) return;   // height-only (mobile URL bar) -> ignore
+    lastW = window.innerWidth;
+    clearTimeout(rT); rT = setTimeout(function () {
+      if (!built) return;
+      // width changed -> field height + positions must recompute so nodes still fit
+      scatter(nodes);
+      nodes.forEach(function (p) { p.el.style.left = p.x + 'px'; p.el.style.top = p.y + 'px'; });
+      drawLinks();
+    }, 150);
+  });
+})();
+
+/* ─── §HUE · whisper section-glow observer ─────────────────────────────
+   Maps each section to a meaning-coded hue (accepted map). One fixed layer
+   crossfades hue as sections enter the upper viewport. Whisper alpha (~6%).
+   prefers-reduced-motion: layer stays neutral/off. */
+(function () {
+  var layer = document.querySelector('.abt-huelayer');
+  if (!layer) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  // hue per section aria id — alpha kept whisper-low for premium restraint
+  var MAP = {
+    'abt-hero-title':    null,                         /* neutral — flag begins after the hero */
+    'abt-story-title':   'rgba(255,153,51,0.08)',      /* saffron — tiranga top */
+    'abt-pillars-title': 'rgba(255,153,51,0.08)',      /* saffron */
+    'abt-founder-title': null,                         /* neutral — the "white" reads as a calm dark breath (glow off) */
+    'abt-team-title':    null,                         /* neutral */
+    'abt-collab-title':  'rgba(117,194,73,0.10)',      /* green — tiranga bottom */
+    'abt-gallery-title': 'rgba(117,194,73,0.10)'       /* green */
+  };
+  // heritage closer uses aria-label (no aria-labelledby) — key by class
+  function hueFor(sec) {
+    var id = sec.getAttribute('aria-labelledby');
+    if (id && (id in MAP)) return MAP[id];
+    if (sec.classList.contains('abt-mv-sec')) return 'rgba(255,153,51,0.08)'; /* saffron — top band (mv sits high) */
+    if (sec.classList.contains('abt-heritage')) return 'rgba(117,194,73,0.10)'; /* green — closing band */
+    return undefined;
+  }
+  var secs = document.querySelectorAll('main.abt-main > .abt-sec');
+  var io = new IntersectionObserver(function (entries) {
+    // pick the most-visible intersecting section, set its hue
+    var best = null, bestRatio = 0;
+    entries.forEach(function (e) {
+      if (e.isIntersecting && e.intersectionRatio > bestRatio) { best = e.target; bestRatio = e.intersectionRatio; }
+    });
+    if (!best) return;
+    var hue = hueFor(best);
+    if (hue === null || hue === undefined) {
+      layer.classList.remove('is-on');        /* neutral section — fade glow out */
+      return;
+    }
+    layer.style.setProperty('--glow', hue);
+    layer.classList.add('is-on');
+  }, { threshold: [0.25, 0.5, 0.75], rootMargin: '-10% 0px -40% 0px' });
+  secs.forEach(function (sec) { io.observe(sec); });
+})();
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="polish.js"></script>
+<style id="cc-about-overflow-fix">
+/* cosmic glow orbs (position:fixed) escaped overflow clipping and pushed
+   the page +5/+25px on narrow screens. Hard-clip at the document root. */
+html, body { max-width: 100%; overflow-x: clip; overflow-anchor: none; }
+.cosmic-bg { max-width: 100vw; }
+.cosmic-bg__glow { max-width: 100vw; }
+@media (max-width: 768px) {
+  /* keep the orbs inside the viewport box on mobile */
+  .cosmic-bg__glow { right: auto !important; }
+}
+</style>
+</body>
+</html>

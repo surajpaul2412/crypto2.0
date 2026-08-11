@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" preserveAspectRatio="xMidYMid meet">
+                <defs>
+  <linearGradient id="ig12" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#BBD67A" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#75C249" stop-opacity="0.85"/>
+  </linearGradient>
+  <linearGradient id="ig12b" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#BBD67A" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#75C249" stop-opacity="0.06"/>
+  </linearGradient>
+</defs>
+                
+    <!-- Pakhawaj: long horizontal barrel, larger than dholak -->
+    <path d="M30 100 Q30 65 100 65 Q170 65 170 100 Q170 135 100 135 Q30 135 30 100 Z" fill="url(#ig12b)" stroke="url(#ig12)" stroke-width="1.6"/>
+    <ellipse cx="30" cy="100" rx="8" ry="26" fill="url(#ig12b)" stroke="url(#ig12)" stroke-width="1.6"/>
+    <ellipse cx="170" cy="100" rx="8" ry="26" fill="url(#ig12b)" stroke="url(#ig12)" stroke-width="1.6"/>
+    <circle cx="35" cy="100" r="14" fill="url(#ig12)" opacity="0.35"/>
+    <circle cx="165" cy="100" r="11" fill="url(#ig12)" opacity="0.4"/>
+    <!-- tension cords -->
+    <line x1="38" y1="80" x2="162" y2="80" stroke="url(#ig12)" stroke-width="0.6" opacity="0.45"/>
+    <line x1="38" y1="120" x2="162" y2="120" stroke="url(#ig12)" stroke-width="0.6" opacity="0.45"/>
+    <line x1="60" y1="76" x2="60" y2="124" stroke="url(#ig12)" stroke-width="0.6" opacity="0.4"/>
+    <line x1="100" y1="74" x2="100" y2="126" stroke="url(#ig12)" stroke-width="0.6" opacity="0.4"/>
+    <line x1="140" y1="76" x2="140" y2="124" stroke="url(#ig12)" stroke-width="0.6" opacity="0.4"/>
+  
+              </svg>

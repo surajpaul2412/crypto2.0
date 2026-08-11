@@ -1,0 +1,3343 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.className+=" js";</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Terms of Service — Crypto Cipher Audio Lab</title>
+<meta name="description" content="Terms governing use of Crypto Cipher Audio Lab’s website, libraries, and recording services.">
+<!-- ═══ SEO · Stage 2 ═══ -->
+<link rel="canonical" href="https://cryptocipher.in/terms">
+<meta name="robots" content="index,follow">
+<meta http-equiv="content-language" content="en-IN">
+<!-- Open Graph base (full custom images: Stage 7) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Crypto Cipher Audio Lab">
+<meta property="og:locale" content="en_IN">
+<meta property="og:url" content="https://cryptocipher.in/terms">
+<meta property="og:title" content="Terms of Service — Crypto Cipher Audio Lab">
+<meta property="og:description" content="Terms governing use of Crypto Cipher Audio Lab's website, libraries, and recording services.">
+<!-- Twitter Card base -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Terms of Service — Crypto Cipher Audio Lab">
+<meta name="twitter:description" content="Terms governing use of Crypto Cipher Audio Lab's website, libraries, and recording services.">
+<meta property="og:image" content="https://cryptocipher.in/og/terms.png?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Crypto Cipher Audio Lab — Terms of Service">
+<meta name="twitter:image" content="https://cryptocipher.in/og/terms.png?v=1">
+<!-- Search engine verification — HUMAN: paste tokens from GSC + Bing -->
+<meta name="google-site-verification" content="REPLACE_GSC_TOKEN">
+<meta name="msvalidate.01" content="REPLACE_BING_TOKEN">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Stage 8 · perf: connection hints (head-only) -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="dns-prefetch" href="https://www.youtube.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Consolidated shared layers (Phase 1+2) · load before inline <style>, before polish.css -->
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="system.css">
+<link rel="stylesheet" href="shell.css">
+
+<style>
+/* Critical: park skip-link before first paint (FOUC). */
+.skip-link { position: absolute; left: 12px; top: -56px; z-index: 10000; }
+
+/* ═══════════════════════════════════════════════════════════════
+   LIBINNER-001 · v4 LOCKED
+   Voices of Ancient India · single inner page
+   ═══════════════════════════════════════════════════════════════ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { /* scroll-behavior:smooth removed — Safari scroll-back jank; Lenis handles Chrome */ -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body {
+  font-family: "Outfit", sans-serif;
+  background: transparent;
+  color: var(--text-primary);
+  line-height: 1.5;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+a { color: inherit; text-decoration: none; }
+
+/* Global noise texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px;
+  mix-blend-mode: overlay;
+}
+
+/* Selection / scrollbar */
+::selection { background: rgba(117,194,73,0.25); color: #fff; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-darker); }
+::-webkit-scrollbar-thumb { background: rgba(117,194,73,0.18); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(117,194,73,0.32); }
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO CHOREOGRAPHY · v4.12 (Stroke 1 / 7 — title sequence)
+   Desktop only. Mobile keeps simple data-reveal fade for perf.
+   Total duration ~1.6s. Each element earns its arrival.
+   ═══════════════════════════════════════════════════════════════ */
+@media (min-width: 1025px) and (prefers-reduced-motion: no-preference) {
+
+  /* 0.0s — Ambient bloom (radial light flares ramp up) */
+  
+  @keyframes heroAmbientBloom {
+    0%   { opacity: 0; transform: scale(0.94); }
+    100% { opacity: 0.6; transform: scale(1); }
+  }
+  @keyframes heroTitleWord {
+    0%   { opacity: 0; transform: translateY(0.6em); filter: blur(8px); }
+    60%  { opacity: 1; filter: blur(0); }
+    100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+  }
+  @keyframes heroVideoBloom {
+    0%   { opacity: 0; transform: scale(0.97) translateY(20px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  
+  
+  
+  
+  
+  
+
+  /* Shared keyframe for fade-up elements */
+  @keyframes heroFadeUp {
+    0%   { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* Reduced motion · everything appears instantly */
+
+
+/* Universal eyebrow */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--green-light);
+}
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--green-primary), transparent);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--green-primary), var(--green-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Reusable CTA system */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s var(--ease);
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.cta--primary {
+  background: linear-gradient(135deg, var(--green-light), var(--green-primary));
+  color: #0a0d12;
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(0,0,0, 0.35), inset 0 1px 0 rgba(255,255,255, 0.22);
+}
+.cta--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(0,0,0, 0.4), 0 0 24px rgba(117,194,73, 0.22), inset 0 1px 0 rgba(255,255,255, 0.25);
+}
+.cta--ghost {
+  background: rgba(117,194,73,0.04);
+  border-color: rgba(117,194,73,0.15);
+  color: var(--text-secondary);
+}
+.cta--ghost:hover {
+  color: #fff;
+  border-color: rgba(117,194,73,0.3);
+  background: rgba(117,194,73,0.08);
+  transform: translateY(-2px);
+}
+.cta--text {
+  padding: 0.55rem 0.5rem;
+  color: var(--text-muted);
+  border-radius: 4px;
+}
+.cta--text:hover { color: #fff; }
+.cta__arrow { transition: transform 0.3s ease; display: inline-block; }
+.cta:hover .cta__arrow { transform: translateX(5px); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+}
+
+@keyframes logoTextureDrift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(5%, -3%) rotate(1deg); }
+  66% { transform: translate(-3%, 4%) rotate(-1deg); }
+}
+
+@keyframes logoShimmer {
+  0%, 100% { left: -100%; }
+  50% { left: 150%; }
+}
+
+@keyframes libsGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cc-nav, .cc-nav__link, .cc-nav__cta, .cc-nav__logo, .cc-nav__logo::before, .cc-nav__logo::after,
+  .libs__eyebrow, .libs__title, .libs__subtitle, .libs__card, .libs__footer,
+  .libs__ambient::before, .libs__ambient::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LIBINNER LAYOUT — 2 column with sticky side index
+   v4.9 · Proportional balance:
+   ┌─[A: 48px]─[ MENU 340 ]─[B: 80px]─[ PAGE ]─[C: 48px]─┐
+   A=C (symmetry), B=1.66×A (generous gap between menu and page)
+   ═══════════════════════════════════════════════════════════════ */
+.libinner {
+  position: relative;
+  padding: 10rem 3rem 4rem;
+  background: transparent;
+  display: grid;
+  grid-template-columns: var(--side-index-w) 1fr;
+  gap: 5rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  align-items: start;
+}
+@media (max-width: 1024px) {
+  .libinner { grid-template-columns: 1fr; gap: 0; padding: 6.5rem 1.5rem 3rem; }
+}
+@media (max-width: 560px) {
+  .libinner { padding: 6.5rem 1.1rem 2.5rem; }
+}
+@keyframes pullPulse {
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) scaleX(1); }
+  50%      { opacity: 0.95; transform: translateX(-50%) scaleX(1.12); }
+}
+
+/* ───────────────────────────────────────────────
+   MAIN COLUMN — section frame
+   ─────────────────────────────────────────────── */
+.main-col {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  min-width: 0;
+}
+
+.section {
+  position: relative;
+}
+.section__head {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.section__title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+.section__sub {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(0.78rem, 1vw, 0.9rem);
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.65;
+  max-width: 580px;
+}
+
+/* ───────────────────────────────────────────────
+   §1 HERO
+   ─────────────────────────────────────────────── */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile meta — 3-col grid, smaller values, tighter spacing */
+
+
+/* Hero video — heritage aesthetic
+   28px radius · deep cinematic shadow · golden edge gradient · mouse-follow highlight · 88px play button
+   Matches /mnt/project/heritage-video.html DNA */
+
+/* Mobile · taller cinematic 4:3 ratio so video anchors hero attention */
+
+
+/* Golden edge gradient (heritage signature) */
+
+/* Inner ambient gradient */
+
+/* Mouse-follow highlight (heritage signature) */
+
+
+/* Inner vignette for cinematic feel */
+
+
+/* Badges overlay — top-left of video */
+
+
+
+
+
+@keyframes playPulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.12); opacity: 0; }
+}
+
+
+
+
+
+
+
+
+/* Hero compatibility warning — pulled out from old buy block, always visible */
+
+
+
+
+/* ───────────────────────────────────────────────
+   §1C TECHNICAL SPECS — inline horizontal rows (Apple-spec-sheet pattern)
+   Each row: label (left, 200px) | values (right, flex 1, separated by ·)
+   Compact, professional, proportional to content
+   ─────────────────────────────────────────────── */
+
+
+
+
+
+
+
+
+
+
+
+/* ───────────────────────────────────────────────
+   LICENSE MODAL
+   ─────────────────────────────────────────────── */
+
+.modal.is-open { display: flex; }
+
+@keyframes modalFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+@keyframes modalSlideIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+
+
+
+
+
+
+
+
+.modal__head .eyebrow { display: inline-flex; }
+
+/* Tablet: drop waveform col, keep duration */
+
+/* Mobile: drop dedicated duration col — duration moves inline with title.
+   Waveform moves to its own row spanning full width below info. */
+@media (max-width: 600px) {
+  /* Premium card · generous breathing room · 2-row grid: [play|info] / [waveform spans both] */
+  
+  /* Play button aligns with title row (not the type tag above) */
+  
+  
+  /* Waveform shows on mobile · spans full card width · compact 18px */
+  
+}
+
+
+
+/* ── Info column (2-line micro-stack: badge+title / composer+context) ── */
+
+
+
+
+/* Title sits in head row alongside badge — single line, ellipsis */
+
+/* Time hidden on desktop (duration column shows it instead).
+   On mobile the duration column is dropped, so time becomes the only indicator inline. */
+
+@media (max-width: 600px) {
+  
+  /* Mobile player__head becomes a 2-row layout:
+     ROW 1: [TYPE TAG] ──────── [TIME CODE]   (meta row · subtle)
+     ROW 2: full-width title    (hero · gets visual weight)
+  */
+  
+  /* Type tag stays small, anchored top-left */
+  
+  /* Time goes after type on same row, pushed to right by margin-left:auto */
+  
+  /* Title takes full width on its own row · the hero element */
+  
+  /* Meta context wrap on mobile · refined spacing */
+  
+  
+    /* hide separator since composer + context now stack */
+  
+}
+
+@keyframes waveAdvance {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+@keyframes waveFill {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+/* ───────────────────────────────────────────────
+   §5 PATCHES — 3-column grid
+   ─────────────────────────────────────────────── */
+
+
+
+
+
+
+
+
+
+
+
+
+.patch__play.playing svg { fill: var(--green-light); transform: none; }
+
+
+
+/* ───────────────────────────────────────────────
+   §6 DESCRIPTION — 2-column: prose 60% / accent rail 40%
+   ─────────────────────────────────────────────── */
+
+
+
+
+
+
+
+
+/* ── Accent rail — pull quote + stats ── */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ───────────────────────────────────────────────
+   §7 CREDITS — sleek card grid (replaces full-width box)
+   3 cols desktop · 2 cols tablet · 1 col mobile
+   Featured + studio + wide variants for visual rhythm
+   ─────────────────────────────────────────────── */
+
+
+
+
+
+
+
+/* Featured (Producer) — slight green-amber accent */
+
+
+
+/* Studio — full row, distinct treatment */
+
+
+/* Wide — spans 2 columns on desktop */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Inline list (Quality Testing — names in a row) */
+
+
+
+
+/* Compact credits list — single-line rows · denser than card grid */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ───────────────────────────────────────────────
+   §8 RECOMMENDED — small card grid
+   ─────────────────────────────────────────────── */
+
+
+
+
+.rec-card {
+  position: relative;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--glass-border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s var(--ease);
+  isolation: isolate;
+}
+.rec-card:hover {
+  border-color: rgba(117,194,73,0.18);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.4);
+}
+
+.rec-card__art {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+.rec-card__art-bg {
+  position: absolute;
+  inset: 0;
+  transition: transform 1s var(--ease);
+  background-size: cover;
+  background-position: center top;  /* matches "rule of thirds top" subject placement */
+}
+.rec-card__art-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.rec-card:hover .rec-card__art-bg { transform: scale(1.05); }
+.rec-card__art::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5,8,16,0.6) 0%, transparent 50%);
+  z-index: 1;
+}
+.rec-card__body {
+  padding: 0.95rem 1.05rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  position: relative;
+  z-index: 2;
+}
+.rec-card__meta {
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-light);
+}
+.rec-card__name {
+  font-family: "Playfair Display", serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin: 0;
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SHARED CARD TITLE ROW + ACTIONS (mirrors homepage definition)
+   ══════════════════════════════════════════════════════════ */
+
+
+.cc-card-action-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0.32rem;
+  margin: 0;
+  cursor: pointer;
+  border-radius: 6px;
+  color: rgba(255,255,255,0.5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  transition:
+    color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cc-card-action-btn svg {
+  width: 14px;
+  height: 14px;
+  display: block;
+  pointer-events: none;
+}
+.cc-card-action-btn:hover {
+  color: #BBD67A;
+  background: rgba(117,194,73,0.10);
+  transform: translateY(-1px);
+}
+.cc-card-action-btn:active { transform: translateY(0) scale(0.94); }
+.cc-card-action-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(117,194,73,0.5);
+}
+.cc-card-action-btn.is-active { color: #BBD67A; }
+.cc-card-action-btn.is-active svg { fill: rgba(117,194,73,0.18); }
+
+@media (max-width: 768px) {
+  .cc-card-action-btn { width: 30px; height: 30px; padding: 0.4rem; }
+  .cc-card-action-btn svg { width: 16px; height: 16px; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   FORMAT CHIP — bottom-left of rec-card art
+   ══════════════════════════════════════════════════════════ */
+
+
+.rec-card:hover .cc-format-chip {
+  background: rgba(13,17,23,0.92);
+  border-color: rgba(117,194,73,0.3);
+  color: #fff;
+}
+
+.rec-card__artist {
+  font-size: 0.62rem;
+  color: var(--text-quiet);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.35;
+}
+
+/* ── Price · floating pill on art (top-right) · matches shop catalogue ── */
+.rec-card__price {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.32rem 0.6rem;
+  border-radius: 50px;
+  background: rgba(13,17,23,0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.10);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  transition: all 0.3s var(--ease);
+}
+.rec-card:hover .rec-card__price {
+  background: rgba(13,17,23,0.92);
+  border-color: rgba(117,194,73,0.25);
+}
+.rec-card__price--free {
+  background: rgba(117,194,73,0.18);
+  border-color: rgba(117,194,73,0.4);
+  color: var(--green-light);
+  text-transform: uppercase;
+  font-size: 0.56rem;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+}
+
+/* Mobile rec cards — tighter body, smaller fonts to keep 2-col proportional */
+@media (max-width: 600px) {
+  .rec-card { border-radius: 12px; }
+  .rec-card__body { padding: 0.7rem 0.75rem 0.8rem; gap: 0.3rem; }
+  .rec-card__meta { font-size: 0.42rem; letter-spacing: 0.16em; }
+  .rec-card__name { font-size: 0.78rem; line-height: 1.2; }
+  .rec-card__artist { font-size: 0.55rem; }
+  .rec-card__price { font-size: 0.58rem; padding: 0.26rem 0.5rem; top: 0.55rem; right: 0.55rem; }
+}
+
+/* ───────────────────────────────────────────────
+   §9 BUNDLE callout
+   ─────────────────────────────────────────────── */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ───────────────────────────────────────────────
+   §10 RECORDING CTA + §11 HERITAGE — soft blocks
+   ─────────────────────────────────────────────── */
+
+
+
+
+
+
+
+
+
+
+/* ───────────────────────────────────────────────
+   §12 FAQ — same pattern as LIBSHOP, smooth animation
+   ─────────────────────────────────────────────── */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ───────────────────────────────────────────────
+   Mobile spacer for side index pull
+   ─────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  body.has-mobile-side-index { padding-bottom: 60px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CC-TOKENS-V1 · APPENDED AT END (cascade override)
+   ═══════════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   CRYPTO CIPHER® · DESIGN TOKENS · v1.0
+   Single source of truth · imported by every page
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  /* Surface colors */
+  --bg-deep: #0d1117;
+  --bg-surface: #151b23;
+  --bg-darker: #080c12;
+  --bg-darkest: #050810;
+  --bg-mid: #0a0e14;
+
+  /* Brand greens */
+  --green-primary: #75C249;
+  --green-light: #BBD67A;
+  --green-dark: #2F6942;
+  --green-glow: rgba(117, 194, 73, 0.35);
+
+  /* Text hierarchy */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255,255,255,0.65);
+  --text-muted: rgba(255,255,255,0.45);
+  --text-quiet: rgba(255,255,255,0.3);
+  --text-whisper: rgba(255,255,255,0.15);
+
+  /* Glass surfaces */
+  --glass-bg: rgba(255,255,255,0.04);
+  --glass-bg-hover: rgba(255,255,255,0.08);
+  --glass-border: rgba(255,255,255,0.05);
+  --glass-border-hover: rgba(255,255,255,0.08);
+
+  /* Card surfaces · solid base for readability over cosmic bg */
+  --card-bg: rgba(8, 12, 18, 0.65);
+  --card-bg-tint: linear-gradient(160deg, rgba(255,255,255, 0.025) 0%, rgba(255,255,255, 0.01) 60%);
+  --card-border: rgba(255,255,255, 0.07);
+
+  /* Accents */
+  --amber-glow: rgba(180,140,50,0.03);
+  --warning: #d4b56e;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Layout */
+  --side-index-w: 340px;
+
+  /* Section rhythm */
+  --section-gap-desktop: 4rem;   /* 64px */
+  --section-gap-tablet: 3rem;    /* 48px */
+  --section-gap-mobile: 2.5rem;  /* 40px */
+
+  /* Page padding (top accounts for floating nav) */
+  --page-pad-top: 10rem;
+  --page-pad-x-desktop: 3rem;
+  --page-pad-x-mobile: 1.25rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GLOBAL RESETS + TYPOGRAPHY BASELINE
+   ═══════════════════════════════════════════════════════════════ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { /* scroll-behavior:smooth removed — Safari jank; Lenis handles Chrome */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.5;
+  overflow-x: hidden;
+  position: relative;
+}
+
+::selection { background: rgba(117,194,73,0.25); color: #fff; }
+
+/* Subtle noise overlay · part of design DNA */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px;
+  mix-blend-mode: overlay;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COSMIC BG · floating stars + radial depth gradients
+   Edge-loaded so center reading lane stays clear
+   ═══════════════════════════════════════════════════════════════ */
+.cosmic-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  /* Pure cool dark · canonical from homepage_148 · no brand wash */
+  background: linear-gradient(180deg,
+    #0d1117 0%,
+    #0b1014 30%,
+    #0a0e12 60%,
+    #080b10 100%
+  );
+}
+/* Layer 1 · Subtle edge atmosphere · cool neutral only */
+.cosmic-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    /* Bottom · cinematic floor depth · cool neutral */
+    radial-gradient(ellipse 100% 50% at 50% 110%, rgba(20, 28, 38, 0.4) 0%, transparent 60%),
+    /* Side vignettes · cool darkening for cinematic letterbox feel */
+    radial-gradient(ellipse 30% 100% at 0% 50%, rgba(0,0,0, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 30% 100% at 100% 50%, rgba(0,0,0, 0.35) 0%, transparent 50%);
+  opacity: 1;
+}
+/* Layer 2 · Slow drifting atmospheric clouds · cool neutral nebula */
+.cosmic-bg::after {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  background:
+    radial-gradient(circle 700px at 12% 18%, rgba(40, 65, 90, 0.08), transparent 60%),
+    radial-gradient(circle 800px at 88% 80%, rgba(35, 55, 80, 0.06), transparent 60%);
+  filter: blur(18px);
+  animation: cosmicDrift 90s ease-in-out infinite alternate;
+  opacity: 0.85;
+}
+@keyframes cosmicDrift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(2%, -1%, 0) scale(1.04); }
+}
+
+/* Layer 3 · Volumetric beam · cool neutral, supports center reading lane */
+.cosmic-bg__beam {
+  position: absolute;
+  inset: 0;
+  background:
+    /* Soft top light shaft · neutral white */
+    linear-gradient(180deg, rgba(255,255,255, 0.018) 0%, transparent 25%),
+    /* Floor reflection · grounds the cinematic frame */
+    linear-gradient(0deg, rgba(0,0,0, 0.35) 0%, transparent 22%);
+  pointer-events: none;
+}
+
+/* Star particles · neutral white-cool, restrained · 3 variants */
+.cosmic-bg__star {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+  will-change: transform, opacity;
+  animation:
+    starDrift var(--dur, 30s) linear infinite,
+    starTwinkle var(--twink, 4s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s), var(--twinkDelay, 0s);
+}
+.cosmic-bg__star--green {
+  background: rgba(220, 230, 240, 0.75);
+  box-shadow:
+    0 0 5px rgba(180, 200, 220, 0.40),
+    0 0 12px rgba(160, 185, 210, 0.16);
+}
+.cosmic-bg__star--bright {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 0 6px rgba(255, 255, 255, 0.55),
+    0 0 14px rgba(255, 255, 255, 0.22);
+}
+/* Far stars · depth parallax · barely visible */
+.cosmic-bg__star--far {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 1.5px rgba(255, 255, 255, 0.2);
+  animation: starTwinkle var(--twink, 5s) ease-in-out infinite;
+  animation-delay: var(--twinkDelay, 0s);
+}
+
+/* Drifting glow orbs · cool neutral, not brand */
+.cosmic-bg__glow {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(40, 65, 90, 0.10) 0%, rgba(40, 65, 90, 0.025) 50%, transparent 70%);
+  filter: blur(18px);
+  animation: glowDrift var(--dur, 50s) ease-in-out infinite alternate,
+             glowPulse var(--pulse, 10s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s), 0s;
+  will-change: transform, opacity;
+}
+@keyframes glowDrift {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(var(--driftX, 60px), var(--driftY, -100px), 0); }
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 0.6; }
+}
+
+@keyframes starDrift {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(var(--driftX, 100px), var(--driftY, -200px), 0); }
+}
+@keyframes starTwinkle {
+  0%, 100% { opacity: var(--twinkMin, 0.55); }
+  50%      { opacity: var(--twinkMax, 1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cosmic-bg__star { animation: none; opacity: 0.6; }
+  .cosmic-bg__glow { animation: none; opacity: 0.4; }
+  .cosmic-bg::after { animation: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION RHYTHM · main column
+   Use .main-col on the parent that holds all section blocks
+   ═══════════════════════════════════════════════════════════════ */
+.main-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap-desktop);
+  min-width: 0;
+}
+@media (max-width: 1024px) { .main-col { gap: var(--section-gap-tablet); } }
+@media (max-width: 560px)  { .main-col { gap: var(--section-gap-mobile); } }
+
+/* ═══════════════════════════════════════════════════════════════
+   TYPOGRAPHY SCALE · use these classes/tokens for every section
+   ═══════════════════════════════════════════════════════════════ */
+
+
+
+
+
+
+/* ═══════════════════════════════════════════════════════════════
+   CARD BASE · use this for any content card across the site
+   ═══════════════════════════════════════════════════════════════ */
+.cc-card {
+  position: relative;
+  background: var(--card-bg-tint), var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow:
+    0 6px 18px rgba(0,0,0, 0.28),
+    inset 0 1px 0 rgba(255,255,255, 0.04);
+  isolation: isolate;
+}
+@keyframes logoTextureDrift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(5%, -3%) rotate(1deg); }
+  66% { transform: translate(-3%, 4%) rotate(-1deg); }
+}
+@keyframes logoShimmer { 0%,100% { left: -100%; } 50% { left: 150%; } }
+@keyframes svantraDrift {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 220% 50%; }
+}
+@keyframes svantraPulse {
+  0%, 100% { opacity: 0.32; }
+  50%      { opacity: 0.6; }
+}
+@keyframes svantraShine {
+  to { left: 130%; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   INSTR LAYOUT — 2 column with sticky side index (mirrors LIBINNER)
+   Critical: on mobile, .instr must NOT form a stacking context.
+   z-index: auto ensures fixed sidenav (z=90) escapes to body level
+   so it paints above the footer (anti-pattern #4 from handoff).
+
+   Background continuity: body owns the dark surface + noise (already
+   set above). .instr is a transparent container so the page bg flows
+   uninterrupted — no boxed-in feel at any viewport width.
+   ═══════════════════════════════════════════════════════════════ */
+.instr {
+  position: relative;
+  padding: 10rem 3rem 4rem;
+  background: transparent;
+  display: grid;
+  grid-template-columns: var(--side-index-w) 1fr;
+  gap: 5rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  align-items: start;
+}
+@media (max-width: 1024px) {
+  .instr {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 7.5rem 1.5rem 3rem;
+    z-index: auto; /* defensive: prevent stacking-context trap */
+  }
+}
+@media (max-width: 560px) {
+  .instr { padding: 6.5rem 1.1rem 2.5rem; }
+}
+@keyframes pullPulse {
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) scaleX(1); }
+  50%      { opacity: 0.95; transform: translateX(-50%) scaleX(1.12); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CC-PROCESS · 6-step booking process section · INSTR-PROCESS-001
+   Reusable across instrument pages + recording-services
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════
+   §1.5 BOOKING PROCESS — INSTR-PROCESS-001
+   4-step transparent booking flow · replaces tier pricing
+   Cards · gradient frame on hover · numeral glow · meta strip
+   Spacing: relies on .main-col parent grid gap for section rhythm.
+   ═══════════════════════════════════════════════════════════════ */
+
+
+
+
+
+
+
+
+
+/* 4-card grid · 4 columns desktop · 2 columns tablet · 1 column mobile */
+
+
+@media (max-width: 560px) {
+  /* Mobile: 2-column compact cards */
+  
+}
+
+/* Single step card */
+
+
+
+/* Gradient corner accent on hover */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ═══════════════════════════════════════════════════════════════
+   BOOKING MODAL · slide-up sheet on desktop · full-bleed on mobile
+   Glass aesthetic to match site DNA · trap focus when open
+   ═══════════════════════════════════════════════════════════════ */
+
+.booking-modal.is-open {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+
+.booking-modal.is-open .booking-modal__sheet {
+  transform: translateY(0) scale(1);
+}
+
+
+
+
+@media (max-width: 640px) {
+  
+  
+  .booking-modal.is-open .booking-modal__sheet { transform: translateY(0); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* FORM */
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.booking-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+@media (max-width: 560px) {
+  .booking-form__row { grid-template-columns: 1fr; gap: 0.85rem; }
+}
+.booking-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+.booking-form__field--full { grid-column: 1 / -1; }
+.booking-form__label {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-quiet);
+}
+.booking-form__input {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: #fff;
+  padding: 0.75rem 0.9rem;
+  background: rgba(255,255,255, 0.025);
+  border: 1px solid rgba(255,255,255, 0.08);
+  border-radius: 10px;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+.booking-form__input::placeholder { color: var(--text-quiet); }
+.booking-form__input:focus {
+  outline: none;
+  border-color: rgba(117,194,73, 0.5);
+  background: rgba(117,194,73, 0.05);
+  box-shadow: 0 0 0 3px rgba(117,194,73, 0.08);
+}
+.booking-form__input--select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%23BBD67A' stroke-width='2' stroke-linecap='round'%3E%3Cpolyline points='1 1 6 6 11 1'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  background-size: 11px;
+  padding-right: 2.2rem;
+}
+.booking-form__input--select option {
+  background: #0d1410;
+  color: #fff;
+}
+.booking-form__input--textarea {
+  resize: vertical;
+  min-height: 90px;
+  line-height: 1.5;
+  font-family: inherit;
+}
+.booking-form__nda {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  user-select: none;
+  padding-top: 0.2rem;
+}
+.booking-form__nda-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.booking-form__nda-box {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 1.5px solid rgba(255,255,255, 0.18);
+  background: rgba(255,255,255, 0.025);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.booking-form__nda-box::after {
+  content: "";
+  width: 10px; height: 10px;
+  border-radius: 2px;
+  background: linear-gradient(135deg, var(--green-light), var(--green-primary));
+  box-shadow: 0 0 8px rgba(117,194,73, 0.5);
+  transform: scale(0);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.booking-form__nda-input:checked ~ .booking-form__nda-box {
+  border-color: var(--green-primary);
+  background: rgba(117,194,73, 0.08);
+}
+.booking-form__nda-input:checked ~ .booking-form__nda-box::after { transform: scale(1); }
+.booking-form__nda-label {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.booking-form__footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 0.6rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255,255,255, 0.06);
+}
+@media (max-width: 560px) {
+  .booking-form__footer { grid-template-columns: 1fr; gap: 0.85rem; }
+}
+.booking-form__note {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.74rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--text-quiet);
+  margin: 0;
+}
+.booking-form__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.95rem 1.6rem;
+  background: linear-gradient(135deg, var(--green-light) 0%, var(--green-primary) 60%, var(--green-dark) 100%);
+  color: #0d1410;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+  box-shadow:
+    0 8px 22px rgba(117,194,73, 0.3),
+    inset 0 1px 0 rgba(255,255,255, 0.3);
+}
+.booking-form__submit:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 32px rgba(117,194,73, 0.45),
+    0 0 30px rgba(187,214,122, 0.25),
+    inset 0 1px 0 rgba(255,255,255, 0.4);
+}
+.booking-form__submit:active { transform: translateY(0); }
+
+/* Lock body scroll when modal is open */
+body.booking-locked { overflow: hidden; }
+
+/* ═══════════════════════════════════════════════════════════════
+   INLINE VIDEO PLAY · iframe replaces card content while playing
+   Card retains its shape, radius, shadow · close button restores poster
+   ═══════════════════════════════════════════════════════════════ */
+.video-embed {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  background: #000;
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.video-embed.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.video-embed iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  border-radius: inherit;
+}
+.video-embed__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(15, 22, 18, 0.85);
+  border: 1px solid rgba(117,194,73, 0.35);
+  color: var(--green-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+.video-embed__close svg { width: 14px; height: 14px; }
+.video-embed__close:hover {
+  background: rgba(117,194,73, 0.20);
+  border-color: var(--green-primary);
+  transform: rotate(90deg);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   AWWWARDS-LEVEL FINAL POLISH · v1.0
+   Grain texture · refined scrollbar · focus halo · selection · smooth scroll
+   ═══════════════════════════════════════════════════════════════ */
+
+/* 1. Film grain overlay · 4% noise · cinematic surface */
+.cosmic-bg::before {
+  background-image:
+    radial-gradient(ellipse 100% 50% at 50% 110%, rgba(20, 28, 38, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 100% at 0% 50%, rgba(0,0,0, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 30% 100% at 100% 50%, rgba(0,0,0, 0.35) 0%, transparent 50%);
+}
+.cosmic-bg__beam {
+  background-image:
+    linear-gradient(180deg, rgba(255,255,255, 0.018) 0%, transparent 25%),
+    linear-gradient(0deg, rgba(0,0,0, 0.35) 0%, transparent 22%),
+    /* Subtle noise grain via tiny SVG */
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' /><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0' /></filter><rect width='100' height='100' filter='url(%23n)' /></svg>");
+  background-size: auto, auto, 280px 280px;
+  background-repeat: no-repeat, no-repeat, repeat;
+}
+
+/* 2. Refined scrollbar · matches palette */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); }
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255, 0.08);
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.6);
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(117,194,73, 0.35); }
+* { scrollbar-color: rgba(255,255,255, 0.08) rgba(0, 0, 0, 0.3); scrollbar-width: thin; }
+
+/* 3. Focus-visible halo · accessibility + DNA */
+*:focus { outline: none; }
+*:focus-visible {
+  outline: 2px solid rgba(117,194,73, 0.65);
+  outline-offset: 3px;
+  border-radius: 6px;
+  transition: outline-offset 0.2s var(--ease);
+}
+button:focus-visible, a:focus-visible {
+  box-shadow: 0 0 0 4px rgba(117,194,73, 0.15);
+}
+
+/* 4. Selection · brand */
+::selection { background: rgba(117,194,73, 0.3); color: #fff; }
+
+/* 5. Image smoothing · prevents jagged edges on retina */
+img { image-rendering: -webkit-optimize-contrast; }
+
+/* 6. Smooth scroll · with respect for reduced-motion */
+html { /* scroll-behavior:smooth removed — Safari jank; Lenis handles Chrome */ }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* 7. Tap highlight · brand color, not blue */
+* { -webkit-tap-highlight-color: rgba(117,194,73, 0.18); }
+
+/* 8. Subtle hover lift on all CTA-class buttons · awwwards micro-interaction */
+
+
+
+/* 9. Card hover surface lift · adds dimensionality */
+
+
+/* 10. Composer + meta italics · refined to brand · for premium feel */
+
+
+</style>
+<!-- ═══════════════════════════════════════════════════════════════
+     LEGAL-001 v2 · Canon-aligned shared template
+     Mirrors: .libinner / .instr / .recsvc grid skeleton
+     ═══════════════════════════════════════════════════════════════ -->
+<style>
+/* ─── Main grid (canon-aligned) ─────────────────────────────── */
+/* ─── Sidebar (per-page TOC, lives in --side-index-w column) ─── */
+/* Fallback: when sticky fails (some browser/extension contexts), JS adds .legal-side--fixed */
+
+/* ─── Main column (canon-aligned) ─────────────────────────────── */
+/* ─── Reveal pattern · owned by polish.css §3 + polish.js ────── */
+.libinner [data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO  ·  canon page-H1
+   ═══════════════════════════════════════════════════════════════ */
+.legal-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 880px;
+}
+.legal-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--green-light);
+}
+
+/* Legal eyebrow ("Legal · Privacy/Terms/Cookies") hidden on mobile per standard.
+   Hero is a flex column with gap:1.5rem, so removing this element auto-reclaims the
+   space — no manual margin needed. Desktop keeps the eyebrow. */
+@media (max-width: 560px) {
+  .legal-hero__eyebrow { display: none; }
+}
+.legal-hero__eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--green-primary), transparent);
+}
+.legal-hero__title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.2rem, 4.6vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--text-primary);
+  margin: 0;
+}
+.legal-hero__title em {
+  font-style: normal;
+  display: inline-block;
+  background: linear-gradient(135deg, #ffffff 0%, #BBD67A 55%, #75C249 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.1em;
+}
+.legal-hero__sub {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(0.78rem, 1vw, 0.9rem);
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 680px;
+  margin: 0;
+}
+
+/* Meta chips */
+.legal-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+.legal-meta-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 50px;
+  background: rgba(255,255,255, 0.04);
+  border: 1px solid var(--glass-border);
+  border-top-color: rgba(255,255,255, 0.14);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+}
+.legal-meta-chip__label {
+  font-size: 0.46rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.legal-meta-chip__value { color: var(--text-primary); }
+.legal-meta-chip--draft .legal-meta-chip__value { color: var(--heritage-gold); }
+
+/* Draft banner */
+.legal-draft-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  background: var(--heritage-gold-faint);
+  border: 1px solid var(--heritage-gold-soft);
+  margin-top: 1rem;
+}
+.legal-draft-banner svg {
+  width: 16px; height: 16px;
+  color: var(--heritage-gold);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+.legal-draft-banner__text {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+.legal-draft-banner__text strong {
+  color: var(--heritage-gold);
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTIONS  ·  canon-aligned H2
+   ═══════════════════════════════════════════════════════════════ */
+.legal-section { scroll-margin-top: 8rem; max-width: 860px; }
+.legal-section__num {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--green-light);
+  margin-bottom: 0.85rem;
+}
+.legal-section__num::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--green-primary), transparent);
+}
+.legal-section__title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem 0;
+}
+
+/* Prose */
+.legal-prose {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+.legal-prose p { margin-bottom: 1.1rem; }
+.legal-prose p:last-child { margin-bottom: 0; }
+.legal-prose strong { color: var(--text-primary); font-weight: 600; }
+.legal-prose em { color: var(--green-light); font-style: italic; }
+.legal-prose a {
+  color: var(--green-light);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.25s ease;
+}
+.legal-prose a:hover { color: var(--text-primary); }
+
+.legal-prose h3 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 2rem;
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+}
+.legal-prose h3:first-child { margin-top: 0; }
+
+.legal-prose ul,
+.legal-prose ol {
+  margin: 0.5rem 0 1.3rem 1.4rem;
+  padding: 0;
+}
+.legal-prose li {
+  margin-bottom: 0.6rem;
+  padding-left: 0.35rem;
+}
+.legal-prose li::marker { color: var(--green-light); }
+
+/* Table */
+.legal-table-wrap {
+  margin: 1.4rem 0 1.6rem;
+  overflow-x: auto;
+  border-radius: 12px;
+  background: rgba(255,255,255, 0.02);
+  border: 1px solid var(--glass-border);
+}
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+.legal-table thead th {
+  text-align: left;
+  padding: 0.9rem 1.1rem;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  background: rgba(117,194,73, 0.04);
+  border-bottom: 1px solid var(--glass-border);
+  white-space: nowrap;
+}
+.legal-table tbody td {
+  padding: 0.9rem 1.1rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(255,255,255, 0.04);
+  vertical-align: top;
+  font-weight: 300;
+}
+.legal-table tbody tr:last-child td { border-bottom: none; }
+.legal-table tbody td strong { color: var(--text-primary); font-weight: 600; }
+.legal-table tbody td em { color: var(--green-light); font-style: italic; }
+
+/* Callout */
+.legal-callout {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.3rem 1.5rem;
+  margin: 1.4rem 0;
+  background: rgba(117,194,73, 0.04);
+  border: 1px solid rgba(117,194,73, 0.18);
+  border-left: 2px solid var(--green-primary);
+  border-radius: 10px;
+}
+.legal-callout__label {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--green-light);
+}
+.legal-callout__body {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+.legal-callout__body strong { color: var(--text-primary); font-weight: 600; }
+
+/* Doc footer */
+.legal-doc-footer {
+  margin-top: 1.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.legal-doc-footer__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.legal-doc-footer__cell { flex: 1 1 240px; }
+.legal-doc-footer__cell-label {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+.legal-doc-footer__cell-body {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+.legal-doc-footer__cell-body strong { color: var(--text-primary); }
+
+/* Cross-doc nav */
+.legal-cross-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+/* Cross-nav (Privacy / Terms / Cookie) · mobile = full-width STACK.
+   Forcing one row clipped/overlapped the labels on <=414px (3 long labels cannot
+   fit 320-414px). Stacking guarantees no clip/overlap on every device. */
+@media (max-width: 560px) {
+  .legal-cross-nav {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .legal-cross-nav__link {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+}
+.legal-cross-nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: 50px;
+  background: transparent;
+  border: 1px solid var(--cta-secondary-border);
+  color: var(--cta-secondary-fg);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.legal-cross-nav__link:hover {
+  background: rgba(117,194,73, 0.06);
+  border-color: rgba(117,194,73, 0.5);
+}
+.legal-cross-nav__link--current {
+  background: rgba(117,194,73, 0.08);
+  border-color: rgba(117,194,73, 0.4);
+  color: var(--text-primary);
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE  ·  canon ladder
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  
+
+  /* Mobile bottom-sheet drawer (canon-matched, scoped to legal-side) */
+  /* The original sidebar header becomes the pull-tab on mobile */
+  /* Hide the desktop gradient line on mobile, replace with full-width green hairline */
+  /* Mobile pull-grip: tiny pill above the label */
+  .legal-side.is-open @keyframes legalPullPulse {
+    0%, 100% { opacity: 0.6; transform: translateX(-50%) scaleX(1); }
+    50%      { opacity: 0.95; transform: translateX(-50%) scaleX(1.12); }
+  }
+
+  /* List scrolls inside the drawer */
+  }
+@media (max-width: 768px) {
+  .legal-hero__meta { gap: 0.5rem; }
+  .legal-meta-chip { font-size: 0.55rem; padding: 0.4rem 0.75rem; }
+  .legal-prose { font-size: 0.85rem; }
+  .legal-table { font-size: 0.7rem; }
+  .legal-table thead th,
+  .legal-table tbody td { padding: 0.75rem 0.85rem; }
+}
+@media (max-width: 560px) {
+  
+  .legal-prose { font-size: 0.82rem; line-height: 1.7; }
+  .legal-table-wrap {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    border-radius: 8px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .libinner [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+/* Privacy variant: when stuck, vertically centered in viewport (not top:7rem) */
+
+/* Inline table of contents (sits between hero and section 1) */
+
+
+/* Anchor link on hover (small # next to section H2) */
+.legal-section__title {
+  position: relative;
+}
+.legal-section__title::after {
+  content: "#";
+  position: absolute;
+  margin-left: 0.5rem;
+  color: var(--green-light);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  font-weight: 400;
+}
+.legal-section:hover .legal-section__title::after {
+  opacity: 0.4;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   E3 · page-body mix-blend-mode kill (page 09 polish pass)
+   Neutralises both body::before declarations (lines ~45 and ~4609 of
+   the original draft — same rule declared twice). Footer ::before
+   layers untouched (shared component).
+   ═══════════════════════════════════════════════════════════════ */
+body::before {
+  mix-blend-mode: normal !important;
+  opacity: 0.025 !important;
+}
+
+</style>
+<link rel="stylesheet" href="polish.css">
+<!-- ─── Stage 3 JSON-LD: WebPage ─── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Terms of Service",
+  "url": "https://cryptocipher.in/terms",
+  "isPartOf": { "@id": "https://cryptocipher.in/#website" },
+  "publisher": { "@id": "https://cryptocipher.in/#organization" }
+}
+</script>
+<!-- ===== STAGE 6 · Favicons + PWA (head-only; body untouched) ===== -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#75C249">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0d1117">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Crypto Cipher">
+<meta name="application-name" content="Crypto Cipher">
+<meta name="msapplication-TileColor" content="#0d1117">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<link rel="apple-touch-startup-image" media="(device-width:320px) and (device-height:568px) and (-webkit-device-pixel-ratio:2)" href="/apple-splash-640-1136.png">
+<link rel="apple-touch-startup-image" media="(device-width:393px) and (device-height:852px) and (-webkit-device-pixel-ratio:3)" href="/apple-splash-1179-2556.png">
+<link rel="apple-touch-startup-image" media="(device-width:402px) and (device-height:874px) and (-webkit-device-pixel-ratio:3)" href="/apple-splash-1206-2622.png">
+<link rel="apple-touch-startup-image" media="(device-width:440px) and (device-height:956px) and (-webkit-device-pixel-ratio:3)" href="/apple-splash-1320-2868.png">
+<link rel="apple-touch-startup-image" media="(device-width:430px) and (device-height:932px) and (-webkit-device-pixel-ratio:3)" href="/apple-splash-1290-2796.png">
+<link rel="apple-touch-startup-image" media="(device-width:820px) and (device-height:1180px) and (-webkit-device-pixel-ratio:2)" href="/apple-splash-1640-2360.png">
+<link rel="apple-touch-startup-image" media="(device-width:834px) and (device-height:1194px) and (-webkit-device-pixel-ratio:2)" href="/apple-splash-1668-2388.png">
+<link rel="apple-touch-startup-image" media="(device-width:1024px) and (device-height:1366px) and (-webkit-device-pixel-ratio:2)" href="/apple-splash-2048-2732.png">
+<link rel="apple-touch-startup-image" media="(device-width:393px) and (device-height:852px) and (orientation:landscape) and (-webkit-device-pixel-ratio:3)" href="/apple-splash-1179-2556-land.png">
+<link rel="apple-touch-startup-image" media="(device-width:1024px) and (device-height:1366px) and (orientation:landscape) and (-webkit-device-pixel-ratio:2)" href="/apple-splash-2048-2732-land.png">
+<!-- ===== /STAGE 6 ===== -->
+<!-- ═══ Analytics + Monitoring · Stage 10 (Plausible cookieless; Sentry errors) ═══
+     Both blocks are intentionally COMMENTED OUT. Dev: set values + uncomment at deploy.
+     Plausible is consent-exempt per cookie-policy §04/§06 (no cookies, no banner gate).
+     Do NOT add GA4 / Meta Pixel / LinkedIn Insight Tag — the locked cookie-policy §03
+     names them as deliberately NOT used. Adding them = policy breach. See Stage-10-LOCK.md.
+
+  <script defer data-domain="cryptocipher.in" src="https://plausible.io/js/script.js"></script>
+
+  <script>
+    // Sentry.init({ dsn: 'SENTRY_DSN_HERE', environment: 'production', tracesSampleRate: 0.1 });
+  </script>
+-->
+</head>
+<body class="has-mobile-side-index">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ═══ COSMIC BG · 48 stars · 32 far stars · 6 glow orbs · 3D atmosphere ═══ -->
+<div class="cosmic-bg" aria-hidden="true">
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:81vw;top:14vh;width:1px;height:1px;--driftX:-10px;--driftY:-138px;--dur:32s;--delay:-8s;--twink:4.71s;--twinkDelay:-3.19s;--twinkMin:0.58;--twinkMax:0.86" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:3vw;top:11vh;width:2px;height:2px;--driftX:-31px;--driftY:-71px;--dur:44s;--delay:-1s;--twink:4.18s;--twinkDelay:-3.00s;--twinkMin:0.54;--twinkMax:0.91" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--bright" style="left:35vw;top:0vh;width:4px;height:4px;--driftX:-69px;--driftY:-92px;--dur:35s;--delay:-17s;--twink:2.97s;--twinkDelay:-2.84s;--twinkMin:0.47;--twinkMax:0.86" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:44vw;top:77vh;width:2px;height:2px;--driftX:-128px;--driftY:-83px;--dur:42s;--delay:-7s;--twink:5.42s;--twinkDelay:-2.05s;--twinkMin:0.51;--twinkMax:0.97" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:46vw;top:73vh;width:2px;height:2px;--driftX:-115px;--driftY:-189px;--dur:46s;--delay:-14s;--twink:4.82s;--twinkDelay:-4.75s;--twinkMin:0.57;--twinkMax:0.98" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:58vw;top:81vh;width:4px;height:4px;--driftX:36px;--driftY:-159px;--dur:36s;--delay:-22s;--twink:3.13s;--twinkDelay:-0.84s;--twinkMin:0.59;--twinkMax:0.95" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:21vw;top:68vh;width:3px;height:3px;--driftX:-25px;--driftY:-159px;--dur:39s;--delay:-24s;--twink:3.31s;--twinkDelay:-3.06s;--twinkMin:0.54;--twinkMax:0.88" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:98vw;top:99vh;width:1px;height:1px;--driftX:-33px;--driftY:-192px;--dur:50s;--delay:-20s;--twink:3.70s;--twinkDelay:-0.25s;--twinkMin:0.58;--twinkMax:0.94" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:27vw;top:83vh;width:2px;height:2px;--driftX:52px;--driftY:-83px;--dur:29s;--delay:-8s;--twink:2.92s;--twinkDelay:-2.17s;--twinkMin:0.51;--twinkMax:0.96" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:74vw;top:51vh;width:2px;height:2px;--driftX:-38px;--driftY:-165px;--dur:41s;--delay:-31s;--twink:2.77s;--twinkDelay:-0.13s;--twinkMin:0.42;--twinkMax:0.94" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:54vw;top:76vh;width:1px;height:1px;--driftX:47px;--driftY:-103px;--dur:44s;--delay:-29s;--twink:4.09s;--twinkDelay:-3.97s;--twinkMin:0.57;--twinkMax:0.85" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:87vw;top:68vh;width:4px;height:4px;--driftX:-14px;--driftY:-113px;--dur:28s;--delay:-9s;--twink:3.80s;--twinkDelay:-1.73s;--twinkMin:0.59;--twinkMax:0.98" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:64vw;top:97vh;width:2px;height:2px;--driftX:109px;--driftY:-173px;--dur:52s;--delay:-40s;--twink:3.40s;--twinkDelay:-2.17s;--twinkMin:0.52;--twinkMax:0.87" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:69vw;top:99vh;width:3px;height:3px;--driftX:-150px;--driftY:-118px;--dur:40s;--delay:-1s;--twink:2.84s;--twinkDelay:-1.03s;--twinkMin:0.6;--twinkMax:0.97" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:30vw;top:72vh;width:1px;height:1px;--driftX:-107px;--driftY:-76px;--dur:51s;--delay:-4s;--twink:5.43s;--twinkDelay:-2.89s;--twinkMin:0.43;--twinkMax:0.95" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:21vw;top:33vh;width:3px;height:3px;--driftX:66px;--driftY:-146px;--dur:54s;--delay:-34s;--twink:4.77s;--twinkDelay:-3.29s;--twinkMin:0.54;--twinkMax:0.91" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--bright" style="left:47vw;top:56vh;width:3px;height:3px;--driftX:81px;--driftY:-170px;--dur:32s;--delay:-14s;--twink:2.69s;--twinkDelay:-0.06s;--twinkMin:0.51;--twinkMax:0.94" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:90vw;top:80vh;width:1px;height:1px;--driftX:-33px;--driftY:-183px;--dur:53s;--delay:-2s;--twink:5.08s;--twinkDelay:-0.36s;--twinkMin:0.45;--twinkMax:0.95" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:16vw;top:92vh;width:3px;height:3px;--driftX:145px;--driftY:-79px;--dur:32s;--delay:-30s;--twink:4.92s;--twinkDelay:-0.94s;--twinkMin:0.42;--twinkMax:0.91" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--bright" style="left:59vw;top:93vh;width:1px;height:1px;--driftX:-100px;--driftY:-185px;--dur:37s;--delay:-21s;--twink:4.90s;--twinkDelay:-0.54s;--twinkMin:0.44;--twinkMax:0.93" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--bright" style="left:23vw;top:35vh;width:2px;height:2px;--driftX:-23px;--driftY:-181px;--dur:39s;--delay:-35s;--twink:2.79s;--twinkDelay:-1.82s;--twinkMin:0.51;--twinkMax:0.85" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:96vw;top:30vh;width:2px;height:2px;--driftX:58px;--driftY:-76px;--dur:40s;--delay:-13s;--twink:5.09s;--twinkDelay:-4.60s;--twinkMin:0.43;--twinkMax:0.85" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:100vw;top:100vh;width:2px;height:2px;--driftX:-4px;--driftY:-92px;--dur:47s;--delay:-46s;--twink:5.49s;--twinkDelay:-3.05s;--twinkMin:0.54;--twinkMax:0.87" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--bright" style="left:7vw;top:74vh;width:3px;height:3px;--driftX:127px;--driftY:-185px;--dur:48s;--delay:-20s;--twink:2.67s;--twinkDelay:-1.56s;--twinkMin:0.5;--twinkMax:0.98" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:65vw;top:10vh;width:4px;height:4px;--driftX:-55px;--driftY:-183px;--dur:44s;--delay:-4s;--twink:4.53s;--twinkDelay:-1.06s;--twinkMin:0.42;--twinkMax:0.98" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:76vw;top:5vh;width:3px;height:3px;--driftX:-109px;--driftY:-93px;--dur:46s;--delay:-37s;--twink:4.20s;--twinkDelay:-1.33s;--twinkMin:0.45;--twinkMax:0.95" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:33vw;top:50vh;width:2px;height:2px;--driftX:3px;--driftY:-83px;--dur:35s;--delay:-4s;--twink:2.53s;--twinkDelay:-1.57s;--twinkMin:0.51;--twinkMax:0.86" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:64vw;top:33vh;width:2px;height:2px;--driftX:28px;--driftY:-183px;--dur:53s;--delay:-15s;--twink:3.61s;--twinkDelay:-0.57s;--twinkMin:0.57;--twinkMax:0.96" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:83vw;top:67vh;width:1px;height:1px;--driftX:133px;--driftY:-124px;--dur:54s;--delay:-42s;--twink:2.81s;--twinkDelay:-2.47s;--twinkMin:0.45;--twinkMax:0.98" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:19vw;top:34vh;width:2px;height:2px;--driftX:-43px;--driftY:-113px;--dur:31s;--delay:-16s;--twink:4.02s;--twinkDelay:-1.01s;--twinkMin:0.58;--twinkMax:0.86" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--bright" style="left:35vw;top:5vh;width:1px;height:1px;--driftX:20px;--driftY:-167px;--dur:45s;--delay:-16s;--twink:2.98s;--twinkDelay:-1.32s;--twinkMin:0.54;--twinkMax:0.93" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:88vw;top:19vh;width:3px;height:3px;--driftX:-132px;--driftY:-106px;--dur:43s;--delay:-35s;--twink:2.94s;--twinkDelay:-0.38s;--twinkMin:0.46;--twinkMax:0.98" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:5vw;top:45vh;width:2px;height:2px;--driftX:-23px;--driftY:-174px;--dur:36s;--delay:-35s;--twink:5.15s;--twinkDelay:-2.09s;--twinkMin:0.52;--twinkMax:0.87" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:20vw;top:22vh;width:2px;height:2px;--driftX:-138px;--driftY:-155px;--dur:48s;--delay:-21s;--twink:4.85s;--twinkDelay:-2.00s;--twinkMin:0.53;--twinkMax:0.96" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:20vw;top:100vh;width:3px;height:3px;--driftX:-95px;--driftY:-103px;--dur:52s;--delay:-2s;--twink:5.08s;--twinkDelay:-1.13s;--twinkMin:0.56;--twinkMax:0.92" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:29vw;top:28vh;width:1px;height:1px;--driftX:-52px;--driftY:-98px;--dur:35s;--delay:-17s;--twink:5.09s;--twinkDelay:-4.92s;--twinkMin:0.46;--twinkMax:0.95" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:68vw;top:42vh;width:1px;height:1px;--driftX:-91px;--driftY:-134px;--dur:30s;--delay:-18s;--twink:5.39s;--twinkDelay:-1.43s;--twinkMin:0.42;--twinkMax:0.92" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:40vw;top:55vh;width:3px;height:3px;--driftX:111px;--driftY:-171px;--dur:37s;--delay:-36s;--twink:3.07s;--twinkDelay:-0.14s;--twinkMin:0.49;--twinkMax:0.93" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--bright" style="left:87vw;top:92vh;width:3px;height:3px;--driftX:-50px;--driftY:-107px;--dur:38s;--delay:-4s;--twink:5.35s;--twinkDelay:-4.92s;--twinkMin:0.52;--twinkMax:0.95" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:38vw;top:64vh;width:2px;height:2px;--driftX:59px;--driftY:-117px;--dur:37s;--delay:-18s;--twink:4.16s;--twinkDelay:-0.80s;--twinkMin:0.53;--twinkMax:0.91" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:22vw;top:78vh;width:3px;height:3px;--driftX:4px;--driftY:-97px;--dur:42s;--delay:0s;--twink:3.41s;--twinkDelay:-0.72s;--twinkMin:0.56;--twinkMax:0.94" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--bright" style="left:56vw;top:56vh;width:3px;height:3px;--driftX:-41px;--driftY:-70px;--dur:40s;--delay:-10s;--twink:4.48s;--twinkDelay:-1.27s;--twinkMin:0.53;--twinkMax:0.94" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:96vw;top:30vh;width:3px;height:3px;--driftX:8px;--driftY:-143px;--dur:50s;--delay:-12s;--twink:2.94s;--twinkDelay:-0.14s;--twinkMin:0.6;--twinkMax:0.94" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:58vw;top:53vh;width:3px;height:3px;--driftX:144px;--driftY:-151px;--dur:47s;--delay:-44s;--twink:3.65s;--twinkDelay:-1.46s;--twinkMin:0.43;--twinkMax:0.95" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:98vw;top:13vh;width:4px;height:4px;--driftX:67px;--driftY:-144px;--dur:30s;--delay:-25s;--twink:5.37s;--twinkDelay:-2.78s;--twinkMin:0.41;--twinkMax:0.89" aria-hidden="true"></span>
+  <span class="cosmic-bg__star" style="left:58vw;top:17vh;width:4px;height:4px;--driftX:87px;--driftY:-65px;--dur:42s;--delay:-38s;--twink:3.45s;--twinkDelay:-2.61s;--twinkMin:0.49;--twinkMax:0.97" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:54vw;top:70vh;width:2px;height:2px;--driftX:-69px;--driftY:-79px;--dur:39s;--delay:-16s;--twink:4.76s;--twinkDelay:-3.99s;--twinkMin:0.46;--twinkMax:0.97" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--green" style="left:30vw;top:35vh;width:2px;height:2px;--driftX:-111px;--driftY:-127px;--dur:32s;--delay:-17s;--twink:3.51s;--twinkDelay:-3.13s;--twinkMin:0.42;--twinkMax:0.87" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:19vw;top:90vh;width:1px;height:1px;--twink:3.26s;--twinkDelay:-1.33s;--twinkMin:0.31;--twinkMax:0.6" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:26vw;top:53vh;width:2px;height:2px;--twink:6.62s;--twinkDelay:-3.87s;--twinkMin:0.34;--twinkMax:0.71" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:97vw;top:73vh;width:2px;height:2px;--twink:4.91s;--twinkDelay:-4.63s;--twinkMin:0.26;--twinkMax:0.6" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:53vw;top:68vh;width:1px;height:1px;--twink:4.95s;--twinkDelay:-1.35s;--twinkMin:0.3;--twinkMax:0.6" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:85vw;top:86vh;width:2px;height:2px;--twink:5.90s;--twinkDelay:-4.96s;--twinkMin:0.38;--twinkMax:0.75" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:68vw;top:3vh;width:2px;height:2px;--twink:5.37s;--twinkDelay:-3.56s;--twinkMin:0.22;--twinkMax:0.61" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:59vw;top:23vh;width:1px;height:1px;--twink:4.04s;--twinkDelay:-1.32s;--twinkMin:0.29;--twinkMax:0.58" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:48vw;top:35vh;width:2px;height:2px;--twink:4.01s;--twinkDelay:-0.33s;--twinkMin:0.2;--twinkMax:0.63" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:44vw;top:28vh;width:1px;height:1px;--twink:6.12s;--twinkDelay:-3.99s;--twinkMin:0.35;--twinkMax:0.74" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:25vw;top:2vh;width:1px;height:1px;--twink:3.95s;--twinkDelay:-1.87s;--twinkMin:0.22;--twinkMax:0.74" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:59vw;top:89vh;width:1px;height:1px;--twink:6.07s;--twinkDelay:-1.02s;--twinkMin:0.32;--twinkMax:0.69" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:14vw;top:99vh;width:1px;height:1px;--twink:6.86s;--twinkDelay:-0.74s;--twinkMin:0.21;--twinkMax:0.58" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:86vw;top:48vh;width:2px;height:2px;--twink:6.77s;--twinkDelay:-1.34s;--twinkMin:0.32;--twinkMax:0.71" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:31vw;top:13vh;width:1px;height:1px;--twink:6.40s;--twinkDelay:-3.84s;--twinkMin:0.22;--twinkMax:0.75" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:100vw;top:5vh;width:1px;height:1px;--twink:5.13s;--twinkDelay:-3.39s;--twinkMin:0.21;--twinkMax:0.66" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:1vw;top:53vh;width:2px;height:2px;--twink:3.42s;--twinkDelay:-3.29s;--twinkMin:0.33;--twinkMax:0.71" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:90vw;top:19vh;width:2px;height:2px;--twink:3.70s;--twinkDelay:-1.93s;--twinkMin:0.33;--twinkMax:0.65" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:68vw;top:99vh;width:2px;height:2px;--twink:4.86s;--twinkDelay:-4.01s;--twinkMin:0.32;--twinkMax:0.58" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:31vw;top:11vh;width:1px;height:1px;--twink:6.53s;--twinkDelay:-1.59s;--twinkMin:0.29;--twinkMax:0.65" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:48vw;top:43vh;width:1px;height:1px;--twink:4.98s;--twinkDelay:-1.62s;--twinkMin:0.3;--twinkMax:0.59" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:33vw;top:43vh;width:1px;height:1px;--twink:6.52s;--twinkDelay:-4.57s;--twinkMin:0.26;--twinkMax:0.5" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:24vw;top:10vh;width:1px;height:1px;--twink:5.88s;--twinkDelay:-2.87s;--twinkMin:0.35;--twinkMax:0.67" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:82vw;top:91vh;width:2px;height:2px;--twink:4.79s;--twinkDelay:-0.08s;--twinkMin:0.26;--twinkMax:0.6" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:31vw;top:39vh;width:1px;height:1px;--twink:4.89s;--twinkDelay:-2.60s;--twinkMin:0.29;--twinkMax:0.69" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:42vw;top:45vh;width:2px;height:2px;--twink:4.08s;--twinkDelay:-1.03s;--twinkMin:0.22;--twinkMax:0.55" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:15vw;top:95vh;width:1px;height:1px;--twink:3.77s;--twinkDelay:-2.78s;--twinkMin:0.26;--twinkMax:0.65" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:97vw;top:67vh;width:1px;height:1px;--twink:6.92s;--twinkDelay:-5.76s;--twinkMin:0.26;--twinkMax:0.59" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:38vw;top:1vh;width:1px;height:1px;--twink:4.10s;--twinkDelay:-3.99s;--twinkMin:0.31;--twinkMax:0.67" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:16vw;top:81vh;width:2px;height:2px;--twink:3.41s;--twinkDelay:-0.04s;--twinkMin:0.26;--twinkMax:0.62" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:43vw;top:23vh;width:1px;height:1px;--twink:4.01s;--twinkDelay:-3.46s;--twinkMin:0.22;--twinkMax:0.52" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:62vw;top:9vh;width:1px;height:1px;--twink:3.61s;--twinkDelay:-2.93s;--twinkMin:0.39;--twinkMax:0.52" aria-hidden="true"></span>
+  <span class="cosmic-bg__star cosmic-bg__star--far" style="left:31vw;top:15vh;width:2px;height:2px;--twink:5.43s;--twinkDelay:-4.29s;--twinkMin:0.25;--twinkMax:0.63" aria-hidden="true"></span>
+  <span class="cosmic-bg__glow" style="left:62vw;top:61vh;width:196px;height:196px;--driftX:50px;--driftY:-96px;--dur:49s;--delay:-36s;--pulse:9.7s" aria-hidden="true"></span>
+  <span class="cosmic-bg__glow" style="left:83vw;top:17vh;width:173px;height:173px;--driftX:60px;--driftY:-123px;--dur:48s;--delay:-42s;--pulse:6.5s" aria-hidden="true"></span>
+  <span class="cosmic-bg__glow" style="left:35vw;top:27vh;width:261px;height:261px;--driftX:-81px;--driftY:-130px;--dur:40s;--delay:-26s;--pulse:8.7s" aria-hidden="true"></span>
+  <span class="cosmic-bg__glow" style="left:81vw;top:65vh;width:194px;height:194px;--driftX:-92px;--driftY:-121px;--dur:49s;--delay:-45s;--pulse:7.7s" aria-hidden="true"></span>
+  <span class="cosmic-bg__glow" style="left:63vw;top:14vh;width:179px;height:179px;--driftX:-33px;--driftY:-50px;--dur:65s;--delay:-25s;--pulse:8.6s" aria-hidden="true"></span>
+  <span class="cosmic-bg__glow" style="left:74vw;top:33vh;width:158px;height:158px;--driftX:-32px;--driftY:-45px;--dur:44s;--delay:-4s;--pulse:6.4s" aria-hidden="true"></span>
+  <div class="cosmic-bg__beam" aria-hidden="true"></div>
+</div>
+
+<nav class="cc-nav" id="cc-nav" role="navigation" aria-label="Main navigation">
+  <a href="/" class="cc-nav__logo" aria-label="Crypto Cipher® Home">
+    <img src="logo.svg" alt="Crypto Cipher® Audio Lab" height="40" width="102" loading="lazy">
+  </a>
+
+  <ul class="cc-nav__menu">
+    <!-- 1. Libraries · Revenue stream #1 -->
+    <li class="cc-nav__item"><a class="cc-nav__link" href="/instruments"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg><span class="cc-nav__label">Instruments</span></a></li>
+
+    <!-- 2. Recordings · Revenue stream #2 (custom sessions) -->
+    <li class="cc-nav__item"><a class="cc-nav__link" href="/recording-services"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg><span class="cc-nav__label">Recordings</span></a></li>
+
+    <!-- 3. Heritage · Brand / cultural authority -->
+    <li class="cc-nav__item"><a class="cc-nav__link" href="/heritage"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span class="cc-nav__label">Heritage</span></a></li>
+
+    <!-- 4. Collaborate · Partnership / co-creation -->
+    <li class="cc-nav__item"><a class="cc-nav__link" href="/collaboration"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="cc-nav__label">Collaborate</span></a></li>
+
+    <!-- 5. License · Sync + AI data licensing -->
+
+    <!-- 6. About · Brand foundation -->
+    <li class="cc-nav__item"><a class="cc-nav__link" href="/about"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="cc-nav__label">About</span></a></li>
+
+    <!-- 7. Contact · Foundational -->
+    <li class="cc-nav__item"><a class="cc-nav__link" href="/contact"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="cc-nav__label">Contact</span></a></li>
+
+    <!-- 8. Social · Single icon · click opens dropdown straight below with IG / FB / LinkedIn -->
+    <li class="cc-nav__item cc-nav__item--social">
+      <button class="cc-nav__link cc-nav__link--social" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="cc-nav-social-dropdown" aria-label="Social media">
+        <svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        <span class="cc-nav__label">Social</span>
+      </button>
+      <div class="cc-nav__dropdown" id="cc-nav-social-dropdown" role="menu" aria-hidden="true">
+        <a href="https://www.instagram.com/cryptocipher/" class="cc-nav__dropdown-item" role="menuitem" target="_blank" rel="noopener noreferrer">
+          <svg class="cc-nav__dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.facebook.com/CryptoCipherAudioLab/" class="cc-nav__dropdown-item" role="menuitem" target="_blank" rel="noopener noreferrer">
+          <svg class="cc-nav__dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          <span>Facebook</span>
+        </a>
+        <a href="https://in.linkedin.com/company/crypto-cipher" class="cc-nav__dropdown-item" role="menuitem" target="_blank" rel="noopener noreferrer">
+          <svg class="cc-nav__dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </li>
+    <li class="cc-nav__item cc-nav__item--account">
+      <button class="cc-nav__link cc-nav__link--account" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="cc-nav-account-dropdown" aria-label="Account">
+        <svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span class="cc-nav__label">Login</span>
+        <span class="cc-nav__badge" data-cart-total hidden aria-hidden="true">0</span>
+      </button>
+      <div class="cc-nav__dropdown cc-nav__dropdown--right" id="cc-nav-account-dropdown" role="menu" aria-hidden="true">
+        <a href="#" class="cc-nav__dropdown-item" role="menuitem" data-auth="signin">
+          <svg class="cc-nav__dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          <span>Sign in</span>
+        </a>
+        <a href="#" class="cc-nav__dropdown-item" role="menuitem" data-auth="signup">
+          <svg class="cc-nav__dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+          <span>Sign up</span>
+        </a>
+        <span class="cc-nav__dropdown-divider" role="separator"></span>
+        <a href="#" class="cc-nav__dropdown-item" role="menuitem" data-action="wishlist-view">
+          <svg class="cc-nav__dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span>Wishlist</span>
+          <span class="cc-nav__dropdown-count" data-wishlist-count hidden>0</span>
+        </a>
+        <a href="#" class="cc-nav__dropdown-item" role="menuitem" data-action="cart-view">
+          <svg class="cc-nav__dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span>Cart</span>
+          <span class="cc-nav__dropdown-count" data-cart-count hidden>0</span>
+        </a>
+      </div>
+    </li>
+  </ul>
+
+  <!-- Svantra CTA · Awwwards-level external link · upcoming loops marketplace -->
+  <a href="https://svantra.in" class="cc-nav__svantra" target="_blank" rel="noopener noreferrer" aria-label="Svantra — opens in new tab" data-magnetic>
+    <span class="cc-nav__svantra-bg" aria-hidden="true"></span>
+    <span class="cc-nav__svantra-glow" aria-hidden="true"></span>
+    <span class="cc-nav__svantra-shine" aria-hidden="true"></span>
+    <span class="cc-nav__svantra-content">
+      <span class="cc-nav__svantra-text">Svantra</span>
+      <span class="cc-nav__svantra-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+      </span>
+    </span>
+    <span class="cc-nav__svantra-edge" aria-hidden="true"></span>
+  </a>
+
+  <button class="cc-nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="cc-nav__mobile-panel" id="cc-nav-mobile">
+  <a href="/instruments" class="cc-nav__mobile-link"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>Instruments</a>
+  <a href="/recording-services" class="cc-nav__mobile-link"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>Recordings</a>
+  <a href="/heritage" class="cc-nav__mobile-link"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>Heritage</a>
+  <a href="/collaboration" class="cc-nav__mobile-link"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Collaborate</a>
+  <a href="/about" class="cc-nav__mobile-link"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>About</a>
+  <a href="/contact" class="cc-nav__mobile-link"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Contact</a>
+
+  <div class="cc-nav__mobile-divider" aria-hidden="true"></div>
+  <span class="cc-nav__mobile-section-label">Account</span>
+  <a href="#" class="cc-nav__mobile-link" data-auth="signin"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>Sign in</a>
+  <a href="#" class="cc-nav__mobile-link" data-auth="signup"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>Sign up</a>
+  <a href="#" class="cc-nav__mobile-link" data-action="wishlist-view"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Wishlist <span class="cc-nav__badge cc-nav__badge--inline" data-wishlist-count hidden>0</span></a>
+  <a href="#" class="cc-nav__mobile-link" data-action="cart-view"><svg class="cc-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>Cart <span class="cc-nav__badge cc-nav__badge--inline" data-cart-count hidden>0</span></a>
+
+  <div class="cc-nav__mobile-divider" aria-hidden="true"></div>
+
+  <span class="cc-nav__mobile-section-label">Follow us</span>
+  <div class="cc-nav__mobile-social-row">
+    <a href="https://www.instagram.com/cryptocipher/" class="cc-nav__mobile-social" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a href="https://www.facebook.com/CryptoCipherAudioLab/" class="cc-nav__mobile-social" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    </a>
+    <a href="https://in.linkedin.com/company/crypto-cipher" class="cc-nav__mobile-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+  </div>
+
+  <div class="cc-nav__mobile-divider" aria-hidden="true"></div>
+
+  <a href="https://svantra.in" class="cc-nav__mobile-cta" target="_blank" rel="noopener noreferrer">
+    <span>Svantra</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;margin-left:0.5rem;"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+  </a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TERMS-001 v2 · Terms of Service
+     Canon-aligned DOM matching .libinner / .instr / .recsvc
+     ═══════════════════════════════════════════════════════════════ -->
+<main id="main" tabindex="-1" class="libinner" role="main">
+
+  <!-- ─── SIDENAV-001 · Canonical site lateral nav (extracted from library-inner.html) ─── -->
+  <aside class="sidenav" id="sidenav" data-active-section="recording-services" aria-label="Site navigation">
+
+    <!-- Mobile pull tab · grip pulses when closed; sticky + close button when open -->
+    <div class="sidenav__pull" id="sidenav-pull" role="button" tabindex="0" aria-label="Open navigation" aria-expanded="false">
+      <div class="sidenav__pull-grip"></div>
+      <span class="sidenav__pull-label" id="sidenav-pull-label">Navigate</span>
+      <span class="sidenav__pull-meta">14 · 8</span>
+      <button class="sidenav__pull-close" id="sidenav-pull-close" type="button" aria-label="Close navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- ─── SECTION 1: KONTAKT LIBRARIES (locked-open) ─── -->
+    <section class="sidenav__section expanded locked-open" data-section="kontakt-libraries">
+      <button class="sidenav__section-head" aria-expanded="true" aria-controls="sec-libs">
+        <span class="sidenav__section-label">
+          <span class="sidenav__section-label-text">Virtual Instruments</span>
+          <span class="sidenav__section-count">14 instruments</span>
+        </span>
+        <span class="sidenav__section-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </button>
+      <div class="sidenav__section-body" id="sec-libs">
+        <div class="sidenav__section-body-inner">
+          <div class="sidenav__section-body-pad">
+            <ul class="sidenav__list sidenav__list--libs">
+              <li><a href="/instruments/voices-of-ancient-india" class="sidenav__item current" aria-current="page"><span class="sidenav__item-name">Voices of Ancient India</span></a></li>
+              <li><a href="/instruments/solo-tabla" class="sidenav__item"><span class="sidenav__item-name">Solo Tabla</span></a></li>
+              <li><a href="/instruments/bollywood-harmonium" class="sidenav__item"><span class="sidenav__item-name">Bollywood Harmonium</span></a></li>
+              <li><a href="/instruments/solo-dholak" class="sidenav__item"><span class="sidenav__item-name">Solo Dholak</span></a></li>
+              <li><a href="/instruments/voices-of-ragas-vol-1" class="sidenav__item"><span class="sidenav__item-name">Voices of Ragas Vol 1</span></a></li>
+              <li><a href="/instruments/voices-of-ragas-vol-2" class="sidenav__item"><span class="sidenav__item-name">Voices of Ragas Vol 2</span></a></li>
+              <li><a href="/instruments/tabla-tarang" class="sidenav__item"><span class="sidenav__item-name">Tabla Tarang</span></a></li>
+              <li><a href="/instruments/tabla-loops" class="sidenav__item"><span class="sidenav__item-name">Tabla Loops</span></a></li>
+              <li><a href="/instruments/dholak-loops" class="sidenav__item"><span class="sidenav__item-name">Dholak Loops</span></a></li>
+              <li><a href="/instruments/swarmandal" class="sidenav__item"><span class="sidenav__item-name">Swarmandal</span></a></li>
+              <li><a href="/instruments/tarangs" class="sidenav__item"><span class="sidenav__item-name">Tarangs</span></a></li>
+              <li><a href="/instruments/tongue-drum" class="sidenav__item"><span class="sidenav__item-name">Tongue Drum</span></a></li>
+              <li><a href="/instruments/bol-tabla-mouth-percussion" class="sidenav__item"><span class="sidenav__item-name">BOL — Tabla Mouth Perc.</span></a></li>
+              <li><a href="/instruments/terry-and-bells" class="sidenav__item"><span class="sidenav__item-name">Terry &amp; Bells</span></a></li>
+            </ul>
+            <a href="/instruments" class="sidenav__footer-link">View all instruments <span class="sidenav__footer-link-arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SECTION 2: RECORDING SERVICES (single CTA · no expand · no artists) ─── -->
+    <section class="sidenav__section sidenav__section--cta" data-section="recording-services">
+      <a href="/recording-services" class="sidenav__cta-link" aria-label="View Recording Services">
+        <span class="sidenav__cta-label">
+          <span class="sidenav__cta-label-text">Recording Services</span>
+          <span class="sidenav__cta-label-desc">Custom Indian instrument sessions</span>
+        </span>
+        <span class="sidenav__cta-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </section>
+
+    <!-- ─── SECTION 3: HERITAGE FILMS (single CTA · no expand · no list) ─── -->
+    <section class="sidenav__section sidenav__section--cta" data-section="heritage-films">
+      <a href="/heritage" class="sidenav__cta-link" aria-label="View Heritage Films">
+        <span class="sidenav__cta-label">
+          <span class="sidenav__cta-label-text">Heritage Films</span>
+          <span class="sidenav__cta-label-desc">Behind-the-scenes from the studio</span>
+        </span>
+        <span class="sidenav__cta-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </section>
+
+  </aside>
+
+  <!-- ─── LEFT COLUMN · Per-page TOC ─── -->
+<!-- ─── RIGHT COLUMN · Hero + sections ─── -->
+  <div class="main-col legal-col">
+
+    <!-- HERO -->
+    <section class="legal-hero" aria-labelledby="legal-title">
+      <span class="legal-hero__eyebrow" data-reveal>Legal · Terms</span>
+      <h1 class="legal-hero__title" id="legal-title" data-reveal>
+        Terms of <em>Service</em>
+      </h1>
+      <p class="legal-hero__sub d1" data-reveal>
+        The agreement between you and Crypto Cipher Audio Lab when you use this website, purchase a virtual instrument library, subscribe to our loops service, commission a recording session, or license any of our audio assets. Please read it before you transact.
+      </p>
+
+      <div class="legal-hero__meta d2" data-reveal>
+        <span class="legal-meta-chip">
+          <span class="legal-meta-chip__label">Effective</span>
+          <span class="legal-meta-chip__value">TBD — pending finalisation</span>
+        </span>
+        <span class="legal-meta-chip">
+          <span class="legal-meta-chip__label">Version</span>
+          <span class="legal-meta-chip__value">0.9 · Draft</span>
+        </span>
+        <span class="legal-meta-chip">
+          <span class="legal-meta-chip__label">Jurisdiction</span>
+          <span class="legal-meta-chip__value">Delhi, India</span>
+        </span>
+        <span class="legal-meta-chip legal-meta-chip--draft">
+          <span class="legal-meta-chip__label">Status</span>
+          <span class="legal-meta-chip__value">Pending legal review</span>
+        </span>
+      </div>
+
+      <div class="legal-draft-banner d3" data-reveal role="note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 9v4"/><path d="M12 17h.01"/>
+          <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+        </svg>
+        <div class="legal-draft-banner__text">
+          <strong>Working draft.</strong> Pending final review by qualified Indian legal counsel before launch. The binding version is whichever is in force on the date of your transaction.
+        </div>
+      </div>
+    </section>
+<!-- ═══ 01 · Acceptance ═══ -->
+    <article class="legal-section" id="sec-1" data-reveal>
+      <span class="legal-section__num">01</span>
+      <h2 class="legal-section__title">Acceptance of these terms</h2>
+      <div class="legal-prose">
+        <p>These Terms of Service ("<strong>Terms</strong>") form a binding agreement between you ("<strong>you</strong>", "<strong>your</strong>", "<strong>Customer</strong>") and <strong>Crypto Cipher Audio Lab</strong>, of Delhi, India ("<strong>Crypto Cipher</strong>", "<strong>we</strong>", "<strong>us</strong>", "<strong>our</strong>").</p>
+        <p>By using cryptocipher.in, creating an account, downloading our software, purchasing a library, subscribing to our loops service, commissioning a recording session, or licensing any of our audio assets, you confirm that you have read, understood, and agreed to be bound by these Terms and by our <a href="/privacy">Privacy Policy</a> and <a href="/cookie-policy">Cookie Policy</a>, each of which is incorporated by reference.</p>
+        <p>If you are entering into these Terms on behalf of a company or other legal entity, you represent that you have authority to bind that entity, in which case "you" refers to that entity.</p>
+        <p>If you do not agree, do not use our services.</p>
+      </div>
+    </article>
+
+    <!-- ═══ 02 · Definitions ═══ -->
+    <article class="legal-section" id="sec-2" data-reveal>
+      <span class="legal-section__num">02</span>
+      <h2 class="legal-section__title">Definitions</h2>
+      <div class="legal-prose">
+        <div class="legal-table-wrap">
+          <table class="legal-table">
+            <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Library</strong></td><td>Any virtual instrument, sample library, Kontakt instrument, loop pack, or similar audio product we sell under the Crypto Cipher name, in any format.</td></tr>
+              <tr><td><strong>Licensed Material</strong></td><td>Any audio, MIDI, scripting, presets, artwork, documentation, or other content delivered to you as part of a Library, a loops subscription, a recording session, or a sync license.</td></tr>
+              <tr><td><strong>Derivative Work</strong></td><td>Any musical composition, sound design element, recording, or audio production that incorporates Licensed Material in a transformed and combined way as part of a larger work.</td></tr>
+              <tr><td><strong>End User</strong></td><td>The single natural person who has been granted a license under these Terms — that is, you.</td></tr>
+              <tr><td><strong>Order Confirmation</strong></td><td>The email or on-screen confirmation we send after we accept your order. This is the document that creates the contract.</td></tr>
+              <tr><td><strong>Site</strong></td><td>cryptocipher.in and any subdomain operated by Crypto Cipher.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </article>
+
+    <!-- ═══ 03 · Eligibility & accounts ═══ -->
+    <article class="legal-section" id="sec-3" data-reveal>
+      <span class="legal-section__num">03</span>
+      <h2 class="legal-section__title">Eligibility &amp; accounts</h2>
+      <div class="legal-prose">
+        <p>You must be <strong>18 years of age or older</strong> to use our services or to enter into these Terms.</p>
+        <p>To purchase, you must create an account or check out as a guest. If you create an account, you agree to:</p>
+        <ul>
+          <li>Provide accurate, current, and complete information.</li>
+          <li>Keep your password confidential. You are responsible for everything that happens under your account.</li>
+          <li>Notify us promptly if you suspect unauthorised access.</li>
+        </ul>
+        <p>We may suspend or terminate any account that we reasonably believe is being used to violate these Terms (see Section 16).</p>
+      </div>
+    </article>
+
+    <!-- ═══ 04 · Orders, pricing, taxes ═══ -->
+    <article class="legal-section" id="sec-4" data-reveal>
+      <span class="legal-section__num">04</span>
+      <h2 class="legal-section__title">Orders, pricing, and taxes</h2>
+      <div class="legal-prose">
+        <h3>How a contract is formed</h3>
+        <p>Products listed on the Site are an <em>invitation to treat</em>, not an offer. When you place an order, you make an offer to buy. The contract is formed only when we send you an Order Confirmation. We may refuse any order, including for reasons of suspected fraud, payment failure, geographic restriction, or pricing error.</p>
+
+        <h3>Pricing and currency</h3>
+        <p>Prices are displayed in the currency selected at checkout (typically INR for Indian customers, USD for international). We may adjust prices at any time, but published prices apply to any order accepted before the change.</p>
+
+        <h3>Pricing errors</h3>
+        <p>If a price is obviously wrong (for example, a Library listed at 1% of its usual price), we are not bound to honour it. We will contact you, offer to fulfil at the correct price, or cancel and refund.</p>
+
+        <h3>Taxes</h3>
+        <ul>
+          <li><strong>Indian customers:</strong> GST is included or added at checkout as applicable. We issue GST-compliant invoices.</li>
+          <li><strong>EU/UK customers:</strong> Where required, VAT may be added at the rate of your country of residence. You are responsible for any reverse-charge obligations applicable to your business.</li>
+          <li><strong>Other jurisdictions:</strong> You are responsible for any local sales, use, or import taxes, duties, or levies that may apply to your purchase. These are not included in our listed prices unless explicitly stated.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- ═══ 05 · Payment ═══ -->
+    <article class="legal-section" id="sec-5" data-reveal>
+      <span class="legal-section__num">05</span>
+      <h2 class="legal-section__title">Payment &amp; processors</h2>
+      <div class="legal-prose">
+        <p>Payment is processed by our payment service providers (PSPs):</p>
+        <ul>
+          <li><strong>Razorpay</strong> — Indian customers, INR.</li>
+          <li><strong>Stripe</strong> — international customers, USD/EUR/GBP.</li>
+          <li><strong>PayPal</strong> — international customers preferring PayPal.</li>
+        </ul>
+        <p>We do not see, store, or process your card number, CVV, or full bank account number. Those are handled directly by the relevant PSP under their own terms and PCI-DSS controls.</p>
+        <p>By making a payment you agree to the PSP's terms in addition to ours. If a payment fails, we may cancel the order without further notice.</p>
+        <p>Chargebacks initiated without first contacting us are considered a breach of these Terms and may result in account suspension and disabling of any licenses tied to the disputed transaction.</p>
+      </div>
+    </article>
+
+    <!-- ═══ 06 · Refunds ═══ -->
+    <article class="legal-section" id="sec-6" data-reveal>
+      <span class="legal-section__num">06</span>
+      <h2 class="legal-section__title">Refunds</h2>
+      <div class="legal-prose">
+
+        <div class="legal-callout">
+          <span class="legal-callout__label">Digital goods — no general right of withdrawal</span>
+          <div class="legal-callout__body">
+            Once a Library has been delivered (download link issued or licence key activated), it is no longer eligible for refund. By initiating a download or activation, you expressly consent to the immediate performance of the contract and acknowledge that you waive any statutory right of withdrawal for digital content that would otherwise apply, to the maximum extent permitted by law in your jurisdiction.
+          </div>
+        </div>
+
+        <h3>When we will refund</h3>
+        <ul>
+          <li><strong>Duplicate purchase</strong> caused by a technical fault on our side — full refund.</li>
+          <li><strong>Library that does not work as described</strong> due to a defect attributable to us, where the defect cannot be remediated within a reasonable time — full refund.</li>
+          <li><strong>Order cancelled before download</strong> — full refund, provided no download link or licence key has been activated.</li>
+          <li><strong>Mandatory consumer-protection rights</strong> — nothing in this Section limits any non-waivable refund or cancellation right you may have under your local consumer-protection law.</li>
+        </ul>
+
+        <h3>When we will not refund</h3>
+        <ul>
+          <li>Change of mind, taste, or workflow fit after download.</li>
+          <li>Incompatibility with software you did not check before purchase — system requirements are listed on every Library page.</li>
+          <li>"I bought the wrong one" — please write to us before downloading; we may be able to swap.</li>
+        </ul>
+
+        <h3>How to request a refund</h3>
+        <p>Email <strong>admin@cryptocipher.in</strong> within <strong>14 days</strong> of purchase, with your order ID and the reason. We respond within 7 working days. Approved refunds are issued to the original payment method.</p>
+      </div>
+    </article>
+
+    <!-- ═══ 07 · License grant ═══ -->
+    <article class="legal-section" id="sec-7" data-reveal>
+      <span class="legal-section__num">07</span>
+      <h2 class="legal-section__title">License grant</h2>
+      <div class="legal-prose">
+
+        <div class="legal-callout">
+          <span class="legal-callout__label">The license in one paragraph</span>
+          <div class="legal-callout__body">
+            Subject to your full payment and continuing compliance with these Terms, we grant you a <strong>non-exclusive, non-transferable, non-sublicensable, perpetual, worldwide, single-user license</strong> to use the Licensed Material to create your own original music and sound design, in commercial and non-commercial projects, royalty-free for the resulting Derivative Work.
+          </div>
+        </div>
+
+        <h3>What this license allows</h3>
+        <ul>
+          <li>Use Licensed Material in your own original musical compositions, sound design, film scores, game soundtracks, advertising, podcasts, theatre, dance, installation art, and similar Derivative Works.</li>
+          <li>Distribute, sell, stream, broadcast, and license those Derivative Works without owing us any royalty, performance share, or mechanical share.</li>
+          <li>Use the libraries in unlimited projects, for unlimited clients, in perpetuity.</li>
+          <li>Make backup copies for your own use.</li>
+          <li>Install on up to <strong>two computers you personally own or control</strong>, provided only one is used at a time, and provided the Licensed Material is not made simultaneously accessible to anyone other than you.</li>
+        </ul>
+
+        <h3>What it does not</h3>
+        <p>The license does not transfer ownership. We remain the owner of all rights in the Licensed Material itself. You only own the Derivative Works that you author using it.</p>
+        <p>The license is <em>personal to you</em>. You cannot transfer it, gift it, resell it, sublicense it, or assign it to anyone else, including your employer or your clients, except as a sale of the Derivative Work itself.</p>
+      </div>
+    </article>
+
+    <!-- ═══ 08 · Prohibited uses ═══ -->
+    <article class="legal-section" id="sec-8" data-reveal>
+      <span class="legal-section__num">08</span>
+      <h2 class="legal-section__title">Prohibited uses</h2>
+      <div class="legal-prose">
+        <p>You may not, and you may not permit any third party to:</p>
+        <ol>
+          <li><strong>Redistribute the Licensed Material itself.</strong> You may not share, gift, resell, repackage, mirror, host, or upload any Library files, samples, MIDI patterns, scripts, or presets in their original or substantially original form. This is the single hardest rule.</li>
+          <li><strong>Distribute samples as samples.</strong> You may not include isolated samples, loops, one-shots, or MIDI patterns from our Libraries in any other sample library, sound pack, preset pack, or competing product.</li>
+          <li><strong>Use Licensed Material as training data</strong> for any artificial intelligence, machine-learning, generative audio, or voice-cloning system, whether commercial or research, without our prior written consent.</li>
+          <li><strong>Reverse-engineer, decompile, or disassemble</strong> any software, scripting, or copy-protection mechanism in the Licensed Material, except to the extent that applicable law expressly permits despite this restriction.</li>
+          <li><strong>Remove or alter</strong> any copyright notice, watermark, licence-key embedding, or attribution mark.</li>
+          <li><strong>Use the Licensed Material in any way that infringes</strong> third-party rights, including any musical composition that knowingly imitates a copyrighted recording in a manner amounting to infringement under the Indian Copyright Act 1957 or its foreign equivalents.</li>
+          <li><strong>Use Crypto Cipher branding</strong>, logos, or trade marks to imply endorsement of your Derivative Work without our prior written consent. Crediting us as the source of the Library is welcome and not restricted.</li>
+          <li><strong>Use the Licensed Material in content</strong> that is unlawful in the jurisdiction of its primary distribution, including content that infringes intellectual property, defames, harasses, sexualises minors, or is created for the purpose of inciting violence.</li>
+        </ol>
+        <p>Breach of paragraphs 1–3 is a material breach and may result in immediate termination of all licenses (Section 16), without refund, and is enforceable by injunction.</p>
+      </div>
+    </article>
+
+    <!-- ═══ 09 · Loops subscription ═══ -->
+    <article class="legal-section" id="sec-9" data-reveal>
+      <span class="legal-section__num">09</span>
+      <h2 class="legal-section__title">Loops subscription</h2>
+      <div class="legal-prose">
+        <p>Our loops subscription gives you ongoing access to a curated catalogue of loops, one-shots, and MIDI patterns under these additional terms:</p>
+        <ul>
+          <li><strong>Term and billing.</strong> Subscriptions renew automatically at the interval you selected (monthly or annual) until cancelled. You may cancel at any time from your account; cancellation takes effect at the end of the current billing period.</li>
+          <li><strong>Download window.</strong> Loops you download while your subscription is active are licensed to you perpetually under the same terms as Section 7, even after the subscription ends.</li>
+          <li><strong>Catalogue access.</strong> Browsing, streaming previews, and downloading newly-added content require an active subscription. We do not promise that any particular loop or pack will remain in the catalogue indefinitely.</li>
+          <li><strong>No general right of withdrawal</strong> applies to amounts paid for billing periods during which you accessed the catalogue, to the maximum extent permitted by law.</li>
+          <li><strong>Price changes</strong> to renewals are notified by email at least 30 days in advance. Continued subscription after a notified price change is your acceptance of the new price.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- ═══ 10 · Recording services ═══ -->
+    <article class="legal-section" id="sec-10" data-reveal>
+      <span class="legal-section__num">10</span>
+      <h2 class="legal-section__title">Recording services</h2>
+      <div class="legal-prose">
+        <p>When you commission a remote recording session — sitar, tabla, bansuri, vocal, ensemble, or any other service we offer:</p>
+        <ul>
+          <li><strong>Scope and fee</strong> are agreed in writing before work begins, in a session brief we both confirm.</li>
+          <li><strong>Deposit</strong> of 50% (or as otherwise agreed) is payable upfront. The balance is due on delivery of stems.</li>
+          <li><strong>Deliverables.</strong> We deliver edited, tuned, and timing-corrected stems in the format specified in the brief. One round of minor revisions is included; additional revisions are billed at our then-current hourly rate.</li>
+          <li><strong>Performer rights and ownership.</strong> On payment in full, we assign to you the copyright in the sound recording delivered, on a worldwide, perpetual basis, for use in your specified project and in any reasonable derivative or promotional use of that project. <em>Performers' moral rights and any neighbouring rights are reserved to the extent applicable law makes them non-assignable.</em></li>
+          <li><strong>Re-licensing the stems</strong> as samples in a third-party sample library, AI training set, or competing product requires a separate written license from us.</li>
+          <li><strong>Cancellation</strong> by you after work has commenced: deposit is non-refundable; any work completed is invoiced pro-rata.</li>
+          <li><strong>Force majeure</strong> (illness of performer, equipment failure, infrastructure outage, civil unrest, government order, act of nature). We will reschedule at no additional fee. Where rescheduling is impossible we will refund the unearned portion of the deposit.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- ═══ 11 · Sync licensing ═══ -->
+    <article class="legal-section" id="sec-11" data-reveal>
+      <span class="legal-section__num">11</span>
+      <h2 class="legal-section__title">Sync licensing</h2>
+      <div class="legal-prose">
+        <p>Sync licenses for our pre-cleared catalogue tracks are issued on a per-project basis, on terms negotiated and confirmed in writing before delivery of the master.</p>
+        <ul>
+          <li>The license is bespoke and overrides the general Library license in Section 7 to the extent of any inconsistency.</li>
+          <li>Indian Copyright Act 1957 sections 17–19 governing assignment and license formalities apply.</li>
+          <li>Performance, mechanical, and synchronisation rights are granted only to the extent expressly stated in the sync license.</li>
+          <li>You are responsible for any cue-sheet filings, performance-society notifications, and metadata accuracy in the relevant collecting society.</li>
+        </ul>
+        <p>Contact <strong>admin@cryptocipher.in</strong> to enquire.</p>
+      </div>
+    </article>
+
+    <!-- ═══ 12 · Collaboration ═══ -->
+    <article class="legal-section" id="sec-12" data-reveal>
+      <span class="legal-section__num">12</span>
+      <h2 class="legal-section__title">Collaboration &amp; revenue share</h2>
+      <div class="legal-prose">
+        <p>From time to time we partner with artists, producers, recording engineers, and sound designers to co-produce Libraries or contribute to our loops catalogue. Where you are such a collaborator:</p>
+        <ul>
+          <li>Your participation is governed by a separate <strong>Collaboration Agreement</strong>, which prevails over these Terms to the extent of any inconsistency.</li>
+          <li>Revenue share, royalty rate, attribution, scope of contribution, and term are defined in that Agreement.</li>
+          <li>Payouts are processed through Razorpay Route (for Indian collaborators) or Stripe Connect / equivalent (for international collaborators), each subject to its own onboarding, KYC, and tax-form requirements.</li>
+          <li>Tax-deduction-at-source (TDS), 1099, W-8BEN or other withholding obligations are applied as required by law.</li>
+          <li>Audit rights, termination, and dispute resolution for the collaboration are governed by the Collaboration Agreement.</li>
+        </ul>
+        <p>This section does not create a partnership, agency, or joint venture between you and us in the absence of such an Agreement.</p>
+      </div>
+    </article>
+
+    <!-- ═══ 13 · IP & ownership ═══ -->
+    <article class="legal-section" id="sec-13" data-reveal>
+      <span class="legal-section__num">13</span>
+      <h2 class="legal-section__title">IP &amp; ownership</h2>
+      <div class="legal-prose">
+        <p>All right, title, and interest in and to the Site, the Licensed Material, the Crypto Cipher name, logo, and trade marks, and any goodwill associated with them, remain at all times the property of Crypto Cipher Audio Lab or its licensors. Nothing in these Terms transfers ownership of any of the foregoing to you.</p>
+        <p>You retain all right, title, and interest in your own Derivative Works, subject to the underlying license in the Licensed Material described in Section 7.</p>
+        <p>If you submit feedback, ideas, or suggestions to us, you grant us a perpetual, worldwide, royalty-free, non-exclusive license to use them, without obligation to credit or compensate you.</p>
+        <p>We respect third-party intellectual property and expect you to do the same. If you believe content on the Site infringes your copyright, write to <strong>admin@cryptocipher.in</strong> with a takedown notice complying with Section 52A of the Indian Copyright Act 1957, and the equivalent of US DMCA § 512(c)(3) where applicable.</p>
+      </div>
+    </article>
+
+    <!-- ═══ 14 · Warranties ═══ -->
+    <article class="legal-section" id="sec-14" data-reveal>
+      <span class="legal-section__num">14</span>
+      <h2 class="legal-section__title">Warranties &amp; disclaimers</h2>
+      <div class="legal-prose">
+        <p>We warrant that the Licensed Material we deliver to you, on the date of delivery:</p>
+        <ul>
+          <li>Is the genuine work of Crypto Cipher Audio Lab or our duly-authorised contributors.</li>
+          <li>Is licensed to you under the terms set out here, with all necessary underlying rights.</li>
+          <li>Is, to our knowledge, free of any third-party intellectual-property claim that would prevent your use of it within the scope of the license granted.</li>
+        </ul>
+
+        <p>Beyond the above and to the maximum extent permitted by applicable law:</p>
+
+        <div class="legal-callout">
+          <span class="legal-callout__label">Disclaimer</span>
+          <div class="legal-callout__body">
+            The Site and the Licensed Material are provided <strong>"as is" and "as available"</strong>, without warranty of any kind, express, implied, statutory, or otherwise — including, without limitation, any implied warranty of merchantability, fitness for a particular purpose, accuracy, non-infringement, or uninterrupted operation. We do not warrant that the Site will be error-free, that defects will be corrected, or that the Site is free of viruses or other harmful components.
+          </div>
+        </div>
+
+        <p><strong>Compatibility.</strong> Our Libraries are designed to run in the host software named in the product listing (typically Native Instruments Kontakt, Kontakt Player, or the equivalent). System requirements are published on every product page. We do not warrant compatibility with software, plug-ins, hardware, or operating systems not listed.</p>
+        <p><strong>Nothing in this Section limits</strong> any liability of ours that, under applicable law (including the Consumer Protection Act 2019 in India and equivalent statutes elsewhere), cannot be excluded or limited.</p>
+      </div>
+    </article>
+
+    <!-- ═══ 15 · Liability cap ═══ -->
+    <article class="legal-section" id="sec-15" data-reveal>
+      <span class="legal-section__num">15</span>
+      <h2 class="legal-section__title">Limitation of liability</h2>
+      <div class="legal-prose">
+
+        <div class="legal-callout">
+          <span class="legal-callout__label">Cap</span>
+          <div class="legal-callout__body">
+            To the maximum extent permitted by law, our total aggregate liability to you under or in connection with these Terms, however caused and on any theory of liability, shall not exceed <strong>the greater of (a) the amount you paid us in the twelve months preceding the event giving rise to the claim, or (b) INR 5,000 (or its equivalent in your billing currency)</strong>.
+          </div>
+        </div>
+
+        <p>To the maximum extent permitted by law, in no event will Crypto Cipher Audio Lab, its directors, employees, contractors, or agents be liable for any:</p>
+        <ul>
+          <li>Indirect, incidental, special, consequential, exemplary, or punitive damages;</li>
+          <li>Loss of profits, revenue, business, anticipated savings, goodwill, or reputation;</li>
+          <li>Loss or corruption of data, even where the possibility was foreseeable.</li>
+        </ul>
+
+        <p><strong>Nothing in this Section excludes or limits liability</strong> for:</p>
+        <ul>
+          <li>Death or personal injury caused by our negligence;</li>
+          <li>Fraud or fraudulent misrepresentation;</li>
+          <li>Any other liability that, under applicable law, cannot be excluded or limited (this is especially relevant for EU/UK consumers and Indian consumers under the Consumer Protection Act 2019).</li>
+        </ul>
+
+        <p>You acknowledge that the prices charged reflect the allocation of risk in this Section and that we would not enter into this contract on the same commercial basis without this allocation.</p>
+      </div>
+    </article>
+
+    <!-- ═══ 16 · Termination ═══ -->
+    <article class="legal-section" id="sec-16" data-reveal>
+      <span class="legal-section__num">16</span>
+      <h2 class="legal-section__title">Termination</h2>
+      <div class="legal-prose">
+        <p>You may stop using our services and close your account at any time.</p>
+        <p>We may suspend or terminate your account and any or all licenses granted under these Terms, with or without notice, if we reasonably believe you have:</p>
+        <ul>
+          <li>Breached Section 8 (Prohibited uses), in particular paragraphs 1–3;</li>
+          <li>Initiated a chargeback in bad faith;</li>
+          <li>Provided false information at signup or checkout;</li>
+          <li>Used our services to infringe third-party rights;</li>
+          <li>Failed to pay any amount when due.</li>
+        </ul>
+        <p>On termination for material breach of Section 8: all licenses immediately cease, you must destroy all copies of the Licensed Material in your possession, and no refund is due. We may pursue any remedy available in law or equity, including damages and injunctive relief.</p>
+        <p>Sections that by their nature should survive (Definitions, License of Derivative Works already created in compliance, IP, Disclaimers, Liability, Disputes, General) survive termination.</p>
+      </div>
+    </article>
+
+    <!-- ═══ 17 · Disputes ═══ -->
+    <article class="legal-section" id="sec-17" data-reveal>
+      <span class="legal-section__num">17</span>
+      <h2 class="legal-section__title">Governing law &amp; disputes</h2>
+      <div class="legal-prose">
+        <h3>Governing law</h3>
+        <p>These Terms are governed by the laws of the Republic of India, without regard to its conflict-of-law principles.</p>
+
+        <h3>Jurisdiction</h3>
+        <p>The courts at <strong>Delhi, India</strong> have exclusive jurisdiction over any dispute arising out of or in connection with these Terms — <em>without prejudice to any mandatory right you may have under the consumer-protection law of your country of residence to bring proceedings in the courts of that country</em>.</p>
+
+        <h3>Informal resolution first</h3>
+        <p>Before commencing any formal proceeding, you agree to contact us at <strong>admin@cryptocipher.in</strong> and give us 30 days to resolve the matter in good faith.</p>
+
+        <h3>Class-action waiver</h3>
+        <p>To the extent permitted by law, all disputes are resolved on an individual basis. You agree not to bring or participate in a class action, collective action, or representative action against us.</p>
+
+        <h3>Limitation period</h3>
+        <p>Any claim arising under these Terms must be commenced within <strong>two (2) years</strong> of the cause of action accruing, or such longer period as is non-waivable under the Indian Limitation Act 1963 or the limitation law applicable to a consumer in their country of residence.</p>
+      </div>
+    </article>
+
+    <!-- ═══ 18 · General ═══ -->
+    <article class="legal-section" id="sec-18" data-reveal>
+      <span class="legal-section__num">18</span>
+      <h2 class="legal-section__title">General</h2>
+      <div class="legal-prose">
+
+        <h3>Entire agreement</h3>
+        <p>These Terms, the Privacy Policy, the Cookie Policy, and any Order Confirmation or Collaboration Agreement we send you constitute the entire agreement between us regarding the subject matter and supersede all prior communications.</p>
+
+        <h3>Changes</h3>
+        <p>We may amend these Terms from time to time. Material changes are notified to account holders by email at least 30 days in advance. Your continued use of the Site or our services after a change takes effect is your acceptance of the amended Terms. The version applicable to a given purchase is the version in force on the date of the Order Confirmation.</p>
+
+        <h3>Severability</h3>
+        <p>If any provision of these Terms is held unenforceable, the remaining provisions remain in full force. A court may modify the unenforceable provision to the minimum extent needed to make it enforceable while preserving the parties' original intent.</p>
+
+        <h3>No waiver</h3>
+        <p>Our failure to enforce any right is not a waiver of that right.</p>
+
+        <h3>Assignment</h3>
+        <p>You may not assign or transfer any rights or obligations under these Terms without our written consent. We may assign these Terms in connection with a merger, acquisition, or sale of substantially all our assets, with notice to you.</p>
+
+        <h3>Force majeure</h3>
+        <p>Neither party is liable for failure to perform due to events beyond reasonable control, including natural disaster, war, civil unrest, government action, internet outage, or pandemic, except for payment obligations already accrued.</p>
+
+        <h3>Notices</h3>
+        <p>Notices to us must be sent to <strong>admin@cryptocipher.in</strong>, copied to our registered address. Notices to you are sent to the email address on file with your account.</p>
+
+        <h3>Language</h3>
+        <p>These Terms are concluded in the English language. If any translation is provided for convenience, the English version prevails in case of conflict.</p>
+
+        <div class="legal-doc-footer">
+          <div class="legal-doc-footer__row">
+            <div class="legal-doc-footer__cell">
+              <div class="legal-doc-footer__cell-label">Operating entity</div>
+              <div class="legal-doc-footer__cell-body">
+                <strong>Crypto Cipher Audio Lab</strong><br>
+                Delhi, India · Established 2010
+              </div>
+            </div>
+            <div class="legal-doc-footer__cell">
+              <div class="legal-doc-footer__cell-label">Contact for legal queries</div>
+              <div class="legal-doc-footer__cell-body">
+                <strong>admin@cryptocipher.in</strong><br>
+                Response within 7 working days.
+              </div>
+            </div>
+            <div class="legal-doc-footer__cell">
+              <div class="legal-doc-footer__cell-label">Version log</div>
+              <div class="legal-doc-footer__cell-body">
+                v0.9 · Draft · pending legal review<br>
+                <em>Finalised version log appears here after launch.</em>
+              </div>
+            </div>
+          </div>
+
+          <div class="legal-cross-nav">
+            <a href="/privacy" class="legal-cross-nav__link">← Privacy Policy</a>
+            <a href="/terms" class="legal-cross-nav__link legal-cross-nav__link--current">Terms of Service</a>
+            <a href="/cookie-policy" class="legal-cross-nav__link">Cookie Policy →</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div><!-- /legal-col -->
+</main>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TERMS-001 · Page JS
+     Reveal observer removed · polish.js owns scroll reveals (E2 · page 09)
+     ═══════════════════════════════════════════════════════════════ -->
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   CRYPTO CIPHER® · COMPONENT JS · v1.0
+   Floating nav · sidenav drawer · footer accordion · reveal observer
+   Wrap in IIFE so multiple page scripts can coexist.
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  'use strict';
+
+  /* ════════════════════════════
+     NAV · scroll + hamburger
+     ════════════════════════════ */
+  const nav = document.getElementById('cc-nav');
+  const hamburger = nav && nav.querySelector('.cc-nav__hamburger');
+  const mobilePanel = document.getElementById('cc-nav-mobile');
+  let scrollTick = false;
+
+  if (nav) {
+    window.addEventListener('scroll', function(){
+      if (scrollTick) return;
+      scrollTick = true;
+      requestAnimationFrame(function(){
+        nav.classList.toggle('scrolled', window.scrollY > 80);
+        scrollTick = false;
+      });
+    }, { passive: true });
+  }
+
+  if (hamburger && mobilePanel) {
+    hamburger.addEventListener('click', () => {
+      const open = mobilePanel.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobilePanel.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobilePanel.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  /* ════════════════════════════
+     NAV · Social dropdown (desktop)
+     - Click toggles · click outside closes · Escape closes
+     - aria-expanded + aria-hidden kept in sync
+     ════════════════════════════ */
+  (function initNavDropdowns(){
+    var pairs = [
+      ['.cc-nav__link--social',  'cc-nav-social-dropdown'],
+      ['.cc-nav__link--account', 'cc-nav-account-dropdown']
+    ].map(function (p) {
+      var trigger = nav && nav.querySelector(p[0]);
+      var dropdown = document.getElementById(p[1]);
+      return (trigger && dropdown) ? { trigger: trigger, dropdown: dropdown } : null;
+    }).filter(Boolean);
+    if (!pairs.length) return;
+    function setOpen(pair, open) {
+      pair.dropdown.classList.toggle('open', open);
+      pair.trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      pair.dropdown.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+    function closeAll(except) { pairs.forEach(function (p) { if (p !== except) setOpen(p, false); }); }
+    pairs.forEach(function (pair) {
+      pair.trigger.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var willOpen = !pair.dropdown.classList.contains('open');
+        closeAll(pair); setOpen(pair, willOpen);
+      });
+      pair.dropdown.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { setOpen(pair, false); });
+      });
+    });
+    document.addEventListener('click', function (e) {
+      pairs.forEach(function (pair) {
+        if (!pair.dropdown.contains(e.target) && !pair.trigger.contains(e.target)) setOpen(pair, false);
+      });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      pairs.forEach(function (pair) {
+        if (pair.dropdown.classList.contains('open')) { setOpen(pair, false); pair.trigger.focus(); }
+      });
+    });
+  })();
+
+  /* CC · cart/wishlist count stub */
+  window.CC = window.CC || {};
+  window.CC.getCounts = window.CC.getCounts || function () { return { cart: 0, wishlist: 0 }; };
+  window.CC.refreshBadges = function () {
+    var c = window.CC.getCounts();
+    document.querySelectorAll('[data-cart-count]').forEach(function (el) { el.textContent = c.cart; el.hidden = !(c.cart > 0); });
+    document.querySelectorAll('[data-wishlist-count]').forEach(function (el) { el.textContent = c.wishlist; el.hidden = !(c.wishlist > 0); });
+    document.querySelectorAll('[data-cart-total]').forEach(function (el) { el.textContent = c.cart; el.hidden = !(c.cart > 0); });
+  };
+  window.CC.refreshBadges();
+
+  /* ════════════════════════════
+     SVANTRA · magnetic hover
+     - Mouse approach within button bounds shifts button toward cursor
+     - Strength capped at 4px in any direction
+     - Resets smoothly when cursor leaves
+     - Disabled on touch/coarse pointers + reduced-motion
+     ════════════════════════════ */
+  (function initSvantraMagnetic(){
+    const btn = nav && nav.querySelector('[data-magnetic]');
+    if (!btn) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+
+    const STRENGTH = 0.18;
+    const MAX = 4;
+
+    function onMove(e) {
+      const r = btn.getBoundingClientRect();
+      const cx = r.left + r.width / 2;
+      const cy = r.top + r.height / 2;
+      let dx = (e.clientX - cx) * STRENGTH;
+      let dy = (e.clientY - cy) * STRENGTH;
+      dx = Math.max(-MAX, Math.min(MAX, dx));
+      dy = Math.max(-MAX, Math.min(MAX, dy));
+      btn.style.setProperty('--mx', dx + 'px');
+      btn.style.setProperty('--my', dy + 'px');
+    }
+    function reset() {
+      btn.style.setProperty('--mx', '0px');
+      btn.style.setProperty('--my', '0px');
+    }
+    btn.addEventListener('mousemove', onMove);
+    btn.addEventListener('mouseleave', reset);
+    btn.addEventListener('blur', reset);
+  })();
+  /* ════════════════════════════
+     SIDENAV-001 — unified nav interactions
+     ════════════════════════════ */
+  const sidenav     = document.getElementById('sidenav');
+  const sidenavPull = document.getElementById('sidenav-pull');
+
+  function syncCenterState() {
+    if (!sidenav) return;
+    const anyExpanded = !!sidenav.querySelector('.sidenav__section.expanded');
+    sidenav.classList.toggle('has-expanded', anyExpanded);
+  }
+
+  if (sidenav) {
+    /* Top-level section collapse/expand · skip .locked-open sections */
+    sidenav.querySelectorAll('.sidenav__section > .sidenav__section-head').forEach(head => {
+      const section = head.parentElement;
+      if (section.classList.contains('locked-open')) return;
+      head.addEventListener('click', () => {
+        const isOpen = section.classList.toggle('expanded');
+        head.setAttribute('aria-expanded', isOpen);
+        syncCenterState();
+      });
+    });
+
+    /* Recording Services — accordion: only one instrument expanded at a time */
+    const recSection = sidenav.querySelector('[data-section="recording-services"]');
+    if (recSection) {
+      recSection.querySelectorAll('.sidenav__instr > .sidenav__instr-head').forEach(head => {
+        head.addEventListener('click', () => {
+          const instr = head.parentElement;
+          const wasOpen = instr.classList.contains('expanded');
+          recSection.querySelectorAll('.sidenav__instr.expanded').forEach(other => {
+            if (other !== instr) {
+              other.classList.remove('expanded');
+              const otherHead = other.querySelector('.sidenav__instr-head');
+              if (otherHead) otherHead.setAttribute('aria-expanded', 'false');
+            }
+          });
+          instr.classList.toggle('expanded', !wasOpen);
+          head.setAttribute('aria-expanded', !wasOpen);
+        });
+      });
+    }
+
+    /* Esc collapses non-locked sections */
+    sidenav.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        sidenav.querySelectorAll('.sidenav__section.expanded:not(.locked-open)').forEach(s => {
+          s.classList.remove('expanded');
+          const h = s.querySelector('.sidenav__section-head');
+          if (h) h.setAttribute('aria-expanded', 'false');
+        });
+        syncCenterState();
+      }
+    });
+
+    syncCenterState();
+  }
+
+  if (sidenavPull && sidenav) {
+    const pullLabel = document.getElementById('sidenav-pull-label');
+    const pullClose = document.getElementById('sidenav-pull-close');
+
+    function setDrawerState(isOpen) {
+      sidenav.classList.toggle('open', isOpen);
+      sidenavPull.setAttribute('aria-expanded', isOpen);
+      sidenavPull.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+      if (pullLabel) pullLabel.textContent = isOpen ? 'Close' : 'Navigate';
+    }
+
+    /* Tap pull-tab itself: toggle open/close.
+       Tap close button: always closes (stopPropagation prevents double-toggle). */
+    sidenavPull.addEventListener('click', (e) => {
+      // If the click came from the close button, the close handler runs;
+      // skip the parent toggle so it doesn't immediately re-open.
+      if (e.target.closest('.sidenav__pull-close')) return;
+      setDrawerState(!sidenav.classList.contains('open'));
+    });
+    /* Keyboard support: Enter/Space on pull-tab toggles drawer */
+    sidenavPull.addEventListener('keydown', (e) => {
+      if (e.target.closest('.sidenav__pull-close')) return;
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        setDrawerState(!sidenav.classList.contains('open'));
+      }
+    });
+    if (pullClose) {
+      pullClose.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setDrawerState(false);
+      });
+    }
+
+    /* Auto-close drawer when a navigation link is tapped (mobile only) */
+    sidenav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (window.matchMedia('(max-width: 1024px)').matches) {
+          setTimeout(() => setDrawerState(false), 200);
+        }
+      });
+    });
+
+    /* Esc closes the mobile drawer */
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && sidenav.classList.contains('open') &&
+          window.matchMedia('(max-width: 1024px)').matches) {
+        setDrawerState(false);
+      }
+    });
+  }
+
+  /* Generic [data-reveal] reveal · REMOVED · OWNED BY polish.js → .is-revealed (ISSUE 5A: one reveal system only) */
+
+})();
+
+</script>
+
+<!-- Crypto Cipher · inline video play · YouTube iframe inside the video card -->
+<script>
+(function(){
+  /* Click on any element with data-yt-id (or its descendants) → play YouTube
+     iframe INSIDE that container. Close button restores the poster. */
+  function buildEmbed(carrier, ytId) {
+    const wrap = document.createElement('div');
+    wrap.className = 'video-embed';
+    wrap.innerHTML = `
+      <button type="button" class="video-embed__close" aria-label="Close video">
+        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+      </button>
+      <iframe
+        title="Library video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+        src="https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&playsinline=1"></iframe>
+    `;
+    carrier.appendChild(wrap);
+    // Force reflow then activate transition
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        wrap.classList.add('is-active');
+        carrier.classList.add('is-playing');
+      });
+    });
+    // Close handler
+    wrap.querySelector('.video-embed__close').addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeEmbed(carrier);
+    });
+  }
+
+  function closeEmbed(carrier) {
+    const wrap = carrier.querySelector('.video-embed');
+    if (!wrap) return;
+    wrap.classList.remove('is-active');
+    carrier.classList.remove('is-playing');
+    setTimeout(() => wrap.remove(), 400);
+  }
+
+  document.addEventListener('click', (e) => {
+    const closeBtn = e.target.closest('.video-embed__close');
+    if (closeBtn) return;  // handled in its own listener
+
+    const carrier = e.target.closest('[data-yt-id]');
+    if (!carrier) return;
+    if (carrier.classList.contains('is-playing')) return;  // already playing
+    const ytId = carrier.getAttribute('data-yt-id');
+    if (ytId) {
+      e.preventDefault();
+      buildEmbed(carrier, ytId);
+    }
+  });
+
+  // Keyboard accessibility (carriers with role="button")
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const carrier = e.target.closest('[data-yt-id]');
+    if (!carrier || carrier.classList.contains('is-playing')) return;
+    const ytId = carrier.getAttribute('data-yt-id');
+    if (ytId) {
+      e.preventDefault();
+      buildEmbed(carrier, ytId);
+    }
+  });
+
+  // Walkthrough tab switching · close any active embed when switching tabs
+  document.querySelectorAll('.videos__tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.videos__panel.is-playing').forEach(p => closeEmbed(p));
+    });
+  });
+})();
+</script>
+
+<!-- Crypto Cipher · booking modal JS -->
+<script>
+/* Booking modal · open/close · esc · backdrop · focus return */
+(function(){
+  const modal = document.getElementById('bookingModal');
+  if (!modal) return;
+  const openers = document.querySelectorAll('[data-open-booking]');
+  const closers = modal.querySelectorAll('[data-close-booking]');
+  let lastFocused = null;
+
+  function openModal() {
+    lastFocused = document.activeElement;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('booking-locked');
+    // Focus first input
+    setTimeout(() => {
+      const firstInput = modal.querySelector('input, select, textarea, button');
+      if (firstInput) firstInput.focus();
+    }, 100);
+  }
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('booking-locked');
+    if (lastFocused && lastFocused.focus) lastFocused.focus();
+  }
+
+  openers.forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); openModal(); }));
+  closers.forEach(el => el.addEventListener('click', closeModal));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+
+  // Form submit · placeholder for backend wire-up
+  const form = document.getElementById('bookingForm');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // TODO: backend POST handler · for now just close + log
+      const data = Object.fromEntries(new FormData(form).entries());
+      console.log('[Booking] Brief submitted:', data);
+      // Simple feedback
+      const btn = form.querySelector('.booking-form__submit span');
+      if (btn) {
+        const orig = btn.textContent;
+        btn.textContent = 'Brief sent ✓';
+        setTimeout(() => { btn.textContent = orig; closeModal(); form.reset(); }, 1400);
+      }
+    });
+  }
+})();
+
+</script>
+
+<!-- Card actions: wishlist + cart delegated handler -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.cc-card-action-btn');
+    if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    var action = btn.getAttribute('data-action');
+    btn.classList.toggle('is-active');
+    document.dispatchEvent(new CustomEvent('cc:card-action', {
+      detail: {
+        action: action,
+        active: btn.classList.contains('is-active'),
+        button: btn,
+        card: btn.closest('.rec-card, .lib-card, .libs__card')
+      }
+    }));
+  }, true);
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER-001 · synced from homepage_148.html (canonical source)
+     Self-contained: styles, markup, behavior, and JSON-LD all here.
+     Sidenav clearance (body padding-bottom:64px) preserved
+     separately in SIDENAV CSS region — see top of file.
+     ═══════════════════════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER-001 · canonical · v-final (Svantra strip + whisper trust cards)
+     Self-contained: styles, markup, behavior all here.
+     ═══════════════════════════════════════════════════════════ -->
+<footer class="ft" id="footer" data-reveal>
+  <div class="ft__bg"></div>
+  <div class="ft__glow"></div>
+
+  <div class="ft__wrap">
+
+    <!-- ═══ 5-COLUMN GRID ═══ -->
+    <div class="ft__grid">
+
+      <div class="ft__col">
+        <div class="ft__col-head">Navigation</div>
+        <a href="/">Home</a>
+        <a href="/instruments">Instruments</a>
+        <a href="/recording-services">Recordings</a>
+        <a href="/heritage">Heritage</a>
+        <a href="/academy">Academy</a>
+        <a href="/collaboration">Collaboration</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+
+      <div class="ft__col">
+        <div class="ft__col-head">Catalogue</div>
+        <a href="/instruments">Virtual Instruments</a>
+        <a href="/instruments/new">New Releases</a>
+        <a href="/instruments/best-sellers">Best Sellers</a>
+        <a href="/licensing">Licensing</a>
+      </div>
+
+      <div class="ft__col">
+        <div class="ft__col-head">Collaboration</div>
+        <a href="/collaboration/artists">Artists &amp; Musicians</a>
+        <a href="/collaboration/composers">Composers &amp; Producers</a>
+        <a href="/collaboration/ai-audio">AI &amp; Audio Technology</a>
+        <a href="/collaboration/software-developers">Audio Software Developers</a>
+        <a href="/collaboration/designers">UI &amp; Graphic Designers</a>
+        <a href="/collaboration/sound-design">Sound Designers</a>
+        <a href="/collaboration/creators">Content Creators</a>
+        <a href="/collaboration/web-developers">Web &amp; Platform Developers</a>
+        <a href="/affiliates">Affiliates</a>
+      </div>
+
+      <div class="ft__col">
+        <div class="ft__col-head">Company</div>
+        <a href="/about">About Crypto Cipher</a>
+        <a href="/competitions">Competitions</a>
+        <a href="/blog">Blog</a>
+        <a href="/news">News</a>
+        <a href="/careers">Careers</a>
+        <a href="/help">Help Center</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/do-not-share">Do Not Share My Personal Information</a>
+      </div>
+
+      <div class="ft__col">
+        <div class="ft__col-head">Connect</div>
+        <a href="https://www.instagram.com/cryptocipher/" rel="noopener" target="_blank">Instagram</a>
+        <a href="https://www.youtube.com/@CryptoCipherLab" rel="noopener" target="_blank">YouTube</a>
+        <a href="https://in.linkedin.com/company/crypto-cipher" rel="noopener" target="_blank">LinkedIn</a>
+        <a href="/newsletter">Newsletter</a>
+        <a href="/subscribe">Subscribe</a>
+        <a href="/community-spotlight">Community Spotlight</a>
+      </div>
+
+    </div>
+
+    <!-- ═══ SVANTRA BEACON · canonical glass panel ═══ -->
+    <a href="https://svantra.in" class="ft__svantra" target="_blank" rel="noopener noreferrer" aria-label="Svantra — opens in new tab" itemscope itemtype="https://schema.org/Brand">
+      <div class="ft__svantra-inner">
+        <div class="ft__svantra-text">
+          <span class="ft__svantra-eyebrow"><span class="ft__svantra-dot" aria-hidden="true"></span>Crypto Cipher Universe</span>
+          <span class="ft__svantra-name" itemprop="name">Svantra</span>
+          <span class="ft__svantra-tag" itemprop="description">Coming soon from Crypto Cipher.</span>
+        </div>
+        <div class="ft__svantra-foot">
+          <span class="ft__svantra-status">Coming Soon</span>
+          <span class="ft__svantra-cta">Visit<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- ═══ TRUST STRIP ═══ -->
+    <div class="ft__trust">
+
+      <div class="ft__trust-card">
+        <div class="ft__trust-icon"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></div>
+        <div class="ft__trust-title">Your privacy is protected</div>
+        <div class="ft__trust-desc">We never share or sell your personal information.</div>
+      </div>
+
+      <div class="ft__trust-card">
+        <div class="ft__trust-icon"><svg viewBox="0 0 24 24"><path d="M4 12h2M9 12V7M9 12v5M14 12V4M14 12v8M19 12V9M19 12v3"/></svg></div>
+        <div class="ft__trust-title">100% AI-free authentic recordings</div>
+        <div class="ft__trust-desc">Every sample is performed by real musicians and professionally recorded.</div>
+      </div>
+
+      <div class="ft__trust-card">
+        <div class="ft__trust-icon"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 13l2 2 4-4"/></svg></div>
+        <div class="ft__trust-title">License included with every download</div>
+        <div class="ft__trust-desc">Commercial usage rights and ownership, cleared for global use.</div>
+      </div>
+
+      <div class="ft__trust-card">
+        <div class="ft__trust-icon"><svg viewBox="0 0 24 24"><path d="M4 8h16v11H4z"/><path d="M4 8l2.5-3 3 3M9 8l2.5-3 3 3M14 8l2.5-3 3 3"/></svg></div>
+        <div class="ft__trust-title">Built for film &amp; media</div>
+        <div class="ft__trust-desc">Studio-mastered and cleared for sync — ready for any cue.</div>
+      </div>
+
+    </div>
+
+    <!-- ═══ BOTTOM BAR · brand + copyright + trust line ═══ -->
+    <div class="ft__bottom">
+      <div class="ft__bottom-brand">
+        <div class="ft__logo-wrap" id="ft-logo">
+          <div class="ft__logo-stage">
+            <img src="logo.svg" alt="Crypto Cipher®" class="ft__logo" loading="lazy">
+          </div>
+        </div>
+        <div class="ft__bottom-meta">
+          <div class="ft__bottom-tagline">Preserving India's sonic heritage. Building the future of global music technology.</div>
+          <div class="ft__copy">© 2026 Crypto Cipher® — All Rights Reserved</div>
+        </div>
+      </div>
+      <div class="ft__trusted">Trusted by composers worldwide</div>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ═══ END FOOTER-001 ═══ -->
+<!-- Motion stack -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="polish.js" defer></script>
+</body>
+</html>

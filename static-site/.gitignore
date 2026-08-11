@@ -1,0 +1,17 @@
+# === Crypto Cipher — repo hygiene ===
+
+# Dependencies (regenerable via `npm install`)
+node_modules/
+
+# Dead / regenerable / superseded output — NOT tracked
+_archive/
+
+# Regenerable test artifacts (if they ever land at root again)
+results.txt
+test-results/
+playwright-report/
+
+# OS junk
+.DS_Store
+*.DS_Store
+.vscode/

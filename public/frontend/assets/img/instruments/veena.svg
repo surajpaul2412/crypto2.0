@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" preserveAspectRatio="xMidYMid meet">
+                <defs>
+  <linearGradient id="ig4" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#BBD67A" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#75C249" stop-opacity="0.85"/>
+  </linearGradient>
+  <linearGradient id="ig4b" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#BBD67A" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#75C249" stop-opacity="0.06"/>
+  </linearGradient>
+</defs>
+                
+    <!-- Veena: two gourds on long neck -->
+    <ellipse cx="60" cy="155" rx="28" ry="22" fill="url(#ig4b)" stroke="url(#ig4)" stroke-width="1.6"/>
+    <ellipse cx="155" cy="55" rx="20" ry="16" fill="url(#ig4b)" stroke="url(#ig4)" stroke-width="1.6"/>
+    <rect x="70" y="60" width="80" height="14" rx="3" transform="rotate(-32 110 67)" fill="url(#ig4b)" stroke="url(#ig4)" stroke-width="1.6"/>
+    <line x1="65" y1="155" x2="155" y2="55" stroke="url(#ig4)" stroke-width="0.8" opacity="0.5"/>
+    <line x1="60" y1="160" x2="150" y2="60" stroke="url(#ig4)" stroke-width="0.8" opacity="0.4"/>
+    <circle cx="60" cy="155" r="5" fill="none" stroke="url(#ig4)" stroke-width="1"/>
+  
+              </svg>

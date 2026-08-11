@@ -1,0 +1,1758 @@
+/* ═══════════════════════════════════════════════════════════════
+   polish.css · v2 final polish layer
+   Shared across all 14 pages. Load AFTER all inline styles.
+   Source of truth: DESIGN-SYSTEM.md + REFINEMENT-BRIEF.md
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── 1. Motion tokens (canonical language) ──────────────────── */
+:root {
+  --ease-out-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-quart:     cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-power2: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --motion-fast:       0.35s;
+  --motion-medium:     0.6s;
+  --motion-slow:       0.9s;
+  --motion-deliberate: 1.4s;
+
+  --motion-distance-sm: 12px;
+  --motion-distance-md: 24px;
+  --motion-distance-lg: 40px;
+}
+
+/* ─── 2. Canonical eyebrow (one class, all sections inherit) ── */
+.eyebrow,
+.libs__eyebrow,
+.newrel__eyebrow,
+.collab__eyebrow,
+.hvid__text-label,
+.hol__eyebrow,
+.faq__eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+/* Canonical dash prefix — adds to any plain .eyebrow that doesn't
+   already have a native ::before. Section-specific classes already
+   carry their own dash via inline CSS. */
+.eyebrow:not(.libs__eyebrow):not(.newrel__eyebrow):not(.collab__eyebrow):not(.hvid__text-label):not(.hol__eyebrow):not(.faq__eyebrow)::before {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--green-light), transparent);
+}
+
+/* Italic Playfair eyebrow variant — used for "Since 2009" type moments */
+.eyebrow--italic {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--text-secondary);
+}
+
+/* ─── 3. Canonical reveal (motion pattern #2 of 3) ───────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(var(--motion-distance-md));
+  transition:
+    opacity   var(--motion-medium) var(--ease-out-cinematic),
+    transform var(--motion-medium) var(--ease-out-cinematic);
+  /* will-change removed · page-05 session · was causing 78 simultaneous
+     GPU layer promotions, fighting nav backdrop-filter for paint priority.
+     Browsers auto-promote during active transitions; standing hint not needed. */
+}
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero entrance (motion pattern #1 of 3) — deliberate, once */
+[data-reveal-hero] {
+  opacity: 0;
+  transform: translateY(var(--motion-distance-md));
+  transition:
+    opacity   var(--motion-deliberate) var(--ease-out-quart),
+    transform var(--motion-deliberate) var(--ease-out-quart);
+  /* will-change removed · same reason as [data-reveal] above. */
+}
+[data-reveal-hero].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── 4. Canonical card hover (cards lighter than headings) ──── */
+.libs__card,
+.newrel__card,
+.hol__slide,
+.faq__item,
+.collab__card {
+  transition:
+    transform   var(--motion-fast) var(--ease-out-cinematic),
+    border-color var(--motion-fast) var(--ease-out-cinematic),
+    box-shadow  var(--motion-fast) var(--ease-out-cinematic),
+    background  var(--motion-fast) var(--ease-out-cinematic);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .libs__card:hover,
+  .newrel__card:hover,
+  .collab__card:hover {
+    transform: translateY(-2px);
+    border-top-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ─── 5. Magnetic CTA support (motion pattern #3 of 3) ────────── */
+[data-magnetic] {
+  display: inline-flex;
+  transition: transform var(--motion-medium) var(--ease-out-cinematic);
+  will-change: transform;
+}
+
+/* Magnetic is desktop-only — DESIGN-SYSTEM §11, REFINEMENT-BRIEF §5 */
+@media (max-width: 768px), (hover: none), (pointer: coarse) {
+  [data-magnetic] { transform: none !important; }
+}
+
+/* ─── 6. Drop-cap (one handcrafted moment per page) ──────────── */
+/* Editorial lead-in · vertical gold rule + small-caps opener.
+   Replaces drop-cap (which needs 5+ body lines to work). */
+.hvid__text-body--lead {
+  border-left: 2px solid #d4a955;
+  padding-left: 1.1rem;
+}
+.leadin {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d4a955;
+  margin-right: 0.4rem;
+}
+
+/* ─── 7. Founder signature ───────────────────────────────────── */
+.founder-sig {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-top: 1.5rem;
+  text-align: right;
+  letter-spacing: 0.01em;
+}
+.founder-sig em {
+  font-style: normal;
+  color: var(--text-secondary);
+}
+
+/* ─── 8. Hard kills · animations banned at the page level ────── */
+/* These keyframes exist in inline CSS but must never run anywhere
+   except where explicitly re-enabled. Listed by DESIGN-SYSTEM §13. */
+
+.libs__embers,
+.libs__ember,
+.libs__warmth,
+.libs__depth,
+.libs__bleed,
+.libs__divider,
+.hol__sparkles,
+.hvid__dust,
+.hero__ambient,
+.hero__keylight,
+.hero__horizon,
+.hero__ground,
+.hero__noise,
+.hero__grid,
+.cta-glow {
+  display: none !important;
+}
+
+/* NOTE: .hero__particles is NOT killed — it's the #cosmicField
+   container that holds shooting stars + cosmic dust on desktop.
+   Killing it was the bug behind "no shooting stars on desktop". */
+
+/* Kill always-on infinite animations on rest-state elements.
+   Per DESIGN-SYSTEM §11: rest-state UI must be still. */
+.libs__card,
+.libs__card::before,
+.libs__card::after,
+.libs__card-art,
+.libs__card-art::before,
+.libs__card-art::after,
+.hol__slide,
+.hol__portrait,
+.hvid__frame,
+.hvid__highlight,
+.hero__map-glow,
+.cc-spinner,
+.cc-spinner * {
+  animation: none !important;
+}
+
+/* Map breathes — restored from kill list. Slower + smaller than original.
+   12s instead of 7s. Subtle vertical float reads as depth, not motion. */
+.hero__map-wrap {
+  animation: mapFloat 12s ease-in-out infinite !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__map-wrap { animation: none !important; }
+}
+
+/* Map: replace green hover bloom with heritage-gold inner shadow */
+.cc-map [data-state]:hover,
+.cc-map .state:hover {
+  filter: drop-shadow(0 0 8px var(--heritage-gold-soft));
+}
+
+/* ─── 9. Reduced motion · global override ────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal],
+  [data-reveal-hero] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ─── 10. Section rhythm enforcement ─────────────────────────── */
+/* Per REFINEMENT-BRIEF §10: no two adjacent sections may share padding.
+   Heritage video breathes; legends section gets a chapter break. */
+.hvid {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+.hol {
+  padding-top: 7rem;
+  padding-bottom: 6rem;
+}
+@media (max-width: 768px) {
+  .hvid { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .hol  { padding-top: 4rem;   padding-bottom: 3.5rem; }
+}
+
+/* ─── 11. Hero CTA layout · see section 13 ──────────────────── */
+/* Hero CTAs now use horizontal pill + inline pair.
+   Full layout system defined in section 13 (cta-pill + cta-inline). */
+
+.hero__cta--tertiary-LEGACY-REMOVED {
+  /* see section 13 for canonical CTA system */
+}
+
+/* ─── 12. Hall of Legends · canonical heading pattern ─────────── */
+.hol__head {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.hol__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: #fff;
+  margin: 0;
+}
+.hol__title em {
+  font-style: normal;
+  display: inline-block;
+  background: linear-gradient(135deg, #ffffff 0%, #BBD67A 55%, #75C249 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.1em;
+}
+
+/* Fix hol__top: counter aligns to eyebrow line, not midpoint of head block.
+   Inline CSS sets align-items: center — overridden to flex-start. */
+.hol__top {
+  align-items: flex-start !important;
+}
+.hol__counter {
+  padding-top: 0.15rem;  /* nudges counter to match eyebrow baseline */
+}
+
+/* ─── 13. CTA · Hairline Pill (primary) + Inline (tertiary) ──────
+   Sleek, slim, transparent body, hairline border.
+   Not pill-shaped (that's AI-template), not brick.
+   8px radius reads as software UI, not form input.
+   The 4-bar meter on the right is the "activation indicator" —
+   like the ready light on a piece of pro audio hardware.
+   Single row guaranteed via tuned horizontal padding + nowrap.
+   ──────────────────────────────────────────────────────────── */
+
+.cta-pill,
+.cta-inline {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   PRIMARY · cta-pill
+   ─────────────────────────────────────────────────────────────
+   Slim hairline pill. Transparent body. The button reveals itself
+   on hover by filling subtly + the right-side meter activating.
+*/
+.cta-pill {
+  position: relative;
+  height: 42px;
+  padding: 0 1.5rem;
+  gap: 0.7rem;
+  background: transparent;
+  border: 1px solid rgba(187, 214, 122, 0.28);
+  border-radius: 50px;
+  color: #e8e8e8;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  overflow: hidden;
+  transition:
+    border-color var(--motion-medium) var(--ease-out-cinematic),
+    background   var(--motion-medium) var(--ease-out-cinematic),
+    color        var(--motion-medium) var(--ease-out-cinematic);
+}
+
+/* Subtle inner light · only visible on hover.
+   Sits behind everything as a soft green wash. */
+.cta-pill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    rgba(187, 214, 122, 0.05) 0%,
+    rgba(187, 214, 122, 0)    55%,
+    rgba(117, 194, 73, 0.04)  100%);
+  opacity: 0;
+  transition: opacity var(--motion-medium) var(--ease-out-cinematic);
+  pointer-events: none;
+}
+
+.cta-pill__label {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-pill__arrow {
+  display: inline-flex;
+  align-items: center;
+  color: var(--green-light);
+  font-size: 0.95rem;
+  font-weight: 400;
+  transform: translateX(0);
+  transition: transform var(--motion-medium) var(--ease-out-cinematic),
+              color     var(--motion-medium) var(--ease-out-cinematic);
+  z-index: 1;
+}
+
+/* Right-side 4-bar meter · the "ready light" ─────────────── */
+.cta-pill__meter {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  height: 12px;
+  width: 18px;
+  margin-left: 0.3rem;
+  opacity: 0.4;
+  transition: opacity var(--motion-medium) var(--ease-out-cinematic);
+}
+.cta-pill__meter i {
+  display: block;
+  width: 2px;
+  background: var(--green-light);
+  border-radius: 0.5px;
+  transform-origin: bottom;
+  /* Idle: bars almost still. Hover: bars come alive. */
+  animation: ctaPillMeter 2.2s ease-in-out infinite;
+  will-change: transform;
+}
+.cta-pill__meter i:nth-child(1) { height: 40%; animation-delay: -0.10s; animation-duration: 2.0s; }
+.cta-pill__meter i:nth-child(2) { height: 70%; animation-delay: -0.85s; animation-duration: 1.7s; }
+.cta-pill__meter i:nth-child(3) { height: 55%; animation-delay: -1.30s; animation-duration: 2.3s; }
+.cta-pill__meter i:nth-child(4) { height: 85%; animation-delay: -0.45s; animation-duration: 1.5s; }
+
+@keyframes ctaPillMeter {
+  0%, 100% { transform: scaleY(0.5); }
+  50%      { transform: scaleY(1);   }
+}
+
+/* ── Hover state — meter activates ─────────────────────── */
+@media (hover: hover) and (pointer: fine) {
+  .cta-pill:hover {
+    border-color: rgba(187, 214, 122, 0.65);
+    color: #fff;
+  }
+  .cta-pill:hover::before { opacity: 1; }
+  .cta-pill:hover .cta-pill__arrow {
+    transform: translateX(4px);
+    color: #fff;
+  }
+  .cta-pill:hover .cta-pill__meter { opacity: 1; }
+  .cta-pill:hover .cta-pill__meter i {
+    animation-duration: 0.7s;
+  }
+}
+
+.cta-pill:focus-visible {
+  outline: 2px solid var(--green-light);
+  outline-offset: 3px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   TERTIARY · cta-inline
+   ─────────────────────────────────────────────────────────────
+   Inline link, not pretending to be a button. Clean, human,
+   reads as "click here to learn more" — exactly what it is.
+*/
+.cta-inline {
+  height: 42px;        /* match pill height for vertical alignment */
+  padding: 0 0.4rem;
+  gap: 0.4rem;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  transition: color var(--motion-fast) var(--ease-out-cinematic);
+}
+.cta-inline__arrow {
+  display: inline-block;
+  color: var(--green-light);
+  font-size: 1rem;
+  transform: translateX(0);
+  transition: transform var(--motion-medium) var(--ease-out-cinematic),
+              color     var(--motion-medium) var(--ease-out-cinematic);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cta-inline:hover {
+    color: #fff;
+  }
+  .cta-inline:hover .cta-inline__arrow {
+    transform: translateX(3px);
+    color: #fff;
+  }
+}
+
+.cta-inline:focus-visible {
+  outline: 2px solid var(--green-light);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Reduced motion · meter freezes mid-cycle ─────────── */
+@media (prefers-reduced-motion: reduce) {
+  .cta-pill__meter i {
+    animation: none;
+    transform: scaleY(0.7);
+  }
+}
+
+/* ── Mobile tuning ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .cta-pill {
+    height: 40px;
+    padding: 0 1.1rem;
+    font-size: 0.72rem;
+    gap: 0.55rem;
+  }
+  .cta-pill__meter { width: 16px; height: 11px; }
+  .cta-inline {
+    height: 40px;
+    font-size: 0.78rem;
+  }
+}
+
+/* ── Hero CTAs container · override inline grid layout ─────── */
+.hero__ctas,
+.hero__ctas-mobile {
+  display: flex !important;
+  grid-template-columns: none !important;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.2rem;
+  max-width: none;
+}
+@media (max-width: 540px) {
+  .hero__ctas,
+  .hero__ctas-mobile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
+/* ── Legacy CTA tokens neutralised ──────────────────────── */
+.cta-wave, .cta-quiet,
+.hero__cta--tertiary-LEGACY-REMOVED {
+  /* historical anchors · do not re-use */
+}
+
+/* Section CTAs (newrel/collab/hvid) keep their NATIVE styling —
+   they were already a unified 50px-pill system. No override here. */
+
+/* ─── 14. Distant Thunder · REMOVED ──────────────────────────
+   The original page already ships a `.shooting-star` system
+   spawned in JS (~line 10980 of inline). It passes behind the
+   map naturally as it crosses cosmic-bg. No need for a duplicate.
+   ──────────────────────────────────────────────────────────── */
+
+/* ─── 15. Hero bottom · "floating" depth shadow ────────────────
+   Soft fade-to-dark gradient at the bottom of the hero, suggesting
+   the hero is a lifted plane that the next section sits beneath.
+   Not a hard divider line — a continuous tonal shift that the
+   eye reads as depth.
+   ──────────────────────────────────────────────────────────── */
+.hero::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 140px;
+  pointer-events: none;
+  z-index: 4;             /* above map (z:3), below content (z:5+) */
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15)  55%,
+    rgba(0, 0, 0, 0.35)  85%,
+    rgba(0, 0, 0, 0.5)   100%);
+  /* Subtle inner-shadow lip at the very base — adds the "edge" of
+     the floating plane without drawing a hard line. */
+  box-shadow:
+    inset 0 -1px 0 0 rgba(187, 214, 122, 0.06),
+    inset 0 -22px 28px -18px rgba(0, 0, 0, 0.4);
+}
+@media (max-width: 768px) {
+  .hero::before { height: 90px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  /* Leave it on — it's static, not animated. Safe. */
+}
+
+
+/* ─── 16. Legal pages · shared rules ──────────────────────────
+   Applies to cookie / privacy / terms (the legal trio).
+   Scoped to .legal-* so the rest of the site is untouched.
+   ──────────────────────────────────────────────────────────── */
+
+/* Kill the gradient dash on section numbers — it visually rhymes
+   with the eyebrow ::before above every H2 site-wide, creating an
+   "eyebrow + H2 + eyebrow + H2" stutter. Number stands alone. */
+.legal-section__num::before {
+  display: none !important;
+}
+.legal-section__num {
+  margin-bottom: 0.6rem;
+  opacity: 0.7;
+}
+
+/* Hero rhythm · let the title breathe.
+   Inline CSS sets a uniform 1.5rem gap. Override with intentional
+   asymmetry: tight above title, generous below. */
+.legal-hero {
+  gap: 0 !important;
+}
+.legal-hero__eyebrow { margin-bottom: 0.85rem; }
+.legal-hero__title   { margin-bottom: 2rem; }
+.legal-hero__sub     { margin-bottom: 1.4rem; }
+.legal-hero__meta    { margin-bottom: 1.4rem; }
+.legal-draft-banner  { margin-top: 0.6rem; }
+
+/* Heritage-gold is reserved for premium/heritage contexts per
+   DESIGN-SYSTEM §14. If the draft chip ever re-appears, neutralise it. */
+.legal-meta-chip--draft .legal-meta-chip__value {
+  color: var(--text-secondary) !important;
+}
+
+/* Section padding rhythm · break the uniform 5rem cadence.
+   §03 ("Cookies we do not use") is the trust beat — give it air.
+   Per REFINEMENT-BRIEF §10: no two adjacent sections share padding. */
+.legal-section { padding-top: 0; padding-bottom: 0; }
+.legal-section + .legal-section { margin-top: 4rem; }
+#sec-3 {
+  margin-top: 5.5rem;
+  padding-left: 1.2rem;
+  border-left: 1px solid rgba(187, 214, 122, 0.18);
+}
+@media (max-width: 768px) {
+  .legal-section + .legal-section { margin-top: 2.5rem; }
+  #sec-3 { margin-top: 3.5rem; padding-left: 0.9rem; }
+}
+
+/* H2 <em> accent — markup change wraps one word per heading.
+   Inline CSS styles .legal-prose em (green-light italic) for body
+   emphasis. The H2 <em> gets the site-canonical gradient instead. */
+.legal-section__title em {
+  font-style: normal;
+  display: inline-block;
+  background: linear-gradient(135deg, #ffffff 0%, #BBD67A 55%, #75C249 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.1em;
+}
+
+/* Anchor permalink · the # symbol becomes interactive.
+   Inline CSS already declares the ::after — we wire visibility,
+   copy-feedback, and tactile shift. polish.js handles the click. */
+.legal-section__title::after {
+  opacity: 0;
+  color: var(--green-light);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  font-size: 0.7em;
+  cursor: pointer;
+  transition:
+    opacity   var(--motion-fast) var(--ease-out-cinematic),
+    transform var(--motion-fast) var(--ease-out-cinematic);
+  transform: translateX(0);
+}
+@media (hover: hover) and (pointer: fine) {
+  .legal-section__title:hover::after { opacity: 0.5; }
+}
+.legal-section__title.is-copied::after {
+  content: 'Copied' !important;
+  opacity: 1;
+  font-size: 0.5em;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  transform: translateX(2px);
+}
+
+/* Table row hover · the rest of the site is alive on hover. */
+@media (hover: hover) and (pointer: fine) {
+  .legal-table tbody tr {
+    transition: background var(--motion-fast) var(--ease-out-cinematic);
+  }
+  .legal-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.025);
+  }
+}
+
+/* Cross-nav arrow-shift · matches .cta-inline tactile pattern. */
+.legal-cross-nav__link:not(.legal-cross-nav__link--current) {
+  position: relative;
+}
+.legal-cross-nav__link:not(.legal-cross-nav__link--current)::after {
+  content: '→';
+  margin-left: 0.15rem;
+  color: var(--green-light);
+  display: inline-block;
+  transform: translateX(0);
+  transition: transform var(--motion-medium) var(--ease-out-cinematic);
+}
+/* Privacy link points "back" — flip the arrow */
+.legal-cross-nav__link[href="/privacy"]::after { content: ''; margin: 0; }
+.legal-cross-nav__link[href="/privacy"]::before {
+  content: '←';
+  margin-right: 0.15rem;
+  color: var(--green-light);
+  display: inline-block;
+  transform: translateX(0);
+  transition: transform var(--motion-medium) var(--ease-out-cinematic);
+}
+@media (hover: hover) and (pointer: fine) {
+  .legal-cross-nav__link:not(.legal-cross-nav__link--current):hover::after {
+    transform: translateX(4px);
+  }
+  .legal-cross-nav__link[href="/privacy"]:hover::before {
+    transform: translateX(-4px);
+  }
+}
+
+/* Hanging punctuation · one editorial detail in body prose.
+   Supported in Safari; graceful no-op in Chromium. */
+.legal-prose {
+  hanging-punctuation: first;
+}
+
+
+/* ─── 17. Skip-link + modal focus suppression (a11y) ──────────
+   Markup shipped Project B stage9: <a class="skip-link" href="#main">
+   as first <body> child; target <main id="main" tabindex="-1"> (already
+   present + correct value on all 15 pages — no Project B follow-up).
+   Tokens only. The single intentional hex is the focus ring (see note).
+   ──────────────────────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -56px;                    /* parked fully off-screen at rest */
+  z-index: 10000;
+  background: var(--green-primary);
+  color: var(--bg-deep);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: top var(--motion-fast) var(--ease-out-cinematic);
+}
+.skip-link:focus-visible {
+  top: 12px;
+  /* FOCUS-RING DECISION · white, NOT --green-light.
+     --green-light (#BBD67A) on --green-primary (#75C249) ~= 1.4:1 → fails
+     WCAG 2.4.13. The ring sits at outline-offset against --bg-deep
+     (#0d1117) → ~18:1. Ring contrast is judged against the surrounding
+     background, not the pill it encircles. White wins decisively. */
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .skip-link { transition: none; }
+}
+
+/* Suppress skip-link whenever a modal is open.
+   Selectors VERIFIED against the codebase (not the brief's guesses):
+     · .booking-modal / .modal open → body.booking-locked
+     · page-04 .rec-modal open      → body.rec-modal-open
+   Brief's [aria-hidden="false"] and body.modal-open match nothing here.
+   Note: rec-modal is dead code (no opener in markup) so .rec-modal-open
+   is never set in practice — kept as zero-cost insurance if it's wired
+   later. Booking-modal is the only reachable modal (pages 04 + 05).
+   This rule + the polish.js trap together ARE the backstop: the
+   trapFocus() the brief assumed already existed does not exist in any
+   of the 15 files. */
+body.booking-locked .skip-link,
+body.rec-modal-open .skip-link {
+  display: none;
+}
+
+/* ─── Sitewide modal scroll-lock (native-scroll backstop) ───────────
+   body{overflow:hidden} alone can leak scroll when the scroll root is
+   <html> or when momentum is in flight. Lock BOTH html and body whenever
+   any modal lock-class is set, so the page behind a modal cannot scroll
+   on browsers where Lenis is off (Safari/Firefox) or before Lenis stops.
+   (Lenis itself is halted by the body-lock observer in polish.js for
+   Chrome.) overflow:hidden — NOT clip — so position:sticky elsewhere is
+   unaffected. Covers every lock-class found across the 15 pages. */
+html:has(body.booking-locked),
+html:has(body.rec-modal-open),
+html:has(body[style*="overflow: hidden"]),
+html:has(body[style*="overflow:hidden"]),
+body.booking-locked,
+body.rec-modal-open {
+  overflow: hidden !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   PROJECT-A-CSS-BRIEF execution · appended additively (§18–§22)
+   All selectors VERIFIED against 01_homepage + 11_contact stage10.
+   Nothing above this line was modified.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── 18. A-3 · backdrop-filter fallback (HIGH) ───────────────
+   Verified glass surfaces (NOT the brief's indicative list — those
+   classes .glass/.card--glass/.hero__panel do not exist here).
+
+   Only the TRULY translucent surfaces need an opaque fallback:
+   surfaces already ≥0.65 alpha (nav dropdown 0.92, mobile-panel
+   0.97, hero__stats 0.65, price-panel/buybar 0.85, rec-card__price
+   0.78, cmodal 0.85, buybox 0.70) keep AA text contrast even with
+   blur dropped, so we leave them alone — over-painting them would
+   flatten the design for no contrast gain.
+
+   These ≤0.08-alpha surfaces hold readable text and go unreadable
+   on old Android WebView when blur silently no-ops. Make them opaque
+   only in the no-blur branch. Value chosen to match --bg-surface
+   tone so the design reads identically, just solid.
+   ──────────────────────────────────────────────────────────── */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .libs__card,
+  .cc-card,
+  .sidenav,
+  .soft-cta,
+  .contact-tile,
+  .contact-ref-banner,
+  .description__stat,
+  .description__quote,
+  .cc-format-chip,
+  .patch,
+  .process-step {
+    background-color: rgba(18, 24, 32, 0.94) !important; /* opaque → AA text survives */
+  }
+  /* nav itself uses var(--nav-bg) which ranges 0.45–0.92; force its
+     low-alpha scrolled state opaque so links stay legible without blur */
+  .cc-nav {
+    background-color: rgba(13, 17, 23, 0.96) !important;
+  }
+}
+
+/* ─── 19. A-5 · env() safe-area (HIGH · pairs with viewport-fit) ─
+   Armed viewport-fit=cover meta is already live upstream. Without
+   this, content slides under the iPhone notch / home-indicator.
+   Selectors confirmed present: .cc-nav, .booking-modal,
+   .cc-nav__mobile-panel, .sidenav, .cmodal. The brief's
+   .legal-doc-footer / .hero are absent from these two pages but are
+   harmless no-ops where missing, so kept for the legal pages.
+   ──────────────────────────────────────────────────────────── */
+@supports (padding: env(safe-area-inset-top)) {
+  /* NOTE: .cc-nav is a FLOATING PILL (position:fixed; top:1.1rem), not
+     docked to the top edge. It already clears the notch via its `top`
+     offset, and it has a fixed internal padding (0.65rem) that centers
+     the logo + links. Adding padding-top:env() here OVERRODE that
+     padding and shifted the bar — so .cc-nav is deliberately EXCLUDED.
+     Only the full-bleed mobile drawer (which DOES touch the top edge)
+     needs the inset. */
+  .cc-nav__mobile-panel {
+    padding-top: env(safe-area-inset-top, 0);
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+  .booking-modal,
+  .cmodal,
+  .legal-doc-footer {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+  .sidenav {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+}
+
+/* ─── 20. A-1 · Print stylesheet (drop-in) ────────────────────
+   No @media print existed site-wide. Dark/glass → black-on-white.
+   data-reveal selectors start at opacity:0 — forced visible here or
+   the printed page is BLANK. Legal-page rules are no-ops on pages
+   that lack .legal-* (homepage/contact), active on the legal trio.
+   ──────────────────────────────────────────────────────────── */
+@media print {
+  *, *::before, *::after {
+    background: transparent !important; color: #000 !important;
+    box-shadow: none !important; text-shadow: none !important;
+    -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+    filter: none !important;
+  }
+  html, body { background: #fff !important; font-size: 12pt; line-height: 1.5; }
+
+  /* hide chrome / motion / media */
+  .cc-nav, .cc-nav__hamburger, .cc-nav__dropdown, .cc-nav__mobile-panel,
+  .booking-modal, .booking-modal__backdrop,
+  .cmodal, .modal__backdrop,
+  .cosmic-bg,
+  [data-magnetic], .skip-link,
+  video, iframe, audio,
+  button:not(.print-keep) { display: none !important; }
+
+  /* CRITICAL: scroll-reveal starts at opacity:0 — force visible */
+  [data-reveal], [data-reveal-hero], [data-reveal-group] {
+    opacity: 1 !important; transform: none !important; visibility: visible !important;
+  }
+
+  /* legal pages: keep body + doc footer */
+  .legal-section { break-inside: avoid-page; page-break-inside: avoid; }
+  .legal-section__title { page-break-after: avoid; cursor: auto !important; }
+  .legal-section__title::after { content: none !important; }   /* kill copy-link affordance */
+  .legal-doc-footer { display: block !important; border-top: 1pt solid #000; margin-top: 1em; }
+
+  /* expose link URLs for offline reading; suppress anchor/mailto noise */
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; word-break: break-all; }
+  a[href^="#"]::after, a[href^="mailto:"]::after { content: none; }
+
+  @page { margin: 18mm 16mm; }
+  h1, h2, h3 { page-break-after: avoid; }
+  img { max-width: 100% !important; page-break-inside: avoid; }
+}
+
+/* ─── 21. B-1 · .sr-only (visually hidden, SR-available) ───────
+   B-2 skip-link is ALREADY implemented above in §17 — not repeated.
+   .sr-only was genuinely absent everywhere. Booking SR live-region
+   [data-sr-status] is inert without it.
+   ──────────────────────────────────────────────────────────── */
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ─── 22. B-3 · Touch targets ≥44×44px (≤768px) ───────────────
+   Verified-small interactive elements. Expand hit-area without
+   changing visual box where possible (padding / min-size). Visual
+   icon size stays; the tap target grows.
+   ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* modal close buttons were 36×36 → 44×44 */
+  .cmodal__close,
+  .booking-modal__close,
+  .video-embed__close {
+    width: 44px !important;
+    height: 44px !important;
+  }
+  /* nav hamburger: pad to a guaranteed 44px min box */
+  .cc-nav__hamburger {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  /* social icon links: floor the tap target (chip removed — it's a
+     non-interactive LABEL, the 44px min was bloating it on mobile and
+     making it not match desktop) */
+  .cc-nav__social a,
+  .ft__social a {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* checkbox labels: already 0.6rem padding ≈ ok, floor to be safe */
+  .cform-check {
+    min-height: 44px;
+  }
+  /* legal permalink target (where present) */
+  .legal-section__title {
+    min-height: 44px;
+  }
+}
+
+/* ─── 23. A-2 · :has() fallback — NO-OP (flagged) ─────────────
+   STOP-FLAG. The brief's fallback `.cform-check input:checked + *`
+   targets a sibling that DOES NOT EXIST. Verified markup:
+
+     <label class="cform-check"><input type="checkbox"> Sitar</label>
+
+   The :has() rule styles the PARENT label from the child input's
+   checked state. Pure CSS cannot style a parent from a child without
+   :has(). A working fallback requires a markup change (insert a
+   <span> after the input to style as a sibling) — forbidden here
+   (HTML locked, no markup edits). So NO fallback is shipped.
+
+   Impact is cosmetic only: the green label tint on a checked
+   instrument chip is absent on pre-:has() browsers (Safari <15.4,
+   Chrome <105, old Android WebView). The native checkbox checkmark
+   (accent-color: green) still shows, so the control remains fully
+   usable and the checked state is still visible. No action for
+   Project A. If the tint is deemed required on legacy browsers,
+   Project B must add a sibling <span> — then revisit.
+   ──────────────────────────────────────────────────────────── */
+
+/* ─── 24. B-4 · Bottom-sheet modals ≤768px ────────────────────
+   FLAG: these modals already ship a mobile treatment — but as a
+   FULL-SCREEN takeover (100vh, border-radius:0), not a bottom-sheet:
+     · .booking-modal__sheet  → 100vh, height:100vh  @≤640px
+     · .cmodal__panel         → min-height:100vh, radius:0 @≤600px
+
+   The brief asks for "bottom-sheet, not centered." Full-screen is
+   neither centered nor a sheet. For multi-step forms (booking +
+   contact) full-screen is defensible — more room, no scroll-trap.
+   Below converts them to TRUE bottom-sheets (rounded top, sheet
+   pinned to bottom, max-height 92vh, content scrolls inside).
+   If you prefer the existing full-screen, DELETE §24 — the inline
+   full-screen rules remain and win at their tighter breakpoints.
+
+   Note breakpoint interaction: inline rules fire at ≤640/≤600px.
+   This block is ≤768px, so 641–768px gets sheet styling that had
+   none before; ≤640px, the inline 100vh rules still override height
+   (they're more specific / later in cascade per-page). To make the
+   sheet authoritative everywhere we use !important on the height
+   cap. Test on device — this is the one block most likely to need
+   a tuning pass.
+   ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* dock both modals to the bottom edge */
+  .cmodal,
+  .booking-modal {
+    align-items: flex-end !important;
+    justify-content: stretch !important;
+    padding: 0 !important;
+  }
+
+  /* the sheet itself: full width, rounded top only, capped height */
+  .cmodal__panel,
+  .booking-modal__sheet {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    min-height: 0 !important;          /* undo inline 100vh */
+    height: auto !important;
+    max-height: 92vh !important;       /* leave a peek of backdrop */
+    border-radius: 18px 18px 0 0 !important;
+    display: flex;
+    flex-direction: column;
+    /* Real bottom breathing room, never collapsing to 0 on devices with no
+       home-indicator inset (e.g. OnePlus). max() floors it at 1.4rem and adds
+       the safe-area inset on devices that have one. !important beats the inline
+       shorthand padding on 04's sheet. Sweeps all bottom-sheet pages. */
+    padding-bottom: max(1.4rem, env(safe-area-inset-bottom, 0)) !important;
+  }
+
+  /* inner body scrolls, head/foot stay put */
+  .cmodal__body {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* entrance: slide up from the bottom edge.
+     .booking-modal__sheet already animates translateY via its own
+     .is-open rule — we only set the rest state here, no new keyframe,
+     stays inside the motion budget (no new pattern). */
+  .cmodal__panel {
+    transform: translateY(8px);
+    transition: transform var(--motion-medium) var(--ease-out-cinematic);
+  }
+  .cmodal.is-open .cmodal__panel {  /* verified: JS toggles .is-open */
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cmodal__panel { transition: none; transform: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   B1 · Mobile scroll performance (<=768px)
+   backdrop-filter is the dominant per-frame repaint cost during scroll on
+   mobile GPUs. Disabling it sitewide on small screens removes the jank and
+   lets native momentum scroll run at 60fps. Elements that relied on the blur
+   for legibility get a solid-ish fallback background so contrast is preserved.
+   Premium feel on mobile comes from smooth NATIVE scroll, not JS hijacking.
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Kill every backdrop blur on small screens. */
+  *,
+  *::before,
+  *::after {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+  /* Legibility fallback: the nav pill loses its glass, so make it solid. */
+  .cc-nav { background: rgba(13, 17, 23, 0.92) !important; }
+  .cc-nav__dropdown,
+  .cc-nav__mobile-panel { background: rgba(13, 17, 23, 0.97) !important; }
+  /* Hint the browser these scroll containers are touch-momentum surfaces. */
+  html, body { -webkit-overflow-scrolling: touch; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Lenis required CSS hooks (desktop smooth scroll)
+   Without these Lenis scrolls erratically — most visibly in Firefox.
+   Only active once Lenis adds the .lenis class to <html>.
+   ═══════════════════════════════════════════════════════════════ */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+/* Lenis stop state: reserve the scrollbar instead of hiding it. Plain
+   `overflow:hidden` removes the vertical scrollbar, widening the viewport ~15px
+   and causing a horizontal drift on lock in/out. The ONLY caller of lenis.stop()
+   on this site is the New Release section's pin() (which does its own scroll-lock
+   via preventDefault), so it doesn't need Lenis's overflow lock — it only needs
+   Lenis to stop driving. overflow-y:scroll keeps the gutter stable (no shift). */
+.lenis.lenis-stopped { overflow-y: scroll; overflow-x: hidden; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER · canonical · shared layer (lives in polish.css)
+   One footer across all 15 pages. No infinite animations.
+   Reveal via polish.js → .is-revealed (canonical system).
+   Tokens per DESIGN-SYSTEM.md.
+   ═══════════════════════════════════════════════════════════════ */
+
+.ft{
+  position:relative;width:100%;
+  background:var(--bg-footer,#050810);
+  font-family:'Outfit',sans-serif;color:#fff;
+  overflow:hidden;padding:0;z-index:1;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+/* Apple-seam: static top hairline (no animation) */
+.ft::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;z-index:3;
+  background:linear-gradient(90deg,transparent 0%,rgba(187,214,122,.25) 50%,transparent 100%);
+  pointer-events:none;
+}
+
+/* ─── BG layers (static — infinite glow drift removed) ─── */
+.ft__bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+.ft__bg::before{
+  content:'';position:absolute;inset:0;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px;
+}
+.ft__bg::after{content:'';position:absolute;top:0;left:0;right:0;height:180px;background:linear-gradient(180deg,rgba(8,12,18,.9) 0%,transparent 100%)}
+/* static ambient tints (replaces animated ftGa/ftGb) */
+.ft__glow{position:absolute;inset:0;z-index:0;pointer-events:none}
+.ft__glow::before{content:'';position:absolute;width:50vw;height:50vw;max-width:600px;max-height:600px;top:5%;left:8%;background:radial-gradient(circle,rgba(180,140,50,.025) 0%,transparent 60%);opacity:.8}
+.ft__glow::after{content:'';position:absolute;width:40vw;height:40vw;max-width:500px;max-height:500px;bottom:15%;right:5%;background:radial-gradient(circle,rgba(117,194,73,.02) 0%,transparent 55%);opacity:.7}
+
+/* ─── Wrap ─── */
+.ft__wrap{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:clamp(3.5rem,6vh,5rem) 3rem clamp(1.5rem,3vh,2.5rem)}
+
+/* ═══ 5-COLUMN GRID ═══ */
+.ft__grid{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:clamp(1.5rem,2.5vw,2.5rem);
+  margin-bottom:clamp(2.5rem,4vh,3.5rem);
+  padding-bottom:clamp(2rem,3vh,3rem);
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.ft__col{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.ft__col:nth-child(1){transition-delay:.05s}
+.ft__col:nth-child(2){transition-delay:.1s}
+.ft__col:nth-child(3){transition-delay:.15s}
+.ft__col:nth-child(4){transition-delay:.2s}
+.ft__col:nth-child(5){transition-delay:.25s}
+.ft__col-head{
+  display:block;font-family:'Outfit',sans-serif;
+  font-size:.5rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;
+  color:#BBD67A;opacity:.85;margin-bottom:1rem;
+}
+.ft__col a{
+  display:block;position:relative;width:fit-content;
+  font-size:.72rem;font-weight:300;color:rgba(255,255,255,.55);
+  text-decoration:none;padding:.26rem 0;letter-spacing:.01em;
+  transition:color .35s cubic-bezier(.22,1,.36,1),transform .35s cubic-bezier(.22,1,.36,1);
+}
+.ft__col a::after{
+  content:'';position:absolute;bottom:.1rem;left:0;width:0;height:.5px;
+  background:linear-gradient(90deg,#75C249,rgba(117,194,73,.2));
+  transition:width .35s cubic-bezier(.22,1,.36,1);
+}
+.ft__col a:hover{color:rgba(255,255,255,.9)}
+.ft__col a:hover::after{width:100%}
+
+/* ═══ SVANTRA BEACON · canonical glass panel (no orbit, no infinite anim) ═══ */
+.ft__svantra{
+  position:relative;display:block;
+  margin:0 0 clamp(2rem,3.5vh,3rem);
+  padding:clamp(1.8rem,3.2vw,2.4rem) clamp(1.8rem,3.2vw,2.6rem);
+  border-radius:20px;text-decoration:none;color:inherit;overflow:hidden;
+  /* Frosted glass: a deep, mostly-transparent tint so the BLUR reads as glass
+     (not a painted milky-white panel). Darker base also gives a tasteful solid
+     panel on Safari/Firefox where blur is disabled (no-glass-blur fallback). */
+  background:linear-gradient(155deg,rgba(255,255,255,.045) 0%,rgba(255,255,255,.012) 40%,rgba(13,17,23,.20) 100%);
+  border:1px solid rgba(255,255,255,.055);
+  border-top-color:rgba(255,255,255,.12);
+  backdrop-filter:blur(30px) saturate(160%) brightness(1.08);-webkit-backdrop-filter:blur(30px) saturate(160%) brightness(1.08);
+  box-shadow:0 20px 60px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.45),inset 1px 0 0 rgba(255,255,255,.10),inset 0 -1px 0 rgba(0,0,0,.28),inset 0 -28px 56px -28px rgba(255,255,255,.04);
+  opacity:0;transform:translateY(18px);
+  transition:opacity .6s cubic-bezier(.22,1,.36,1) .3s,
+             transform .6s cubic-bezier(.22,1,.36,1) .3s,
+             border-color .45s cubic-bezier(.22,1,.36,1),
+             box-shadow .45s cubic-bezier(.22,1,.36,1),
+             background .45s cubic-bezier(.22,1,.36,1);
+}
+/* Safari/Firefox have no backdrop blur (no-glass-blur). Give the panel a slightly
+   deeper, self-contained tint there so it reads as premium dark glass, not an
+   empty/whitish box. */
+html.no-glass-blur .ft__svantra{
+  background:linear-gradient(155deg,rgba(255,255,255,.05) 0%,rgba(20,26,34,.55) 55%,rgba(13,17,23,.62) 100%);
+  border-top-color:rgba(255,255,255,.14);
+}
+/* heritage-gold edge-lit ring (static, hover-brightened) */
+.ft__svantra::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;
+  background:linear-gradient(135deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 13%),linear-gradient(135deg,var(--heritage-gold,#D4A656) 0%,rgba(212,166,86,.10) 22%,transparent 46%,rgba(187,214,122,.16) 100%);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;
+  opacity:.5;transition:opacity .45s cubic-bezier(.22,1,.36,1);pointer-events:none;
+}
+/* soft inner gold wash + top sheen (Cleo-style frosted highlight) */
+.ft__svantra::after{
+  content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(140% 100% at 0% 0%,rgba(255,255,255,.14) 0%,rgba(255,255,255,.04) 14%,transparent 34%),
+             radial-gradient(120% 80% at 85% 0%,var(--heritage-gold-faint,rgba(212,166,86,.08)) 0%,transparent 60%),
+             linear-gradient(180deg,rgba(255,255,255,.05) 0%,transparent 16%);
+  transition:background .55s cubic-bezier(.22,1,.36,1);
+}
+.ft__svantra-inner{position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.ft__svantra-text{display:flex;flex-direction:column;gap:.5rem;min-width:0}
+.ft__svantra-eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:'Outfit',sans-serif;font-size:.5rem;font-weight:500;
+  letter-spacing:.28em;text-transform:uppercase;color:rgba(212,166,86,.7);
+}
+.ft__svantra-dot{width:5px;height:5px;border-radius:50%;background:var(--heritage-gold,#D4A656);box-shadow:0 0 8px rgba(212,166,86,.5)}
+.ft__svantra-name{
+  font-family:'Playfair Display',serif;font-weight:700;font-style:normal;
+  font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1;letter-spacing:.04em;
+  background:linear-gradient(100deg,#fff 0%,#fff 38%,var(--heritage-gold,#D4A656) 50%,#fff 62%,#fff 100%);
+  background-size:220% 100%;background-position:100% 0;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  /* Only animate background-position (the gold sweep). letter-spacing animation
+     removed — it forces text reflow every frame and stutters on Safari/Firefox. */
+  transition:background-position .9s cubic-bezier(.22,1,.36,1);
+}
+/* hover: sweep the gold highlight across the wordmark once */
+.ft__svantra:hover .ft__svantra-name{
+  background-position:0 0;
+}
+.ft__svantra-tag{font-family:'Outfit',sans-serif;font-weight:300;font-size:.74rem;line-height:1.5;color:rgba(255,255,255,.5);max-width:34ch}
+.ft__svantra-foot{display:flex;align-items:center;gap:1.3rem;flex-shrink:0}
+.ft__svantra-status{
+  font-family:'Outfit',sans-serif;font-size:.55rem;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;color:rgba(212,166,86,.7);
+  display:inline-flex;align-items:center;gap:.5rem;white-space:nowrap;
+}
+.ft__svantra-cta{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.6rem 1rem;border-radius:999px;
+  font-family:'Outfit',sans-serif;font-size:.58rem;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.9);white-space:nowrap;
+  background:linear-gradient(180deg,rgba(255,255,255,.06) 0%,rgba(255,255,255,.02) 100%);
+  border:1px solid rgba(255,255,255,.12);
+  transition:border-color .4s cubic-bezier(.22,1,.36,1),color .4s cubic-bezier(.22,1,.36,1),background .4s cubic-bezier(.22,1,.36,1),transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s cubic-bezier(.22,1,.36,1);
+}
+.ft__svantra-cta svg{width:13px;height:13px;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+/* hover state (allowed motion) */
+.ft__svantra:hover{border-color:rgba(212,166,86,.28);border-top-color:rgba(255,255,255,.2);box-shadow:0 28px 72px rgba(0,0,0,.55),0 0 48px rgba(212,166,86,.10),inset 0 1px 0 rgba(255,255,255,.6),inset 1px 0 0 rgba(255,255,255,.14),inset 0 -1px 0 rgba(0,0,0,.32),inset 0 -30px 60px -28px rgba(255,255,255,.06);background:linear-gradient(155deg,rgba(255,255,255,.05) 0%,rgba(255,255,255,.012) 40%,rgba(13,17,23,.30) 100%)}
+.ft__svantra:hover::before{opacity:.9}
+.ft__svantra:hover::after{background:radial-gradient(140% 100% at 32% 0%,rgba(255,255,255,.2) 0%,rgba(255,255,255,.05) 16%,transparent 40%),radial-gradient(120% 80% at 85% 0%,rgba(212,166,86,.12) 0%,transparent 55%),linear-gradient(180deg,rgba(255,255,255,.08) 0%,transparent 20%)}
+.ft__svantra:hover .ft__svantra-cta{border-color:rgba(212,166,86,.4);color:#fff;background:linear-gradient(180deg,rgba(212,166,86,.12) 0%,rgba(255,255,255,.02) 100%);transform:translateY(-1px);box-shadow:0 0 24px rgba(212,166,86,.12)}
+.ft__svantra:hover .ft__svantra-cta svg{transform:translate(2px,-2px)}
+
+/* ═══ TRUST STRIP · whisper-cards ═══ */
+.ft__trust{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin-bottom:clamp(2rem,3.5vh,3rem)}
+.ft__trust-card{
+  display:flex;flex-direction:column;gap:.55rem;position:relative;
+  padding:1.4rem 1.3rem;border-radius:16px;
+  background:linear-gradient(160deg,rgba(255,255,255,.035) 0%,rgba(255,255,255,.012) 100%);
+  border:1px solid rgba(255,255,255,.07);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:0 8px 24px rgba(0,0,0,.22),0 1px 0 rgba(255,255,255,.06) inset;
+  opacity:0;transform:translateY(12px);
+  transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1),border-color .4s cubic-bezier(.22,1,.36,1),background .4s cubic-bezier(.22,1,.36,1);
+}
+.ft__trust-card:nth-child(1){transition-delay:.1s}
+.ft__trust-card:nth-child(2){transition-delay:.18s}
+.ft__trust-card:nth-child(3){transition-delay:.26s}
+.ft__trust-card:nth-child(4){transition-delay:.34s}
+.ft__trust-card:hover{border-color:rgba(117,194,73,.25);background:linear-gradient(160deg,rgba(255,255,255,.07) 0%,rgba(255,255,255,.025) 100%)}
+.ft__trust-icon{width:22px;height:22px;position:relative;z-index:2}
+.ft__trust-icon svg{width:100%;height:100%;stroke:#BBD67A;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;opacity:.8;transition:opacity .3s ease}
+.ft__trust-card:hover .ft__trust-icon svg{opacity:1}
+.ft__trust-title{font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:500;color:rgba(255,255,255,.62);line-height:1.35;letter-spacing:.01em;min-height:2.7em;position:relative;z-index:2}
+.ft__trust-desc{font-size:.72rem;font-weight:300;color:rgba(255,255,255,.46);line-height:1.55;position:relative;z-index:2;transition:color .3s ease}
+.ft__trust-card:hover .ft__trust-desc{color:rgba(255,255,255,.4)}
+
+/* ═══ BOTTOM BAR ═══ */
+.ft__bottom{
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+  padding-top:clamp(1.2rem,2vh,1.6rem);position:relative;
+  opacity:0;transform:translateY(12px);
+  transition:opacity .8s cubic-bezier(.22,1,.36,1) .35s,transform .8s cubic-bezier(.22,1,.36,1) .35s;
+}
+.ft__bottom::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.1) 20%,rgba(187,214,122,.18) 50%,rgba(255,255,255,.1) 80%,transparent 100%)}
+.ft__bottom-brand{display:flex;align-items:center;gap:1rem;min-width:0}
+/* logo — static glass platform (3D tilt removed) */
+.ft__logo-wrap{position:relative;display:inline-block;flex-shrink:0}
+.ft__logo-stage{
+  position:relative;padding:.55rem .9rem;border-radius:10px;
+  background:linear-gradient(160deg,rgba(255,255,255,.03) 0%,rgba(255,255,255,.008) 100%);
+  border:1px solid rgba(255,255,255,.05);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  box-shadow:0 10px 30px rgba(0,0,0,.3),0 1px 0 rgba(255,255,255,.05) inset;
+}
+.ft__logo{position:relative;z-index:2;width:58px;height:auto;display:block}
+/* logo hover effects removed — static glass platform (no 3D tilt, no glow) */
+.ft__bottom-meta{display:flex;flex-direction:column;gap:.2rem;min-width:0}
+.ft__bottom-tagline{font-size:.58rem;font-weight:300;color:rgba(255,255,255,.5);line-height:1.45;letter-spacing:.01em;max-width:380px}
+.ft__copy{font-size:.5rem;font-weight:300;color:rgba(255,255,255,.45);letter-spacing:.02em}
+.ft__trusted{flex-shrink:0;font-size:.5rem;font-weight:400;color:rgba(255,255,255,.15);letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:.4rem}
+.ft__trusted::before{content:'';width:12px;height:1px;background:rgba(117,194,73,.2)}
+
+/* ═══ REVEAL · canonical .is-revealed (polish.js owns this) ═══ */
+.ft.is-revealed .ft__col,
+.ft.is-revealed .ft__svantra,
+.ft.is-revealed .ft__trust-card,
+.ft.is-revealed .ft__bottom{opacity:1;transform:translateY(0)}
+
+/* ═══ RESPONSIVE ═══ */
+@media(min-width:2560px){
+  .ft__wrap{max-width:1440px}
+  .ft__logo{width:78px}
+  .ft__col a{font-size:.8rem}
+}
+@media(max-width:1024px){
+  .ft__grid{grid-template-columns:repeat(3,1fr);row-gap:2rem}
+}
+@media(max-width:768px){
+  .ft__wrap{padding:clamp(2.5rem,5vh,3.5rem) 1.25rem clamp(1.2rem,3vh,1.8rem)}
+  .ft__grid{grid-template-columns:1fr;gap:0;padding-bottom:1.5rem}
+  /* mobile column accordion */
+  .ft__col{transform:none;opacity:1;border-bottom:1px solid rgba(255,255,255,.05)}
+  .ft__col-head{margin:0;padding:1rem 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-size:.6rem}
+  .ft__col-head::after{content:'';width:8px;height:8px;border-right:1.5px solid rgba(187,214,122,.6);border-bottom:1.5px solid rgba(187,214,122,.6);transform:rotate(45deg);transition:transform .3s ease;margin-right:.2rem}
+  .ft__col.expanded .ft__col-head::after{transform:rotate(-135deg)}
+  .ft__col a{max-height:0;overflow:hidden;padding:0;opacity:0;transition:max-height .3s ease,opacity .3s ease,padding .3s ease}
+  .ft__col.expanded a{max-height:4.5rem;opacity:1;padding:.4rem 0}
+  .ft__svantra-inner{flex-direction:column;align-items:flex-start;gap:1.1rem}
+  .ft__svantra-foot{width:100%;justify-content:space-between;padding-top:1rem;border-top:1px solid rgba(255,255,255,.06)}
+  .ft__svantra-name{font-size:1.5rem}
+  .ft__trust{grid-template-columns:1fr 1fr;gap:.6rem}
+  /* ── Footer trust cards · mobile geometry (Phase 3) ──
+     (A) uniform icon stroke — markup has baked per-path stroke-widths
+         (1.4–2.5) that broke weight consistency across the 4 icons.
+     (B) equal-height cards per row + fixed icon slot so 1- vs 2-line
+         titles can't shift the icon baseline (text length no longer
+         breaks geometry).
+     (C) tighter vertical rhythm + smaller type so 2-up cards don't
+         eat the whole 360px screen. Mobile-only; desktop untouched. */
+  .ft__trust-card{
+    padding:.7rem .7rem;
+    gap:.35rem;
+    height:100%;            /* fill the grid row → equal heights */
+    justify-content:flex-start;
+  }
+  .ft__trust-icon{
+    width:20px;height:20px;
+    margin-bottom:.15rem;   /* fixed slot → titles align across pair */
+  }
+  .ft__trust-icon svg *{
+    stroke-width:1.5 !important;  /* (A) normalize baked per-path widths */
+  }
+  .ft__trust-title{font-size:.8rem;line-height:1.3}
+  .ft__trust-desc{font-size:.68rem;line-height:1.45}
+  .ft__bottom{flex-direction:column;align-items:center;text-align:center;gap:1rem}
+  /* Center the brand row + meta stack when the footer-bottom is centered. */
+  .ft__bottom-brand{justify-content:center;flex-wrap:wrap}
+  .ft__bottom-meta{align-items:center}
+  .ft__bottom-tagline{max-width:none}
+  /* Svantra sub-brand bar: was desktop-scale (≥1.8rem padding, ≤2.4rem name) and
+     read as a large block on a phone. Shrink to feel proportional. */
+  .ft__svantra{padding:1.2rem 1.2rem;border-radius:16px}
+  .ft__svantra-inner{gap:1rem}
+  /* (Trust cards stay 2×2 — 4-in-row at 360px would crush icon+label below the
+     legibility bar. Nudge padding down so they feel less heavy vs the menu cols.) */
+  .ft__trust{gap:.55rem}
+  .ft__copy{font-size:.55rem}
+  .ft__trusted{font-size:.5rem}
+}
+@media(max-width:340px){
+  /* 2-up is the default on mobile. Drop to 1-up only on genuinely tiny
+     screens (≤340px). NOTE: some phones (e.g. OnePlus 11 at higher display
+     zoom) report a 360px CSS viewport, not 412 — so the cutoff must sit
+     BELOW 360 or those phones wrongly fall to 1-up. 340 clears all normal
+     phones (360+) while still protecting 320px-class devices. */
+  .ft__trust{grid-template-columns:1fr}
+}
+
+/* ═══ REDUCED MOTION ═══ */
+@media(prefers-reduced-motion:reduce){
+  .ft__col,.ft__svantra,.ft__trust-card,.ft__bottom{opacity:1!important;transform:none!important;transition:none!important}
+}
+
+/* ═══ SAFARI / FIREFOX BLUR-JITTER WORKAROUND ═══════════════════════
+   These browsers re-rasterize backdrop-filter blur on every Lenis scroll
+   frame, causing dropped frames / jitter (confirmed via profiler + live
+   test). Chrome composites it cheaply, so it keeps the frosted glass.
+   Under .no-glass-blur (set by polish.js on Safari/FF), we drop the blur
+   but KEEP the element's background — glass becomes a clean semi-opaque
+   panel instead of frosted, and scrolling stays smooth.
+   To revert: delete this block + the tagBrowser() block in polish.js. */
+html.no-glass-blur *,
+html.no-glass-blur *::before,
+html.no-glass-blur *::after {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* ═══ SAFARI / FIREFOX HOVER SMOOTHNESS ════════════════════════════
+   Safari/Firefox don't GPU-composite filter / box-shadow transitions the
+   way Chrome does, so card hovers that animate those properties stutter.
+   Under .no-glass-blur (Safari/FF), restrict these cards' transitions to
+   the GPU-friendly transform + opacity, and make the image filter shift
+   instant rather than animated. Chrome keeps the full cinematic transition.
+   (Stage C will replace these with CSS scroll/hover-driven effects.) */
+html.no-glass-blur .story-card,
+html.no-glass-blur .rec-instr__card,
+html.no-glass-blur .credit-card {
+  transition: transform .5s cubic-bezier(.22,1,.36,1),
+              border-color .5s cubic-bezier(.22,1,.36,1) !important;
+}
+html.no-glass-blur .story-card__img {
+  transition: transform .9s cubic-bezier(.22,1,.36,1) !important;
+}
+
+/* ═══ SAFARI OVERSCROLL BACKGROUND ═════════════════════════════════
+   The page background is painted by individual sections, not by html/body
+   (body is transparent). On Safari, rubber-band overscroll past the top
+   (or bottom) reveals the browser's default white because nothing is
+   painted behind the root. Setting the deep page colour on <html> makes
+   any overscroll area show dark, matching the site. Harmless on Chrome
+   (Lenis prevents overscroll there anyway). */
+html {
+  background-color: #0d1117;
+}
+
+/* ─── 21. R1 · Mobile nav fixes (mobile-scoped; cannot affect desktop pill) ───
+   Phase 3 · OnePlus-verified. Two fixes:
+
+   (a) Closed bar showed the green Svantra pill on mobile. The legacy
+       per-page mobile query hides ".cc-nav__cta" — a DEAD class not in
+       the markup. The real button is ".cc-nav__svantra" and was never
+       hidden, except on 01_homepage (line ~4556) where it was patched
+       inline and never propagated. This rule fixes the other 14 pages
+       at once. Svantra still lives in the open panel (.cc-nav__mobile-cta).
+
+   (b) Panel's last rows (Svantra + Follow-us socials) sat flush to the
+       screen edge / under the bottom bar. End-padding clears the full
+       panel in one scroll. Stacks on top of the existing safe-area
+       inset rule (§19) — correct: inset = home-indicator, this = visual
+       breathing room + bottom-bar clearance.
+
+   Entirely inside max-width:768px. Desktop floating pill is untouched,
+   honouring the §19 note that .cc-nav must not be shifted globally.
+   ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .cc-nav__svantra {
+    display: none !important;
+  }
+  /* (d) Hamburger: column flex with no justify-content packed the 3 lines
+     to the TOP of the button's padding box (flex-start default). Center
+     them on the vertical axis so they sit mid-box. Pure CSS — unlike the
+     logo (asset-geometry, deferred), this is fully fixable here. */
+  .cc-nav__hamburger {
+    justify-content: center !important;
+  }
+  .cc-nav__mobile-panel {
+    /* (b) bottom: clear the bottom NAVIGATE bar + breathing room */
+    padding-bottom: 5rem;
+    /* (c) top: clears the floating pill (real bottom edge ~3.65rem on
+       mobile: top 0.75 + pad 0.5 + 30px logo + pad 0.5) with a clean
+       gap. 5rem matches the bottom padding for balanced top/bottom.
+       Mobile-only; desktop pill unaffected. */
+    padding-top: 5rem !important;
+  }
+}
+
+/* ─── 22. Bottom NAVIGATE bar · premium pass (Direction A · mobile-scoped) ───
+   The bottom bar is .sidenav__pull (the sidenav open-tab), shown only on
+   mobile (≤1024px in inline CSS; we scope to ≤768px to match the nav pass).
+   Appears on 11 pages (03,04,05,06,08,09,10,11,13,14,15). Styled inline in
+   two drifted blocks per page — overridden here so the fix lands once.
+
+   Direction A (subtle premium):
+   (a) Remove "14·8" meta — real instrument-count stat, hidden visually only.
+   (b) NAVIGATE was --text-secondary (faint) + a stray margin-top:0.5rem on
+       the label broke vertical centering in the 64px flex bar. Brighten to
+       near-white and zero the margin so it sits centered.
+   (c) Existing green hairline (.sidenav__pull::before) upgraded to a
+       green→gold gradient — matches the footer Svantra gold-sweep palette.
+
+   Mobile-only. Desktop sidenav pull (hidden on desktop anyway) untouched.
+   ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* (a) hide the 14·8 count */
+  .sidenav__pull-meta {
+    display: none !important;
+  }
+  /* (b) NAVIGATE legible + centered */
+  .sidenav__pull-label {
+    color: rgba(255,255,255,0.92) !important;
+    margin-top: 0 !important;
+  }
+  /* (c) green→gold premium hairline */
+  .sidenav__pull::before {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(117,194,73,0.55) 35%,
+      rgba(199,164,90,0.65) 65%,
+      transparent
+    ) !important;
+    height: 1.5px !important;
+  }
+}
+
+/* ─── 23. Global tap-highlight kill (touch flash fix) ───────────
+   9 pages (03,06,08,09,10,11,13,14,15) carry an inline
+   "* { -webkit-tap-highlight-color: rgba(117,194,73,0.18) }" rule that
+   paints a GREEN BOX FLASH on every tappable element when touched —
+   visible on the hero video frame, demo player rows, buttons. That
+   inline universal rule is the "box layer flash on click" bug.
+   Kill it globally here so the fix lands once instead of editing 9
+   files. Applies all viewports (touch flash is mobile, harmless on
+   desktop where there's no tap). */
+* {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* ─── 24. Video player close (X) · mobile shrink ────────────────
+   .video-embed__close is 36px/14px-glyph inline on 9 pages
+   (03,06,08,09,10,11,13,14,15) — oversized on mobile. Shrink to
+   28px/11px keeping the circular geometry + proportions. Desktop
+   (36px) intentionally LEFT ALONE — its geometry is signed-off and
+   differs by design. Shared override so it lands on all 9 at once. */
+@media (max-width: 768px) {
+  .video-embed__close {
+    width: 28px !important;
+    height: 28px !important;
+    top: 10px !important;
+    right: 10px !important;
+  }
+  .video-embed__close svg {
+    width: 11px !important;
+    height: 11px !important;
+  }
+}
+
+/* ─── 25. Card actions hidden on mobile (shared, recommendation cards) ─
+   On ~165px 2-up mobile cards, title + heart + cart can't share a row
+   without truncating the title or breaking geometry. These are
+   RECOMMENDATION cards — the title is what drives the click; wishlist/cart
+   are secondary and still reachable on the product page (whole card is a
+   link). So hide the action buttons on mobile and give the title the full
+   row: no truncation, no geometry break, card structure otherwise intact.
+   Mobile-only; desktop keeps the icons. */
+@media (max-width: 768px) {
+  .cc-card-actions {
+    display: none;
+  }
+  .cc-card-title-row > *:not(.cc-card-actions) {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    min-width: 0;
+  }
+}
+
+/* ─── 26. Hero video play button · unified across all 9 pages ────────
+   The dark-disc / anti-washout fix was done inline on 03 only. The other
+   8 pages (06,08,09,10,11,13,14,15) still had the old washed-out button
+   (background: rgba(255,255,255,0.06), no dark backing). This makes the
+   button IDENTICAL everywhere — dark radial base so the play triangle
+   never washes out on light/busy thumbnails, plus the mobile 58px size.
+
+   !important is required: load order is inconsistent — on most pages
+   polish.css loads after the inline <style> (we'd win anyway), but on
+   10_cookie-policy polish.css is in <head> BEFORE inline (inline would
+   win). !important guarantees the same result regardless of order.
+
+   Note: only 03 has the .has-thumb variant (JS-driven thumbnail state);
+   the other 8 use the base button. Both are covered below.
+   03's inline copies are now redundant dupes — flagged for Stage-C cleanup. */
+
+/* base button — dark disc under the glass (desktop + any page) */
+.lib-hero__play-btn {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(5,8,16,0.92) 0%, rgba(5,8,16,0.78) 60%, rgba(5,8,16,0.55) 100%),
+    rgba(255,255,255,0.06) !important;
+}
+/* 03's thumbnail state — dark disc under the frosted glass */
+.lib-hero__video.has-thumb .lib-hero__play-btn {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(5,8,16,0.9) 0%, rgba(5,8,16,0.74) 60%, rgba(5,8,16,0.5) 100%),
+    linear-gradient(160deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 100%) !important;
+}
+.lib-hero__video.has-thumb:hover .lib-hero__play-btn {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(5,8,16,0.85) 0%, rgba(5,8,16,0.68) 60%, rgba(5,8,16,0.45) 100%),
+    linear-gradient(160deg, rgba(255,255,255,0.26) 0%, rgba(255,255,255,0.10) 100%) !important;
+}
+/* mobile: shrink the oversized 88px button on all pages */
+@media (max-width: 768px) {
+  .lib-hero__play-btn { width: 58px !important; height: 58px !important; }
+  .lib-hero__play-btn svg { width: 22px !important; height: 22px !important; }
+}
+
+/* ─── 27. Recording-inner (05) play button · dark-disc washout fix ──
+   05 uses .instr-hero__video-play (NOT .lib-hero__play-btn), so §26
+   missed it. Same washout problem: white-glass over a thumbnail makes
+   the triangle vanish. Add the dark radial base under the glass so it
+   reads on any thumbnail — matching the 03/§26 treatment. Size left
+   alone (05 has its own 92/68px sizing). !important to beat 05's inline
+   rule regardless of load order. */
+.instr-hero__video-play {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(5,8,16,0.9) 0%, rgba(5,8,16,0.74) 60%, rgba(5,8,16,0.5) 100%),
+    linear-gradient(160deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 100%) !important;
+}
+
+/* ─── 28. Homepage (01) hvid__play button · dark-disc washout fix ───
+   01's heritage-style homepage video uses .hvid__play — another white-
+   glass 88px disc (background: rgba(255,255,255,0.06)) that washes out
+   on light thumbnails. Same fix as §26/§27. !important to beat inline.
+   (Checked alongside: 13 .heritage-card__play is a transparent icon — no
+   glass, no fix needed; 15 .story-modal__video-play already has a
+   ::before dark scrim — already protected.) */
+.hvid__play {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(5,8,16,0.92) 0%, rgba(5,8,16,0.78) 60%, rgba(5,8,16,0.55) 100%),
+    rgba(255,255,255,0.06) !important;
+}
+
+/* ─── 29. Testimonials (15) popup video · play-control visibility ───
+   The "▶ Watch the feature" control sits on a busy thumbnail with only
+   a weak 45% scrim, so it washes out (see screenshot). Not a disc — it's
+   a centered text+icon badge. Fix: (a) strengthen the full-frame scrim a
+   little, (b) give the badge its own dark pill so the control always
+   reads regardless of thumbnail. Same "guaranteed local contrast"
+   principle as the disc buttons, adapted to this text-label form. */
+.story-modal__video-play::before {
+  background: rgba(5,8,12,0.58) !important;
+}
+.story-modal__video-play .story-modal__video-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  background: rgba(5,8,16,0.72);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: #fff;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Booking modal — hide scrollbar (sitewide)
+   The .booking-modal__sheet is the scroll container and has rounded
+   corners (22px); a visible scrollbar overflowed the curve. Hiding it
+   removes the conflict entirely — content still scrolls (wheel/drag/
+   touch). One shared rule covers all 6 pages that inline this modal
+   (03,04,05,13,14,15). polish.css loads AFTER inline <style>, so this
+   overrides the per-page scrollbar rules. (Same fix applied to rec-modal
+   on 04 earlier; booking-modal is the one that actually opens.)
+   ═══════════════════════════════════════════════════════════════ */
+.booking-modal__sheet::-webkit-scrollbar { width: 0 !important; height: 0 !important; display: none !important; }
+.booking-modal__sheet { scrollbar-width: none !important; -ms-overflow-style: none !important; }
+
+/* ═══════════════════════════════════════════════════════════════
+   28 · Tap targets ≤768px · Page 04 (rec-instr) + shared form/sidenav
+   Probe (OnePlus 11, 360px) flagged these primary targets <44px.
+   FIXED here:
+     · .rec-instr__tab     ~36 tall (filter tabs)
+     · .booking-form__input--select  43 tall (1px under)
+     · .sidenav__footer-link  42 tall (2px under)
+   Plus iOS focus-zoom: .booking-form__input font <16px.
+
+   Policy (PAGE-03 rule 6): close/dismiss may stay <44px (backdrop tap
+   dismisses). These are PRIMARY actions, so they must hit 44.
+
+   ACCEPTED <44px (documented, NOT fixed): .rec-instr__sample (30×30 ×15).
+   It's a dead Stage-C stub (no handler) INSIDE a fully-clickable card
+   <a href="/recording/{slug}">. The card is the 44px+ primary target.
+   Enlarging the stub's hit area would only steal card taps to feed a
+   no-op. Same precedent as PAGE-02 card overlay icons (32px accepted).
+   Revisit at Stage C when the button is wired (real audio + stopPropagation).
+   ─────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* filter tabs → min 44 tall (padding-driven, keeps pill shape) */
+  .rec-instr__tab {
+    min-height: 44px;
+  }
+
+  /* select → clear 44 (was 43) */
+  .booking-form__input--select {
+    min-height: 44px;
+  }
+
+  /* sidenav footer link → clear 44 (was 42) */
+  .sidenav__footer-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* form inputs → 16px to stop iOS focus-zoom (matrix: iPhone 13 Safari).
+     Invisible on Android/OnePlus where zoom doesn't trigger. */
+  .booking-form__input {
+    font-size: 16px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   29 · Breadcrumb — hide on mobile (sitewide)
+   The "Home / <Page>" breadcrumb adds a redundant line on phones (the
+   nav already shows where you are). Hidden ≤768 on EVERY page; DOM kept
+   for SEO + BreadcrumbList JSON-LD. Class varies per page type
+   (lib-hero__breadcrumb, rec-hero__breadcrumb, …) so we match the shared
+   "breadcrumb" token. Previously hidden inline on 03 only — centralised
+   here so all pages (incl. future) are covered. Margin nuked so the
+   hero spacing closes up cleanly with the line gone.
+   ─────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  [class*="breadcrumb"] {
+    display: none !important;
+  }
+}
+
+/* ═════════════════════════════════════════════════════════════════════
+   30 · Mobile shell · liquid-glass exception (≤768px)
+   ---------------------------------------------------------------
+   The B1 block above kills backdrop-filter on EVERY element ≤768px to
+   protect 60fps scroll — correct for in-flow CONTENT cards, which repaint
+   their blur every frame as they pass through the viewport.
+
+   But the nav and sidenav are FIXED / STICKY: they do not move relative to
+   the viewport on scroll, so their backdrop only recomposites when content
+   passes behind them — cheap on the compositor, not the per-frame cost B1
+   was removing. So we re-enable blur on ONLY these fixed shell surfaces to
+   restore true frosted "liquid glass", while every scrolling content surface
+   keeps blur off (B1 still wins for them).
+
+   Recipe (premium glass, legible over busy hero/video without going solid):
+     · moderate opacity (0.86–0.92) so the frost reads as glass, not a slab
+     · blur + saturate(1.8) — saturate pulls colour from behind = rich, not gray
+     · lit top-edge border (border-top highlight) = the premium tell
+   Scoped + !important so it overrides B1's blanket `backdrop-filter:none`
+   for these four selectors only. Desktop untouched (this is ≤768px).
+   ═════════════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* top nav pill */
+  .cc-nav {
+    background: rgba(15, 20, 28, 0.86) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(1.8) !important;
+    backdrop-filter: blur(20px) saturate(1.8) !important;
+    border-top-color: rgba(255,255,255,0.16) !important;
+  }
+  /* hamburger menu panel + nav dropdown */
+  .cc-nav__mobile-panel,
+  .cc-nav__dropdown {
+    background: rgba(13, 17, 23, 0.88) !important;
+    -webkit-backdrop-filter: blur(22px) saturate(1.8) !important;
+    backdrop-filter: blur(22px) saturate(1.8) !important;
+    border-top: 1px solid rgba(255,255,255,0.14) !important;
+  }
+  /* sidenav pull-up bottom-sheet (the mobile "Navigate" sheet) */
+  .sidenav {
+    background: rgba(10, 14, 20, 0.88) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(1.8) !important;
+    backdrop-filter: blur(24px) saturate(1.8) !important;
+    border-top: 1px solid rgba(255,255,255,0.14) !important;
+    box-shadow: 0 -12px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.10) !important;
+  }
+}
+
+/* Honour the browsers that genuinely can't blur (Safari/Firefox carry
+   html.no-glass-blur via polish.js). There, drop back to a near-solid
+   tint so the shell never goes thin/see-through without its frost.
+   Mobile-scoped so desktop Safari/FF nav keeps its own design. */
+@media (max-width: 768px) {
+  html.no-glass-blur .cc-nav,
+  html.no-glass-blur .cc-nav__mobile-panel,
+  html.no-glass-blur .cc-nav__dropdown,
+  html.no-glass-blur .sidenav {
+    background-color: rgba(12, 16, 22, 0.97) !important;
+  }
+}

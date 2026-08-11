@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" preserveAspectRatio="xMidYMid meet">
+                <defs>
+  <linearGradient id="ig6" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#BBD67A" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#75C249" stop-opacity="0.85"/>
+  </linearGradient>
+  <linearGradient id="ig6b" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#BBD67A" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#75C249" stop-opacity="0.06"/>
+  </linearGradient>
+</defs>
+                
+    <!-- Esraj: bowed sarod-like with bow -->
+    <ellipse cx="100" cy="140" rx="32" ry="38" fill="url(#ig6b)" stroke="url(#ig6)" stroke-width="1.6"/>
+    <rect x="93" y="35" width="14" height="74" rx="2" fill="url(#ig6b)" stroke="url(#ig6)" stroke-width="1.6"/>
+    <path d="M84 25 L116 25 L114 40 L86 40 Z" fill="url(#ig6b)" stroke="url(#ig6)" stroke-width="1.6"/>
+    <line x1="100" y1="42" x2="100" y2="175" stroke="url(#ig6)" stroke-width="0.7" opacity="0.55"/>
+    <line x1="96" y1="42" x2="96" y2="175" stroke="url(#ig6)" stroke-width="0.7" opacity="0.4"/>
+    <line x1="104" y1="42" x2="104" y2="175" stroke="url(#ig6)" stroke-width="0.7" opacity="0.4"/>
+    <!-- bow -->
+    <path d="M30 130 Q100 105 175 130" fill="none" stroke="url(#ig6)" stroke-width="1.4" opacity="0.7"/>
+    <line x1="30" y1="130" x2="35" y2="135" stroke="url(#ig6)" stroke-width="2"/>
+    <line x1="175" y1="130" x2="170" y2="135" stroke="url(#ig6)" stroke-width="2"/>
+  
+              </svg>

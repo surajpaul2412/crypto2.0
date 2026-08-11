@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" preserveAspectRatio="xMidYMid meet">
+                <defs>
+  <linearGradient id="ig14" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#BBD67A" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#75C249" stop-opacity="0.85"/>
+  </linearGradient>
+  <linearGradient id="ig14b" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#BBD67A" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#75C249" stop-opacity="0.06"/>
+  </linearGradient>
+</defs>
+                
+    <!-- Hindustani Vocals: voice waveform + microphone silhouette -->
+    <rect x="92" y="50" width="16" height="50" rx="8" fill="url(#ig14b)" stroke="url(#ig14)" stroke-width="1.6"/>
+    <path d="M80 90 Q80 110 100 110 Q120 110 120 90" fill="none" stroke="url(#ig14)" stroke-width="1.6"/>
+    <line x1="100" y1="110" x2="100" y2="135" stroke="url(#ig14)" stroke-width="1.6"/>
+    <line x1="86" y1="135" x2="114" y2="135" stroke="url(#ig14)" stroke-width="1.6"/>
+    <!-- horizontal mesh in mic -->
+    <line x1="92" y1="62" x2="108" y2="62" stroke="url(#ig14)" stroke-width="0.6" opacity="0.5"/>
+    <line x1="92" y1="70" x2="108" y2="70" stroke="url(#ig14)" stroke-width="0.6" opacity="0.5"/>
+    <line x1="92" y1="78" x2="108" y2="78" stroke="url(#ig14)" stroke-width="0.6" opacity="0.5"/>
+    <line x1="92" y1="86" x2="108" y2="86" stroke="url(#ig14)" stroke-width="0.6" opacity="0.5"/>
+    <!-- voice wave around -->
+    <path d="M30 165 Q40 145 50 165 Q60 185 70 165 Q80 145 90 165 Q100 180 110 165 Q120 150 130 165 Q140 175 150 165 Q160 155 170 165" fill="none" stroke="url(#ig14)" stroke-width="1.4" opacity="0.85"/>
+  
+              </svg>

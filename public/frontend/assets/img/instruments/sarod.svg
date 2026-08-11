@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" preserveAspectRatio="xMidYMid meet">
+                <defs>
+  <linearGradient id="ig3" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#BBD67A" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#75C249" stop-opacity="0.85"/>
+  </linearGradient>
+  <linearGradient id="ig3b" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#BBD67A" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#75C249" stop-opacity="0.06"/>
+  </linearGradient>
+</defs>
+                
+    <!-- Sarod: rounded waist, fretless neck, drum-like body -->
+    <path d="M70 150 Q70 188 100 188 Q130 188 130 150 L130 110 Q130 95 100 95 Q70 95 70 110 Z" fill="url(#ig3b)" stroke="url(#ig3)" stroke-width="1.6"/>
+    <rect x="92" y="35" width="16" height="68" rx="2" fill="url(#ig3b)" stroke="url(#ig3)" stroke-width="1.6"/>
+    <path d="M82 25 L118 25 L114 40 L86 40 Z" fill="url(#ig3b)" stroke="url(#ig3)" stroke-width="1.6"/>
+    <line x1="100" y1="40" x2="100" y2="180" stroke="url(#ig3)" stroke-width="0.8" opacity="0.55"/>
+    <line x1="96" y1="40" x2="96" y2="180" stroke="url(#ig3)" stroke-width="0.7" opacity="0.4"/>
+    <line x1="104" y1="40" x2="104" y2="180" stroke="url(#ig3)" stroke-width="0.7" opacity="0.4"/>
+    <ellipse cx="100" cy="155" rx="14" ry="8" fill="url(#ig3b)" stroke="url(#ig3)" stroke-width="1"/>
+  
+              </svg>

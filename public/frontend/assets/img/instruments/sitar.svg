@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" preserveAspectRatio="xMidYMid meet">
+                <defs>
+  <linearGradient id="ig2" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#BBD67A" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#75C249" stop-opacity="0.85"/>
+  </linearGradient>
+  <linearGradient id="ig2b" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#BBD67A" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#75C249" stop-opacity="0.06"/>
+  </linearGradient>
+</defs>
+                
+    <!-- Sitar: large round gourd, long neck, tuning pegs -->
+    <ellipse cx="100" cy="148" rx="42" ry="34" fill="url(#ig2b)" stroke="url(#ig2)" stroke-width="1.6"/>
+    <rect x="93" y="30" width="14" height="98" rx="3" fill="url(#ig2b)" stroke="url(#ig2)" stroke-width="1.6"/>
+    <path d="M84 22 L116 22 L120 38 L80 38 Z" fill="url(#ig2b)" stroke="url(#ig2)" stroke-width="1.6"/>
+    <circle cx="80" cy="28" r="2" fill="url(#ig2)"/>
+    <circle cx="120" cy="28" r="2" fill="url(#ig2)"/>
+    <circle cx="78" cy="36" r="2" fill="url(#ig2)"/>
+    <circle cx="122" cy="36" r="2" fill="url(#ig2)"/>
+    <line x1="100" y1="40" x2="100" y2="180" stroke="url(#ig2)" stroke-width="0.7" opacity="0.55"/>
+    <line x1="95" y1="40" x2="95" y2="180" stroke="url(#ig2)" stroke-width="0.7" opacity="0.35"/>
+    <line x1="105" y1="40" x2="105" y2="180" stroke="url(#ig2)" stroke-width="0.7" opacity="0.35"/>
+    <circle cx="100" cy="148" r="6" fill="none" stroke="url(#ig2)" stroke-width="1.2"/>
+  
+              </svg>

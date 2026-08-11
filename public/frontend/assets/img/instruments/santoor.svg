@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" preserveAspectRatio="xMidYMid meet">
+                <defs>
+  <linearGradient id="ig5" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#BBD67A" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#75C249" stop-opacity="0.85"/>
+  </linearGradient>
+  <linearGradient id="ig5b" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#BBD67A" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#75C249" stop-opacity="0.06"/>
+  </linearGradient>
+</defs>
+                
+    <!-- Santoor: trapezoid with strings + hammers -->
+    <path d="M40 80 L160 80 L150 145 L50 145 Z" fill="url(#ig5b)" stroke="url(#ig5)" stroke-width="1.6"/>
+    <line x1="50" y1="92" x2="150" y2="92" stroke="url(#ig5)" stroke-width="0.7" opacity="0.5"/>
+    <line x1="51" y1="100" x2="149" y2="100" stroke="url(#ig5)" stroke-width="0.7" opacity="0.5"/>
+    <line x1="52" y1="108" x2="148" y2="108" stroke="url(#ig5)" stroke-width="0.7" opacity="0.5"/>
+    <line x1="53" y1="116" x2="147" y2="116" stroke="url(#ig5)" stroke-width="0.7" opacity="0.5"/>
+    <line x1="54" y1="124" x2="146" y2="124" stroke="url(#ig5)" stroke-width="0.7" opacity="0.5"/>
+    <line x1="55" y1="132" x2="145" y2="132" stroke="url(#ig5)" stroke-width="0.7" opacity="0.5"/>
+    <!-- hammers -->
+    <line x1="80" y1="50" x2="92" y2="90" stroke="url(#ig5)" stroke-width="1.6"/>
+    <circle cx="92" cy="90" r="3" fill="url(#ig5)"/>
+    <circle cx="80" cy="50" r="2.5" fill="url(#ig5)"/>
+    <line x1="125" y1="50" x2="113" y2="90" stroke="url(#ig5)" stroke-width="1.6"/>
+    <circle cx="113" cy="90" r="3" fill="url(#ig5)"/>
+    <circle cx="125" cy="50" r="2.5" fill="url(#ig5)"/>
+  
+              </svg>
