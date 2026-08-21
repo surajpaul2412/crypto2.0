@@ -1,3 +1,6 @@
+<script>
+  window.__SUCCESS_STORIES__ = @json($storiesJson);
+</script>
 @verbatim
 
 <!-- ═══ END FOOTER-001 ═══ -->
@@ -25,121 +28,7 @@
 (function () {
   'use strict';
 
-  var STORIES = [
-    {
-      id: 'rahman', name: 'A.R. Rahman', img: 'assets/img/ar_rehman.png',
-      role: 'Oscar · BAFTA · Golden Globe · Slumdog Millionaire',
-      teaser: 'Has publicly noted his support for our mission to bring rare Indian virtual instruments to composers worldwide.',
-      quote: 'Very intrigued by this — wishing you the best.',
-      video: '',
-      credits: ['Slumdog Millionaire', 'Roja', '127 Hours', 'Rang De Basanti'],
-      note: 'Support noted publicly. Crypto Cipher instruments have featured across a number of productions in this circle.'
-    },
-    {
-      id: 'huttner', name: 'Jörg Hüttner', img: 'assets/img/JORG_HUTTNER.png',
-      role: 'The Dark Knight Rises · Fifty Shades of Grey · White House Down',
-      teaser: 'Trying out Crypto Cipher sample libraries which I really like — great sounding and super useful across productions.',
-      quote: "I'm trying out Crypto Cipher sample libraries which I really like. They are really great sounding and super useful in various productions, with a simple but really useful interface in Kontakt. My favourites here are the Tongue Drum, Swarmandal and Tabla. Pretty much all of it is genuinely useful — go ahead and check them out, they're worth it.",
-      video: 'bKdvio9KrH4',
-      credits: ['The Dark Knight Rises', 'The Girl on the Train', 'Independence Day: Resurgence', 'Vantage Point']
-    },
-    {
-      id: 'desai', name: 'Nainita Desai', img: 'assets/img/NAINITA_DESAI.png',
-      role: 'BAFTA · Emmy · Oscar winning & nominated film and TV',
-      teaser: 'Using great Indian talent from all over the country — no other company is doing quite what you do.',
-      quote: 'Crypto Cipher is using great Indian talent from all over the country. There is no other company out there doing quite what you do. Please keep up the good work producing more unusual libraries that are so inspiring to us — film and television composers, especially out here in the West.',
-      video: 'k73ufpnk1Sw',
-      credits: ['For Sama', 'The Reason I Jump', 'American Murder', 'BBC Proms']
-    },
-    {
-      id: 'swihart', name: 'John Swihart', img: 'composers/john-swihart.jpg',
-      role: 'Grammy nominated · How I Met Your Mother · Napoleon Dynamite',
-      teaser: 'Loving these new libraries — the Tabla is very playable, Swarmandal sounds amazing, Dholak is amazing.',
-      quote: "I'm sitting with some Crypto Cipher samples and really loving these new libraries. The Tabla is very playable, Swarmandal sounds amazing — just a beautiful sound — and the Dholak is amazing. The loops are great. I'm just loving working with them; they come with great options. Very happy, and I hope you enjoy them too.",
-      video: 'g3mPqE9T8H4',
-      credits: ['How I Met Your Mother', 'Napoleon Dynamite', 'Youth in Revolt', 'Employee of the Month']
-    },
-    {
-      id: 'bt', name: 'BT', img: 'composers/bt.jpg',
-      role: 'Grammy nominated producer · Fast & Furious · Monster',
-      teaser: 'Absolutely freaking out on these sample libraries. If you\u2019re looking for unusual Kontakt libraries — check them.',
-      quote: "Absolutely freaking out on these sample libraries. If you're looking for unusual Kontakt libraries, check out Crypto Cipher.",
-      video: '',
-      credits: ['Fast & Furious', 'Partysaurus Rex', 'Go', 'Stealth', 'Monster']
-    },
-    {
-      id: 'tucker', name: 'Shankar Tucker', img: 'composers/shankar-tucker.jpg',
-      role: 'Music producer · artist · 140k+ YouTube subscribers',
-      teaser: 'Please keep making cool libraries — especially loop libraries at the quality you used for Dholak Loops.',
-      quote: "Good job, Crypto Cipher. Please keep making cool libraries, especially loop libraries at the level of quality you used for the Dholak Loops. I'll definitely be getting the next one.",
-      video: 'Pv4nrDuL-Sk',
-      credits: ['The ShrutiBox', 'Filmi Collaborations', 'YouTube Originals']
-    },
-    {
-      id: 'balhara', name: 'Sanchit Balhara', img: 'composers/sanchit-balhara.jpg',
-      role: 'Bollywood composer · Bajirao Mastani · Ram-Leela',
-      teaser: 'Doing really a great job bringing the revolution at world level — I wish them all the best.',
-      quote: 'Crypto Cipher is doing really, really a great job in bringing the revolution at world level, and I wish them all the best.',
-      video: 'wPSymhkP5a0',
-      credits: ['Bajirao Mastani', 'Goliyon Ki Raasleela Ram-Leela']
-    },
-    {
-      id: 'maas', name: 'Michael Maas', img: 'assets/img/MICHEAL_MAAS.png',
-      role: 'Trailer music · The Amazing Spider-Man 2 · Maze Runner',
-      teaser: 'Hired Crypto Cipher for live sitar recordings from India — sound quality and performance beyond what I imagined.',
-      quote: 'Crypto Cipher is a really great company. In 2014 I had to record and organise a world-music album for a production library in France, with live solo performances from across the world. For three tracks we needed live sitar from a real, gifted Indian player. I hired Crypto Cipher directly from India and they did a really great job — I never imagined a sound quality and performance like the one they gave us. I highly recommend the company\u2019s services and plugins.',
-      video: 'g3mPqE9T8H4',
-      credits: ['The Amazing Spider-Man 2', 'Chappie', 'Maze Runner', 'The Walking Dead S5']
-    },
-    {
-      id: 'johnson', name: 'Tim Johnson', img: 'composers/tim-johnson.jpg',
-      role: 'Sound design · Red Bull Air Race · Project CARS',
-      teaser: 'Crypto Cipher action walkthrough — a sound designer\u2019s look at the libraries in use.',
-      quote: 'A Crypto Cipher action walkthrough video by Tim Johnson — a working sound designer\u2019s look at the libraries in real use.',
-      video: '7mHg-vGcP5s',
-      credits: ['Red Bull Air Race (Oculus Rift)', 'Xbox One Release', 'Project CARS']
-    },
-    {
-      id: 'lockett', name: 'Pete Lockett', img: 'assets/img/pete_lockett.png',
-      role: 'Ethnic percussion · last five James Bond films',
-      teaser: 'Quite a versatile set of instruments — definitely worth checking out. Bringing them into my own productions.',
-      quote: "It's quite a versatile set of instruments — definitely worth checking out Crypto Cipher. I'm sure they've got new stuff coming soon as well. I'm going to bring them into some of my own productions.",
-      video: 'xSt5fZ9QBB8',
-      credits: ['James Bond (×5)', 'Björk', 'Peter Gabriel', 'Robert Plant', 'Jeff Beck']
-    },
-    {
-      id: 'clemente', name: 'Adriano Clemente', img: 'composers/adriano-clemente.jpg',
-      role: 'Dubspot director',
-      teaser: 'Interesting to see what solutions people can come up with using these libraries — get out of your usual set of tools.',
-      quote: "One thing I never get tired of reminding students is the idea of trying to get out of your usual set of tools and sounds. It's really interesting to see what kind of solutions people can come up with using these libraries.",
-      video: 'yzggNxA5jX8',
-      credits: ['Dubspot', 'Sound Design Education']
-    },
-    {
-      id: 'zillani', name: 'Laurent Zillani', img: 'composers/laurent-zillani.jpg',
-      role: 'Resident Evil 6 · Priest · Sinister',
-      teaser: 'A great collection of Indian instruments and sound design — Solo Tabla and Solo Dholak are beautifully recorded.',
-      quote: "It's a great collection of Indian instruments and sound design. I particularly like the Solo Tabla and Solo Dholak, which I think are beautifully recorded and give you a lot of options.",
-      video: 'UvyzjeBK-es',
-      credits: ['Resident Evil 6', 'Priest', 'Drag Me to Hell', 'Sinister']
-    },
-    {
-      id: 'kjsingh', name: 'K.J. Singh', img: 'composers/kj-singh.jpg',
-      role: 'Sound engineer · A.R. Rahman · Vishal Bhardwaj · Amit Trivedi',
-      teaser: 'Great pains taken to record high-quality sounds with very talented musicians and deep, authentic programming.',
-      quote: 'The team at Crypto Cipher has taken great pains to record some high-quality sounds. They\u2019ve got very talented musicians playing these instruments, and some deep programming has gone into making them playable and as authentic as possible.',
-      video: '3Iq6vH5Q7zw',
-      credits: ['Rang De Basanti', 'Guru', 'Omkara', 'Delhi-6', 'Robot']
-    },
-    {
-      id: 'buckley', name: 'David Buckley', img: 'composers/david-buckley.jpg',
-      role: 'The Town · Batman: Arkham Knight · Call of Duty: Ghosts',
-      teaser: 'Recorded and programmed with such care — a different league to most other ethnic sample libraries.',
-      quote: 'I love the samples from Crypto Cipher. They have been recorded and programmed with such care and attention to detail. They stand in a different league to most other ethnic sample libraries because they offer something authentic. Whenever I delve into music from India — or many other places — I instinctively start clicking through the Crypto Cipher folder to see what treasures can be added to my music.',
-      video: '',
-      credits: ['The Town', 'Batman: Arkham Knight', 'Call of Duty: Ghosts', 'The Good Wife']
-    }
-  ];
+  var STORIES = window.__SUCCESS_STORIES__ || [];
 
   var grid = document.getElementById('stories-grid');
   if (!grid) return;

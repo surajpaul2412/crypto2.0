@@ -1,82 +1,8 @@
 @verbatim
 <main id="main" tabindex="-1" class="libinner" role="main">
-
-  <!-- ─── SIDENAV-001 · Canonical site lateral nav (extracted from library-inner.html) ─── -->
-  <aside class="sidenav" id="sidenav" data-active-section="recording-services" aria-label="Site navigation">
-
-    <!-- Mobile pull tab · grip pulses when closed; sticky + close button when open -->
-    <div class="sidenav__pull" id="sidenav-pull" role="button" tabindex="0" aria-label="Open navigation" aria-expanded="false">
-      <div class="sidenav__pull-grip"></div>
-      <span class="sidenav__pull-label" id="sidenav-pull-label">Navigate</span>
-      <span class="sidenav__pull-meta">14 · 8</span>
-      <button class="sidenav__pull-close" id="sidenav-pull-close" type="button" aria-label="Close navigation">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-
-    <!-- ─── SECTION 1: KONTAKT LIBRARIES (locked-open) ─── -->
-    <section class="sidenav__section expanded locked-open" data-section="kontakt-libraries">
-      <button class="sidenav__section-head" aria-expanded="true" aria-controls="sec-libs">
-        <span class="sidenav__section-label">
-          <span class="sidenav__section-label-text">Virtual Instruments</span>
-          <span class="sidenav__section-count">14 instruments</span>
-        </span>
-        <span class="sidenav__section-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </span>
-      </button>
-      <div class="sidenav__section-body" id="sec-libs">
-        <div class="sidenav__section-body-inner">
-          <div class="sidenav__section-body-pad">
-            <ul class="sidenav__list sidenav__list--libs">
-              <li><a href="/instruments/voices-of-ancient-india" class="sidenav__item current" aria-current="page"><span class="sidenav__item-name">Voices of Ancient India</span></a></li>
-              <li><a href="/instruments/solo-tabla" class="sidenav__item"><span class="sidenav__item-name">Solo Tabla</span></a></li>
-              <li><a href="/instruments/bollywood-harmonium" class="sidenav__item"><span class="sidenav__item-name">Bollywood Harmonium</span></a></li>
-              <li><a href="/instruments/solo-dholak" class="sidenav__item"><span class="sidenav__item-name">Solo Dholak</span></a></li>
-              <li><a href="/instruments/voices-of-ragas-vol-1" class="sidenav__item"><span class="sidenav__item-name">Voices of Ragas Vol 1</span></a></li>
-              <li><a href="/instruments/voices-of-ragas-vol-2" class="sidenav__item"><span class="sidenav__item-name">Voices of Ragas Vol 2</span></a></li>
-              <li><a href="/instruments/tabla-tarang" class="sidenav__item"><span class="sidenav__item-name">Tabla Tarang</span></a></li>
-              <li><a href="/instruments/tabla-loops" class="sidenav__item"><span class="sidenav__item-name">Tabla Loops</span></a></li>
-              <li><a href="/instruments/dholak-loops" class="sidenav__item"><span class="sidenav__item-name">Dholak Loops</span></a></li>
-              <li><a href="/instruments/swarmandal" class="sidenav__item"><span class="sidenav__item-name">Swarmandal</span></a></li>
-              <li><a href="/instruments/tarangs" class="sidenav__item"><span class="sidenav__item-name">Tarangs</span></a></li>
-              <li><a href="/instruments/tongue-drum" class="sidenav__item"><span class="sidenav__item-name">Tongue Drum</span></a></li>
-              <li><a href="/instruments/bol-tabla-mouth-percussion" class="sidenav__item"><span class="sidenav__item-name">BOL — Tabla Mouth Perc.</span></a></li>
-              <li><a href="/instruments/terry-and-bells" class="sidenav__item"><span class="sidenav__item-name">Terry &amp; Bells</span></a></li>
-            </ul>
-            <a href="/instruments" class="sidenav__footer-link">View all instruments <span class="sidenav__footer-link-arrow">→</span></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ─── SECTION 2: RECORDING SERVICES (single CTA · no expand · no artists) ─── -->
-    <section class="sidenav__section sidenav__section--cta" data-section="recording-services">
-      <a href="/recording-services" class="sidenav__cta-link" aria-label="View Recording Services">
-        <span class="sidenav__cta-label">
-          <span class="sidenav__cta-label-text">Recording Services</span>
-          <span class="sidenav__cta-label-desc">Custom Indian instrument sessions</span>
-        </span>
-        <span class="sidenav__cta-arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </span>
-      </a>
-    </section>
-
-    <!-- ─── SECTION 3: HERITAGE FILMS (single CTA · no expand · no list) ─── -->
-    <section class="sidenav__section sidenav__section--cta" data-section="heritage-films">
-      <a href="/heritage" class="sidenav__cta-link" aria-label="View Heritage Films">
-        <span class="sidenav__cta-label">
-          <span class="sidenav__cta-label-text">Heritage Films</span>
-          <span class="sidenav__cta-label-desc">Behind-the-scenes from the studio</span>
-        </span>
-        <span class="sidenav__cta-arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </span>
-      </a>
-    </section>
-
-  </aside>
+@endverbatim
+@include('frontend.partials.sidenav', ['activeSection' => 'recording-services'])
+@verbatim
 
 <div class="main-col legal-col">
 

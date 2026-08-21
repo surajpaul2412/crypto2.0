@@ -59,9 +59,10 @@
      ══════════════════════════════════════ */
   var track = document.getElementById('libs-grid');
   if (track) {
-    var dragging = false, sx = 0, sl = 0;
+    var dragging = false, sx = 0, sl = 0, dragMoved = 0;
     track.addEventListener('mousedown', function (e) {
       dragging = true;
+      dragMoved = 0;
       sx = e.pageX - track.offsetLeft;
       sl = track.scrollLeft;
       track.style.cursor = 'grabbing';
@@ -77,8 +78,21 @@
     track.addEventListener('mousemove', function (e) {
       if (!dragging) return;
       e.preventDefault();
-      track.scrollLeft = sl - (e.pageX - track.offsetLeft - sx) * 1.2;
+      var delta = (e.pageX - track.offsetLeft - sx);
+      dragMoved = Math.max(dragMoved, Math.abs(delta));
+      track.scrollLeft = sl - delta * 1.2;
     });
+    /* Cards are real <a> links now (click-through to the product page) —
+       a drag gesture that moved the track shouldn't also fire the click
+       on whatever card the cursor lands on at mouseup. Capture phase so
+       this runs before the link's own navigation. */
+    track.addEventListener('click', function (e) {
+      if (dragMoved > 6) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      dragMoved = 0;
+    }, true);
   }
 
   /* ══════════════════════════════════════

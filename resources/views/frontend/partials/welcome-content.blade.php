@@ -1898,511 +1898,49 @@ if (!reduceMotion) {
   <div class="libs__grid-wrap">
     <div class="libs__grid-cards" id="libs-grid">
 
-      <!-- 1 · Terry & Bells (FREE) -->
-      <article class="libs__card" data-libs-animate>
+@endverbatim
+@foreach ($featuredProducts as $product)
+      <a href="{{ route('shop.show', $product->slug) }}" class="libs__card" data-libs-animate>
         <div class="libs__card-art">
-          <div class="libs__card-gradient" style="background: linear-gradient(135deg, #1a3a2a 0%, #2d5a3a 45%, #1a2f3a 100%);"></div>
+          <img class="libs__card-gradient" src="{{ $product->imageUrl() }}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+          @if ($product->isKontaktFormat())
           <span class="cc-format-chip">For Kontakt</span>
-          <span class="libs__card-price libs__card-price--free">FREE</span>
+          @else
+          <span class="cc-format-chip">{{ $product->formatLabel() }}</span>
+          @endif
+          <span class="libs__card-price @if ($product->price <= 0) libs__card-price--free @endif">{{ $product->priceDisplay() }}</span>
 
           <div class="libs__card-overlay">
-            <button type="button" class="libs__icon-btn libs__icon-btn--heart" aria-label="Add Terry & Bells to wishlist" data-action="wishlist">
+            <button type="button" class="libs__icon-btn libs__icon-btn--heart" aria-label="Add {{ $product->name }} to wishlist" data-action="wishlist" data-slug="{{ $product->slug }}">
               <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             </button>
-            <button type="button" class="libs__icon-btn libs__icon-btn--cart" aria-label="Add Terry & Bells to cart" data-action="cart" data-slug="terry-and-bells">
+            <button type="button" class="libs__icon-btn libs__icon-btn--cart" aria-label="Add {{ $product->name }} to cart" data-action="cart" data-slug="{{ $product->slug }}">
               <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
             </button>
           </div>
         </div>
         <div class="libs__card-body">
           <div class="libs__card-meta">
-            <span>Hybrid</span>
+            <span>{{ $product->flagship ? 'Flagship' : $product->familyLabelDisplay() }}</span>
             <span class="libs__card-meta-divider"></span>
-            <span class="libs__card-meta-region">Pan-Indian</span>
+            <span class="libs__card-meta-region">{{ $product->regionLabelDisplay() }}</span>
           </div>
           <div class="cc-card-title-row">
-            <h3 class="libs__card-name">Terry &amp; Bells</h3>
+            <h3 class="libs__card-name">{{ $product->name }}</h3>
             <div class="cc-card-actions" aria-label="Card actions">
-              <button type="button" class="cc-card-action-btn" aria-label="Add Terry & Bells to wishlist" data-action="wishlist">
+              <button type="button" class="cc-card-action-btn" aria-label="Add {{ $product->name }} to wishlist" data-action="wishlist" data-slug="{{ $product->slug }}">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
               </button>
-              <button type="button" class="cc-card-action-btn" aria-label="Add Terry & Bells to cart" data-action="cart" data-slug="terry-and-bells">
+              <button type="button" class="cc-card-action-btn" aria-label="Add {{ $product->name }} to cart" data-action="cart" data-slug="{{ $product->slug }}">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
               </button>
             </div>
           </div>
-          <p class="libs__card-tagline">Elephant bells, guitar &amp; 30 sound design patches — a free gift to composers.</p>
+          <p class="libs__card-tagline">{{ $product->tagline }}</p>
         </div>
-      </article>
-
-      <!-- 2 · Tarangs -->
-      <article class="libs__card" data-libs-animate>
-        <div class="libs__card-art">
-          <div class="libs__card-gradient" style="background: linear-gradient(135deg, #2a1f0f 0%, #5a3d1a 45%, #3a2510 100%);"></div>
-          <span class="cc-format-chip">For Kontakt</span>
-          <span class="libs__card-price">$49</span>
-          <div class="libs__card-overlay">
-            <button type="button" class="libs__icon-btn libs__icon-btn--heart" aria-label="Add Tarangs to wishlist" data-action="wishlist">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </button>
-            <button type="button" class="libs__icon-btn libs__icon-btn--cart" aria-label="Add Tarangs to cart" data-action="cart" data-slug="tarangs">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            </button>
-          </div>
-        </div>
-        <div class="libs__card-body">
-          <div class="libs__card-meta">
-            <span>Hybrid</span>
-            <span class="libs__card-meta-divider"></span>
-            <span class="libs__card-meta-region">Pan-Indian</span>
-          </div>
-          <div class="cc-card-title-row">
-            <h3 class="libs__card-name">Tarangs</h3>
-            <div class="cc-card-actions" aria-label="Card actions">
-              <button type="button" class="cc-card-action-btn" aria-label="Add Tarangs to wishlist" data-action="wishlist">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              </button>
-              <button type="button" class="cc-card-action-btn" aria-label="Add Tarangs to cart" data-action="cart" data-slug="tarangs">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-              </button>
-            </div>
-          </div>
-          <p class="libs__card-tagline">Jal Tarang, Tabla Tarang &amp; Spoon Tarang — instruments most have never heard.</p>
-        </div>
-      </article>
-
-      <!-- 3 · Tongue Drum -->
-      <article class="libs__card" data-libs-animate>
-        <div class="libs__card-art">
-          <div class="libs__card-gradient" style="background: linear-gradient(135deg, #0f1a2a 0%, #1a3050 45%, #0f2040 100%);"></div>
-          <span class="cc-format-chip">For Kontakt</span>
-          <span class="libs__card-price">$49</span>
-          <div class="libs__card-overlay">
-            <button type="button" class="libs__icon-btn libs__icon-btn--heart" aria-label="Add Tongue Drum to wishlist" data-action="wishlist">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </button>
-            <button type="button" class="libs__icon-btn libs__icon-btn--cart" aria-label="Add Tongue Drum to cart" data-action="cart" data-slug="tongue-drum">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            </button>
-          </div>
-        </div>
-        <div class="libs__card-body">
-          <div class="libs__card-meta">
-            <span>Hybrid</span>
-            <span class="libs__card-meta-divider"></span>
-            <span class="libs__card-meta-region">Pan-Indian</span>
-          </div>
-          <div class="cc-card-title-row">
-            <h3 class="libs__card-name">Tongue Drum</h3>
-            <div class="cc-card-actions" aria-label="Card actions">
-              <button type="button" class="cc-card-action-btn" aria-label="Add Tongue Drum to wishlist" data-action="wishlist">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              </button>
-              <button type="button" class="cc-card-action-btn" aria-label="Add Tongue Drum to cart" data-action="cart" data-slug="tongue-drum">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-              </button>
-            </div>
-          </div>
-          <p class="libs__card-tagline">Ancient resonance with left &amp; right hand script — plus 28 Fujara textures.</p>
-        </div>
-      </article>
-
-      <!-- 4 · Bollywood Harmonium -->
-      <article class="libs__card" data-libs-animate>
-        <div class="libs__card-art">
-          <div class="libs__card-gradient" style="background: linear-gradient(135deg, #2a0f1a 0%, #5a1a2a 45%, #401020 100%);"></div>
-          <span class="cc-format-chip">For Kontakt</span>
-          <span class="libs__card-price">$79</span>
-          <div class="libs__card-overlay">
-            <button type="button" class="libs__icon-btn libs__icon-btn--heart" aria-label="Add Bollywood Harmonium to wishlist" data-action="wishlist">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </button>
-            <button type="button" class="libs__icon-btn libs__icon-btn--cart" aria-label="Add Bollywood Harmonium to cart" data-action="cart" data-slug="bollywood-harmonium">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            </button>
-          </div>
-        </div>
-        <div class="libs__card-body">
-          <div class="libs__card-meta">
-            <span>Keys</span>
-            <span class="libs__card-meta-divider"></span>
-            <span class="libs__card-meta-region">Hindustani</span>
-          </div>
-          <div class="cc-card-title-row">
-            <h3 class="libs__card-name">Bollywood Harmonium</h3>
-            <div class="cc-card-actions" aria-label="Card actions">
-              <button type="button" class="cc-card-action-btn" aria-label="Add Bollywood Harmonium to wishlist" data-action="wishlist">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              </button>
-              <button type="button" class="cc-card-action-btn" aria-label="Add Bollywood Harmonium to cart" data-action="cart" data-slug="bollywood-harmonium">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-              </button>
-            </div>
-          </div>
-          <p class="libs__card-tagline">Three harmonium varieties recorded with Royer 122 Ribbon — the soul of Indian melody.</p>
-        </div>
-      </article>
-
-      <!-- 5 · Voices of Ragas Vol 1 -->
-      <article class="libs__card" data-libs-animate>
-        <div class="libs__card-art">
-          <div class="libs__card-gradient" style="background: linear-gradient(135deg, #1a100a 0%, #3a2a1a 45%, #5a3a20 100%);"></div>
-          <span class="cc-format-chip">For Kontakt</span>
-          <span class="libs__card-price">$79</span>
-          <div class="libs__card-overlay">
-            <button type="button" class="libs__icon-btn libs__icon-btn--heart" aria-label="Add Voices of Ragas Vol 1 to wishlist" data-action="wishlist">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </button>
-            <button type="button" class="libs__icon-btn libs__icon-btn--cart" aria-label="Add Voices of Ragas Vol 1 to cart" data-action="cart" data-slug="voices-of-ragas-vol-1">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            </button>
-          </div>
-        </div>
-        <div class="libs__card-body">
-          <div class="libs__card-meta">
-            <span>Voice</span>
-            <span class="libs__card-meta-divider"></span>
-            <span class="libs__card-meta-region">Hindustani</span>
-          </div>
-          <div class="cc-card-title-row">
-            <h3 class="libs__card-name">Voices of Ragas Vol 1</h3>
-            <div class="cc-card-actions" aria-label="Card actions">
-              <button type="button" class="cc-card-action-btn" aria-label="Add Voices of Ragas Vol 1 to wishlist" data-action="wishlist">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              </button>
-              <button type="button" class="cc-card-action-btn" aria-label="Add Voices of Ragas Vol 1 to cart" data-action="cart" data-slug="voices-of-ragas-vol-1">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-              </button>
-            </div>
-          </div>
-          <p class="libs__card-tagline">Same vocalist at two life stages — 26 ragas of Banaras Gharana tradition.</p>
-        </div>
-      </article>
-
-      <!-- 6 · Voices of Ragas Vol 2 -->
-      <article class="libs__card" data-libs-animate>
-        <div class="libs__card-art">
-          <div class="libs__card-gradient" style="background: linear-gradient(135deg, #0a1a1a 0%, #1a3a3a 45%, #0a2a2a 100%);"></div>
-          <span class="cc-format-chip">For Kontakt</span>
-          <span class="libs__card-price">$69</span>
-          <div class="libs__card-overlay">
-            <button type="button" class="libs__icon-btn libs__icon-btn--heart" aria-label="Add Voices of Ragas Vol 2 to wishlist" data-action="wishlist">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </button>
-            <button type="button" class="libs__icon-btn libs__icon-btn--cart" aria-label="Add Voices of Ragas Vol 2 to cart" data-action="cart" data-slug="voices-of-ragas-vol-2">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            </button>
-          </div>
-        </div>
-        <div class="libs__card-body">
-          <div class="libs__card-meta">
-            <span>Voice</span>
-            <span class="libs__card-meta-divider"></span>
-            <span class="libs__card-meta-region">Hindustani</span>
-          </div>
-          <div class="cc-card-title-row">
-            <h3 class="libs__card-name">Voices of Ragas Vol 2</h3>
-            <div class="cc-card-actions" aria-label="Card actions">
-              <button type="button" class="cc-card-action-btn" aria-label="Add Voices of Ragas Vol 2 to wishlist" data-action="wishlist">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              </button>
-              <button type="button" class="cc-card-action-btn" aria-label="Add Voices of Ragas Vol 2 to cart" data-action="cart" data-slug="voices-of-ragas-vol-2">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-              </button>
-            </div>
-          </div>
-          <p class="libs__card-tagline">Two mature male vocalists — Slow &amp; Fast Sargams with speed control.</p>
-        </div>
-      </article>
-
-      <!-- 7 · Tabla Loops -->
-      <article class="libs__card" data-libs-animate>
-        <div class="libs__card-art">
-          <div class="libs__card-gradient" style="background: linear-gradient(135deg, #1a0a0a 0%, #3a1a1a 45%, #2a0f0f 100%);"></div>
-          <span class="cc-format-chip">For Kontakt</span>
-          <span class="libs__card-price">$49</span>
-          <div class="libs__card-overlay">
-            <button type="button" class="libs__icon-btn libs__icon-btn--heart" aria-label="Add Tabla Loops to wishlist" data-action="wishlist">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </button>
-            <button type="button" class="libs__icon-btn libs__icon-btn--cart" aria-label="Add Tabla Loops to cart" data-action="cart" data-slug="tabla-loops">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            </button>
-          </div>
-        </div>
-        <div class="libs__card-body">
-          <div class="libs__card-meta">
-            <span>Loops</span>
-            <span class="libs__card-meta-divider"></span>
-            <span class="libs__card-meta-region">Hindustani</span>
-          </div>
-          <div class="cc-card-title-row">
-            <h3 class="libs__card-name">Tabla Loops</h3>
-            <div class="cc-card-actions" aria-label="Card actions">
-              <button type="button" class="cc-card-action-btn" aria-label="Add Tabla Loops to wishlist" data-action="wishlist">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              </button>
-              <button type="button" class="cc-card-action-btn" aria-label="Add Tabla Loops to cart" data-action="cart" data-slug="tabla-loops">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-              </button>
-            </div>
-          </div>
-          <p class="libs__card-tagline">Master tabla phrases — 16 talas, multiple tempos, ready for production.</p>
-        </div>
-      </article>
-
-      <!-- 8 · Solo Tabla -->
-      <article class="libs__card" data-libs-animate>
-        <div class="libs__card-art">
-          <div class="libs__card-gradient" style="background: linear-gradient(135deg, #1a0a1a 0%, #3a1a3a 45%, #2a1030 100%);"></div>
-          <span class="cc-format-chip">For Kontakt</span>
-          <span class="libs__card-price">$79</span>
-          <div class="libs__card-overlay">
-            <button type="button" class="libs__icon-btn libs__icon-btn--heart" aria-label="Add Solo Tabla to wishlist" data-action="wishlist">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </button>
-            <button type="button" class="libs__icon-btn libs__icon-btn--cart" aria-label="Add Solo Tabla to cart" data-action="cart" data-slug="solo-tabla">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            </button>
-          </div>
-        </div>
-        <div class="libs__card-body">
-          <div class="libs__card-meta">
-            <span>Percussion</span>
-            <span class="libs__card-meta-divider"></span>
-            <span class="libs__card-meta-region">Hindustani</span>
-          </div>
-          <div class="cc-card-title-row">
-            <h3 class="libs__card-name">Solo Tabla</h3>
-            <div class="cc-card-actions" aria-label="Card actions">
-              <button type="button" class="cc-card-action-btn" aria-label="Add Solo Tabla to wishlist" data-action="wishlist">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              </button>
-              <button type="button" class="cc-card-action-btn" aria-label="Add Solo Tabla to cart" data-action="cart" data-slug="solo-tabla">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-              </button>
-            </div>
-          </div>
-          <p class="libs__card-tagline">Master tabla pair — playable script, 16 talas, full velocity sensitivity.</p>
-        </div>
-      </article>
-
-      <!-- 9 · Tabla Tarang -->
-      <article class="libs__card" data-libs-animate>
-        <div class="libs__card-art">
-          <div class="libs__card-gradient" style="background: linear-gradient(135deg, #0a0f1a 0%, #1a2a4a 45%, #0a1530 100%);"></div>
-          <span class="cc-format-chip">For Kontakt</span>
-          <span class="libs__card-price">$79</span>
-          <div class="libs__card-overlay">
-            <button type="button" class="libs__icon-btn libs__icon-btn--heart" aria-label="Add Tabla Tarang to wishlist" data-action="wishlist">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </button>
-            <button type="button" class="libs__icon-btn libs__icon-btn--cart" aria-label="Add Tabla Tarang to cart" data-action="cart" data-slug="tabla-tarang">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            </button>
-          </div>
-        </div>
-        <div class="libs__card-body">
-          <div class="libs__card-meta">
-            <span>Percussion</span>
-            <span class="libs__card-meta-divider"></span>
-            <span class="libs__card-meta-region">Hindustani</span>
-          </div>
-          <div class="cc-card-title-row">
-            <h3 class="libs__card-name">Tabla Tarang</h3>
-            <div class="cc-card-actions" aria-label="Card actions">
-              <button type="button" class="cc-card-action-btn" aria-label="Add Tabla Tarang to wishlist" data-action="wishlist">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              </button>
-              <button type="button" class="cc-card-action-btn" aria-label="Add Tabla Tarang to cart" data-action="cart" data-slug="tabla-tarang">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-              </button>
-            </div>
-          </div>
-          <p class="libs__card-tagline">Near-extinct art form — 13 handmade drums, 15,000 samples, 3 mic types.</p>
-        </div>
-      </article>
-
-      <!-- 10 · BOL ($29 · charity) -->
-      <article class="libs__card" data-libs-animate>
-        <div class="libs__card-art">
-          <div class="libs__card-gradient" style="background: linear-gradient(135deg, #1a0a1a 0%, #3a1a3a 45%, #2a0f2a 100%);"></div>
-          <span class="cc-format-chip">For Kontakt</span>
-          <span class="libs__card-price">$29</span>
-          <div class="libs__card-overlay">
-            <button type="button" class="libs__icon-btn libs__icon-btn--heart" aria-label="Add BOL to wishlist" data-action="wishlist">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </button>
-            <button type="button" class="libs__icon-btn libs__icon-btn--cart" aria-label="Add BOL to cart" data-action="cart" data-slug="bol-tabla-mouth-percussion">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            </button>
-          </div>
-        </div>
-        <div class="libs__card-body">
-          <div class="libs__card-meta">
-            <span>Voice · Percussion</span>
-            <span class="libs__card-meta-divider"></span>
-            <span class="libs__card-meta-region">Hindustani</span>
-          </div>
-          <div class="cc-card-title-row">
-            <h3 class="libs__card-name">BOL</h3>
-            <div class="cc-card-actions" aria-label="Card actions">
-              <button type="button" class="cc-card-action-btn" aria-label="Add BOL to wishlist" data-action="wishlist">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              </button>
-              <button type="button" class="cc-card-action-btn" aria-label="Add BOL to cart" data-action="cart" data-slug="bol-tabla-mouth-percussion">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-              </button>
-            </div>
-          </div>
-          <p class="libs__card-tagline">Tabla mouth percussion — 100% revenue to charity for street dogs in Delhi.</p>
-        </div>
-      </article>
-
-      <!-- 11 · Dholak Loops -->
-      <article class="libs__card" data-libs-animate>
-        <div class="libs__card-art">
-          <div class="libs__card-gradient" style="background: linear-gradient(135deg, #1a1a0a 0%, #3a3a1a 45%, #2a2a0a 100%);"></div>
-          <span class="cc-format-chip">For Kontakt</span>
-          <span class="libs__card-price">$49</span>
-          <div class="libs__card-overlay">
-            <button type="button" class="libs__icon-btn libs__icon-btn--heart" aria-label="Add Dholak Loops to wishlist" data-action="wishlist">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </button>
-            <button type="button" class="libs__icon-btn libs__icon-btn--cart" aria-label="Add Dholak Loops to cart" data-action="cart" data-slug="dholak-loops">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            </button>
-          </div>
-        </div>
-        <div class="libs__card-body">
-          <div class="libs__card-meta">
-            <span>Loops</span>
-            <span class="libs__card-meta-divider"></span>
-            <span class="libs__card-meta-region">Folk</span>
-          </div>
-          <div class="cc-card-title-row">
-            <h3 class="libs__card-name">Dholak Loops</h3>
-            <div class="cc-card-actions" aria-label="Card actions">
-              <button type="button" class="cc-card-action-btn" aria-label="Add Dholak Loops to wishlist" data-action="wishlist">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              </button>
-              <button type="button" class="cc-card-action-btn" aria-label="Add Dholak Loops to cart" data-action="cart" data-slug="dholak-loops">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-              </button>
-            </div>
-          </div>
-          <p class="libs__card-tagline">500+ folk percussion loops — the heartbeat of Indian weddings &amp; festivals.</p>
-        </div>
-      </article>
-
-      <!-- 12 · Solo Dholak -->
-      <article class="libs__card" data-libs-animate>
-        <div class="libs__card-art">
-          <div class="libs__card-gradient" style="background: linear-gradient(135deg, #2a1a0a 0%, #4a2a15 45%, #3a2010 100%);"></div>
-          <span class="cc-format-chip">For Kontakt</span>
-          <span class="libs__card-price">$79</span>
-          <div class="libs__card-overlay">
-            <button type="button" class="libs__icon-btn libs__icon-btn--heart" aria-label="Add Solo Dholak to wishlist" data-action="wishlist">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </button>
-            <button type="button" class="libs__icon-btn libs__icon-btn--cart" aria-label="Add Solo Dholak to cart" data-action="cart" data-slug="solo-dholak">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            </button>
-          </div>
-        </div>
-        <div class="libs__card-body">
-          <div class="libs__card-meta">
-            <span>Percussion</span>
-            <span class="libs__card-meta-divider"></span>
-            <span class="libs__card-meta-region">Folk</span>
-          </div>
-          <div class="cc-card-title-row">
-            <h3 class="libs__card-name">Solo Dholak</h3>
-            <div class="cc-card-actions" aria-label="Card actions">
-              <button type="button" class="cc-card-action-btn" aria-label="Add Solo Dholak to wishlist" data-action="wishlist">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              </button>
-              <button type="button" class="cc-card-action-btn" aria-label="Add Solo Dholak to cart" data-action="cart" data-slug="solo-dholak">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-              </button>
-            </div>
-          </div>
-          <p class="libs__card-tagline">Hand-played folk drum — North Indian wedding rhythms in deep multi-mic detail.</p>
-        </div>
-      </article>
-
-      <!-- 13 · Swarmandal -->
-      <article class="libs__card" data-libs-animate>
-        <div class="libs__card-art">
-          <div class="libs__card-gradient" style="background: linear-gradient(135deg, #0f1a2a 0%, #1a3050 45%, #050810 100%);"></div>
-          <span class="cc-format-chip">For Kontakt</span>
-          <span class="libs__card-price">$69</span>
-          <div class="libs__card-overlay">
-            <button type="button" class="libs__icon-btn libs__icon-btn--heart" aria-label="Add Swarmandal to wishlist" data-action="wishlist">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </button>
-            <button type="button" class="libs__icon-btn libs__icon-btn--cart" aria-label="Add Swarmandal to cart" data-action="cart" data-slug="swarmandal">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            </button>
-          </div>
-        </div>
-        <div class="libs__card-body">
-          <div class="libs__card-meta">
-            <span>Strings</span>
-            <span class="libs__card-meta-divider"></span>
-            <span class="libs__card-meta-region">Hindustani</span>
-          </div>
-          <div class="cc-card-title-row">
-            <h3 class="libs__card-name">Swarmandal</h3>
-            <div class="cc-card-actions" aria-label="Card actions">
-              <button type="button" class="cc-card-action-btn" aria-label="Add Swarmandal to wishlist" data-action="wishlist">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              </button>
-              <button type="button" class="cc-card-action-btn" aria-label="Add Swarmandal to cart" data-action="cart" data-slug="swarmandal">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-              </button>
-            </div>
-          </div>
-          <p class="libs__card-tagline">Indian harp · 21 strings · soft, sacred shimmer for ambient and devotional cues.</p>
-        </div>
-      </article>
-
-      <!-- 14 · Voices of Ancient India (flagship · $129) -->
-      <article class="libs__card" data-libs-animate>
-        <div class="libs__card-art">
-          <div class="libs__card-gradient" style="background: linear-gradient(135deg, #1a0a0a 0%, #3a1a0a 45%, #5a2a10 100%);"></div>
-          <span class="cc-format-chip">For Kontakt</span>
-          <span class="libs__card-price">$129</span>
-          <div class="libs__card-overlay">
-            <button type="button" class="libs__icon-btn libs__icon-btn--heart" aria-label="Add Voices of Ancient India to wishlist" data-action="wishlist">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </button>
-            <button type="button" class="libs__icon-btn libs__icon-btn--cart" aria-label="Add Voices of Ancient India to cart" data-action="cart" data-slug="voices-of-ancient-india">
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-            </button>
-          </div>
-        </div>
-        <div class="libs__card-body">
-          <div class="libs__card-meta">
-            <span>Flagship</span>
-            <span class="libs__card-meta-divider"></span>
-            <span class="libs__card-meta-region">Pan-Indian</span>
-          </div>
-          <div class="cc-card-title-row">
-            <h3 class="libs__card-name">Voices of Ancient India</h3>
-            <div class="cc-card-actions" aria-label="Card actions">
-              <button type="button" class="cc-card-action-btn" aria-label="Add Voices of Ancient India to wishlist" data-action="wishlist">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              </button>
-              <button type="button" class="cc-card-action-btn" aria-label="Add Voices of Ancient India to cart" data-action="cart" data-slug="voices-of-ancient-india">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-              </button>
-            </div>
-          </div>
-          <p class="libs__card-tagline">Most ambitious — 5 rare instruments, 1,900 phrases, 18 ragas, 3 GB.</p>
-        </div>
-      </article>
-
+      </a>
+@endforeach
+@verbatim
     </div>
   </div>
 
@@ -5267,6 +4805,12 @@ html.no-glass-blur .state-group.first-pulse { animation: none !important; }
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.story-card__flag{background:rgba(5,8,16,.85)}.crow__cta{background:rgba(20,27,35,.9)}}
 </style>
 
+@endverbatim
+<script>
+  window.__FEATURED_COMPOSERS__ = @json($featuredComposers);
+  window.__SUCCESS_STORIES_URL__ = "{{ route('success-stories') }}";
+</script>
+@verbatim
 <section class="crow" id="composers" aria-labelledby="crow-heading" data-composer-row data-reveal>
   <div class="crow__wash" aria-hidden="true"></div>
   <div class="crow__head">
@@ -5275,21 +4819,13 @@ html.no-glass-blur .state-group.first-pulse { animation: none !important; }
     <p class="crow__sub">Players, composers and producers from around the world.</p>
   </div>
   <div class="crow__viewport"><div class="crow__track" id="crow-track"></div></div>
-  <div class="crow__cta-wrap"><a href="/testimonials" class="crow__cta">Meet all composers <span class="crow__cta-arrow" aria-hidden="true">→</span></a></div>
+  <div class="crow__cta-wrap"><a href="/testimonials" id="crow-cta-link" class="crow__cta">Meet all composers <span class="crow__cta-arrow" aria-hidden="true">→</span></a></div>
 </section>
 
 <script>
 (function(){
-  var COMPOSERS = [
-    {name:"A.R. Rahman",designation:"Oscar-Winning Composer",projects:["Slumdog Millionaire","127 Hours","Roja","Bombay","Rang De Basanti"],img:"ar_rehman.png",mono:"AR",video:false},
-    {name:"Jörg Hüttner",designation:"Film Composer",projects:["The Dark Knight Rises","Fifty Shades of Grey","White House Down","Independence Day","Vantage Point"],img:"JORG_HUTTNER.png",mono:"JH",video:true},
-    {name:"Nainita Desai",designation:"BAFTA · Emmy · Oscar Nominated",projects:["For Sama","The Reason I Jump","American Murder"],img:"NAINITA_DESAI.png",mono:"ND",video:true},
-    {name:"John Swihart",designation:"Grammy-Nominated Composer",projects:["How I Met Your Mother","Napoleon Dynamite","Youth in Revolt","Employee of the Month"],img:"composers/john-swihart.jpg",mono:"JS",video:true},
-    {name:"BT",designation:"Grammy-Nominated Producer",projects:["Fast & Furious","Monster","Go","Stealth","Partysaurus Rex"],img:"composers/bt.jpg",mono:"BT",video:true},
-    {name:"Michael Maas",designation:"Trailer Music Composer",projects:["The Amazing Spider-Man 2","Maze Runner","Chappie","Walking Dead"],img:"MICHEAL_MAAS.png",mono:"MM",video:true},
-    {name:"Pete Lockett",designation:"Ethnic Percussionist",projects:["Skyfall","Spectre","No Time to Die"],img:"pete_lockett.png",mono:"PL",video:true},
-    {name:"David Buckley",designation:"Film Composer",projects:["The Town","Batman: Arkham Knight","Call of Duty: Ghosts","Parker","American Hustle"],img:"composers/david-buckley.jpg",mono:"DB",video:true}
-  ];
+  var COMPOSERS = window.__FEATURED_COMPOSERS__ || [];
+  var SUCCESS_STORIES_URL = window.__SUCCESS_STORIES_URL__ || '/success-stories';
   var KEY=2, MAXP=2; /* 2 chips + '+N' — always fits the reveal zone, never clips */
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function fitChips(){
@@ -5337,7 +4873,7 @@ html.no-glass-blur .state-group.first-pulse { animation: none !important; }
     var credits=chips?'<div class="story-card__credits" data-total="'+c.projects.length+'">'+chips+'</div>':'';
     var reveal = credits ? '<span class="story-card__reveal">'+credits+'</span>' : '';
     var flag=c.video?'<span class="story-card__flag" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>Film</span>':'';
-    return '<a class="story-card" href="/testimonials" aria-label="Read '+esc(c.name)+'\u2019s story">'
+    return '<a class="story-card" href="'+SUCCESS_STORIES_URL+'" aria-label="Read '+esc(c.name)+'\u2019s story">'
       +'<img class="story-card__img" src="'+esc(c.img)+'" alt="'+esc(c.name)+'" loading="lazy" onerror="this.closest(\'.story-card\').classList.add(\'is-mono\')">'
       +'<span class="story-card__mono" aria-hidden="true">'+esc(c.mono)+'</span>'
       +'<span class="story-card__sheen" aria-hidden="true"></span>'+flag
@@ -5345,6 +4881,8 @@ html.no-glass-blur .state-group.first-pulse { animation: none !important; }
   }
   var section=document.querySelector('[data-composer-row]'), track=document.getElementById('crow-track');
   if(!section||!track) return;
+  var ctaLink=document.getElementById('crow-cta-link');
+  if(ctaLink) ctaLink.href=SUCCESS_STORIES_URL;
   var mqMobile=matchMedia('(max-width:768px)').matches, mqReduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
   var coarse=matchMedia('(hover:none),(pointer:coarse)').matches, saveData=navigator.connection&&navigator.connection.saveData;
   var cores=navigator.hardwareConcurrency||0, mem=navigator.deviceMemory||0, tier;

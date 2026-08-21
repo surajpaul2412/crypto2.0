@@ -258,9 +258,12 @@
           document.body.removeChild(ta);
           done();
         }
-        if (history.replaceState) {
-          history.replaceState(null, '', '#' + section.id);
-        }
+        // Deliberately NOT touching the address bar (history.replaceState) —
+        // the page's site-wide <base href=".../frontend/"> tag (needed for
+        // legacy relative asset paths elsewhere) hijacks any relative URL
+        // passed to replaceState, turning "#sec-1" into a visible redirect
+        // to ".../frontend/#sec-1". Copy-to-clipboard already gives the
+        // correct absolute permalink; the visible URL should just stay put.
       }
 
       title.addEventListener('click', copy);

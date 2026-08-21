@@ -1,12 +1,14 @@
 <?php
 
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\SuccessStoryController;
+use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\WishlistController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Customer\DashboardController;
@@ -26,17 +28,10 @@ Route::group(
     ],
     function () {
         // Home Page (Blade)
-        Route::get('/', function () {
-            return view('frontend.welcome', [
-                'canLogin' => Route::has('login'),
-                'canRegister' => Route::has('register'),
-                'laravelVersion' => Application::VERSION,
-                'phpVersion' => PHP_VERSION,
-            ]);
-        })->name('home');
+        Route::get('/', [WelcomeController::class, 'index'])->name('home');
 
         // Frontend Pages (Blade)
-        Route::get('/about-us', fn() => view('frontend.about'))->name('about');
+        Route::get('/about-us', [AboutController::class, 'index'])->name('about');
         Route::get('/shop', [ShopController::class, 'index'])->name('shop');
         Route::get('/shop/{slug}', [ShopController::class, 'show'])->name('shop.show');
         Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
@@ -51,7 +46,7 @@ Route::group(
         Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
         Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
         
-        Route::get('/success-stories', fn() => view('frontend.success-stories'))->name('success-stories');
+        Route::get('/success-stories', [SuccessStoryController::class, 'index'])->name('success-stories');
         Route::get('/team', fn() => view('frontend.team'))->name('team');
         Route::get('/faq', fn() => view('frontend.faq'))->name('faq');
 

@@ -96,9 +96,14 @@ class Product extends Model
             ->implode(' ');
     }
 
+    /**
+     * Exact-match whitelist (not a prefix check) — a format like "kontakt2"
+     * is a distinct format, not a Kontakt variant, even though the name
+     * looks similar. Add to this list only for genuine Kontakt sub-formats.
+     */
     public function isKontaktFormat(): bool
     {
-        return str_starts_with($this->format, 'kontakt');
+        return in_array($this->format, ['kontakt', 'kontakt-player'], true);
     }
 
     /**

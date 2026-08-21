@@ -1842,5 +1842,5 @@ body::before {
   opacity: 0.025 !important; /* compensate for lost overlay blend */
 }
 </style>
-<!-- Canonical polish layer · LAST link before 
+<!-- Canonical polish layer · LAST link before this include ends -->
 @endverbatim

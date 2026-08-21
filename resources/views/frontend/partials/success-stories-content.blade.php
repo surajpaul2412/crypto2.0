@@ -29,103 +29,19 @@
 
     <section class="section stories" id="stories" aria-label="Composer testimonials">
       <div class="stories-grid" id="stories-grid">
-        <button class="story-card" data-story="rahman" data-reveal data-reveal-group="stories" type="button" aria-label="Read A.R. Rahman's story">
-          <img class="story-card__img" src="assets/img/ar_rehman.png" alt="A.R. Rahman" loading="lazy" onerror="this.closest('.story-card').classList.add('is-mono')">
-          <span class="story-card__mono" aria-hidden="true">AR</span>
+@endverbatim
+@foreach ($stories as $story)
+        <button class="story-card" data-story="{{ $story->id }}" data-reveal data-reveal-group="stories" type="button" aria-label="Read {{ $story->name }}'s story">
+          <img class="story-card__img" src="{{ $story->imageUrl() ?? '' }}" alt="{{ $story->name }}" loading="lazy" onerror="this.closest('.story-card').classList.add('is-mono')">
+          <span class="story-card__mono" aria-hidden="true">{{ $story->monogram() }}</span>
           <span class="story-card__sheen" aria-hidden="true"></span>
-          <div class="story-card__caption"><span class="story-card__role">Oscar-Winning Composer</span><span class="story-card__name">A.R. Rahman</span><span class="story-card__quote">Very intrigued by this — wishing you the best.</span><div class="story-card__credits"><span class="story-card__credit">Slumdog Millionaire</span><span class="story-card__credit">127 Hours</span><span class="story-card__credit">Roja</span><span class="story-card__credit">Bombay</span><span class="story-card__credit story-card__credit--more">+more</span></div></div>
-        </button>
-        <button class="story-card" data-story="huttner" data-reveal data-reveal-group="stories" type="button" aria-label="Read Jörg Hüttner's story">
-          <img class="story-card__img" src="assets/img/JORG_HUTTNER.png" alt="Jörg Hüttner" loading="lazy" onerror="this.closest('.story-card').classList.add('is-mono')">
-          <span class="story-card__mono" aria-hidden="true">JH</span>
-          <span class="story-card__sheen" aria-hidden="true"></span>
+          @if ($story->hasVideo())
           <span class="story-card__flag" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>Video</span>
-          <div class="story-card__caption"><span class="story-card__role">Film Composer</span><span class="story-card__name">Jörg Hüttner</span><span class="story-card__quote">Great sounding and super useful across productions.</span><div class="story-card__credits"><span class="story-card__credit">The Dark Knight Rises</span><span class="story-card__credit">Fifty Shades of Grey</span><span class="story-card__credit">White House Down</span><span class="story-card__credit">Independence Day</span><span class="story-card__credit story-card__credit--more">+more</span></div></div>
+          @endif
+          <div class="story-card__caption"><span class="story-card__role">{{ $story->role }}</span><span class="story-card__name">{{ $story->name }}</span><span class="story-card__quote">{{ $story->cardQuote() }}</span><div class="story-card__credits">@foreach ($story->credits ?? [] as $credit)<span class="story-card__credit">{{ $credit }}</span>@endforeach @if (!empty($story->credits))<span class="story-card__credit story-card__credit--more">+more</span>@endif</div></div>
         </button>
-        <button class="story-card" data-story="desai" data-reveal data-reveal-group="stories" type="button" aria-label="Read Nainita Desai's story">
-          <img class="story-card__img" src="assets/img/NAINITA_DESAI.png" alt="Nainita Desai" loading="lazy" onerror="this.closest('.story-card').classList.add('is-mono')">
-          <span class="story-card__mono" aria-hidden="true">ND</span>
-          <span class="story-card__sheen" aria-hidden="true"></span>
-          <span class="story-card__flag" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>Video</span>
-          <div class="story-card__caption"><span class="story-card__role">BAFTA · Emmy · Oscar Nominated</span><span class="story-card__name">Nainita Desai</span><span class="story-card__quote">No other company is doing quite what you do.</span><div class="story-card__credits"><span class="story-card__credit">For Sama</span><span class="story-card__credit">The Reason I Jump</span><span class="story-card__credit">American Murder</span><span class="story-card__credit story-card__credit--more">+more</span></div></div>
-        </button>
-        <button class="story-card" data-story="swihart" data-reveal data-reveal-group="stories" type="button" aria-label="Read John Swihart's story">
-          <img class="story-card__img" src="composers/john-swihart.jpg" alt="John Swihart" loading="lazy" onerror="this.closest('.story-card').classList.add('is-mono')">
-          <span class="story-card__mono" aria-hidden="true">JS</span>
-          <span class="story-card__sheen" aria-hidden="true"></span>
-          <span class="story-card__flag" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>Video</span>
-          <div class="story-card__caption"><span class="story-card__role">Grammy-Nominated Composer</span><span class="story-card__name">John Swihart</span><span class="story-card__quote">Loving these new libraries — the Tabla is so playable.</span><div class="story-card__credits"><span class="story-card__credit">How I Met Your Mother</span><span class="story-card__credit">Napoleon Dynamite</span><span class="story-card__credit">Youth in Revolt</span><span class="story-card__credit">Employee of the Month</span><span class="story-card__credit story-card__credit--more">+more</span></div></div>
-        </button>
-        <button class="story-card" data-story="bt" data-reveal data-reveal-group="stories" type="button" aria-label="Read BT's story">
-          <img class="story-card__img" src="composers/bt.jpg" alt="BT" loading="lazy" onerror="this.closest('.story-card').classList.add('is-mono')">
-          <span class="story-card__mono" aria-hidden="true">B</span>
-          <span class="story-card__sheen" aria-hidden="true"></span>
-          <span class="story-card__flag" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>Video</span>
-          <div class="story-card__caption"><span class="story-card__role">Grammy-Nominated Producer</span><span class="story-card__name">BT</span><span class="story-card__quote">Absolutely freaking out on these sample libraries.</span><div class="story-card__credits"><span class="story-card__credit">Fast &amp; Furious</span><span class="story-card__credit">Monster</span><span class="story-card__credit">Go</span><span class="story-card__credit">Stealth</span><span class="story-card__credit story-card__credit--more">+more</span></div></div>
-        </button>
-        <button class="story-card" data-story="tucker" data-reveal data-reveal-group="stories" type="button" aria-label="Read Shankar Tucker's story">
-          <img class="story-card__img" src="composers/shankar-tucker.jpg" alt="Shankar Tucker" loading="lazy" onerror="this.closest('.story-card').classList.add('is-mono')">
-          <span class="story-card__mono" aria-hidden="true">ST</span>
-          <span class="story-card__sheen" aria-hidden="true"></span>
-          <span class="story-card__flag" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>Video</span>
-          <div class="story-card__caption"><span class="story-card__role">Music Producer &amp; Artist</span><span class="story-card__name">Shankar Tucker</span><span class="story-card__quote">Please keep making cool libraries at this quality.</span><div class="story-card__credits"><span class="story-card__credit">140k+ YouTube subscribers</span></div></div>
-        </button>
-        <button class="story-card" data-story="balhara" data-reveal data-reveal-group="stories" type="button" aria-label="Read Sanchit Balhara's story">
-          <img class="story-card__img" src="composers/sanchit-balhara.jpg" alt="Sanchit Balhara" loading="lazy" onerror="this.closest('.story-card').classList.add('is-mono')">
-          <span class="story-card__mono" aria-hidden="true">SB</span>
-          <span class="story-card__sheen" aria-hidden="true"></span>
-          <span class="story-card__flag" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>Video</span>
-          <div class="story-card__caption"><span class="story-card__role">Bollywood Composer</span><span class="story-card__name">Sanchit Balhara</span><span class="story-card__quote">Bringing the revolution at world level.</span><div class="story-card__credits"><span class="story-card__credit">Bajirao Mastani</span><span class="story-card__credit">Ram-Leela</span><span class="story-card__credit story-card__credit--more">+more</span></div></div>
-        </button>
-        <button class="story-card" data-story="maas" data-reveal data-reveal-group="stories" type="button" aria-label="Read Michael Maas's story">
-          <img class="story-card__img" src="assets/img/MICHEAL_MAAS.png" alt="Michael Maas" loading="lazy" onerror="this.closest('.story-card').classList.add('is-mono')">
-          <span class="story-card__mono" aria-hidden="true">MM</span>
-          <span class="story-card__sheen" aria-hidden="true"></span>
-          <span class="story-card__flag" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>Video</span>
-          <div class="story-card__caption"><span class="story-card__role">Trailer Music Composer</span><span class="story-card__name">Michael Maas</span><span class="story-card__quote">Sound quality and performance beyond what I imagined.</span><div class="story-card__credits"><span class="story-card__credit">The Amazing Spider-Man 2</span><span class="story-card__credit">Maze Runner</span><span class="story-card__credit">Chappie</span><span class="story-card__credit">Walking Dead</span><span class="story-card__credit story-card__credit--more">+more</span></div></div>
-        </button>
-        <button class="story-card" data-story="johnson" data-reveal data-reveal-group="stories" type="button" aria-label="Read Tim Johnson's story">
-          <img class="story-card__img" src="composers/tim-johnson.jpg" alt="Tim Johnson" loading="lazy" onerror="this.closest('.story-card').classList.add('is-mono')">
-          <span class="story-card__mono" aria-hidden="true">TJ</span>
-          <span class="story-card__sheen" aria-hidden="true"></span>
-          <span class="story-card__flag" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>Video</span>
-          <div class="story-card__caption"><span class="story-card__role">Sound Designer</span><span class="story-card__name">Tim Johnson</span><span class="story-card__quote">A go-to for authentic, characterful sound design.</span><div class="story-card__credits"><span class="story-card__credit">Project CARS</span><span class="story-card__credit">Red Bull Air Race</span><span class="story-card__credit story-card__credit--more">+more</span></div></div>
-        </button>
-        <button class="story-card" data-story="lockett" data-reveal data-reveal-group="stories" type="button" aria-label="Read Pete Lockett's story">
-          <img class="story-card__img" src="assets/img/pete_lockett.png" alt="Pete Lockett" loading="lazy" onerror="this.closest('.story-card').classList.add('is-mono')">
-          <span class="story-card__mono" aria-hidden="true">PL</span>
-          <span class="story-card__sheen" aria-hidden="true"></span>
-          <span class="story-card__flag" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>Video</span>
-          <div class="story-card__caption"><span class="story-card__role">Ethnic Percussionist</span><span class="story-card__name">Pete Lockett</span><span class="story-card__quote">A versatile set of instruments — worth checking out.</span><div class="story-card__credits"><span class="story-card__credit">Skyfall</span><span class="story-card__credit">Spectre</span><span class="story-card__credit">No Time to Die</span><span class="story-card__credit story-card__credit--more">+more</span></div></div>
-        </button>
-        <button class="story-card" data-story="clemente" data-reveal data-reveal-group="stories" type="button" aria-label="Read Adriano Clemente's story">
-          <img class="story-card__img" src="composers/adriano-clemente.jpg" alt="Adriano Clemente" loading="lazy" onerror="this.closest('.story-card').classList.add('is-mono')">
-          <span class="story-card__mono" aria-hidden="true">AC</span>
-          <span class="story-card__sheen" aria-hidden="true"></span>
-          <span class="story-card__flag" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>Video</span>
-          <div class="story-card__caption"><span class="story-card__role">Dubspot Director</span><span class="story-card__name">Adriano Clemente</span><span class="story-card__quote">Interesting to see what people create with these.</span><div class="story-card__credits"><span class="story-card__credit">Dubspot Director</span></div></div>
-        </button>
-        <button class="story-card" data-story="zillani" data-reveal data-reveal-group="stories" type="button" aria-label="Read Laurent Zillani's story">
-          <img class="story-card__img" src="composers/laurent-zillani.jpg" alt="Laurent Zillani" loading="lazy" onerror="this.closest('.story-card').classList.add('is-mono')">
-          <span class="story-card__mono" aria-hidden="true">LZ</span>
-          <span class="story-card__sheen" aria-hidden="true"></span>
-          <span class="story-card__flag" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>Video</span>
-          <div class="story-card__caption"><span class="story-card__role">Composer</span><span class="story-card__name">Laurent Zillani</span><span class="story-card__quote">Beautifully recorded — Solo Tabla and Dholak shine.</span><div class="story-card__credits"><span class="story-card__credit">Resident Evil 6</span><span class="story-card__credit">Priest</span><span class="story-card__credit">Sinister</span><span class="story-card__credit story-card__credit--more">+more</span></div></div>
-        </button>
-        <button class="story-card" data-story="kjsingh" data-reveal data-reveal-group="stories" type="button" aria-label="Read K.J. Singh's story">
-          <img class="story-card__img" src="composers/kj-singh.jpg" alt="K.J. Singh" loading="lazy" onerror="this.closest('.story-card').classList.add('is-mono')">
-          <span class="story-card__mono" aria-hidden="true">KS</span>
-          <span class="story-card__sheen" aria-hidden="true"></span>
-          <span class="story-card__flag" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>Video</span>
-          <div class="story-card__caption"><span class="story-card__role">Sound Engineer</span><span class="story-card__name">K.J. Singh</span><span class="story-card__quote">High quality sounds, deeply and authentically programmed.</span><div class="story-card__credits"><span class="story-card__credit">Rang De Basanti</span><span class="story-card__credit">Guru</span><span class="story-card__credit">Omkara</span><span class="story-card__credit story-card__credit--more">+more</span></div></div>
-        </button>
-        <button class="story-card" data-story="buckley" data-reveal data-reveal-group="stories" type="button" aria-label="Read David Buckley's story">
-          <img class="story-card__img" src="composers/david-buckley.jpg" alt="David Buckley" loading="lazy" onerror="this.closest('.story-card').classList.add('is-mono')">
-          <span class="story-card__mono" aria-hidden="true">DB</span>
-          <span class="story-card__sheen" aria-hidden="true"></span>
-          <span class="story-card__flag" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>Video</span>
-          <div class="story-card__caption"><span class="story-card__role">Film Composer</span><span class="story-card__name">David Buckley</span><span class="story-card__quote">A different league to most other ethnic libraries.</span><div class="story-card__credits"><span class="story-card__credit">The Town</span><span class="story-card__credit">Batman: Arkham Knight</span><span class="story-card__credit">Call of Duty: Ghosts</span><span class="story-card__credit">Parker</span><span class="story-card__credit story-card__credit--more">+more</span></div></div>
-        </button>
+@endforeach
+@verbatim
       </div>
     </section>
 

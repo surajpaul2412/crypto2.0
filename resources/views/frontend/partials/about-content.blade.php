@@ -250,46 +250,15 @@
     <!-- Mobile + data source: circular roster. JS reads name/role/img from here to build the field.
          [PLACEHOLDER: TEAM ROSTER — name · role · headshot at /team/*.jpg. Add/remove freely; both views update. ] -->
     <div class="abt-team__grid" data-reveal>
-      <div class="abt-team__person" style="--focus-y:50%" data-bio="A short bio goes here — role, instruments, and a line of background. Editable per person in the backend.">
-        <span class="abt-team__avatar"><img src="assets/img/family/01.jpg" alt="" decoding="async" onerror="this.style.display='none'"></span>
-        <span class="abt-team__name">[Name]</span>
-        <span class="abt-team__desig">Sitar · Sarod</span>
+@endverbatim
+      @foreach ($teamMembers as $member)
+      <div class="abt-team__person" style="--focus-y:50%" data-bio="{{ $member->description }}">
+        <span class="abt-team__avatar"><img src="{{ $member->imageUrl() }}" alt="" decoding="async" onerror="this.style.display='none'"></span>
+        <span class="abt-team__name">{{ $member->name }}</span>
+        <span class="abt-team__desig">{{ $member->designation }}</span>
       </div>
-      <div class="abt-team__person" style="--focus-y:50%" data-bio="A short bio goes here — role, instruments, and a line of background. Editable per person in the backend.">
-        <span class="abt-team__avatar"><img src="assets/img/family/02.jpg" alt="" decoding="async" onerror="this.style.display='none'"></span>
-        <span class="abt-team__name">[Name]</span>
-        <span class="abt-team__desig">Tabla · Percussion</span>
-      </div>
-      <div class="abt-team__person" style="--focus-y:50%" data-bio="A short bio goes here — role, instruments, and a line of background. Editable per person in the backend.">
-        <span class="abt-team__avatar"><img src="assets/img/family/03.jpg" alt="" decoding="async" onerror="this.style.display='none'"></span>
-        <span class="abt-team__name">[Name]</span>
-        <span class="abt-team__desig">Recording Director</span>
-      </div>
-      <div class="abt-team__person" style="--focus-y:50%" data-bio="A short bio goes here — role, instruments, and a line of background. Editable per person in the backend.">
-        <span class="abt-team__avatar"><img src="assets/img/family/04.jpg" alt="" decoding="async" onerror="this.style.display='none'"></span>
-        <span class="abt-team__name">[Name]</span>
-        <span class="abt-team__desig">Producer</span>
-      </div>
-      <div class="abt-team__person" style="--focus-y:50%" data-bio="A short bio goes here — role, instruments, and a line of background. Editable per person in the backend.">
-        <span class="abt-team__avatar"><img src="assets/img/family/05.jpg" alt="" decoding="async" onerror="this.style.display='none'"></span>
-        <span class="abt-team__name">[Name]</span>
-        <span class="abt-team__desig">Producer · Editing</span>
-      </div>
-      <div class="abt-team__person" style="--focus-y:50%" data-bio="A short bio goes here — role, instruments, and a line of background. Editable per person in the backend.">
-        <span class="abt-team__avatar"><img src="assets/img/family/06.jpg" alt="" decoding="async" onerror="this.style.display='none'"></span>
-        <span class="abt-team__name">[Name]</span>
-        <span class="abt-team__desig">Project Manager</span>
-      </div>
-      <div class="abt-team__person" style="--focus-y:50%" data-bio="A short bio goes here — role, instruments, and a line of background. Editable per person in the backend.">
-        <span class="abt-team__avatar"><img src="assets/img/family/07.jpg" alt="" decoding="async" onerror="this.style.display='none'"></span>
-        <span class="abt-team__name">[Name]</span>
-        <span class="abt-team__desig">Lead Instructor · Academy</span>
-      </div>
-      <div class="abt-team__person" style="--focus-y:50%" data-bio="A short bio goes here — role, instruments, and a line of background. Editable per person in the backend.">
-        <span class="abt-team__avatar"><img src="assets/img/family/01.jpg" alt="" decoding="async" onerror="this.style.display='none'"></span>
-        <span class="abt-team__name">[Name]</span>
-        <span class="abt-team__desig">Live-Sound Engineering</span>
-      </div>
+      @endforeach
+@verbatim
     </div>
     </div><!-- /.abt-team-frame -->
   </section>
@@ -332,20 +301,12 @@
     <div class="abt-head" data-reveal>
       <span class="eyebrow" id="abt-gallery-title">Inside the studio</span>
     </div>
-    <!-- [PLACEHOLDER: 12 STUDIO IMAGES — swap .abt-gallery__ph for <img> at content stage] -->
     <div class="abt-gallery" data-reveal>
-      <div class="abt-gallery__item" style="--focus-y:50%"><img src="assets/img/gallery/Gallery00001.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 01</div></div>
-      <div class="abt-gallery__item" style="--focus-y:50%"><img src="assets/img/gallery/Gallery00002.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 02</div></div>
-      <div class="abt-gallery__item" style="--focus-y:50%"><img src="assets/img/gallery/Gallery00003.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 03</div></div>
-      <div class="abt-gallery__item" style="--focus-y:50%"><img src="assets/img/gallery/Gallery00004.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 04</div></div>
-      <div class="abt-gallery__item" style="--focus-y:50%"><img src="assets/img/gallery/Gallery00005.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 05</div></div>
-      <div class="abt-gallery__item" style="--focus-y:50%"><img src="assets/img/gallery/Gallery00006.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 06</div></div>
-      <div class="abt-gallery__item" style="--focus-y:50%"><img src="assets/img/gallery/Gallery00007.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 07</div></div>
-      <div class="abt-gallery__item" style="--focus-y:50%"><img src="assets/img/gallery/Gallery00001.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 08</div></div>
-      <div class="abt-gallery__item" style="--focus-y:50%"><img src="assets/img/gallery/Gallery00002.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 09</div></div>
-      <div class="abt-gallery__item" style="--focus-y:50%"><img src="assets/img/gallery/Gallery00003.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 10</div></div>
-      <div class="abt-gallery__item" style="--focus-y:50%"><img src="assets/img/gallery/Gallery00004.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 11</div></div>
-      <div class="abt-gallery__item" style="--focus-y:50%"><img src="assets/img/gallery/Gallery00005.jpg" alt="" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">Image 12</div></div>
+@endverbatim
+      @foreach ($galleryImages as $image)
+      <div class="abt-gallery__item" style="--focus-y:50%"><img src="{{ $image->imageUrl() }}" alt="{{ $image->caption }}" decoding="async" onerror="this.remove()"><div class="abt-gallery__ph">{{ $image->caption }}</div><div class="abt-gallery__cap">{{ $image->caption }}</div></div>
+      @endforeach
+@verbatim
     </div>
   </section>
 
