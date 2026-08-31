@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Faq;
+use App\Models\MapRegion;
 use App\Models\Product;
 use App\Models\SuccessStory;
 use Illuminate\Foundation\Application;
@@ -36,6 +38,10 @@ class WelcomeController extends Controller
                 ->get()
                 ->map(fn (SuccessStory $story) => $story->toComposerRowArray())
                 ->values(),
+            'mapRegionsJson' => MapRegion::all()
+                ->keyBy('state_key')
+                ->map(fn (MapRegion $region) => $region->toStateDataArray()),
+            'faqs' => Faq::forPageOrdered('home'),
         ]);
     }
 }

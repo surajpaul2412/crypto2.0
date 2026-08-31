@@ -12,7 +12,15 @@
     $pageTwitterImage = 'https://cryptocipher.in/og/homepage.png?v=1';
     $pageHeadInclude = 'frontend.partials.welcome-head-inline';
     $pageScriptAssets = [
-        'https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js',
+        [
+            // Deferred (was blocking) — polish.js (also deferred, loaded right
+            // after) is what actually calls `new Lenis(...)`, and deferred
+            // scripts always execute in document order regardless of download
+            // speed, so this stays 100% safe: Lenis is still guaranteed ready
+            // before polish.js's smooth-scroll init runs.
+            'src' => 'https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js',
+            'defer' => true,
+        ],
         [
             'src' => asset('frontend/assets/js/cc-demo-player.js?v=dur1'),
             'defer' => true,

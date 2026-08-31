@@ -315,85 +315,17 @@
       </header>
 
       <div class="rec-faq__list">
+        @foreach ($faqs as $faq)
         <article class="rec-faq__item" data-reveal>
           <button class="rec-faq__q" aria-expanded="false">
-            <span>How long does a custom recording take?</span>
+            <span>{{ $faq->question }}</span>
             <span class="rec-faq__q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </button>
           <div class="rec-faq__a"><div class="rec-faq__a-inner"><div class="rec-faq__a-pad">
-            Three to four days from confirmed brief to delivered files. Faster turnaround is possible on simpler briefs — ask in your brief and we'll quote against deadline.
+            {!! $faq->answer !!}
           </div></div></div>
         </article>
-
-        <article class="rec-faq__item" data-reveal>
-          <button class="rec-faq__q" aria-expanded="false">
-            <span>What's included in the license?</span>
-            <span class="rec-faq__q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-          </button>
-          <div class="rec-faq__a"><div class="rec-faq__a-inner"><div class="rec-faq__a-pad">
-            Sync clearance is included by default — film, TV, OTT, ad, game. Buyout and custom terms available on request. License is signed and delivered with the files. AI training is excluded in writing.
-          </div></div></div>
-        </article>
-
-        <article class="rec-faq__item" data-reveal>
-          <button class="rec-faq__q" aria-expanded="false">
-            <span>Can I direct the performance?</span>
-            <span class="rec-faq__q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-          </button>
-          <div class="rec-faq__a"><div class="rec-faq__a-inner"><div class="rec-faq__a-pad">
-            Yes — and we lock direction <em>before</em> the session, not after. Send phrasing notes, articulation requests, ornamentation specifics, or a reference take with your brief. We pre-discuss with the artist so the first take is the take. New direction or significantly different cues are quoted as a follow-up session.
-          </div></div></div>
-        </article>
-
-        <article class="rec-faq__item" data-reveal>
-          <button class="rec-faq__q" aria-expanded="false">
-            <span>Do you record outside India?</span>
-            <span class="rec-faq__q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-          </button>
-          <div class="rec-faq__a"><div class="rec-faq__a-inner"><div class="rec-faq__a-pad">
-            All sessions are tracked in our studio in India. We do not subcontract to remote home studios. The room, the chain, and the artist roster are the brand — that's the point.
-          </div></div></div>
-        </article>
-
-        <article class="rec-faq__item" data-reveal>
-          <button class="rec-faq__q" aria-expanded="false">
-            <span>Can the same artist record for multiple cues?</span>
-            <span class="rec-faq__q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-          </button>
-          <div class="rec-faq__a"><div class="rec-faq__a-inner"><div class="rec-faq__a-pad">
-            Yes — multi-cue sessions are common and discounted at the brief stage. Add all cues to the request form so we can scope the session as a single block.
-          </div></div></div>
-        </article>
-
-        <article class="rec-faq__item" data-reveal>
-          <button class="rec-faq__q" aria-expanded="false">
-            <span>Is the recording AI-free?</span>
-            <span class="rec-faq__q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-          </button>
-          <div class="rec-faq__a"><div class="rec-faq__a-inner"><div class="rec-faq__a-pad">
-            Yes — and stated in writing on the license. No AI synthesis, no model-trained voice cloning, no algorithmic extension. Performances are tracked from a single artist in a single room, take by take.
-          </div></div></div>
-        </article>
-
-        <article class="rec-faq__item" data-reveal>
-          <button class="rec-faq__q" aria-expanded="false">
-            <span>How do you handle NDAs?</span>
-            <span class="rec-faq__q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-          </button>
-          <div class="rec-faq__a"><div class="rec-faq__a-inner"><div class="rec-faq__a-pad">
-            Toggle the NDA option on the request form and skip project name. We'll send our standard NDA — or sign yours — before any project details, references, or files are shared. Artists are bound under the same terms.
-          </div></div></div>
-        </article>
-
-        <article class="rec-faq__item" data-reveal>
-          <button class="rec-faq__q" aria-expanded="false">
-            <span>How do discounts and editorial rates work?</span>
-            <span class="rec-faq__q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-          </button>
-          <div class="rec-faq__a"><div class="rec-faq__a-inner"><div class="rec-faq__a-pad">
-            Three editorial signals: <em>Introductory</em> (new instrument or artist, first-session rate), <em>Limited Series</em> (short window, named project context), <em>Residency</em> (longer engagement, multi-cue). Service-wide bands run during studio anniversaries. One signal per card, no countdown timers, no urgency theatre.
-          </div></div></div>
-        </article>
+        @endforeach
       </div>
     </section>
 

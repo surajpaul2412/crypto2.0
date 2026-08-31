@@ -5,6 +5,7 @@ use Illuminate\Support\Str;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\CollaborationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\SuccessStoryController;
@@ -65,7 +66,7 @@ Route::group(
         Route::get('/contact-us', fn() => view('frontend.contact'))->name('contact');
         Route::get('/remote-recordings', fn() => view('frontend.remote-recordings'))->name('remote-recordings');
         Route::get('/heritage-performances', [\App\Http\Controllers\HeritagePerformanceController::class, 'index'])->name('heritage-performances');
-        Route::get('/collaboration', fn() => view('frontend.collaboration'))->name('collaboration');
+        Route::get('/collaboration', [CollaborationController::class, 'index'])->name('collaboration');
         Route::get('/cookie-policy', fn() => view('frontend.cookie-policy'))->name('cookie-policy');
         Route::get('/terms-of-service', fn() => view('frontend.terms-of-service'))->name('terms-of-service');
         Route::get('/privacy-policy', fn() => view('frontend.privacy-policy'))->name('privacy-policy');

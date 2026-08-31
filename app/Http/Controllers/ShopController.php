@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Faq;
 use App\Models\Product;
 use App\Models\ProductFamily;
 use App\Models\ProductTag;
@@ -30,6 +31,7 @@ class ShopController extends Controller
             'catalogueJson' => $products->map(fn (Product $product) => $product->toCatalogueArray())->values(),
             'families' => $families,
             'tags' => $tags,
+            'faqs' => Faq::forPageOrdered('shop'),
         ]);
     }
 

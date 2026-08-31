@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class CheckoutController extends Controller
@@ -45,12 +47,41 @@ class CheckoutController extends Controller
         ]);
 
         $orderNumber = 'CC-' . now()->format('Ymd-His') . '-' . random_int(1000, 9999);
+        $placedAt = now();
+
+        DB::transaction(function () use ($request, $order, $customer, $orderNumber, $placedAt) {
+            $dbOrder = Order::create([
+                'user_id' => $request->user()?->id,
+                'order_number' => $orderNumber,
+                'name' => $customer['name'],
+                'email' => $customer['email'],
+                'phone' => $customer['phone'],
+                'country' => $customer['country'],
+                'payment_method' => $customer['payment_method'],
+                'subtotal' => $order['subtotal'],
+                'placed_at' => $placedAt,
+            ]);
+
+            foreach ($order['items'] as $item) {
+                $dbOrder->items()->create([
+                    'product_id' => $item['product_id'],
+                    'slug' => $item['slug'],
+                    'name' => $item['name'],
+                    'edition' => $item['edition'],
+                    'image' => $item['image'],
+                    'price' => $item['price'],
+                    'quantity' => $item['quantity'],
+                    'line_total' => $item['line_total'],
+                ]);
+            }
+        });
+
         $request->session()->put('last_order', [
             'order_number' => $orderNumber,
             'customer' => $customer,
             'items' => $order['items'],
             'subtotal' => $order['subtotal'],
-            'placed_at' => now()->format('d M Y, h:i A'),
+            'placed_at' => $placedAt->format('d M Y, h:i A'),
         ]);
 
         $request->session()->forget('cart');
@@ -88,6 +119,7 @@ class CheckoutController extends Controller
             $subtotal += $lineTotal;
 
             $items[] = [
+                'product_id' => $product->id,
                 'slug' => $slug,
                 'name' => $product->name,
                 'edition' => ucfirst($product->format),

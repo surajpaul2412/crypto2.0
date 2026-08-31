@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Faq;
 use App\Models\InstrumentCategory;
 use App\Models\RecordingInstrument;
 
@@ -24,6 +25,7 @@ class RecordingServicesController extends Controller
         return view('frontend.recording-services', [
             'recordingInstruments' => $recordingInstruments,
             'instrumentCategories' => $instrumentCategories,
+            'faqs' => Faq::forPageOrdered('recording-services'),
         ]);
     }
 }

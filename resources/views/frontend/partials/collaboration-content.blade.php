@@ -263,188 +263,44 @@
       </header>
 
       <div class="rec-faq__list">
+@endverbatim
+        @foreach ($faqs as $faq)
         <article class="rec-faq__item" data-reveal>
           <button class="rec-faq__q" aria-expanded="false">
-            <span>Do I need to be based in India?</span>
+            <span>{{ $faq->question }}</span>
             <span class="rec-faq__q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </button>
           <div class="rec-faq__a"><div class="rec-faq__a-inner"><div class="rec-faq__a-pad">
-            No. We work with people anywhere — the only bar is the work, not where you're from.
+            {!! $faq->answer !!}
           </div></div></div>
         </article>
-
-        <article class="rec-faq__item" data-reveal>
-          <button class="rec-faq__q" aria-expanded="false">
-            <span>What should I send when I apply?</span>
-            <span class="rec-faq__q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-          </button>
-          <div class="rec-faq__a"><div class="rec-faq__a-inner"><div class="rec-faq__a-pad">
-            Real work, not a résumé — a portfolio, track, library, reel, or repo. One strong piece beats a long CV. Send an https link, no shorteners.
-          </div></div></div>
-        </article>
-
-        <article class="rec-faq__item" data-reveal>
-          <button class="rec-faq__q" aria-expanded="false">
-            <span>How long until I hear back?</span>
-            <span class="rec-faq__q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-          </button>
-          <div class="rec-faq__a"><div class="rec-faq__a-inner"><div class="rec-faq__a-pad">
-            Within 14 days. If you don't hear back, the timing or fit isn't right for what we're building now — not a verdict on your work, and you're welcome to apply again.
-          </div></div></div>
-        </article>
-
-        <article class="rec-faq__item" data-reveal>
-          <button class="rec-faq__q" aria-expanded="false">
-            <span>How does payment work?</span>
-            <span class="rec-faq__q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-          </button>
-          <div class="rec-faq__a"><div class="rec-faq__a-inner"><div class="rec-faq__a-pad">
-            Terms are set per programme by Crypto Cipher and shared in full once you're accepted — nothing to negotiate, no surprises.
-          </div></div></div>
-        </article>
-
-        <article class="rec-faq__item" data-reveal>
-          <button class="rec-faq__q" aria-expanded="false">
-            <span>A role I want says "Closed" — what do I do?</span>
-            <span class="rec-faq__q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-          </button>
-          <div class="rec-faq__a"><div class="rec-faq__a-inner"><div class="rec-faq__a-pad">
-            Programmes open in rotation. Check back, or use the partner line under the roles to introduce yourself for when it reopens.
-          </div></div></div>
-        </article>
-
-        <article class="rec-faq__item" data-reveal>
-          <button class="rec-faq__q" aria-expanded="false">
-            <span>My work doesn't fit a listed role.</span>
-            <span class="rec-faq__q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-          </button>
-          <div class="rec-faq__a"><div class="rec-faq__a-inner"><div class="rec-faq__a-pad">
-            Pick the closest programme and explain in your note, or use the partner line. We read everything.
-          </div></div></div>
-        </article>
+        @endforeach
+@verbatim
       </div>
     </section>
+@endverbatim
 
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Do I need to be based in India?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. We work with people anywhere — the only bar is the work, not where you're from."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What should I send when I apply?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Real work, not a résumé — a portfolio, track, library, reel, or repo. One strong piece beats a long CV. Send an https link, no shorteners."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long until I hear back?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Within 14 days. If you don't hear back, the timing or fit isn't right for what we're building now — not a verdict on your work, and you're welcome to apply again."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does payment work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Terms are set per programme by Crypto Cipher and shared in full once you're accepted — nothing to negotiate, no surprises."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "A role I want says "Closed" — what do I do?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Programmes open in rotation. Check back, or use the partner line under the roles to introduce yourself for when it reopens."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "My work doesn't fit a listed role.",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Pick the closest programme and explain in your note, or use the partner line. We read everything."
-      }
-    }
-  ]
-}
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    'mainEntity' => $faqs->map(fn ($faq) => [
+        '@type' => 'Question',
+        'name' => $faq->question,
+        'acceptedAnswer' => [
+            '@type' => 'Answer',
+            'text' => $faq->plainAnswer(),
+        ],
+    ])->values(),
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
     </script>
+@verbatim
 
 
     <!-- ════════════════════════════════════════════════════════════
          FAQ · deflect email + searchable · collapsed accordion
-         (after the form; questions match the FAQPage schema below)
+         (schema emitted once above, dynamically, from the same $faqs)
          ──────────────────────────────────────────── -->
-    
-
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Do I need to be based in India?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. We work with people anywhere — the only bar is the work, not where you're from."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What should I send when I apply?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Real work, not a résumé — a portfolio, track, library, reel, or repo. One strong piece beats a long CV. Send an https link, no shorteners."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long until I hear back?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Within 14 days. If you don't hear back, the timing or fit isn't right for what we're building now — not a verdict on your work, and you're welcome to apply again."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does payment work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Terms are set per programme by Crypto Cipher and shared in full once you're accepted — nothing to negotiate, no surprises."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "A role I want says "Closed" — what do I do?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Programmes open in rotation. Check back, or use the partner line under the roles to introduce yourself for when it reopens."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "My work doesn't fit a listed role.",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Pick the closest programme and explain in your note, or use the partner line. We read everything."
-      }
-    }
-  ]
-}
-    </script>
 
 
     <!-- ════════════════════════════════════════════════════════════

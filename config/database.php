@@ -60,6 +60,10 @@ return [
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+                // If MySQL is down/unreachable (e.g. crashed and not yet
+                // restarted), fail fast instead of hanging until PHP's
+                // max_execution_time kills the request with a Fatal Error.
+                PDO::ATTR_TIMEOUT => env('DB_CONNECT_TIMEOUT', 5),
             ]) : [],
         ],
 
@@ -80,6 +84,7 @@ return [
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+                PDO::ATTR_TIMEOUT => env('DB_CONNECT_TIMEOUT', 5),
             ]) : [],
         ],
 

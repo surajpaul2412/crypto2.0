@@ -10,7 +10,7 @@
         <a href="{{ route('shop') }}">Instruments</a>
         <a href="{{ route('recording-services') }}">Recordings</a>
         <a href="{{ route('heritage-performances') }}">Heritage</a>
-        <a href="/academy">Academy</a>
+        <a href="{{ route('contact') }}">Academy</a>
         <a href="{{ route('collaboration') }}">Collaboration</a>
         <a href="{{ route('about') }}">About</a>
         <a href="{{ route('contact') }}">Contact</a>
@@ -19,34 +19,34 @@
       <div class="ft__col">
         <div class="ft__col-head">Catalogue</div>
         <a href="{{ route('shop') }}">Virtual Instruments</a>
-        <a href="/instruments/new">New Releases</a>
-        <a href="/instruments/best-sellers">Best Sellers</a>
-        <a href="/licensing">Licensing</a>
+        <a href="{{ route('shop') }}">New Releases</a>
+        <a href="{{ route('shop') }}">Best Sellers</a>
+        <a href="{{ route('home') }}#faq">Licensing</a>
       </div>
 
       <div class="ft__col">
         <div class="ft__col-head">Collaboration</div>
-        <a href="/collaboration/artists">Artists &amp; Musicians</a>
-        <a href="/collaboration/composers">Composers &amp; Producers</a>
-        <a href="/collaboration/ai-audio">AI &amp; Audio Technology</a>
-        <a href="/collaboration/software-developers">Audio Software Developers</a>
-        <a href="/collaboration/designers">UI &amp; Graphic Designers</a>
-        <a href="/collaboration/sound-design">Sound Designers</a>
-        <a href="/collaboration/creators">Content Creators</a>
-        <a href="/collaboration/web-developers">Web &amp; Platform Developers</a>
-        <a href="/affiliates">Affiliates</a>
+        <a href="{{ route('collaboration') }}">Artists &amp; Musicians</a>
+        <a href="{{ route('collaboration') }}">Composers &amp; Producers</a>
+        <a href="{{ route('collaboration') }}">AI &amp; Audio Technology</a>
+        <a href="{{ route('collaboration') }}">Audio Software Developers</a>
+        <a href="{{ route('collaboration') }}">UI &amp; Graphic Designers</a>
+        <a href="{{ route('collaboration') }}">Sound Designers</a>
+        <a href="{{ route('collaboration') }}">Content Creators</a>
+        <a href="{{ route('collaboration') }}">Web &amp; Platform Developers</a>
+        <a href="{{ route('contact') }}">Affiliates</a>
       </div>
 
       <div class="ft__col">
         <div class="ft__col-head">Company</div>
         <a href="{{ route('about') }}">About Crypto Cipher</a>
-        <a href="/competitions">Competitions</a>
-        <a href="/blog">Blog</a>
-        <a href="/news">News</a>
-        <a href="/careers">Careers</a>
-        <a href="/help">Help Center</a>
-        <a href="/privacy-policy">Privacy Policy</a>
-        <a href="/do-not-share">Do Not Share My Personal Information</a>
+        <a href="{{ route('contact') }}">Competitions</a>
+        <a href="{{ route('home') }}">Blog</a>
+        <a href="{{ route('home') }}">News</a>
+        <a href="{{ route('contact') }}">Careers</a>
+        <a href="{{ route('home') }}#faq">Help Center</a>
+        <a href="{{ route('privacy-policy') }}">Privacy Policy</a>
+        <a href="{{ route('privacy-policy') }}">Do Not Share My Personal Information</a>
       </div>
 
       <div class="ft__col">
@@ -54,9 +54,9 @@
         <a href="https://www.instagram.com/cryptocipher/" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="https://www.youtube.com/@CryptoCipherLab" target="_blank" rel="noopener noreferrer">YouTube</a>
         <a href="https://in.linkedin.com/company/crypto-cipher" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="/newsletter">Newsletter</a>
-        <a href="/subscribe">Subscribe</a>
-        <a href="/community-spotlight">Community Spotlight</a>
+        <a href="{{ route('contact') }}">Newsletter</a>
+        <a href="{{ route('contact') }}">Subscribe</a>
+        <a href="{{ route('home') }}">Community Spotlight</a>
       </div>
     </div>
 

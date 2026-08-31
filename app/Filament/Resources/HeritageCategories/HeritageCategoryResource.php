@@ -18,7 +18,7 @@ class HeritageCategoryResource extends Resource
 {
     protected static ?string $model = HeritageCategory::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedFolder;
 
     protected static string|\UnitEnum|null $navigationGroup = 'Site Content';
 

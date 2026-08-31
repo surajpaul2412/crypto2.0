@@ -1285,6 +1285,11 @@
      Wrapped in IIFE to scope all const declarations.
      Deferred so it runs after first paint of the SVG.
      ════════════════════════════════════════════════════ -->
+@endverbatim
+<script>
+  window.__MAP_REGIONS__ = @json($mapRegionsJson);
+</script>
+@verbatim
 <script defer>
 (function() {
 'use strict';
@@ -1293,44 +1298,7 @@
 // STATE DATA — 36 entities, locked per Government of India
 // Replace `library` and `loops` with real deep-link slugs in Phase 3
 // ═══════════════════════════════════════════════════════════════
-const STATE_DATA = {
-  'state-ladakh':              { tradition: 'Buddhist monastic chant traditions, ceremonial Daman-Surna ensembles, Dung-chen long horn rituals.', instruments: 'Daman, Surna, Dung-chen, Damaru', library: '/libraries/ladakh', collab: '/artists?state=ladakh' },
-  'state-jammu-kashmir':       { tradition: 'Sufiana Mausiqi mystical tradition, Chakri folk ensembles, Henzae devotional songs.', instruments: 'Santoor, Rabab, Sarangi, Tumbaknari', library: '/libraries/jammu-kashmir', collab: '/artists?state=jammu-kashmir' },
-  'state-himachal-pradesh':    { tradition: 'Pahari folk and Naati dance traditions echoing across Himalayan valleys.', instruments: 'Dhol, Ranasingha, Karnal, Shehnai', library: '/libraries/himachal-pradesh', collab: '/artists?state=himachal-pradesh' },
-  'state-punjab':              { tradition: 'Bhangra and Gidda foundations, Sufi Qawwali, Heer Ranjha balladry.', instruments: 'Dhol, Tumbi, Algoza, Chimta', library: '/libraries/punjab', collab: '/artists?state=punjab' },
-  'state-chandigarh':          { tradition: 'Modern Punjabi-fusion bridge — where folk meets Indo-electronic and indie.', instruments: 'Dhol, Tumbi (modern processed)', library: '/libraries/chandigarh', collab: '/artists?state=chandigarh' },
-  'state-haryana':             { tradition: 'Ragini ballads and Saang folk theatre, robust open-throat singing styles.', instruments: 'Dholak, Been, Sarangi, Ghara', library: '/libraries/haryana', collab: '/artists?state=haryana' },
-  'state-delhi':               { tradition: 'Hindustani classical capital, Nizamuddin Qawwali tradition, Delhi gharana.', instruments: 'Tabla, Sarangi, Harmonium, Sitar', library: '/libraries/delhi', collab: '/artists?state=delhi' },
-  'state-uttarakhand':         { tradition: 'Garhwali and Kumaoni folk, Jagar invocations of Devbhoomi.', instruments: 'Dhol-Damau, Hudka, Ransingha', library: '/libraries/uttarakhand', collab: '/artists?state=uttarakhand' },
-  'state-rajasthan':           { tradition: 'Manganiyar and Langa hereditary musician traditions of the Thar desert.', instruments: 'Kamaicha, Khartal, Morchang, Sarangi', library: '/libraries/rajasthan', collab: '/artists?state=rajasthan' },
-  'state-uttar-pradesh':       { tradition: 'Banaras gharana classical, Thumri romantic tradition, Khayal foundations.', instruments: 'Tabla, Sarangi, Shehnai, Pakhawaj', library: '/libraries/uttar-pradesh', collab: '/artists?state=uttar-pradesh' },
-  'state-bihar':               { tradition: 'Sohar birth songs, Chhath geet sun rituals, Bhojpuri folk traditions.', instruments: 'Dholak, Pakhawaj, Harmonium, Khanjari', library: '/libraries/bihar', collab: '/artists?state=bihar' },
-  'state-sikkim':              { tradition: 'Tamang Selo folk, Buddhist monastic chanting, Lepcha traditions.', instruments: 'Damphu, Dungchen, Yarka', library: '/libraries/sikkim', collab: '/artists?state=sikkim' },
-  'state-arunachal-pradesh':   { tradition: 'Tribal chant traditions of Adi, Apatani, Nyishi communities — sacred and communal.', instruments: 'Dhol, Bamboo flutes, Gongs', library: '/libraries/arunachal-pradesh', collab: '/artists?state=arunachal-pradesh' },
-  'state-nagaland':            { tradition: 'Naga choral polyphony, ceremonial log-drum announcements, warrior chants.', instruments: 'Log drum, Tati, Bamboo mouth organ', library: '/libraries/nagaland', collab: '/artists?state=nagaland' },
-  'state-manipur':             { tradition: 'Manipuri Sankirtan devotional ensembles, Pung Cholom drum-dance traditions.', instruments: 'Pung, Pena, Esraj, Karthal', library: '/libraries/manipur', collab: '/artists?state=manipur' },
-  'state-mizoram':             { tradition: 'Mizo choral harmony traditions, Cheraw bamboo dance percussion.', instruments: 'Khuang, Bamboo poles, Tumphit', library: '/libraries/mizoram', collab: '/artists?state=mizoram' },
-  'state-tripura':             { tradition: 'Tripuri tribal folk songs, Hojagiri dance music heritage.', instruments: 'Sarinda, Khamb, Sumui, Chongpreng', library: '/libraries/tripura', collab: '/artists?state=tripura' },
-  'state-meghalaya':           { tradition: 'Khasi, Garo and Jaintia folk — distinct vocal and instrumental tribal traditions.', instruments: 'Duitara, Marynthing, Ksing, Tangmuri', library: '/libraries/meghalaya', collab: '/artists?state=meghalaya' },
-  'state-assam':               { tradition: 'Bihu festival music, Borgeet devotional, Sattriya temple traditions.', instruments: 'Dhol, Pepa, Khol, Taal', library: '/libraries/assam', collab: '/artists?state=assam' },
-  'state-west-bengal':         { tradition: 'Rabindra Sangeet, Baul mystic wandering tradition, classical-folk fusion heritage.', instruments: 'Ektara, Khamak, Dotara, Tabla', library: '/libraries/west-bengal', collab: '/artists?state=west-bengal' },
-  'state-jharkhand':           { tradition: 'Tribal Jhumar dance music, Santhali traditional ensembles.', instruments: 'Madal, Nagada, Banam, Dhamsa', library: '/libraries/jharkhand', collab: '/artists?state=jharkhand' },
-  'state-odisha':              { tradition: 'Odissi temple classical, Pala devotional, Chhau martial dance music.', instruments: 'Mardala, Mohuri, Khanjani, Ghanta', library: '/libraries/odisha', collab: '/artists?state=odisha' },
-  'state-chhattisgarh':        { tradition: 'Pandvani epic narration, Panthi devotional, deep Bastar tribal traditions.', instruments: 'Tambura, Mandar, Dhol, Tasa', library: '/libraries/chhattisgarh', collab: '/artists?state=chhattisgarh' },
-  'state-madhya-pradesh':      { tradition: 'Malwa folk heritage, Bundelkhandi traditions, central India tribal music.', instruments: 'Bansuri, Dhol, Mandal, Algoza', library: '/libraries/madhya-pradesh', collab: '/artists?state=madhya-pradesh' },
-  'state-gujarat':             { tradition: 'Garba and Dandiya Raas festival traditions, Sugam Sangeet, Bhavai theatre music.', instruments: 'Dhol, Manjira, Ravanhatta, Surando', library: '/libraries/gujarat', collab: '/artists?state=gujarat' },
-  'state-dnhdd':               { tradition: 'Coastal Konkani-Portuguese fusion traditions, Ghumat-driven festival music.', instruments: 'Ghumat, Mando ensemble', library: '/libraries/dnhdd', collab: '/artists?state=dnhdd' },
-  'state-maharashtra':         { tradition: 'Lavani provocative folk, Abhang devotional, Koli fishermen songs, Powada balladry.', instruments: 'Dholki, Sambal, Tuntuna, Tabla', library: '/libraries/maharashtra', collab: '/artists?state=maharashtra' },
-  'state-goa':                 { tradition: 'Mando romantic ballads, Dulpod dance songs, Konkani folk heritage.', instruments: 'Ghumat, Violin, Mandolin, Cantaram', library: '/libraries/goa', collab: '/artists?state=goa' },
-  'state-karnataka':           { tradition: 'Carnatic classical heartland, Yakshagana coastal theatre, Janapada folk traditions.', instruments: 'Veena, Mridangam, Chande, Nadaswaram', library: '/libraries/karnataka', collab: '/artists?state=karnataka' },
-  'state-telangana':           { tradition: 'Bathukamma flower festival music, Lambadi tribal traditions, Deccan folk heritage.', instruments: 'Dappu, Tambura, Dolu, Pamba', library: '/libraries/telangana', collab: '/artists?state=telangana' },
-  'state-andhra-pradesh':      { tradition: 'Carnatic classical, Burrakatha narrative ballads, Harikatha devotional storytelling.', instruments: 'Veena, Mridangam, Tambura, Ghatam', library: '/libraries/andhra-pradesh', collab: '/artists?state=andhra-pradesh' },
-  'state-tamil-nadu':          { tradition: 'Carnatic classical authority, Folk Parai percussion traditions, Bharatanatyam temple music.', instruments: 'Mridangam, Nadaswaram, Veena, Parai', library: '/libraries/tamil-nadu', collab: '/artists?state=tamil-nadu' },
-  'state-puducherry':          { tradition: 'French-Tamil colonial fusion, Carnatic foundations, coastal devotional music.', instruments: 'Mridangam, Nadaswaram, Violin', library: '/libraries/puducherry', collab: '/artists?state=puducherry' },
-  'state-kerala':              { tradition: 'Sopanam temple tradition, Mappila Muslim folk, Kathakali classical theatre music.', instruments: 'Chenda, Idakka, Maddalam, Edakka', library: '/libraries/kerala', collab: '/artists?state=kerala' },
-  'state-lakshadweep':         { tradition: 'Lava dance ceremonial music, Kolkali stick-dance traditions of the Arabian Sea atolls.', instruments: 'Dholak, Daff, Tabla', library: '/libraries/lakshadweep', collab: '/artists?state=lakshadweep' },
-  'state-andaman-nicobar':     { tradition: 'Nicobarese tribal traditions, Onge and Jarawa indigenous heritage, ocean-rooted rhythms.', instruments: 'Bamboo flutes, Coconut shell percussion', library: '/libraries/andaman-nicobar', collab: '/artists?state=andaman-nicobar' }
-};
+const STATE_DATA = window.__MAP_REGIONS__ || {};
 
 // ═══════════════════════════════════════════════════════════════
 // 3D PARALLAX TILT — desktop only
@@ -1779,13 +1747,18 @@ if (popupCloseBtn) {
 }
 
 // ─── CTA click safety ───
-// preventDefault stops "#" navigation; stopPropagation prevents bubble.
+// preventDefault ONLY stops the "#" placeholder navigation (before _render()
+// has set a real href) — a real state's library/collab URL must be allowed
+// through. stopPropagation prevents bubble to the document-level guard below.
 // Pointer-events on CTA children is handled by CSS so all clicks register on <a>.
 window._ctaClickGuardUntil = 0;
 [popupCta, popupCollabCta].forEach(btn => {
   if (!btn) return;
   btn.addEventListener('click', (e) => {
-    e.preventDefault();
+    const href = btn.getAttribute('href');
+    if (!href || href === '#') {
+      e.preventDefault();
+    }
     e.stopPropagation();
     e.stopImmediatePropagation();
     window._ctaClickGuardUntil = Date.now() + 300;
@@ -4501,7 +4474,7 @@ html.no-glass-blur .state-group.first-pulse { animation: none !important; }
      No API key — i.ytimg.com is the public CDN. maxresdefault only exists for
      HD uploads; when missing YouTube serves a 120x90 grey placeholder (not a
      404), detected by natural width, then we fall back to hqdefault. */
-  (function loadPosterThumb(){
+  function loadPosterThumb(){
     var poster = frame.querySelector('.hvid__poster-art');
     if (!poster || !ytId) return;
     function paint(url){
@@ -4519,7 +4492,23 @@ html.no-glass-blur .state-group.first-pulse { animation: none !important; }
     probe.onload  = function(){ paint(probe.naturalWidth > 120 ? hi : lo); };
     probe.onerror = function(){ paint(lo); };
     probe.src = hi;
-  })();
+  }
+  /* Lazy-load the 170KB+ YouTube thumbnail — only fetch it once this section
+     is close to the viewport, instead of eagerly on every page load even
+     when the user never scrolls this far. rootMargin starts the fetch well
+     before the section is actually visible so there's no pop-in; the dark
+     CSS gradient on .hvid__poster-art (below) is the placeholder until then —
+     same look as the original eager-load ever had during its own fetch time. */
+  if ('IntersectionObserver' in window) {
+    var posterIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { loadPosterThumb(); posterIO.unobserve(e.target); }
+      });
+    }, { rootMargin: '600px 0px' });
+    posterIO.observe(frame);
+  } else {
+    loadPosterThumb();
+  }
 
   /* ── Scroll reveal ── */
   if ('IntersectionObserver' in window) {
@@ -5144,62 +5133,19 @@ html.no-glass-blur .state-group.first-pulse { animation: none !important; }
     </header>
 
     <div class="faq__list">
-
-      <!-- 1 · Format & compatibility -->
+@endverbatim
+      @foreach ($faqs as $faq)
       <details class="faq-item">
         <summary class="faq-item__summary">
-          <h3 class="faq-item__q">Do I need the full version of Kontakt to use Crypto Cipher virtual instruments?</h3>
+          <h3 class="faq-item__q">{{ $faq->question }}</h3>
           <span class="faq-item__icon" aria-hidden="true"></span>
         </summary>
         <div class="faq-item__body"><div class="faq-item__body-inner"><p class="faq-item__a">
-            Each instrument page lists its format explicitly. Libraries marked <strong>For Kontakt</strong> require the full retail version of Native Instruments Kontakt 6 or higher. Libraries marked <strong>For Kontakt Player</strong> run in the free Kontakt Player. Standalone and VST3/AU plugin versions, when offered, work directly inside any modern DAW without Kontakt.
+            {!! $faq->answer !!}
           </p></div></div>
       </details>
-
-      <!-- 2 · License terms -->
-      <details class="faq-item">
-        <summary class="faq-item__summary">
-          <h3 class="faq-item__q">Can I use Crypto Cipher sounds in commercial film, TV, game, and streaming projects?</h3>
-          <span class="faq-item__icon" aria-hidden="true"></span>
-        </summary>
-        <div class="faq-item__body"><div class="faq-item__body-inner"><p class="faq-item__a">
-            Yes. Every purchase includes a perpetual <strong>royalty-free commercial license</strong> for use in original music productions: film scores, game soundtracks, TV cues, advertising, streaming releases, library music, and personal albums. The license is non-transferable and prohibits reselling or redistributing the raw samples. Full terms are on the <a href="/license">License page</a>.
-          </p></div></div>
-      </details>
-
-      <!-- 3 · Updates & support -->
-      <details class="faq-item">
-        <summary class="faq-item__summary">
-          <h3 class="faq-item__q">Do I get free updates after purchase?</h3>
-          <span class="faq-item__icon" aria-hidden="true"></span>
-        </summary>
-        <div class="faq-item__body"><div class="faq-item__body-inner"><p class="faq-item__a">
-            Yes. All updates to a purchased instrument — bug fixes, script improvements, new articulations, expanded content — are delivered free for the lifetime of that product. You'll receive download links via email whenever an update ships.
-          </p></div></div>
-      </details>
-
-      <!-- 4 · System requirements -->
-      <details class="faq-item">
-        <summary class="faq-item__summary">
-          <h3 class="faq-item__q">Will Crypto Cipher virtual instruments run on Apple Silicon (M1, M2, M3) and Windows?</h3>
-          <span class="faq-item__icon" aria-hidden="true"></span>
-        </summary>
-        <div class="faq-item__body"><div class="faq-item__body-inner"><p class="faq-item__a">
-            Yes. All instruments run natively on macOS (Intel and Apple Silicon M1/M2/M3/M4) and Windows 10/11 (64-bit). Minimum requirements: <strong>8 GB RAM, 5–25 GB free disk space</strong> depending on the library, and a host that supports VST3, AU, or AAX where applicable. Kontakt-based libraries require Kontakt 6.7+.
-          </p></div></div>
-      </details>
-
-      <!-- 5 · Custom recording / collaboration -->
-      <details class="faq-item">
-        <summary class="faq-item__summary">
-          <h3 class="faq-item__q">Can I commission custom recordings or work with your musicians directly?</h3>
-          <span class="faq-item__icon" aria-hidden="true"></span>
-        </summary>
-        <div class="faq-item__body"><div class="faq-item__body-inner"><p class="faq-item__a">
-            Yes. Our studio in India offers <strong>remote recording sessions</strong> with vetted Indian classical musicians — sitar, sarod, sarangi, bansuri, tabla, vocals, and full ensembles — delivered as edited stems within 5–10 working days. Sync licensing and bespoke Kontakt builds are also available. Start at <a href="/recording-services">Recording Services</a> or email <a href="mailto:admin@cryptocipher.in">admin@cryptocipher.in</a>.
-          </p></div></div>
-      </details>
-
+      @endforeach
+@verbatim
     </div>
   </div>
 </section>
@@ -5231,54 +5177,22 @@ html.no-glass-blur .state-group.first-pulse { animation: none !important; }
 </script>
 
 <!-- ─── JSON-LD: FAQPage schema for SEO + AI search engines ─── -->
+@endverbatim
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Do I need the full version of Kontakt to use Crypto Cipher virtual instruments?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Each instrument page lists its format explicitly. Libraries marked For Kontakt require the full retail version of Native Instruments Kontakt 6 or higher. Libraries marked For Kontakt Player run in the free Kontakt Player. Standalone and VST3/AU plugin versions, when offered, work directly inside any modern DAW without Kontakt."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use Crypto Cipher sounds in commercial film, TV, game, and streaming projects?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Every purchase includes a perpetual royalty-free commercial license for use in original music productions: film scores, game soundtracks, TV cues, advertising, streaming releases, library music, and personal albums. The license is non-transferable and prohibits reselling or redistributing the raw samples."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I get free updates after purchase?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. All updates to a purchased instrument — bug fixes, script improvements, new articulations, expanded content — are delivered free for the lifetime of that product. Download links arrive via email whenever an update ships."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Will Crypto Cipher virtual instruments run on Apple Silicon (M1, M2, M3) and Windows?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. All instruments run natively on macOS (Intel and Apple Silicon M1/M2/M3/M4) and Windows 10/11 (64-bit). Minimum requirements: 8 GB RAM, 5 to 25 GB free disk space depending on the library, and a host that supports VST3, AU, or AAX where applicable. Kontakt-based libraries require Kontakt 6.7 or higher."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I commission custom recordings or work with your musicians directly?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Our studio in India offers remote recording sessions with vetted Indian classical musicians — sitar, sarod, sarangi, bansuri, tabla, vocals, and full ensembles — delivered as edited stems within 5 to 10 working days. Sync licensing and bespoke Kontakt builds are also available."
-      }
-    }
-  ]
-}
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    'mainEntity' => $faqs->map(fn ($faq) => [
+        '@type' => 'Question',
+        'name' => $faq->question,
+        'acceptedAnswer' => [
+            '@type' => 'Answer',
+            'text' => $faq->plainAnswer(),
+        ],
+    ])->values(),
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
 </script>
+@verbatim
 <!-- ═══ END FAQ-001 ═══ -->
 
 

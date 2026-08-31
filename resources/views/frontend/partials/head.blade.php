@@ -40,6 +40,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('frontend/assets/icons/apple-touch-icon.png') }}?v={{ $faviconVersion }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/tokens.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/base.css') }}">

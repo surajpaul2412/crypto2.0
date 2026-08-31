@@ -622,79 +622,21 @@
       </div>
 
       <div class="instr-faq__list" data-reveal>
-
+@endverbatim
+        @foreach ($faqs as $faq)
         <details class="faq-item">
           <summary class="faq-item__summary">
-            <h3 class="faq-item__q">Do your libraries work with the free Kontakt Player?</h3>
+            <h3 class="faq-item__q">{{ $faq->question }}</h3>
             <span class="faq-item__icon" aria-hidden="true"></span>
           </summary>
           <div class="faq-item__body">
             <p class="faq-item__a">
-              Most Crypto Cipher libraries require <strong>Kontakt 6 Full</strong> (or higher). The free Kontakt Player will load our libraries but only for 30 minutes per session — that's a Native Instruments restriction, not ours. Each library's page lists its exact Kontakt version requirement. If you're new to Kontakt, the Full version is a one-time purchase from Native Instruments and works with thousands of third-party libraries.
+              {!! $faq->answer !!}
             </p>
           </div>
         </details>
-
-        <details class="faq-item">
-          <summary class="faq-item__summary">
-            <h3 class="faq-item__q">Can I use these libraries in commercial film, OTT, and game projects?</h3>
-            <span class="faq-item__icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq-item__body">
-            <p class="faq-item__a">
-              Yes. Every library ships with a single license that covers commercial use across film, OTT, streaming, broadcast, advertising, and games — globally. We declare all libraries as <strong>sync-cleared</strong> and <strong>AI-training-free</strong> on each library's page. The full license terms appear inline on the buy block. No tiered consumer licensing, no hidden upgrade paths.
-            </p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-item__summary">
-            <h3 class="faq-item__q">How do I install and authorize a library?</h3>
-            <span class="faq-item__icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq-item__body">
-            <p class="faq-item__a">
-              After purchase you'll receive a download link and an instruction PDF. Most libraries are loaded through Kontakt's File Browser (drag the .nki file into Kontakt). A few use Native Instruments' "Add Library" panel — the library page tells you which method applies. Authorization is done once via Native Access. Files are delivered as compressed NCW samples to keep size minimal without loss.
-            </p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-item__summary">
-            <h3 class="faq-item__q">Where are these instruments recorded?</h3>
-            <span class="faq-item__icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq-item__body">
-            <p class="faq-item__a">
-              At our studio in India. Active since 2010. Our signal chain typically runs through Royer 122 ribbons, Neumann large-diaphragm condensers, Schoeps small-diaphragm condensers, and a UAD-modeled valve preamp chain — but the chain is adjusted per instrument to capture its character authentically. Each library page lists its specific mic and recording engineer credits in the Library Credits section.
-            </p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-item__summary">
-            <h3 class="faq-item__q">What's a curated suite — is that a discount bundle?</h3>
-            <span class="faq-item__icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq-item__body">
-            <p class="faq-item__a">
-              Suites are editorial bundles — libraries chosen for how composers actually use them together in real cues. The savings are real, but the framing isn't a sale. Suites don't have countdowns, don't disappear, and don't fluctuate. If you've already bought a single library that's part of a suite, a single-library purchase credits toward the suite within 60 days of your original purchase.
-            </p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-item__summary">
-            <h3 class="faq-item__q">What if the instrument I need isn't in your catalogue?</h3>
-            <span class="faq-item__icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq-item__body">
-            <p class="faq-item__a">
-              Commission a custom recording. We have access to most Indian classical and folk instruments, and to master musicians across India. For one-time cue use, custom recording is often more cost-effective than buying a library you'll only use once. <a href="/recording-services" style="color: var(--green-light); border-bottom: 1px solid rgba(187,214,122,0.3);">Recording Services →</a>
-            </p>
-          </div>
-        </details>
-
+        @endforeach
+@verbatim
       </div>
     </section>
   </div>

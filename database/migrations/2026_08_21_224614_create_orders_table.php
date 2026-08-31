@@ -1,0 +1,40 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id();
+            // Nullable — checkout is open to guests (no auth middleware on
+            // the checkout routes). Logged-in purchases link here so they
+            // show up on the customer dashboard.
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
+            $table->string('order_number')->unique();
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone')->nullable();
+            $table->string('country');
+            $table->string('payment_method');
+            $table->decimal('subtotal', 10, 2);
+            $table->string('status')->default('placed');
+            $table->timestamp('placed_at');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('orders');
+    }
+};

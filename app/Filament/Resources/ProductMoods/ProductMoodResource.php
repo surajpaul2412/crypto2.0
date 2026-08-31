@@ -18,7 +18,7 @@ class ProductMoodResource extends Resource
 {
     protected static ?string $model = ProductMood::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedFaceSmile;
 
     protected static string|\UnitEnum|null $navigationGroup = 'Shop';
 
