@@ -5,6 +5,12 @@ namespace App\Filament\Resources\RecordingInstruments;
 use App\Filament\Resources\RecordingInstruments\Pages\CreateRecordingInstrument;
 use App\Filament\Resources\RecordingInstruments\Pages\EditRecordingInstrument;
 use App\Filament\Resources\RecordingInstruments\Pages\ListRecordingInstruments;
+use App\Filament\Resources\RecordingInstruments\RelationManagers\AnatomyPartsRelationManager;
+use App\Filament\Resources\RecordingInstruments\RelationManagers\FaqsRelationManager;
+use App\Filament\Resources\RecordingInstruments\RelationManagers\PairsRelationManager;
+use App\Filament\Resources\RecordingInstruments\RelationManagers\TracksRelationManager;
+use App\Filament\Resources\RecordingInstruments\RelationManagers\VariantsRelationManager;
+use App\Filament\Resources\RecordingInstruments\RelationManagers\VideosRelationManager;
 use App\Filament\Resources\RecordingInstruments\Schemas\RecordingInstrumentForm;
 use App\Filament\Resources\RecordingInstruments\Tables\RecordingInstrumentsTable;
 use App\Models\RecordingInstrument;
@@ -37,7 +43,12 @@ class RecordingInstrumentResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            VideosRelationManager::class,
+            TracksRelationManager::class,
+            AnatomyPartsRelationManager::class,
+            VariantsRelationManager::class,
+            PairsRelationManager::class,
+            FaqsRelationManager::class,
         ];
     }
 

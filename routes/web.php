@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Str;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
@@ -52,17 +51,7 @@ Route::group(
         Route::get('/faq', fn() => view('frontend.faq'))->name('faq');
 
         Route::get('/recording-services', [\App\Http\Controllers\RecordingServicesController::class, 'index'])->name('recording-services');
-        Route::get('/recording/{slug}', function (string $slug) {
-            $instrumentName = Str::of($slug)->replace('-', ' ')->title()->toString();
-
-            return view('frontend.recording-services-inner', [
-                'instrument' => (object) [
-                    'name' => $instrumentName,
-                    'slug' => $slug,
-                    'meta_description' => "Custom {$instrumentName} recording sessions with Indian master musicians.",
-                ],
-            ]);
-        })->name('recording-services.show');
+        Route::get('/recording/{slug}', [\App\Http\Controllers\RecordingServicesController::class, 'show'])->name('recording-services.show');
         Route::get('/contact-us', fn() => view('frontend.contact'))->name('contact');
         Route::get('/remote-recordings', fn() => view('frontend.remote-recordings'))->name('remote-recordings');
         Route::get('/heritage-performances', [\App\Http\Controllers\HeritagePerformanceController::class, 'index'])->name('heritage-performances');

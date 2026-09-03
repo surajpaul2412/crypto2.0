@@ -1,12 +1,14 @@
 @extends('frontend.layouts.static-site')
 
 @php
+    $instrumentMetaDescription = $instrument->meta_description
+        ?: "Custom {$instrument->name} recording sessions with Indian master musicians.";
     $pageTitle = $instrument->name . ' — Live Recording Sessions · Crypto Cipher®';
-    $pageDescription = $instrument->meta_description;
-    $pageCanonical = 'https://cryptocipher.in/recording/' . $instrument->slug;
-    $pageOgUrl = 'https://cryptocipher.in/recording/' . $instrument->slug;
+    $pageDescription = $instrumentMetaDescription;
+    $pageCanonical = 'https://cryptocipher.in/recording/' . $instrument->detail_slug;
+    $pageOgUrl = 'https://cryptocipher.in/recording/' . $instrument->detail_slug;
     $pageOgTitle = $instrument->name . ' Remote Recording — Crypto Cipher';
-    $pageOgDescription = $instrument->meta_description;
+    $pageOgDescription = $instrumentMetaDescription;
     $pageOgImage = 'https://cryptocipher.in/og/recording-inner.png?v=1';
     $pageOgImageAlt = 'Crypto Cipher Audio Lab — ' . $instrument->name . ' Recording';
     $pageTwitterImage = 'https://cryptocipher.in/og/recording-inner.png?v=1';

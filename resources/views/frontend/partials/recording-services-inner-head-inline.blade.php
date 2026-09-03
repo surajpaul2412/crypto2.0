@@ -4674,18 +4674,18 @@ body::after {
 
 </style>
 
-<!-- ─── Stage 3 JSON-LD: Service (TEMPLATE — dev binds $instrument) + BreadcrumbList ─── -->
+<!-- ─── Stage 3 JSON-LD: Service + BreadcrumbList — data-driven per instrument ─── -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://cryptocipher.in/recording/{{ $instrument->slug }}#service",
+  "@id": "https://cryptocipher.in/recording/{{ $instrument->detail_slug }}#service",
   "serviceType": "Remote {{ $instrument->name }} recording",
   "name": "{{ $instrument->name }} Live Recording Sessions",
   "provider": { "@id": "https://cryptocipher.in/#organization" },
   "areaServed": "Worldwide",
-  "url": "https://cryptocipher.in/recording/{{ $instrument->slug }}",
-  "description": "{{ $instrument->meta_description }}"
+  "url": "https://cryptocipher.in/recording/{{ $instrument->detail_slug }}",
+  "description": {!! json_encode($instrument->meta_description ?: "Custom {$instrument->name} recording sessions with Indian master musicians.") !!}
 }
 </script>
 <script type="application/ld+json">
@@ -4695,32 +4695,32 @@ body::after {
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cryptocipher.in/" },
     { "@type": "ListItem", "position": 2, "name": "Recording", "item": "https://cryptocipher.in/recording" },
-    { "@type": "ListItem", "position": 3, "name": "{{ $instrument->name }}", "item": "https://cryptocipher.in/recording/{{ $instrument->slug }}" }
+    { "@type": "ListItem", "position": 3, "name": "{{ $instrument->name }}", "item": "https://cryptocipher.in/recording/{{ $instrument->detail_slug }}" }
   ]
 }
 </script>
 
-<!-- ─── Stage 4 AEO JSON-LD: FAQPage (TEMPLATE, per-instrument loop) + DefinedTermSet ───
-     FAQ data-driven: dev binds $instrument->faqs (question, answer ≤300 chars).
-     Example reference values are the Sitar page. Vary phrasing per instrument in DB. -->
+@if ($instrument->faqs->isNotEmpty())
+<!-- ─── Stage 4 AEO JSON-LD: FAQPage — data-driven per instrument ─── -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "@id": "https://cryptocipher.in/recording/{{ $instrument->slug }}#faq",
+  "@id": "https://cryptocipher.in/recording/{{ $instrument->detail_slug }}#faq",
   "isPartOf": { "@id": "https://cryptocipher.in/#website" },
   "about": { "@id": "https://cryptocipher.in/recording#service" },
   "mainEntity": [
-    {{-- @foreach ($instrument->faqs as $faq) --}}
+    @foreach ($instrument->faqs as $faq)
     {
       "@type": "Question",
-      "name": "{{ $faq->question }}",
-      "acceptedAnswer": { "@type": "Answer", "text": "{{ $faq->answer }}" }
-    }{{-- @if (!$loop->last) --}},{{-- @endif --}}
-    {{-- @endforeach --}}
+      "name": {!! json_encode($faq->question) !!},
+      "acceptedAnswer": { "@type": "Answer", "text": {!! json_encode($faq->plainAnswer()) !!} }
+    }@if (!$loop->last),@endif
+    @endforeach
   ]
 }
 </script>
+@endif
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

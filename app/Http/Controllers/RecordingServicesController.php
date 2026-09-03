@@ -28,4 +28,24 @@ class RecordingServicesController extends Controller
             'faqs' => Faq::forPageOrdered('recording-services'),
         ]);
     }
+
+    public function show(string $slug)
+    {
+        $instrument = RecordingInstrument::published()
+            ->where('detail_slug', $slug)
+            ->with([
+                'category',
+                'videos',
+                'tracks',
+                'anatomyParts',
+                'variants',
+                'pairs.pairedInstrument',
+                'faqs' => fn ($q) => $q->active(),
+            ])
+            ->firstOrFail();
+
+        return view('frontend.recording-services-inner', [
+            'instrument' => $instrument,
+        ]);
+    }
 }
