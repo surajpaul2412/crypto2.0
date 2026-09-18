@@ -1,0 +1,434 @@
+/* ═══ 404 page — layout ported from static-site/06_404.html ═══
+   All design tokens, fonts, nav, footer, cosmic-bg, scrollbars, animations
+   are inherited from the shared site CSS (tokens/base/system/shell/polish)
+   already loaded by frontend.partials.head. This file only adds: hero
+   (404 number), triage layers, intent picker, search results, browse grid,
+   final CTA. */
+
+/* ─── Main wrapper · transparent (cosmic-bg bleeds through) ─── */
+.lost-main {
+  position: relative;
+  z-index: 2;
+  padding: 10rem 3rem 4rem;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* ─── Hero · 404 ─── */
+.lost-hero {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.lost-hero__eyebrow {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  font-size: 0.5rem; font-weight: 700;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 1.4rem;
+}
+.lost-hero__eyebrow::before {
+  content: "";
+  width: 24px; height: 1px;
+  background: linear-gradient(90deg, var(--green-primary), transparent);
+}
+.lost-hero__num {
+  font-family: "Playfair Display", serif;
+  font-weight: 900;
+  font-size: clamp(5.5rem, 14vw, 11rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffffff 0%, #BBD67A 55%, #75C249 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding-bottom: 0.1em;
+}
+.lost-hero__title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 0 0 1rem;
+  color: #fff;
+}
+.lost-hero__title em {
+  font-style: normal;
+  display: inline-block;
+  background: linear-gradient(135deg, #ffffff 0%, #BBD67A 55%, #75C249 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.1em;
+}
+.lost-hero__sub {
+  font-size: clamp(0.78rem, 1vw, 0.9rem);
+  color: var(--text-muted);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+.lost-hero__url {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.5rem;
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(255,255,255, 0.55);
+  background: rgba(0,0,0, 0.35);
+  border: 1px solid rgba(187,214,122, 0.18);
+  border-radius: 6px;
+  padding: 0.55rem 0.85rem;
+  letter-spacing: 0.02em;
+  word-break: break-all;
+  max-width: 100%;
+}
+/* Terminal "404 //" prefix — the page's one handcrafted moment. */
+.lost-hero__url::before {
+  content: "404 //";
+  color: var(--green-light);
+  opacity: 0.7;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.lost-hero__url-label { display: none; }
+/* Blinking caret · the only intentional infinite animation on this page. */
+.lost-hero__url::after {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 0.9em;
+  background: var(--green-light);
+  margin-left: 2px;
+  animation: lostHeroCaret 1.1s steps(2, jump-none) infinite;
+  flex-shrink: 0;
+}
+@keyframes lostHeroCaret {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lost-hero__url::after { animation: none; opacity: 0.5; }
+}
+
+/* ─── Triage container · stacks 3 layer cards with inner rhythm ─── */
+.triage {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.triage-layer {
+  position: relative;
+  background: rgba(255,255,255, 0.025);
+  border: 1px solid var(--glass-border);
+  border-top-color: rgba(255,255,255, 0.10);
+  border-radius: 14px;
+  padding: 1.6rem 1.8rem 1.8rem;
+}
+.triage-layer__head {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(255,255,255, 0.04);
+}
+.triage-layer__num {
+  width: 32px; height: 32px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255, 0.04);
+  border: 1px solid rgba(255,255,255, 0.10);
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--green-light);
+}
+.triage-layer__title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+  color: #fff;
+}
+.triage-layer__sub {
+  font-size: 0.72rem; font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-top: 0.15rem;
+}
+
+/* ═══ Layer 1 · Auto-suggest ═══ */
+.suggest {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.85rem;
+}
+.suggest__card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: rgba(255,255,255, 0.025);
+  border: 1px solid rgba(255,255,255, 0.06);
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+}
+.suggest__card::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 22%; bottom: 22%;
+  width: 2px;
+  background: var(--green-primary);
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.suggest__card:hover {
+  background: rgba(255,255,255, 0.05);
+  border-color: rgba(255,255,255, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0,0,0, 0.3);
+}
+.suggest__card:hover::before { opacity: 1; }
+.suggest__thumb {
+  flex-shrink: 0;
+  width: 48px; height: 48px;
+  border-radius: 10px;
+}
+.suggest__info {
+  flex: 1; min-width: 0;
+  display: flex; flex-direction: column; gap: 0.15rem;
+}
+.suggest__name {
+  font-family: "Playfair Display", serif;
+  font-size: 0.82rem; font-weight: 700;
+  color: #fff;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.suggest__type {
+  font-size: 0.5rem; font-weight: 700;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--green-light);
+}
+.suggest__arrow {
+  flex-shrink: 0;
+  color: rgba(255,255,255, 0.35);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s ease;
+}
+.suggest__card:hover .suggest__arrow {
+  color: var(--green-light);
+  transform: translateX(3px);
+}
+
+/* ═══ Layer 2 · Intent picker ═══ */
+.intent {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+.intent__btn {
+  position: relative;
+  display: flex; flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 1.1rem 1.15rem;
+  border-radius: 12px;
+  background: rgba(255,255,255, 0.025);
+  border: 1px solid rgba(255,255,255, 0.06);
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+  text-align: left;
+}
+.intent__btn:hover {
+  border-color: rgba(255,255,255, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0,0,0, 0.3);
+  background: rgba(255,255,255, 0.04);
+}
+.intent__icon {
+  width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 8px;
+  background: rgba(255,255,255, 0.05);
+  color: var(--green-light);
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.intent__btn:hover .intent__icon {
+  background: rgba(117,194,73, 0.16);
+}
+.intent__icon svg { width: 16px; height: 16px; }
+.intent__label {
+  font-size: 0.82rem; font-weight: 700;
+  color: #fff; line-height: 1.3;
+}
+.intent__desc {
+  font-size: 0.62rem; font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ═══ Layer 3 · Search + browse fallback ═══ */
+.search-wrap {
+  position: relative;
+  margin-bottom: 1.2rem;
+}
+.search-input {
+  width: 100%;
+  background: rgba(255,255,255, 0.04);
+  border: 1px solid rgba(255,255,255, 0.08);
+  border-top-color: rgba(255,255,255, 0.14);
+  border-radius: 10px;
+  padding: 0.95rem 1rem 0.95rem 2.85rem;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.92rem;
+  color: #fff;
+  letter-spacing: 0.01em;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.search-input::placeholder { color: rgba(255,255,255, 0.35); }
+.search-input:focus {
+  outline: none;
+  border-color: rgba(117,194,73, 0.4);
+  background: rgba(255,255,255, 0.06);
+  box-shadow: 0 0 0 3px rgba(117,194,73, 0.10);
+}
+.search-icon {
+  position: absolute;
+  top: 50%; left: 1rem;
+  transform: translateY(-50%);
+  color: rgba(255,255,255, 0.35);
+  pointer-events: none;
+}
+.search-icon svg { width: 16px; height: 16px; }
+.search-results {
+  margin-top: 0.65rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.search-results.active { display: flex; }
+.search-result {
+  display: flex; align-items: center;
+  gap: 0.7rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  background: rgba(255,255,255, 0.02);
+  border: 1px solid rgba(255,255,255, 0.05);
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.78rem;
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.search-result:hover {
+  background: rgba(255,255,255, 0.05);
+  border-color: rgba(117,194,73, 0.22);
+}
+.search-result-type {
+  font-size: 0.5rem; font-weight: 700;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--green-light);
+}
+.search-empty {
+  padding: 0.85rem;
+  text-align: center;
+  color: rgba(255,255,255, 0.45);
+  font-size: 0.75rem;
+}
+
+.browse-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.55rem;
+  margin-top: 0.5rem;
+}
+.browse-tile {
+  position: relative;
+  padding: 0.7rem 0.85rem;
+  border-radius: 9px;
+  font-size: 0.7rem; font-weight: 500;
+  color: rgba(255,255,255, 0.78);
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255, 0.05);
+  background: rgba(255,255,255, 0.018);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 0.4rem;
+}
+.browse-tile:hover {
+  background: rgba(255,255,255, 0.04);
+  border-color: rgba(117,194,73, 0.22);
+  color: #fff;
+  transform: translateY(-1px);
+}
+.browse-tile__arrow {
+  font-size: 0.7rem;
+  color: rgba(255,255,255, 0.3);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.browse-tile:hover .browse-tile__arrow {
+  color: var(--green-light);
+  transform: translateX(2px);
+}
+
+/* ─── Back-to-home anchor — the .cta-pill itself is owned by polish.css ─── */
+.lost-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.6rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255,255,255, 0.04);
+}
+.lost-cta__label {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: rgba(255,255,255, 0.45);
+}
+@media (max-width: 480px) {
+  .lost-cta {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+}
+
+/* ─── Mobile ─── */
+@media (max-width: 1024px) {
+  .lost-main { padding: 6.5rem 1.5rem 3rem; gap: 3rem; }
+  .triage-layer { padding: 1.4rem 1.4rem 1.6rem; }
+}
+@media (max-width: 768px) {
+  .lost-hero__num { font-size: clamp(4.5rem, 22vw, 8rem); }
+  .triage { gap: 1.4rem; }
+  .triage-layer__head { gap: 0.6rem; }
+  .triage-layer__title { font-size: 0.95rem; }
+  .suggest { grid-template-columns: 1fr; }
+  .intent { grid-template-columns: 1fr 1fr; }
+  .browse-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+}
+@media (max-width: 560px) {
+  .lost-main { padding: 6.5rem 1.1rem 2.5rem; gap: 2.5rem; }
+  .triage-layer { padding: 1.2rem 1.1rem 1.4rem; }
+}
