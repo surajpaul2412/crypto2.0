@@ -39,5 +39,12 @@ class DatabaseSeeder extends Seeder
         $this->call(HeritagePerformanceSeeder::class);
         $this->call(RecordingInstrumentSeeder::class);
         $this->call(ProductSeeder::class);
+        $this->call(SitarRecordingInstrumentSeeder::class);
+        $this->call(SarangiRecordingInstrumentSeeder::class);
+        $this->call(SuccessStorySeeder::class);
+        $this->call(MapRegionSeeder::class);
+        $this->call(FaqSeeder::class);
+        $this->call(TeamMemberSeeder::class);
+        $this->call(GalleryImageSeeder::class);
     }
 }

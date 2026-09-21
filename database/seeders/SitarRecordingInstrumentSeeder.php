@@ -39,6 +39,7 @@ class SitarRecordingInstrumentSeeder extends Seeder
             'subhead_accent' => 'Indian Sitar Recording Sessions',
             'subhead_body' => "— custom live recordings for film, game & OTT composers, performed by master Hindustani sitarists.",
             'tagline' => "India's voice of longing — bent notes, sympathetic resonance, the sound that tells the West it's hearing the East.",
+            'anatomy_image_path' => 'frontend/assets/img/instruments/anatomy/sitar-anatomy.svg',
             'anatomy_photo_aspect' => '1/2',
             'sonic_range_start_pct' => 20,
             'sonic_range_end_pct' => 85,

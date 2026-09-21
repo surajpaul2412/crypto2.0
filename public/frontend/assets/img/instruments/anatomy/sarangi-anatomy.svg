@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 800" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="woodGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="rgba(0,0,0,0.65)"/>
+      <stop offset="20%"  stop-color="rgba(117,194,73,0.10)"/>
+      <stop offset="45%"  stop-color="rgba(187,214,122,0.22)"/>
+      <stop offset="60%"  stop-color="rgba(187,214,122,0.16)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.7)"/>
+    </linearGradient>
+    <linearGradient id="pegboxGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="rgba(187,214,122,0.32)"/>
+      <stop offset="100%" stop-color="rgba(117,194,73,0.12)"/>
+    </linearGradient>
+    <radialGradient id="tunGrad" cx="40%" cy="30%" r="75%">
+      <stop offset="0%"   stop-color="rgba(187,214,122,0.28)"/>
+      <stop offset="45%"  stop-color="rgba(117,194,73,0.14)"/>
+      <stop offset="100%" stop-color="rgba(8,12,18,0.95)"/>
+    </radialGradient>
+    <radialGradient id="skinGrad" cx="45%" cy="35%" r="70%">
+      <stop offset="0%"   stop-color="rgba(255,255,255,0.20)"/>
+      <stop offset="60%"  stop-color="rgba(187,214,122,0.08)"/>
+      <stop offset="100%" stop-color="rgba(8,12,18,0.7)"/>
+    </radialGradient>
+  </defs>
+
+  <!-- PEGBOX · carved scroll head with gut-string pegs -->
+  <g id="svg-pegbox">
+    <path d="M 182 50 L 176 175 L 224 175 L 218 50 Q 212 36, 200 36 Q 188 36, 182 50 Z"
+          fill="url(#pegboxGrad)" stroke="rgba(187,214,122,0.85)" stroke-width="1.4"/>
+    <path d="M 224 175 L 218 50 Q 212 36, 200 36 L 200 175 Z" fill="rgba(0,0,0,0.3)"/>
+    <g fill="rgba(187,214,122,0.7)" stroke="rgba(255,255,255,0.3)" stroke-width="0.5">
+      <rect x="150" y="66" width="32" height="6" rx="3"/>
+      <rect x="150" y="90" width="32" height="6" rx="3"/>
+      <rect x="150" y="114" width="32" height="6" rx="3"/>
+      <rect x="218" y="78" width="32" height="6" rx="3"/>
+    </g>
+    <g fill="rgba(187,214,122,0.6)" stroke="rgba(255,255,255,0.4)" stroke-width="0.5">
+      <ellipse cx="149" cy="69" rx="5" ry="4"/>
+      <ellipse cx="149" cy="93" rx="5" ry="4"/>
+      <ellipse cx="149" cy="117" rx="5" ry="4"/>
+      <ellipse cx="251" cy="81" rx="5" ry="4"/>
+    </g>
+  </g>
+
+  <!-- NECK · short fingerboard -->
+  <g id="svg-neck">
+    <path d="M 178 175 L 176 330 L 224 330 L 222 175 Z"
+          fill="url(#woodGrad)" stroke="rgba(255,255,255,0.22)" stroke-width="1.2"/>
+    <line x1="200" y1="180" x2="200" y2="325" stroke="rgba(255,255,255,0.08)" stroke-width="1.2"/>
+  </g>
+
+  <!-- TUN · single carved block body (upper hollow chest) -->
+  <g id="svg-tun">
+    <path d="M 176 330 C 140 345, 118 385, 122 440 C 126 495, 150 540, 172 565 L 228 565 C 250 540, 274 495, 278 440 C 282 385, 260 345, 224 330 Z"
+          fill="url(#tunGrad)" stroke="rgba(187,214,122,0.75)" stroke-width="1.6"/>
+    <path d="M 160 385 Q 200 360, 240 385" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+    <ellipse cx="160" cy="420" rx="14" ry="30" fill="rgba(255,255,255,0.06)"/>
+    <!-- sound-hole cut-outs -->
+    <ellipse cx="200" cy="440" rx="36" ry="46" fill="rgba(8,12,18,0.55)" stroke="rgba(187,214,122,0.5)" stroke-width="1"/>
+    <ellipse cx="200" cy="440" rx="24" ry="32" fill="none" stroke="rgba(187,214,122,0.2)" stroke-width="0.7"/>
+  </g>
+
+  <!-- CHAMDI · parchment belly -->
+  <g id="svg-chamdi">
+    <ellipse cx="200" cy="785" rx="100" ry="8" fill="rgba(0,0,0,0.6)" opacity="0.7"/>
+    <path d="M 172 565 C 125 580, 100 630, 104 680 C 108 735, 150 776, 200 776 C 250 776, 292 735, 296 680 C 300 630, 275 580, 228 565 Z"
+          fill="url(#skinGrad)" stroke="rgba(187,214,122,0.75)" stroke-width="1.6"/>
+    <ellipse cx="200" cy="660" rx="72" ry="78" fill="none" stroke="rgba(187,214,122,0.16)" stroke-width="0.7"/>
+    <ellipse cx="200" cy="660" rx="48" ry="52" fill="none" stroke="rgba(187,214,122,0.12)" stroke-width="0.7"/>
+    <!-- bridge (ghoraj) -->
+    <rect x="170" y="640" width="60" height="9" rx="2" fill="rgba(255,255,255,0.22)" stroke="rgba(187,214,122,0.85)" stroke-width="1"/>
+    <!-- tailpiece -->
+    <rect x="188" y="752" width="24" height="10" rx="2" fill="rgba(187,214,122,0.4)" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+  </g>
+
+  <!-- TANT · three main gut playing strings (drawn over the body, to the bridge) -->
+  <g id="svg-gut" stroke="rgba(255,255,255,0.85)" stroke-width="1.3" stroke-linecap="round">
+    <line x1="194" y1="120" x2="190" y2="644"/>
+    <line x1="200" y1="120" x2="200" y2="644"/>
+    <line x1="206" y1="120" x2="210" y2="644"/>
+  </g>
+
+  <!-- TARAB · sympathetic steel strings, tuned from side pegs on the right -->
+  <g id="svg-tarab">
+    <g stroke="rgba(117,194,73,0.65)" stroke-width="0.6" stroke-linecap="round">
+      <line x1="218" y1="200" x2="214" y2="640"/>
+      <line x1="218" y1="216" x2="216" y2="640"/>
+      <line x1="218" y1="232" x2="218" y2="640"/>
+      <line x1="218" y1="248" x2="220" y2="640"/>
+      <line x1="218" y1="264" x2="222" y2="640"/>
+      <line x1="218" y1="280" x2="224" y2="640"/>
+      <line x1="218" y1="296" x2="226" y2="640"/>
+    </g>
+    <g fill="rgba(187,214,122,0.95)" stroke="rgba(255,255,255,0.4)" stroke-width="0.5">
+      <circle cx="230" cy="200" r="2.6"/>
+      <circle cx="230" cy="216" r="2.6"/>
+      <circle cx="230" cy="232" r="2.6"/>
+      <circle cx="230" cy="248" r="2.6"/>
+      <circle cx="230" cy="264" r="2.6"/>
+      <circle cx="230" cy="280" r="2.6"/>
+      <circle cx="230" cy="296" r="2.6"/>
+    </g>
+  </g>
+</svg>
