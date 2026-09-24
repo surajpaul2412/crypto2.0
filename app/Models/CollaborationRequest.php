@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasReadStatus;
 use Illuminate\Database\Eloquent\Model;
 
 class CollaborationRequest extends Model
 {
+    use HasReadStatus;
+
     protected $fillable = [
         'programme',
         'route_key',

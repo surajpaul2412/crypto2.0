@@ -2560,6 +2560,7 @@ body::before {
   background: #0d1410;
   color: #fff;
 }
+.booking-form__input--select optgroup { background-color: #22292e; }
 .booking-form__input--textarea {
   resize: vertical;
   min-height: 90px;

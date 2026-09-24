@@ -8,8 +8,11 @@
 @if ($pageCanonical !== '')
 <link rel="canonical" href="{{ $pageCanonical }}">
 @endif
+@foreach (\Mcamara\LaravelLocalization\Facades\LaravelLocalization::getSupportedLocales() as $ccCode => $ccProps)
+<link rel="alternate" hreflang="{{ $ccCode }}" href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::getLocalizedURL($ccCode, null, [], true) }}">
+@endforeach
 <meta name="robots" content="index,follow">
-<meta http-equiv="content-language" content="en-IN">
+<meta http-equiv="content-language" content="{{ str_replace('_', '-', app()->getLocale()) }}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Crypto Cipher Audio Lab">
 <meta property="og:locale" content="en_IN">

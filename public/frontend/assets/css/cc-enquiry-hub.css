@@ -228,3 +228,6 @@
   line-height: 1.55; color: var(--text-secondary, rgba(255,255,255,0.65)); margin: 0 0 0.5rem;
 }
 .cchub__note p:last-child { margin-bottom: 0; }
+
+/* Native <select> group headings */
+optgroup { background-color: #22292e; }

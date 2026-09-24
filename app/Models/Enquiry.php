@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasReadStatus;
 use Illuminate\Database\Eloquent\Model;
 
 class Enquiry extends Model
 {
+    use HasReadStatus;
+
     protected $fillable = [
         'type',
         'programme',

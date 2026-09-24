@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-IN">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 @include('frontend.partials.head', [
     'pageTitle' => $pageTitle ?? 'Crypto Cipher Audio Lab',
