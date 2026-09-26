@@ -30,6 +30,8 @@
 
   <div class="cc-nav__mobile-divider" aria-hidden="true"></div>
 
+  @include('frontend.partials.language-switcher-mobile')
+
   <a href="https://svantra.in" class="cc-nav__mobile-cta" target="_blank" rel="noopener noreferrer">
     <span>Svantra</span>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;margin-left:0.5rem;"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>

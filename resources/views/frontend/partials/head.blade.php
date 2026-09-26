@@ -11,6 +11,7 @@
 @foreach (\Mcamara\LaravelLocalization\Facades\LaravelLocalization::getSupportedLocales() as $ccCode => $ccProps)
 <link rel="alternate" hreflang="{{ $ccCode }}" href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::getLocalizedURL($ccCode, null, [], true) }}">
 @endforeach
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/language-switcher.css') }}?v={{ @filemtime(public_path('frontend/assets/css/language-switcher.css')) }}">
 <meta name="robots" content="index,follow">
 <meta http-equiv="content-language" content="{{ str_replace('_', '-', app()->getLocale()) }}">
 <meta property="og:type" content="website">

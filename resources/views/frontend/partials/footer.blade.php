@@ -111,6 +111,5 @@
       </div>
       <div class="ft__trusted">{{ __('site.ft_trusted') }}</div>
     </div>
-    @include('frontend.partials.language-switcher')
   </div>
 </footer>

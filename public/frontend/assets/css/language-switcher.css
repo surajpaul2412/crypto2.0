@@ -1,0 +1,49 @@
+/* Language switcher — globe button + dropdown in the top nav, code pills in the mobile menu */
+.cc-nav__item--lang { position: relative; }
+
+.cc-nav__link--lang {
+  background: none;
+  border: none;
+  font-family: "Outfit", sans-serif;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.32rem 0.6rem;
+  border-radius: 9px;
+  color: var(--nav-text, rgba(255,255,255,0.7));
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  white-space: nowrap;
+}
+.cc-nav__link--lang:hover,
+.cc-nav__link--lang[aria-expanded="true"] {
+  color: var(--nav-text-hover, #fff);
+  background: var(--nav-glass-hover, rgba(255,255,255,0.06));
+}
+.cc-nav__link--lang:hover .cc-nav__icon { color: var(--nav-accent, #75c249); }
+
+/* Dropdown aligns to the right edge so it never overflows the viewport */
+.cc-nav__dropdown--lang { left: auto; right: 0; min-width: 150px; transform: translateY(-6px) scale(0.96); transform-origin: top right; }
+.cc-nav__dropdown--lang.open { transform: translateY(0) scale(1); }
+.cc-nav__dropdown--lang::before { left: auto; right: 1.1rem; transform: rotate(45deg); }
+
+.cc-lang__code {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 1.9rem; padding: 0.12rem 0.35rem; border-radius: 6px;
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.06em;
+  color: #bbd67a; background: rgba(117,194,73,0.12); border: 1px solid rgba(117,194,73,0.25);
+}
+.cc-nav__dropdown-item.is-active { color: #fff; background: rgba(117,194,73,0.14); }
+.cc-nav__dropdown-item.is-active .cc-lang__code { color: #0d1117; background: #75c249; border-color: #75c249; }
+
+.cc-lang-mobile { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0.4rem 1rem 0.6rem; }
+.cc-lang-mobile__link {
+  min-width: 2.6rem; padding: 0.4rem 0.7rem; text-align: center; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-decoration: none;
+  color: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.16);
+}
+.cc-lang-mobile__link.is-active { color: #0d1117; background: #75c249; border-color: #75c249; }

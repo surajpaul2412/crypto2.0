@@ -60,6 +60,8 @@
         </a>
       </div>
     </li>
+
+    @include('frontend.partials.language-switcher')
   </ul>
 
   <a href="https://svantra.in" class="cc-nav__svantra" target="_blank" rel="noopener noreferrer" data-magnetic aria-label="{{ __('site.aria_svantra_tab') }}">
