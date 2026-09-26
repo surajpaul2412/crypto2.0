@@ -39,21 +39,21 @@
         <span class="cc-nav__badge" data-cart-total hidden aria-hidden="true">0</span>
       </button>
       <div class="cc-nav__dropdown cc-nav__dropdown--right" id="cc-nav-account-dropdown" role="menu" aria-hidden="true">
-        <a href="#" class="cc-nav__dropdown-item" role="menuitem" data-auth="signin">
+        <a href="{{ route('login') }}" class="cc-nav__dropdown-item" role="menuitem">
           <svg class="cc-nav__dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
           <span>{{ __('site.nav_signin') }}</span>
         </a>
-        <a href="#" class="cc-nav__dropdown-item" role="menuitem" data-auth="signup">
+        <a href="{{ route('register') }}" class="cc-nav__dropdown-item" role="menuitem">
           <svg class="cc-nav__dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
           <span>{{ __('site.nav_signup') }}</span>
         </a>
         <span class="cc-nav__dropdown-divider" role="separator"></span>
-        <a href="#" class="cc-nav__dropdown-item" role="menuitem" data-action="wishlist-view">
+        <a href="{{ route('wishlist.index') }}" class="cc-nav__dropdown-item" role="menuitem">
           <svg class="cc-nav__dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           <span>{{ __('site.nav_wishlist') }}</span>
           <span class="cc-nav__dropdown-count" data-wishlist-count hidden>0</span>
         </a>
-        <a href="#" class="cc-nav__dropdown-item" role="menuitem" data-action="cart-view">
+        <a href="{{ route('cart.index') }}" class="cc-nav__dropdown-item" role="menuitem">
           <svg class="cc-nav__dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
           <span>{{ __('site.nav_cart') }}</span>
           <span class="cc-nav__dropdown-count" data-cart-count hidden>0</span>

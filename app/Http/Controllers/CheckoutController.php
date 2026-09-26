@@ -114,8 +114,8 @@ class CheckoutController extends Controller
                 continue;
             }
 
-            $quantity = max(1, (int) ($entry['quantity'] ?? 1));
-            $lineTotal = $quantity * (float) $product->price;
+            $quantity = 1; // digital licence: one per product
+            $lineTotal = (float) $product->price;
             $subtotal += $lineTotal;
 
             $items[] = [

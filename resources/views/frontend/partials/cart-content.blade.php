@@ -42,12 +42,6 @@
           <div class="cart-item__aside">
             <span class="cart-item__line-total" data-line-total>${{ number_format($item['line_total'], 2) }}</span>
 
-            <div class="cart-qty" role="group" aria-label="Quantity for {{ $item['name'] }}">
-              <button type="button" class="cart-qty__btn" data-qty-decrease aria-label="Decrease quantity">&minus;</button>
-              <input type="number" class="cart-qty__input" data-qty-input value="{{ $item['quantity'] }}" min="1" max="99" inputmode="numeric" aria-label="Quantity">
-              <button type="button" class="cart-qty__btn" data-qty-increase aria-label="Increase quantity">+</button>
-            </div>
-
             <button type="button" class="cart-item__remove" data-cart-remove>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               <span>Remove</span>

@@ -40,7 +40,6 @@ Route::group(
         Route::post('/wishlist/move-to-cart/{slug}', [WishlistController::class, 'moveToCart'])->name('wishlist.move_to_cart');
         Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
         Route::post('/cart/add/{slug}', [CartController::class, 'store'])->name('cart.add');
-        Route::post('/cart/update/{slug}', [CartController::class, 'update'])->name('cart.update');
         Route::post('/cart/remove/{slug}', [CartController::class, 'destroy'])->name('cart.remove');
         Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
         Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');

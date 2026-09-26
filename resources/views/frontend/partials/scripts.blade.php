@@ -25,10 +25,9 @@
 </script>
 <script src="{{ asset('frontend/assets/js/wishlist-actions.js') }}?v={{ file_exists(public_path('frontend/assets/js/wishlist-actions.js')) ? filemtime(public_path('frontend/assets/js/wishlist-actions.js')) : time() }}"></script>
 <script>
-  window.__CART_COUNT__ = {!! (int) collect(session('cart', []))->sum(fn ($item) => (int) ($item['quantity'] ?? 0)) !!};
+  window.__CART_COUNT__ = {!! count(session('cart', [])) !!};
   window.__CART_URLS__ = {
     add: {!! json_encode(route('cart.add', ['slug' => '__SLUG__'])) !!},
-    update: {!! json_encode(route('cart.update', ['slug' => '__SLUG__'])) !!},
     remove: {!! json_encode(route('cart.remove', ['slug' => '__SLUG__'])) !!},
     checkout: {!! json_encode(route('checkout.index')) !!}
   };

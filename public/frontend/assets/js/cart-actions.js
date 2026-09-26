@@ -59,6 +59,7 @@
 
         btn.classList.remove('is-loading');
         btn.classList.add('is-added');
+        if (label && data.alreadyInCart) label.textContent = 'Already in cart';
         document.querySelectorAll('[data-action="cart"][data-slug="' + slug + '"]').forEach(function (b) {
           b.classList.add('is-added');
         });

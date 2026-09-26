@@ -47,7 +47,7 @@ class AppServiceProvider extends ServiceProvider
 
         View::composer('*', function ($view) {
             $cart = session('cart', []);
-            $cartCount = collect($cart)->sum(fn ($item) => (int) ($item['quantity'] ?? 0));
+            $cartCount = count($cart);
             $wishlist = session('wishlist', []);
             $wishlistCount = count($wishlist);
 

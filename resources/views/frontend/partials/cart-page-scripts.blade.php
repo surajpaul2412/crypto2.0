@@ -85,7 +85,7 @@
   })();
 
   /* ═════════════════════════════════════
-     CART — quantity stepper + remove, live totals
+     CART — remove, live totals
      ═════════════════════════════════════ */
   function csrfToken() {
     var meta = document.querySelector('meta[name="csrf-token"]');
@@ -93,10 +93,6 @@
   }
   function money(n) {
     return '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  }
-  function updateUrl(slug) {
-    var tpl = (window.__CART_URLS__ && window.__CART_URLS__.update) || '/cart/update/__SLUG__';
-    return tpl.replace('__SLUG__', encodeURIComponent(slug));
   }
   function removeUrl(slug) {
     var tpl = (window.__CART_URLS__ && window.__CART_URLS__.remove) || '/cart/remove/__SLUG__';
@@ -117,51 +113,8 @@
   var list = document.getElementById('cart-list');
   if (!list) return;
 
-  function setQty(row, qty) {
-    var slug = row.getAttribute('data-slug');
-    var unitPrice = parseFloat(row.getAttribute('data-unit-price')) || 0;
-    var input = row.querySelector('[data-qty-input]');
-    qty = Math.max(1, Math.min(99, qty));
-    if (input) input.value = qty;
-
-    fetch(updateUrl(slug), {
-      method: 'POST',
-      headers: {
-        'X-CSRF-TOKEN': csrfToken(),
-        'X-Requested-With': 'XMLHttpRequest',
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ quantity: qty }),
-    })
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
-        if (!data.ok) return;
-        var lineTotalEl = row.querySelector('[data-line-total]');
-        if (lineTotalEl) lineTotalEl.textContent = data.lineTotalDisplay || money(unitPrice * qty);
-        refreshSummary(data.subtotal != null ? data.subtotal : 0);
-        if (typeof data.cartCount === 'number') {
-          document.querySelectorAll('[data-cart-count], [data-cart-total]').forEach(function (el) {
-            el.textContent = data.cartCount;
-            el.hidden = !(data.cartCount > 0);
-          });
-        }
-      })
-      .catch(function () {});
-  }
-
   list.addEventListener('click', function (e) {
-    var incBtn = e.target.closest('[data-qty-increase]');
-    var decBtn = e.target.closest('[data-qty-decrease]');
     var removeBtn = e.target.closest('[data-cart-remove]');
-
-    if (incBtn || decBtn) {
-      var row = (incBtn || decBtn).closest('.cart-item');
-      var input = row.querySelector('[data-qty-input]');
-      var current = parseInt(input.value, 10) || 1;
-      setQty(row, incBtn ? current + 1 : current - 1);
-      return;
-    }
 
     if (removeBtn) {
       var removeRow = removeBtn.closest('.cart-item');
@@ -197,13 +150,6 @@
         })
         .catch(function () {});
     }
-  });
-
-  list.addEventListener('change', function (e) {
-    var input = e.target.closest('[data-qty-input]');
-    if (!input) return;
-    var row = input.closest('.cart-item');
-    setQty(row, parseInt(input.value, 10) || 1);
   });
 })();
 </script>

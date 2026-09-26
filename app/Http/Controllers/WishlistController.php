@@ -86,8 +86,7 @@ class WishlistController extends Controller
         $wishlist = $request->session()->get('wishlist', []);
         $cart = $request->session()->get('cart', []);
 
-        $quantity = (int) ($cart[$slug]['quantity'] ?? 0);
-        $cart[$slug] = ['quantity' => $quantity + 1];
+        $cart[$slug] = ['quantity' => 1]; // digital licence: never more than one
         unset($wishlist[$slug]);
 
         $request->session()->put('cart', $cart);
@@ -98,7 +97,7 @@ class WishlistController extends Controller
                 'ok' => true,
                 'message' => $product->name . ' moved to cart.',
                 'wishlistCount' => count($wishlist),
-                'cartCount' => collect($cart)->sum(fn ($item) => (int) ($item['quantity'] ?? 0)),
+                'cartCount' => count($cart),
             ]);
         }
 

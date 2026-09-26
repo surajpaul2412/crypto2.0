@@ -10,8 +10,6 @@ use Illuminate\View\View;
 
 class CartController extends Controller
 {
-    private const MAX_QUANTITY = 99;
-
     public function index(Request $request): View
     {
         return view('frontend.cart', $this->buildCartData($request));
@@ -24,64 +22,26 @@ class CartController extends Controller
             abort(404);
         }
 
+        // Digital licence: one copy per product, so re-adding never increments.
         $cart = $request->session()->get('cart', []);
-        $quantity = (int) ($cart[$slug]['quantity'] ?? 0);
-        $cart[$slug] = ['quantity' => min(self::MAX_QUANTITY, $quantity + 1)];
+        $alreadyInCart = isset($cart[$slug]);
+        $cart[$slug] = ['quantity' => 1];
         $request->session()->put('cart', $cart);
 
-        $cartCount = collect($cart)->sum(fn ($item) => (int) ($item['quantity'] ?? 0));
+        $cartCount = count($cart);
 
         if ($request->expectsJson() || $request->ajax()) {
             return response()->json([
                 'ok' => true,
-                'message' => $product->name . ' added to cart.',
+                'message' => $product->name . ($alreadyInCart ? ' is already in your cart.' : ' added to cart.'),
                 'cartCount' => $cartCount,
-                'itemQty' => (int) $cart[$slug]['quantity'],
+                'itemQty' => 1,
                 'inCart' => true,
+                'alreadyInCart' => $alreadyInCart,
             ]);
         }
 
-        return back()->with('success', $product->name . ' added to cart.');
-    }
-
-    public function update(Request $request, string $slug): RedirectResponse|JsonResponse
-    {
-        $product = Product::where('slug', $slug)->first();
-        if (!$product) {
-            abort(404);
-        }
-
-        $data = $request->validate([
-            'quantity' => ['required', 'integer', 'min:1', 'max:' . self::MAX_QUANTITY],
-        ]);
-
-        $cart = $request->session()->get('cart', []);
-        if (!isset($cart[$slug])) {
-            if ($request->expectsJson() || $request->ajax()) {
-                return response()->json(['ok' => false, 'message' => 'Item not in cart.'], 404);
-            }
-            return back();
-        }
-
-        $cart[$slug]['quantity'] = (int) $data['quantity'];
-        $request->session()->put('cart', $cart);
-
-        if ($request->expectsJson() || $request->ajax()) {
-            $lineTotal = (float) $product->price * $cart[$slug]['quantity'];
-            $subtotal = $this->calculateSubtotal($cart);
-
-            return response()->json([
-                'ok' => true,
-                'quantity' => $cart[$slug]['quantity'],
-                'lineTotal' => $lineTotal,
-                'lineTotalDisplay' => '$' . number_format($lineTotal, 2),
-                'subtotal' => $subtotal,
-                'subtotalDisplay' => '$' . number_format($subtotal, 2),
-                'cartCount' => collect($cart)->sum(fn ($item) => (int) ($item['quantity'] ?? 0)),
-            ]);
-        }
-
-        return back()->with('success', 'Cart updated.');
+        return back()->with('success', $product->name . ($alreadyInCart ? ' is already in your cart.' : ' added to cart.'));
     }
 
     public function destroy(Request $request, string $slug): RedirectResponse|JsonResponse
@@ -98,7 +58,7 @@ class CartController extends Controller
                 'message' => 'Item removed from cart.',
                 'subtotal' => $subtotal,
                 'subtotalDisplay' => '$' . number_format($subtotal, 2),
-                'cartCount' => collect($cart)->sum(fn ($item) => (int) ($item['quantity'] ?? 0)),
+                'cartCount' => count($cart),
                 'inCart' => false,
             ]);
         }
@@ -120,7 +80,7 @@ class CartController extends Controller
             if (!$product) {
                 continue;
             }
-            $subtotal += (float) $product->price * max(1, (int) ($entry['quantity'] ?? 1));
+            $subtotal += (float) $product->price;
         }
 
         return $subtotal;
@@ -139,8 +99,8 @@ class CartController extends Controller
                 continue;
             }
 
-            $quantity = max(1, (int) ($entry['quantity'] ?? 1));
-            $lineTotal = (float) $product->price * $quantity;
+            $quantity = 1; // one licence per product
+            $lineTotal = (float) $product->price;
             $subtotal += $lineTotal;
 
             $items[] = [
