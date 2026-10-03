@@ -11,6 +11,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 
 class ProductsTable
 {
@@ -34,7 +35,14 @@ class ProductsTable
                     ->badge()
                     ->sortable(),
                 TextColumn::make('price')
+                    ->label('USD')
                     ->money('USD')
+                    ->sortable(),
+                TextColumn::make('price_inr')
+                    ->label('INR')
+                    ->money('INR')
+                    ->placeholder('—')
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->sortable(),
                 TextColumn::make('format')
                     ->searchable()
@@ -61,9 +69,11 @@ class ProductsTable
             ->filters([
                 SelectFilter::make('family_id')
                     ->relationship('family', 'label')
+                    ->getOptionLabelFromRecordUsing(fn (Model $record) => $record->label)
                     ->label('Family'),
                 SelectFilter::make('region_id')
                     ->relationship('region', 'label')
+                    ->getOptionLabelFromRecordUsing(fn (Model $record) => $record->label)
                     ->label('Region'),
                 TernaryFilter::make('flagship'),
                 TernaryFilter::make('is_published'),

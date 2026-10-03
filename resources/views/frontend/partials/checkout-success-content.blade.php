@@ -36,14 +36,14 @@
           <div class="success-item__name">{{ $item['name'] }}</div>
           <div class="success-item__meta">For {{ $item['edition'] }} @if($item['quantity'] > 1) &middot; Qty {{ $item['quantity'] }} @endif</div>
         </div>
-        <div class="success-item__price">${{ number_format($item['line_total'], 2) }}</div>
+        <div class="success-item__price">{{ \App\Support\Money::format($item['line_total'], $order['currency'] ?? 'USD') }}</div>
       </div>
       @endforeach
     </div>
 
     <div class="success-total">
       <span class="success-total-label">Total paid</span>
-      <span class="success-total-value">${{ number_format($order['subtotal'], 2) }}</span>
+      <span class="success-total-value">{{ \App\Support\Money::format($order['subtotal'], $order['currency'] ?? 'USD') }}</span>
     </div>
   </div>
 

@@ -33,7 +33,7 @@
         <a href="{{ route('shop.show', $item['slug']) }}" class="rec-card__art">
           <img class="rec-card__art-bg" src="{{ $item['image'] }}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
           <span class="rec-card__price{{ $item['price'] <= 0 ? ' rec-card__price--free' : '' }}">
-            {{ $item['price'] <= 0 ? 'FREE' : '$' . number_format($item['price']) }}
+            {{ $item['price'] <= 0 ? 'FREE' : \App\Support\Money::format($item['price'], $item['currency'], 0) }}
           </span>
           <span class="cc-format-chip">For {{ $item['edition'] }}</span>
         </a>

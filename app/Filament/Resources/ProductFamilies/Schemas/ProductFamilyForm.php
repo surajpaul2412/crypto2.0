@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\ProductFamilies\Schemas;
 
 use Filament\Forms\Components\TextInput;
+use Parfaitementweb\FilamentPluginTranslatableInline\Forms\Components\TranslatableContainer;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
@@ -17,9 +18,11 @@ class ProductFamilyForm
                     ->maxLength(60)
                     ->rule('alpha_dash')
                     ->unique(ignoreRecord: true),
-                TextInput::make('label')
-                    ->required()
-                    ->maxLength(100),
+                TranslatableContainer::make(
+                    TextInput::make('label')
+                        ->required()
+                        ->maxLength(100)
+                )->onlyMainLocaleRequired(),
                 TextInput::make('sort_order')
                     ->required()
                     ->numeric()

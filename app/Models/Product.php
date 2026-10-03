@@ -2,13 +2,21 @@
 
 namespace App\Models;
 
+use App\Support\Money;
+use App\Support\RegionPricing;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
+    use HasTranslations;
+
+    public array $translatable = ['name', 'tagline', 'family_label_override', 'region_label_override'];
+
     protected $fillable = [
         'family_id',
         'region_id',
@@ -19,6 +27,7 @@ class Product extends Model
         'region_label_override',
         'image_path',
         'price',
+        'price_inr',
         'format',
         'artist',
         'flagship',
@@ -59,6 +68,11 @@ class Product extends Model
         return $this->belongsToMany(ProductTag::class, 'product_tag');
     }
 
+    public function tracks(): HasMany
+    {
+        return $this->hasMany(ProductTrack::class)->orderBy('sort_order');
+    }
+
     public function scopePublished(Builder $query): Builder
     {
         return $query->where('is_published', true);
@@ -69,9 +83,41 @@ class Product extends Model
         return asset($this->image_path);
     }
 
+    /**
+     * Regional pricing: USD by default, INR for India — but only once an
+     * admin has set `price_inr` on this product. Until then, India also
+     * sees USD (no silent currency conversion). Free products stay "FREE"
+     * regardless of region.
+     */
+    public function resolvedCurrencyCode(): string
+    {
+        if ($this->price <= 0) {
+            return 'USD';
+        }
+
+        $pricing = app(RegionPricing::class);
+
+        return ($pricing->isIndia() && $this->price_inr !== null) ? 'INR' : 'USD';
+    }
+
+    public function resolvedPrice(): float
+    {
+        if ($this->price <= 0) {
+            return 0.0;
+        }
+
+        return $this->resolvedCurrencyCode() === 'INR'
+            ? (float) $this->price_inr
+            : (float) $this->price;
+    }
+
     public function priceDisplay(): string
     {
-        return $this->price <= 0 ? 'FREE' : '$' . number_format($this->price);
+        if ($this->price <= 0) {
+            return 'FREE';
+        }
+
+        return Money::format($this->resolvedPrice(), $this->resolvedCurrencyCode(), 0);
     }
 
     public function familyLabelDisplay(): string
@@ -123,8 +169,9 @@ class Product extends Model
             'tags' => $this->tags->pluck('slug')->values()->all(),
             'format' => $this->format,
             'flagship' => $this->flagship,
-            'price' => $this->price,
+            'price' => $this->resolvedPrice(),
             'priceDisplay' => $this->priceDisplay(),
+            'currency' => $this->resolvedCurrencyCode(),
             'artist' => $this->artist,
             'familyLabel' => $this->familyLabelDisplay(),
             'regionLabel' => $this->regionLabelDisplay(),

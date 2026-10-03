@@ -83,6 +83,13 @@ Route::group(
 |--------------------------------------------------------------------------
 */
 
+// Product demo-track audio preview — signed + time-limited (see
+// ProductTrack::previewUrl()), clipped server-side to a short preview so
+// the full master is never sent to the browser.
+Route::get('/audio/preview/{track}', [\App\Http\Controllers\ProductTrackPreviewController::class, 'show'])
+    ->middleware('signed')
+    ->name('product-tracks.preview');
+
 // CC-ENQUIRY-HUB — contact / collaborate / recording enquiry forms (AJAX)
 Route::post('/enquiries', [EnquiryController::class, 'store'])->name('enquiries.store');
 Route::post('/collaboration-requests', [CollaborationRequestController::class, 'store'])->name('collaboration-requests.store');

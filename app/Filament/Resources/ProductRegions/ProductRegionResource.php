@@ -10,12 +10,15 @@ use App\Filament\Resources\ProductRegions\Tables\ProductRegionsTable;
 use App\Models\ProductRegion;
 use BackedEnum;
 use Filament\Resources\Resource;
+use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class ProductRegionResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = ProductRegion::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedGlobeAlt;

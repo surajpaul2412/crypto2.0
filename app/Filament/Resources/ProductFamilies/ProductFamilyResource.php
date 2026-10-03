@@ -10,12 +10,15 @@ use App\Filament\Resources\ProductFamilies\Tables\ProductFamiliesTable;
 use App\Models\ProductFamily;
 use BackedEnum;
 use Filament\Resources\Resource;
+use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class ProductFamilyResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = ProductFamily::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleGroup;

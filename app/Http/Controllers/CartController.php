@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Support\Money;
+use App\Support\RegionPricing;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -51,13 +53,14 @@ class CartController extends Controller
         $request->session()->put('cart', $cart);
 
         if ($request->expectsJson() || $request->ajax()) {
+            $currency = app(RegionPricing::class)->currencyCode($request);
             $subtotal = $this->calculateSubtotal($cart);
 
             return response()->json([
                 'ok' => true,
                 'message' => 'Item removed from cart.',
                 'subtotal' => $subtotal,
-                'subtotalDisplay' => '$' . number_format($subtotal, 2),
+                'subtotalDisplay' => Money::format($subtotal, $currency),
                 'cartCount' => count($cart),
                 'inCart' => false,
             ]);
@@ -80,7 +83,7 @@ class CartController extends Controller
             if (!$product) {
                 continue;
             }
-            $subtotal += (float) $product->price;
+            $subtotal += $product->resolvedPrice();
         }
 
         return $subtotal;
@@ -92,6 +95,10 @@ class CartController extends Controller
         $products = Product::whereIn('slug', array_keys($cart))->get()->keyBy('slug');
         $items = [];
         $subtotal = 0.0;
+        // A cart is always single-currency: whichever region the visitor is
+        // browsing from right now. Assumed the same for every line, since
+        // it's resolved once per request, not stored per item.
+        $currency = app(RegionPricing::class)->currencyCode($request);
 
         foreach ($cart as $slug => $entry) {
             $product = $products->get($slug);
@@ -100,7 +107,7 @@ class CartController extends Controller
             }
 
             $quantity = 1; // one licence per product
-            $lineTotal = (float) $product->price;
+            $lineTotal = $product->resolvedPrice();
             $subtotal += $lineTotal;
 
             $items[] = [
@@ -108,7 +115,7 @@ class CartController extends Controller
                 'name' => $product->name,
                 'edition' => ucfirst($product->format),
                 'image' => $product->imageUrl(),
-                'price' => (float) $product->price,
+                'price' => $lineTotal,
                 'quantity' => $quantity,
                 'line_total' => $lineTotal,
             ];
@@ -117,6 +124,7 @@ class CartController extends Controller
         return [
             'items' => $items,
             'subtotal' => $subtotal,
+            'currency' => $currency,
         ];
     }
 }

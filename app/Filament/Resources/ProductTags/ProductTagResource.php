@@ -10,12 +10,15 @@ use App\Filament\Resources\ProductTags\Tables\ProductTagsTable;
 use App\Models\ProductTag;
 use BackedEnum;
 use Filament\Resources\Resource;
+use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class ProductTagResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = ProductTag::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTag;

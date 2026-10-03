@@ -35,27 +35,16 @@
       <div class="lib-hero__ambient"></div>
 
       <div class="lib-hero__breadcrumb" data-reveal>
-        <a href="/">Home</a>
+        <a href="/">{{ __('site.ft_home') }}</a>
         <span class="lib-hero__breadcrumb-sep">/</span>
-        <a href="/shop">Instruments</a>
+        <a href="/shop">{{ __('site.nav_instruments') }}</a>
         <span class="lib-hero__breadcrumb-sep">/</span>
         <span class="lib-hero__breadcrumb-current">{{ $product->name }}</span>
       </div>
 
-      @if ($isFeaturedProduct)
-      <h1 class="lib-hero__title d1" data-reveal>
-        <span class="lib-hero__title-word" style="--w:0">Voices</span>
-        <span class="lib-hero__title-word" style="--w:1">of</span>
-        <span class="lib-hero__title-word lib-hero__title-word--gradient" style="--w:2">
-          <span class="gradient-text">Ancient&nbsp;India</span>
-        </span>
-      </h1>
-
-      <p class="lib-hero__tagline d2" data-reveal>
-        Sanskrit shlokas, Sufi qawwali, devotional alaaps — three master vocalists,
-        one library. The deepest spiritual vocal palette Crypto Cipher has ever recorded.
-      </p>
-      @else
+      {{-- Title/tagline always come from the (translatable) product record — the
+           featured product previously duplicated its English name/tagline here as
+           static markup, which meant it never picked up a translation. --}}
       <h1 class="lib-hero__title d1" data-reveal>
         @foreach ($nameWords as $i => $word)
         <span class="lib-hero__title-word" style="--w:{{ $i }}">{{ $word }}</span>
@@ -68,19 +57,17 @@
       <p class="lib-hero__tagline d2" data-reveal>
         {{ $product->tagline }}
       </p>
-      @endif
 
       @if ($isFeaturedProduct)
-@verbatim
-      <div class="lib-hero__video d3" id="hero-video-frame" data-reveal role="button" tabindex="0" aria-label="Play library walkthrough" data-yt-id="uvsQEvH-cxM" data-yt-title="A Voice Carried Through Centuries">
+      <div class="lib-hero__video d3" id="hero-video-frame" data-reveal role="button" tabindex="0" aria-label="Play library walkthrough" data-yt-id="uvsQEvH-cxM" data-yt-title="{{ __('shop_detail_featured.video_title') }}">
         <div class="lib-hero__poster" aria-hidden="true"></div>
         <div class="lib-hero__video-highlight" id="hero-video-highlight"></div>
         <div class="lib-hero__video-vignette"></div>
 
         <!-- Badges overlay — top-left of video -->
         <div class="lib-hero__video-badges">
-          <span class="lib-hero__badge lib-hero__badge--flagship">Flagship</span>
-          <span class="lib-hero__badge lib-hero__badge--format">For Kontakt</span>
+          <span class="lib-hero__badge lib-hero__badge--flagship">{{ __('shop_detail.flagship_badge') }}</span>
+          <span class="lib-hero__badge lib-hero__badge--format">{{ __('shop_detail.for_format_prefix') }} {{ $product->formatLabel() }}</span>
         </div>
 
         <div class="lib-hero__play">
@@ -91,69 +78,66 @@
 
         <div class="lib-hero__video-overlay">
           <div>
-            <div class="lib-hero__video-label">Library Film</div>
-            <div class="lib-hero__video-name">A Voice Carried Through Centuries</div>
+            <div class="lib-hero__video-label">{{ __('shop_detail_featured.video_library_film_label') }}</div>
+            <div class="lib-hero__video-name">{{ __('shop_detail_featured.video_title') }}</div>
           </div>
           <span class="lib-hero__video-duration">02 : 48</span>
         </div>
       </div>
-@endverbatim
       @else
       <div class="lib-hero__video d3" data-reveal style="cursor:default;">
         <img src="{{ $product->imageUrl() }}" alt="{{ $product->name }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:inherit;">
         <div class="lib-hero__video-vignette"></div>
         <div class="lib-hero__video-badges">
           @if ($product->flagship)
-          <span class="lib-hero__badge lib-hero__badge--flagship">Flagship</span>
+          <span class="lib-hero__badge lib-hero__badge--flagship">{{ __('shop_detail.flagship_badge') }}</span>
           @endif
-          <span class="lib-hero__badge lib-hero__badge--format">For {{ $product->formatLabel() }}</span>
+          <span class="lib-hero__badge lib-hero__badge--format">{{ __('shop_detail.for_format_prefix') }} {{ $product->formatLabel() }}</span>
         </div>
       </div>
       @endif
 
       @if ($isFeaturedProduct)
-@verbatim
       <!-- Meta strip — thin info band UNDER video -->
       <div class="lib-hero__meta d4" data-reveal>
         <div class="lib-hero__meta-item">
-          <span class="lib-hero__meta-label">Format</span>
-          <span class="lib-hero__meta-value">Kontakt 6 Full</span>
+          <span class="lib-hero__meta-label">{{ __('shop_detail.label_format') }}</span>
+          <span class="lib-hero__meta-value">{{ __('shop_detail_featured.meta.value_format') }}</span>
         </div>
         <div class="lib-hero__meta-item">
-          <span class="lib-hero__meta-label">Size</span>
-          <span class="lib-hero__meta-value">8.4 GB</span>
+          <span class="lib-hero__meta-label">{{ __('shop_detail.label_size') }}</span>
+          <span class="lib-hero__meta-value">{{ __('shop_detail_featured.meta.value_size') }}</span>
         </div>
         <div class="lib-hero__meta-item">
-          <span class="lib-hero__meta-label">Vocalists</span>
-          <span class="lib-hero__meta-value">3 Masters</span>
+          <span class="lib-hero__meta-label">{{ __('shop_detail.label_vocalists') }}</span>
+          <span class="lib-hero__meta-value">{{ __('shop_detail_featured.meta.value_vocalists') }}</span>
         </div>
         <div class="lib-hero__meta-item">
-          <span class="lib-hero__meta-label">Region</span>
-          <span class="lib-hero__meta-value">Pan-Indian</span>
-        </div>
-        <div class="lib-hero__meta-item">
-          <span class="lib-hero__meta-label">Compatibility</span>
-          <span class="lib-hero__meta-value">macOS / Windows</span>
-        </div>
-        <div class="lib-hero__meta-item">
-          <span class="lib-hero__meta-label">License</span>
-          <span class="lib-hero__meta-value">Sync-Cleared · AI-Free</span>
-        </div>
-      </div>
-@endverbatim
-      @else
-      <div class="lib-hero__meta d4" data-reveal>
-        <div class="lib-hero__meta-item">
-          <span class="lib-hero__meta-label">Format</span>
-          <span class="lib-hero__meta-value">For {{ $product->formatLabel() }}</span>
-        </div>
-        <div class="lib-hero__meta-item">
-          <span class="lib-hero__meta-label">Region</span>
+          <span class="lib-hero__meta-label">{{ __('shop_detail.label_region') }}</span>
           <span class="lib-hero__meta-value">{{ $product->region->label }}</span>
         </div>
         <div class="lib-hero__meta-item">
-          <span class="lib-hero__meta-label">License</span>
-          <span class="lib-hero__meta-value">Sync-Cleared · AI-Free</span>
+          <span class="lib-hero__meta-label">{{ __('shop_detail.label_compatibility') }}</span>
+          <span class="lib-hero__meta-value">{{ __('shop_detail_featured.meta.value_compatibility') }}</span>
+        </div>
+        <div class="lib-hero__meta-item">
+          <span class="lib-hero__meta-label">{{ __('shop_detail.label_license') }}</span>
+          <span class="lib-hero__meta-value">{{ __('shop_detail_featured.meta.value_license') }}</span>
+        </div>
+      </div>
+      @else
+      <div class="lib-hero__meta d4" data-reveal>
+        <div class="lib-hero__meta-item">
+          <span class="lib-hero__meta-label">{{ __('shop_detail.label_format') }}</span>
+          <span class="lib-hero__meta-value">{{ __('shop_detail.for_format_prefix') }} {{ $product->formatLabel() }}</span>
+        </div>
+        <div class="lib-hero__meta-item">
+          <span class="lib-hero__meta-label">{{ __('shop_detail.label_region') }}</span>
+          <span class="lib-hero__meta-value">{{ $product->region->label }}</span>
+        </div>
+        <div class="lib-hero__meta-item">
+          <span class="lib-hero__meta-label">{{ __('shop_detail.label_license') }}</span>
+          <span class="lib-hero__meta-value">{{ __('shop_detail_featured.meta.value_license') }}</span>
         </div>
       </div>
       @endif
@@ -163,18 +147,18 @@
       <div class="price-panel" data-reveal>
 
         <div class="price-panel__left">
-          <span class="price-panel__eyebrow">One-time purchase</span>
+          <span class="price-panel__eyebrow">{{ __('shop_detail.one_time_purchase') }}</span>
           <div class="price-panel__price-row">
             <span class="price-panel__price">{{ $product->priceDisplay() }}</span>
             @if ($product->price > 0)
-            <span class="price-panel__currency">USD</span>
+            <span class="price-panel__currency">{{ $product->resolvedCurrencyCode() }}</span>
             @endif
           </div>
         </div>
 
         <div class="price-panel__right">
           <a href="#" class="price-panel__buy" data-action="buy-now" data-slug="{{ $product->slug }}">
-            <span class="price-panel__buy-label" data-cart-label>Buy Instrument</span>
+            <span class="price-panel__buy-label" data-cart-label>{{ __('shop_detail.buy_instrument') }}</span>
             <span class="price-panel__buy-price">{{ $product->priceDisplay() }}</span>
             <svg class="price-panel__buy-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
@@ -188,7 +172,7 @@
               <line x1="12" y1="9" x2="12" y2="13"/>
               <line x1="12" y1="17" x2="12.01" y2="17"/>
             </svg>
-            <span><strong>Requires Kontakt 6 Full or higher.</strong> Not compatible with the free Kontakt Player.</span>
+            <span><strong>{{ __('shop_detail.kontakt_full_required') }}</strong> {{ __('shop_detail.kontakt_player_incompatible') }}</span>
           </div>
           @endif
 
@@ -197,25 +181,82 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
               </svg>
-              <span id="shortlist-label" data-wishlist-label>Save for later</span>
+              <span id="shortlist-label" data-wishlist-label>{{ __('shop_detail.save_for_later') }}</span>
             </button>
             <span class="price-panel__divider"></span>
-            <button class="price-panel__link" id="license-btn" type="button">View license terms</button>
+            <button class="price-panel__link" id="license-btn" type="button">{{ __('shop_detail.view_license_terms') }}</button>
           </div>
         </div>
 
       </div>
     </section>
 
+    @if ($product->tracks->isNotEmpty())
+    <section class="section" id="listen">
+      <div class="section__head">
+        <span class="eyebrow" data-reveal>{{ __('shop_detail.listen_eyebrow') }}</span>
+        <h2 class="section__title d1" data-reveal>{{ __('shop_detail.listen_title') }}</h2>
+        <p class="section__sub d2" data-reveal>{{ __('shop_detail.listen_sub') }}</p>
+      </div>
+
+      <div class="player-box" data-reveal>
+        <div class="player" data-advance="on" data-cc-player="legacy" oncontextmenu="return false">
+          @foreach ($product->tracks as $track)
+          <article class="player__row" data-track="track-{{ $track->id }}" data-src="{{ $track->previewUrl() }}" data-duration="{{ $track->preview_seconds }}">
+            <button class="player__play" type="button" aria-label="Play">
+              <svg class="player__play-icon" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+              <svg class="player__pause-icon" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+            </button>
+            <div class="player__info">
+              <div class="player__head">
+                <h3 class="player__title">{{ $track->title }}</h3>
+                <span class="player__time"><span class="player__elapsed">0 : 00</span></span>
+              </div>
+            </div>
+            <div class="player__wave"></div>
+          </article>
+          @endforeach
+        </div>
+        <p class="player-box__sub" style="margin-top:0.9rem;">{{ __('shop_detail.listen_preview_note') }}</p>
+      </div>
+    </section>
+    @endif
+
     @if ($isFeaturedProduct)
-@verbatim
+    @php
+        $cueTrackMeta = [
+            ['id' => 'pyre-at-dawn', 'src' => 'audio/vocal00001_1.2.wav', 'peaks' => 'audio/peaks/vocal00001_1.2.json', 'duration' => '01 : 38'],
+            ['id' => 'saffron-road', 'src' => 'audio/vocal00002_1.1.wav', 'peaks' => 'audio/peaks/vocal00002_1.1.json', 'duration' => '00 : 52'],
+            ['id' => 'temple-first-light', 'src' => 'audio/vocal00003_1.1.wav', 'peaks' => 'audio/peaks/vocal00003_1.1.json', 'duration' => '02 : 14'],
+            ['id' => 'rivers-saraswati', 'src' => 'audio/vocal00004_1.1.wav', 'peaks' => 'audio/peaks/vocal00004_1.1.json', 'duration' => '03 : 02'],
+            ['id' => 'last-monsoon', 'src' => 'audio/vocal00005_1.1.wav', 'peaks' => 'audio/peaks/vocal00005_1.1.json', 'duration' => '02 : 47'],
+            ['id' => 'hidden-shrine', 'src' => 'audio/vocal00006_1.1.wav', 'peaks' => 'audio/peaks/vocal00006_1.1.json', 'duration' => '01 : 56'],
+            ['id' => 'invocation', 'src' => 'audio/vocal00007_1.1.wav', 'peaks' => 'audio/peaks/vocal00007_1.1.json', 'duration' => '01 : 12'],
+            ['id' => 'qawwali-night', 'src' => 'audio/vocal00008_1.1.wav', 'peaks' => 'audio/peaks/vocal00008_1.1.json', 'duration' => '04 : 21'],
+            ['id' => 'border-of-light', 'src' => 'audio/vocal00009_1.1.wav', 'peaks' => 'audio/peaks/vocal00009_1.1.json', 'duration' => '02 : 38'],
+            ['id' => 'raga-of-stars', 'src' => 'audio/vocal00010_1.1.wav', 'peaks' => 'audio/peaks/vocal00010_1.1.json', 'duration' => '03 : 14'],
+        ];
+        $cueCopy = __('shop_detail_featured.cues.tracks');
+
+        $videoMeta = [
+            ['id' => 'walkthrough', 'yt' => '3J0NHxFGA3c', 'duration' => '07:42', 'placeholder' => false],
+            ['id' => 'tutorial-1', 'yt' => 'oT27yIgaG8U', 'duration' => '04:18', 'placeholder' => false],
+            ['id' => 'tutorial-2', 'yt' => 'Hr-mbhzS-ys', 'duration' => '05:51', 'placeholder' => false],
+            ['id' => 'tips', 'yt' => 'E01-uc_RKaQ', 'duration' => '03:24', 'placeholder' => false],
+            ['id' => 'live-demo', 'yt' => '3J0NHxFGA3c', 'duration' => '06:12', 'placeholder' => true],
+        ];
+        $videoCopy = __('shop_detail_featured.videos.items');
+
+        $patchCopy = __('shop_detail_featured.patches.items');
+        $statCopy = __('shop_detail_featured.description.stats');
+        $demoComposerCopy = __('shop_detail_featured.credits.demo_composers');
+    @endphp
     <section class="section" id="cues">
       <div class="section__head">
-        <span class="eyebrow" data-reveal>Composer Cues</span>
-        <h2 class="section__title d1" data-reveal>Hear it in real cues</h2>
+        <span class="eyebrow" data-reveal>{{ __('shop_detail_featured.cues.eyebrow') }}</span>
+        <h2 class="section__title d1" data-reveal>{{ __('shop_detail_featured.cues.title') }}</h2>
         <p class="section__sub d2" data-reveal>
-          Working composers, real projects — film, OTT, game, trailer, and documentary scoring.
-          The strongest sonic proof is what the library sounds like in finished work.
+          {{ __('shop_detail_featured.cues.sub') }}
         </p>
       </div>
 
@@ -224,228 +265,39 @@
           <div class="player-box__head-left">
             <span class="player-box__eyebrow">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-              Demo Reel
+              {{ __('shop_detail_featured.cues.player_eyebrow') }}
             </span>
-            <h3 class="player-box__title">10 Composer Cues</h3>
-            <p class="player-box__sub">Real projects · real composers · raw stems from finished work</p>
+            <h3 class="player-box__title">{{ __('shop_detail_featured.cues.player_title') }}</h3>
+            <p class="player-box__sub">{{ __('shop_detail_featured.cues.player_sub') }}</p>
           </div>
           <div class="player-box__head-right">
-            <span class="player-box__count">10 tracks · 24 min</span>
+            <span class="player-box__count">{{ __('shop_detail_featured.cues.player_count') }}</span>
           </div>
         </header>
 
         <div class="player" data-advance="on" data-cc-player="legacy">
-
-          <article class="player__row" data-track="pyre-at-dawn" data-src="audio/vocal00001_1.2.wav" data-peaks="audio/peaks/vocal00001_1.2.json">
+          @foreach ($cueTrackMeta as $i => $meta)
+          <article class="player__row" data-track="{{ $meta['id'] }}" data-src="{{ $meta['src'] }}" data-peaks="{{ $meta['peaks'] }}">
             <button class="player__play" type="button" aria-label="Play">
               <svg class="player__play-icon" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
               <svg class="player__pause-icon" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
             </button>
             <div class="player__info">
               <div class="player__head">
-                <span class="player__type">Film Cue</span>
-                <h3 class="player__title" title="&quot;Pyre at Dawn — A Funeral on the Ganges&quot;">"Pyre at Dawn — A Funeral on the Ganges"</h3>
-                <span class="player__time"><span class="player__elapsed">0 : 00</span> / 01 : 38</span>
+                <span class="player__type">{{ $cueCopy[$i]['type'] }}</span>
+                <h3 class="player__title" title="{{ $cueCopy[$i]['title'] }}">{{ $cueCopy[$i]['title'] }}</h3>
+                <span class="player__time"><span class="player__elapsed">0 : 00</span> / {{ $meta['duration'] }}</span>
               </div>
-              <div class="player__meta" title="Period drama · climactic funeral sequence · main vocalist over orchestral bed">
-                <span class="player__composer">[Composer Name]</span>
+              <div class="player__meta" title="{{ $cueCopy[$i]['context'] }}">
+                <span class="player__composer">{{ __('shop_detail_featured.cues.composer_placeholder') }}</span>
                 <span class="player__sep">·</span>
-                <span class="player__context">Period drama · climactic funeral sequence · main vocalist over orchestral bed</span>
+                <span class="player__context">{{ $cueCopy[$i]['context'] }}</span>
               </div>
             </div>
             <div class="player__wave"></div>
-            <span class="player__duration">01 : 38</span>
+            <span class="player__duration">{{ $meta['duration'] }}</span>
           </article>
-
-          <article class="player__row" data-track="saffron-road" data-src="audio/vocal00002_1.1.wav" data-peaks="audio/peaks/vocal00002_1.1.json">
-            <button class="player__play" type="button" aria-label="Play">
-              <svg class="player__play-icon" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
-              <svg class="player__pause-icon" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-            </button>
-            <div class="player__info">
-              <div class="player__head">
-                <span class="player__type">OTT Trailer</span>
-                <h3 class="player__title" title="&quot;The Saffron Road&quot;">"The Saffron Road"</h3>
-                <span class="player__time"><span class="player__elapsed">0 : 00</span> / 00 : 52</span>
-              </div>
-              <div class="player__meta" title="Streaming series · season-finale tag · qawwali ensemble + sub-bass design">
-                <span class="player__composer">[Composer Name]</span>
-                <span class="player__sep">·</span>
-                <span class="player__context">Streaming series · season-finale tag · qawwali ensemble + sub-bass design</span>
-              </div>
-            </div>
-            <div class="player__wave"></div>
-            <span class="player__duration">00 : 52</span>
-          </article>
-
-          <article class="player__row" data-track="temple-first-light" data-src="audio/vocal00003_1.1.wav" data-peaks="audio/peaks/vocal00003_1.1.json">
-            <button class="player__play" type="button" aria-label="Play">
-              <svg class="player__play-icon" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
-              <svg class="player__pause-icon" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-            </button>
-            <div class="player__info">
-              <div class="player__head">
-                <span class="player__type">Game Cue</span>
-                <h3 class="player__title" title="&quot;Temple of the First Light — Sacred Zone Theme&quot;">"Temple of the First Light — Sacred Zone Theme"</h3>
-                <span class="player__time"><span class="player__elapsed">0 : 00</span> / 02 : 14</span>
-              </div>
-              <div class="player__meta" title="AAA RPG · sacred temple zone · alaap layer over hybrid orchestral pad">
-                <span class="player__composer">[Composer Name]</span>
-                <span class="player__sep">·</span>
-                <span class="player__context">AAA RPG · sacred temple zone · alaap layer over hybrid orchestral pad</span>
-              </div>
-            </div>
-            <div class="player__wave"></div>
-            <span class="player__duration">02 : 14</span>
-          </article>
-
-          <article class="player__row" data-track="rivers-saraswati" data-src="audio/vocal00004_1.1.wav" data-peaks="audio/peaks/vocal00004_1.1.json">
-            <button class="player__play" type="button" aria-label="Play">
-              <svg class="player__play-icon" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
-              <svg class="player__pause-icon" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-            </button>
-            <div class="player__info">
-              <div class="player__head">
-                <span class="player__type">Documentary</span>
-                <h3 class="player__title" title="&quot;Rivers of the Saraswati&quot;">"Rivers of the Saraswati"</h3>
-                <span class="player__time"><span class="player__elapsed">0 : 00</span> / 03 : 02</span>
-              </div>
-              <div class="player__meta" title="Streaming documentary · main theme · Sanskrit shloka over harmonium drone">
-                <span class="player__composer">[Composer Name]</span>
-                <span class="player__sep">·</span>
-                <span class="player__context">Streaming documentary · main theme · Sanskrit shloka over harmonium drone</span>
-              </div>
-            </div>
-            <div class="player__wave"></div>
-            <span class="player__duration">03 : 02</span>
-          </article>
-
-          <article class="player__row" data-track="last-monsoon" data-src="audio/vocal00005_1.1.wav" data-peaks="audio/peaks/vocal00005_1.1.json">
-            <button class="player__play" type="button" aria-label="Play">
-              <svg class="player__play-icon" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
-              <svg class="player__pause-icon" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-            </button>
-            <div class="player__info">
-              <div class="player__head">
-                <span class="player__type">Film Cue</span>
-                <h3 class="player__title" title="&quot;The Last Monsoon — Climax of the Rains&quot;">"The Last Monsoon — Climax of the Rains"</h3>
-                <span class="player__time"><span class="player__elapsed">0 : 00</span> / 02 : 47</span>
-              </div>
-              <div class="player__meta" title="Indie drama · emotional climax · solo female alaap with harmonium drone and tabla rhythm">
-                <span class="player__composer">[Composer Name]</span>
-                <span class="player__sep">·</span>
-                <span class="player__context">Indie drama · emotional climax · solo female alaap with harmonium drone and tabla rhythm</span>
-              </div>
-            </div>
-            <div class="player__wave"></div>
-            <span class="player__duration">02 : 47</span>
-          </article>
-
-          <article class="player__row" data-track="hidden-shrine" data-src="audio/vocal00006_1.1.wav" data-peaks="audio/peaks/vocal00006_1.1.json">
-            <button class="player__play" type="button" aria-label="Play">
-              <svg class="player__play-icon" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
-              <svg class="player__pause-icon" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-            </button>
-            <div class="player__info">
-              <div class="player__head">
-                <span class="player__type">Game Cue</span>
-                <h3 class="player__title" title="&quot;The Hidden Shrine&quot;">"The Hidden Shrine"</h3>
-                <span class="player__time"><span class="player__elapsed">0 : 00</span> / 01 : 56</span>
-              </div>
-              <div class="player__meta" title="Open-world adventure · discovery cue · layered male shloka + reversed alaap textures">
-                <span class="player__composer">[Composer Name]</span>
-                <span class="player__sep">·</span>
-                <span class="player__context">Open-world adventure · discovery cue · layered male shloka + reversed alaap textures</span>
-              </div>
-            </div>
-            <div class="player__wave"></div>
-            <span class="player__duration">01 : 56</span>
-          </article>
-
-          <article class="player__row" data-track="invocation" data-src="audio/vocal00007_1.1.wav" data-peaks="audio/peaks/vocal00007_1.1.json">
-            <button class="player__play" type="button" aria-label="Play">
-              <svg class="player__play-icon" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
-              <svg class="player__pause-icon" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-            </button>
-            <div class="player__info">
-              <div class="player__head">
-                <span class="player__type">Trailer</span>
-                <h3 class="player__title" title="&quot;Invocation — Opening Card for a Mythological Series&quot;">"Invocation — Opening Card for a Mythological Series"</h3>
-                <span class="player__time"><span class="player__elapsed">0 : 00</span> / 01 : 12</span>
-              </div>
-              <div class="player__meta" title="OTT mythology series · main title music · Sanskrit shloka chorus + cinematic percussion">
-                <span class="player__composer">[Composer Name]</span>
-                <span class="player__sep">·</span>
-                <span class="player__context">OTT mythology series · main title music · Sanskrit shloka chorus + cinematic percussion</span>
-              </div>
-            </div>
-            <div class="player__wave"></div>
-            <span class="player__duration">01 : 12</span>
-          </article>
-
-          <article class="player__row" data-track="qawwali-night" data-src="audio/vocal00008_1.1.wav" data-peaks="audio/peaks/vocal00008_1.1.json">
-            <button class="player__play" type="button" aria-label="Play">
-              <svg class="player__play-icon" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
-              <svg class="player__pause-icon" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-            </button>
-            <div class="player__info">
-              <div class="player__head">
-                <span class="player__type">Film Cue</span>
-                <h3 class="player__title" title="&quot;Qawwali Night at the Dargah&quot;">"Qawwali Night at the Dargah"</h3>
-                <span class="player__time"><span class="player__elapsed">0 : 00</span> / 04 : 21</span>
-              </div>
-              <div class="player__meta" title="Sufi-themed feature film · diegetic performance scene · full qawwali ensemble with hand percussion">
-                <span class="player__composer">[Composer Name]</span>
-                <span class="player__sep">·</span>
-                <span class="player__context">Sufi-themed feature film · diegetic performance scene · full qawwali ensemble with hand percussion</span>
-              </div>
-            </div>
-            <div class="player__wave"></div>
-            <span class="player__duration">04 : 21</span>
-          </article>
-
-          <article class="player__row" data-track="border-of-light" data-src="audio/vocal00009_1.1.wav" data-peaks="audio/peaks/vocal00009_1.1.json">
-            <button class="player__play" type="button" aria-label="Play">
-              <svg class="player__play-icon" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
-              <svg class="player__pause-icon" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-            </button>
-            <div class="player__info">
-              <div class="player__head">
-                <span class="player__type">Documentary</span>
-                <h3 class="player__title" title="&quot;At the Border of Light — Theme for a Tibetan Documentary&quot;">"At the Border of Light — Theme for a Tibetan Documentary"</h3>
-                <span class="player__time"><span class="player__elapsed">0 : 00</span> / 02 : 38</span>
-              </div>
-              <div class="player__meta" title="Buddhist heritage documentary · contemplative theme · long-form devotional alaap over drone bed">
-                <span class="player__composer">[Composer Name]</span>
-                <span class="player__sep">·</span>
-                <span class="player__context">Buddhist heritage documentary · contemplative theme · long-form devotional alaap over drone bed</span>
-              </div>
-            </div>
-            <div class="player__wave"></div>
-            <span class="player__duration">02 : 38</span>
-          </article>
-
-          <article class="player__row" data-track="raga-of-stars" data-src="audio/vocal00010_1.1.wav" data-peaks="audio/peaks/vocal00010_1.1.json">
-            <button class="player__play" type="button" aria-label="Play">
-              <svg class="player__play-icon" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
-              <svg class="player__pause-icon" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-            </button>
-            <div class="player__info">
-              <div class="player__head">
-                <span class="player__type">Game Cue</span>
-                <h3 class="player__title" title="&quot;Raga of the Stars — Cosmos Exploration Theme&quot;">"Raga of the Stars — Cosmos Exploration Theme"</h3>
-                <span class="player__time"><span class="player__elapsed">0 : 00</span> / 03 : 14</span>
-              </div>
-              <div class="player__meta" title="Sci-fi puzzle game · cosmos zone music · sustained vocal pads + granular textures from sound design layer">
-                <span class="player__composer">[Composer Name]</span>
-                <span class="player__sep">·</span>
-                <span class="player__context">Sci-fi puzzle game · cosmos zone music · sustained vocal pads + granular textures from sound design layer</span>
-              </div>
-            </div>
-            <div class="player__wave"></div>
-            <span class="player__duration">03 : 14</span>
-          </article>
-
+          @endforeach
         </div><!-- /.player -->
       </div><!-- /.player-box -->
     </section>
@@ -458,40 +310,20 @@
     <section class="section" id="tech-details">
       <div class="tech-specs" data-reveal>
         <div class="tech-row">
-          <span class="tech-row__label">Format &amp; Compatibility</span>
-          <span class="tech-row__values">
-            Kontakt 6.7 or higher (Full)
-            <span class="tech-row__sep">·</span> Free Kontakt Player not supported
-            <span class="tech-row__sep">·</span> macOS 10.14+ / Windows 10+
-            <span class="tech-row__sep">·</span> 8 GB RAM min, 16 GB recommended
-          </span>
+          <span class="tech-row__label">{{ __('shop_detail_featured.tech.format_compat_label') }}</span>
+          <span class="tech-row__values">{{ __('shop_detail_featured.tech.format_compat_values') }}</span>
         </div>
         <div class="tech-row">
-          <span class="tech-row__label">Library Contents</span>
-          <span class="tech-row__values">
-            3 master vocalists, 540+ samples
-            <span class="tech-row__sep">·</span> 4 mic positions per vocalist
-            <span class="tech-row__sep">·</span> 32 ragas mapped chromatically
-            <span class="tech-row__sep">·</span> Sanskrit shlokas, Sufi qawwali stems, alaap phrases
-          </span>
+          <span class="tech-row__label">{{ __('shop_detail_featured.tech.library_contents_label') }}</span>
+          <span class="tech-row__values">{{ __('shop_detail_featured.tech.library_contents_values') }}</span>
         </div>
         <div class="tech-row">
-          <span class="tech-row__label">Storage &amp; Audio</span>
-          <span class="tech-row__values">
-            8.4 GB on disk
-            <span class="tech-row__sep">·</span> ~12 GB during decompression
-            <span class="tech-row__sep">·</span> 24-bit / 48 kHz NCW lossless
-            <span class="tech-row__sep">·</span> Native Access · 2 active machines
-          </span>
+          <span class="tech-row__label">{{ __('shop_detail_featured.tech.storage_audio_label') }}</span>
+          <span class="tech-row__values">{{ __('shop_detail_featured.tech.storage_audio_values') }}</span>
         </div>
         <div class="tech-row">
-          <span class="tech-row__label">License &amp; Updates</span>
-          <span class="tech-row__values">
-            Royalty-free, all commercial use
-            <span class="tech-row__sep">·</span> Sync-cleared, AI-training-free at performance level
-            <span class="tech-row__sep">·</span> Lifetime updates via Native Access
-            <span class="tech-row__sep">·</span> 14-day refund
-          </span>
+          <span class="tech-row__label">{{ __('shop_detail_featured.tech.license_updates_label') }}</span>
+          <span class="tech-row__values">{{ __('shop_detail_featured.tech.license_updates_values') }}</span>
         </div>
       </div>
     </section>
@@ -500,89 +332,37 @@
     <!-- §4 VIDEOS ─────────────────────────────── -->
     <section class="section" id="videos">
       <div class="section__head">
-        <span class="eyebrow" data-reveal>Videos</span>
-        <h2 class="section__title d1" data-reveal>Walkthrough &amp; tutorials</h2>
+        <span class="eyebrow" data-reveal>{{ __('shop_detail_featured.videos.eyebrow') }}</span>
+        <h2 class="section__title d1" data-reveal>{{ __('shop_detail_featured.videos.title') }}</h2>
         <p class="section__sub d2" data-reveal>
-          Library walkthrough, scripting tutorials, and live demos. Each video includes timestamps and chapter markers in the YouTube description.
+          {{ __('shop_detail_featured.videos.sub') }}
         </p>
       </div>
 
       <!-- Desktop tabs -->
       <div class="videos__tabs" role="tablist">
-        <button class="videos__tab active" data-video="walkthrough" role="tab" aria-selected="true">
-          Walkthrough <span class="videos__tab-duration">07:42</span>
+        @foreach ($videoMeta as $i => $meta)
+        <button class="videos__tab{{ $i === 0 ? ' active' : '' }}" data-video="{{ $meta['id'] }}" role="tab" aria-selected="{{ $i === 0 ? 'true' : 'false' }}">
+          {{ $videoCopy[$i]['tab_label'] }} <span class="videos__tab-duration">{{ $meta['duration'] }}</span>
         </button>
-        <button class="videos__tab" data-video="tutorial-1" role="tab" aria-selected="false">
-          Tutorial 1 — Patches <span class="videos__tab-duration">04:18</span>
-        </button>
-        <button class="videos__tab" data-video="tutorial-2" role="tab" aria-selected="false">
-          Tutorial 2 — Articulations <span class="videos__tab-duration">05:51</span>
-        </button>
-        <button class="videos__tab" data-video="tips" role="tab" aria-selected="false">
-          Tips &amp; Tricks <span class="videos__tab-duration">03:24</span>
-        </button>
-        <button class="videos__tab" data-video="live-demo" role="tab" aria-selected="false">
-          Live Demo <span class="videos__tab-duration">06:12</span>
-        </button>
+        @endforeach
       </div>
 
       <div class="videos__panel-stage">
       <div class="videos__panel-track">
-      <div class="videos__panel" data-panel="walkthrough" data-yt-id="3J0NHxFGA3c" data-yt-title="Library Walkthrough — Voices of Ancient India">
+      @foreach ($videoMeta as $i => $meta)
+      <div class="videos__panel" data-panel="{{ $meta['id'] }}" data-yt-id="{{ $meta['yt'] }}" @if ($meta['placeholder']) data-yt-placeholder="1" @endif @if ($i === 0) data-yt-title="{{ $videoCopy[$i]['panel_name'] }}" @endif>
         <div class="videos__panel-highlight" aria-hidden="true"></div>
         <div class="videos__panel-vignette" aria-hidden="true"></div>
         <div class="videos__panel-play">
           <button class="videos__panel-btn"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg></button>
         </div>
         <div class="videos__panel-overlay">
-          <span class="videos__panel-name">Library Walkthrough — Voices of Ancient India</span>
-          <span class="videos__thumb-duration" style="position:static;background:none;padding:0;color:rgba(255,255,255,0.7)">07 : 42</span>
+          <span class="videos__panel-name">{{ $videoCopy[$i]['panel_name'] }}</span>
+          <span class="videos__thumb-duration" style="position:static;background:none;padding:0;color:rgba(255,255,255,0.7)">{{ $meta['duration'] }}</span>
         </div>
       </div>
-      <div class="videos__panel" data-panel="tutorial-1" data-yt-id="oT27yIgaG8U">
-        <div class="videos__panel-highlight" aria-hidden="true"></div>
-        <div class="videos__panel-vignette" aria-hidden="true"></div>
-        <div class="videos__panel-play">
-          <button class="videos__panel-btn"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg></button>
-        </div>
-        <div class="videos__panel-overlay">
-          <span class="videos__panel-name">Tutorial 1 — Loading and switching patches</span>
-          <span class="videos__thumb-duration" style="position:static;background:none;padding:0;color:rgba(255,255,255,0.7)">04 : 18</span>
-        </div>
-      </div>
-      <div class="videos__panel" data-panel="tutorial-2" data-yt-id="Hr-mbhzS-ys">
-        <div class="videos__panel-highlight" aria-hidden="true"></div>
-        <div class="videos__panel-vignette" aria-hidden="true"></div>
-        <div class="videos__panel-play">
-          <button class="videos__panel-btn"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg></button>
-        </div>
-        <div class="videos__panel-overlay">
-          <span class="videos__panel-name">Tutorial 2 — Triggering articulations and round-robins</span>
-          <span class="videos__thumb-duration" style="position:static;background:none;padding:0;color:rgba(255,255,255,0.7)">05 : 51</span>
-        </div>
-      </div>
-      <div class="videos__panel" data-panel="tips" data-yt-id="E01-uc_RKaQ">
-        <div class="videos__panel-highlight" aria-hidden="true"></div>
-        <div class="videos__panel-vignette" aria-hidden="true"></div>
-        <div class="videos__panel-play">
-          <button class="videos__panel-btn"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg></button>
-        </div>
-        <div class="videos__panel-overlay">
-          <span class="videos__panel-name">Tips &amp; Tricks — Layering, EQ, and reverb suggestions</span>
-          <span class="videos__thumb-duration" style="position:static;background:none;padding:0;color:rgba(255,255,255,0.7)">03 : 24</span>
-        </div>
-      </div>
-      <div class="videos__panel" data-panel="live-demo" data-yt-id="3J0NHxFGA3c" data-yt-placeholder="1">
-        <div class="videos__panel-highlight" aria-hidden="true"></div>
-        <div class="videos__panel-vignette" aria-hidden="true"></div>
-        <div class="videos__panel-play">
-          <button class="videos__panel-btn"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg></button>
-        </div>
-        <div class="videos__panel-overlay">
-          <span class="videos__panel-name">Live Demo — Sumit performing a cue setup, start to finish</span>
-          <span class="videos__thumb-duration" style="position:static;background:none;padding:0;color:rgba(255,255,255,0.7)">06 : 12</span>
-        </div>
-      </div>
+      @endforeach
       </div><!-- /.videos__panel-track -->
       <button class="videos__arrow videos__arrow--prev" aria-label="Previous video" type="button">
         <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 5 8 12 15 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -594,56 +374,18 @@
 
       <!-- Mobile thumb strip -->
       <div class="videos__strip">
-        <div class="videos__thumb" data-yt-id="3J0NHxFGA3c">
-          <span class="videos__thumb-duration">07 : 42</span>
+        @foreach ($videoMeta as $i => $meta)
+        <div class="videos__thumb" data-yt-id="{{ $meta['yt'] }}"@if ($meta['placeholder']) data-yt-placeholder="1"@endif>
+          <span class="videos__thumb-duration">{{ $meta['duration'] }}</span>
           <div class="videos__thumb-overlay">
             <div class="videos__thumb-meta">
-              <span class="videos__thumb-label">Walkthrough</span>
-              <span class="videos__thumb-name">Voices of Ancient India</span>
+              <span class="videos__thumb-label">{{ $videoCopy[$i]['thumb_label'] }}</span>
+              <span class="videos__thumb-name">{{ $videoCopy[$i]['thumb_name'] }}</span>
             </div>
             <button class="videos__thumb-play" aria-label="Play"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg></button>
           </div>
         </div>
-        <div class="videos__thumb" data-yt-id="oT27yIgaG8U">
-          <span class="videos__thumb-duration">04 : 18</span>
-          <div class="videos__thumb-overlay">
-            <div class="videos__thumb-meta">
-              <span class="videos__thumb-label">Tutorial 1</span>
-              <span class="videos__thumb-name">Patches</span>
-            </div>
-            <button class="videos__thumb-play" aria-label="Play"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg></button>
-          </div>
-        </div>
-        <div class="videos__thumb" data-yt-id="Hr-mbhzS-ys">
-          <span class="videos__thumb-duration">05 : 51</span>
-          <div class="videos__thumb-overlay">
-            <div class="videos__thumb-meta">
-              <span class="videos__thumb-label">Tutorial 2</span>
-              <span class="videos__thumb-name">Articulations</span>
-            </div>
-            <button class="videos__thumb-play" aria-label="Play"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg></button>
-          </div>
-        </div>
-        <div class="videos__thumb" data-yt-id="E01-uc_RKaQ">
-          <span class="videos__thumb-duration">03 : 24</span>
-          <div class="videos__thumb-overlay">
-            <div class="videos__thumb-meta">
-              <span class="videos__thumb-label">Tips &amp; Tricks</span>
-              <span class="videos__thumb-name">Layering & FX</span>
-            </div>
-            <button class="videos__thumb-play" aria-label="Play"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg></button>
-          </div>
-        </div>
-        <div class="videos__thumb" data-yt-id="3J0NHxFGA3c" data-yt-placeholder="1">
-          <span class="videos__thumb-duration">06 : 12</span>
-          <div class="videos__thumb-overlay">
-            <div class="videos__thumb-meta">
-              <span class="videos__thumb-label">Live Demo</span>
-              <span class="videos__thumb-name">Cue setup walkthrough</span>
-            </div>
-            <button class="videos__thumb-play" aria-label="Play"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg></button>
-          </div>
-        </div>
+        @endforeach
       </div>
     </section>
 
@@ -651,57 +393,22 @@
     <!-- §5 PATCHES ────────────────────────────── -->
     <section class="section" id="patches">
       <div class="section__head">
-        <span class="eyebrow" data-reveal>Inside the Library</span>
-        <h2 class="section__title d1" data-reveal>Patches</h2>
+        <span class="eyebrow" data-reveal>{{ __('shop_detail_featured.patches.eyebrow') }}</span>
+        <h2 class="section__title d1" data-reveal>{{ __('shop_detail_featured.patches.title') }}</h2>
         <p class="section__sub d2" data-reveal>
-          Each patch is hand-scripted with its own articulation map, mic mixer, and dynamic layering. Auditioned in the demo player above.
+          {{ __('shop_detail_featured.patches.sub') }}
         </p>
       </div>
 
       <div class="patches" data-reveal>
-
+        @foreach ($patchCopy as $patch)
         <div class="patch">
           <div class="patch__head">
-            <h3 class="patch__name">Sanskrit Shloka — Solo Male</h3>
+            <h3 class="patch__name">{{ $patch['name'] }}</h3>
           </div>
-          <p class="patch__desc">Lead male vocalist · sustained open vowels · 4 mic positions · 32 ragas mapped chromatically</p>
+          <p class="patch__desc">{{ $patch['desc'] }}</p>
         </div>
-
-        <div class="patch">
-          <div class="patch__head">
-            <h3 class="patch__name">Devotional Alaap — Solo Female</h3>
-          </div>
-          <p class="patch__desc">Lead female vocalist · slow ornamentation · breath-driven phrasing · 6 mood layers</p>
-        </div>
-
-        <div class="patch">
-          <div class="patch__head">
-            <h3 class="patch__name">Sufi Qawwali — Ensemble</h3>
-          </div>
-          <p class="patch__desc">All three vocalists · call-and-response stems · qawwali-style harmonic clusters</p>
-        </div>
-
-        <div class="patch">
-          <div class="patch__head">
-            <h3 class="patch__name">Sustains &amp; Pads</h3>
-          </div>
-          <p class="patch__desc">Long-form sustains · pad textures · convolution-ready for ambient and trailer use</p>
-        </div>
-
-        <div class="patch">
-          <div class="patch__head">
-            <h3 class="patch__name">Phrase Library</h3>
-          </div>
-          <p class="patch__desc">120+ pre-recorded phrases · tempo-locked · key-detection-friendly · drag-to-DAW</p>
-        </div>
-
-        <div class="patch">
-          <div class="patch__head">
-            <h3 class="patch__name">Sound Design Stems</h3>
-          </div>
-          <p class="patch__desc">Granular vocal textures · reversed alaaps · stretched shlokas · cinematic risers and falls</p>
-        </div>
-
+        @endforeach
       </div>
     </section>
 
@@ -711,34 +418,16 @@
          ──────────────────────────────── -->
     <section class="section" id="description">
       <div class="section__head">
-        <span class="eyebrow" data-reveal>About this Library</span>
-        <h2 class="section__title d1" data-reveal>The story behind the recording</h2>
+        <span class="eyebrow" data-reveal>{{ __('shop_detail_featured.description.eyebrow') }}</span>
+        <h2 class="section__title d1" data-reveal>{{ __('shop_detail_featured.description.title') }}</h2>
       </div>
 
       <div class="description" data-reveal>
 
         <div class="description__prose">
-          <p class="hvid__text-body--lead">
-            <span class="leadin">Recorded on location</span>
-            <strong>Voices of Ancient India</strong> is the deepest spiritual vocal library Crypto Cipher has ever recorded.
-            Three master vocalists from three distinct traditions — Sanskrit-trained classical, Sufi qawwali-trained,
-            and devotional alaap-trained — each chosen not just for tone, but for the lineage they carry.
-          </p>
-          <p>
-            Recording took 11 weeks across our studio in India. Every shloka was performed in single takes,
-            captured on Royer 122 ribbons, Neumann TLM 49 condensers, and a stereo overhead pair, then
-            scripted into Kontakt with phase-aligned mic positions and humanized round-robin timing.
-          </p>
-          <p>
-            The library ships with 32 ragas mapped chromatically, 120+ phrases for drag-to-DAW use,
-            a full qawwali ensemble patch with call-and-response stems, and a sound-design layer with
-            reversed, granular, and stretched textures for trailer and game scoring. All recordings are
-            <strong>sync-cleared globally</strong> and <strong>declared AI-training-free</strong> at performance contract level.
-          </p>
-          <p>
-            This is the library we wished existed when we first started scoring Indian voices into film
-            back in 2010. It exists now.
-          </p>
+          @foreach (__('shop_detail_featured.description.prose') as $i => $paragraph)
+          <p @if ($i === 0) class="hvid__text-body--lead" @endif>{!! $paragraph !!}</p>
+          @endforeach
         </div>
 
         <aside class="description__rail">
@@ -748,28 +437,18 @@
               <path d="M9.4 6.5c-3.5 0-5.9 3-5.9 6.7v4.3h5.6V13h-2.6c0-2.4 1.4-4.2 3.6-4.6L9.4 6.5zm9.4 0c-3.5 0-5.9 3-5.9 6.7v4.3H18.5V13h-2.6c0-2.4 1.4-4.2 3.6-4.6L18.8 6.5z"/>
             </svg>
             <p class="description__quote-body">
-              The library we wished existed when we first started scoring Indian voices into film back in 2010.
+              {{ __('shop_detail_featured.description.quote_body') }}
             </p>
-            <span class="description__quote-attr">Sumit Kumar · Founder</span>
+            <span class="description__quote-attr">{{ __('shop_detail_featured.description.quote_attr') }}</span>
           </div>
 
           <div class="description__stats">
+            @foreach ($statCopy as $stat)
             <div class="description__stat">
-              <span class="description__stat-num">11</span>
-              <span class="description__stat-label">Weeks of recording</span>
+              <span class="description__stat-num">{{ $stat['num'] }}</span>
+              <span class="description__stat-label">{{ $stat['label'] }}</span>
             </div>
-            <div class="description__stat">
-              <span class="description__stat-num">3</span>
-              <span class="description__stat-label">Master vocalists, three traditions</span>
-            </div>
-            <div class="description__stat">
-              <span class="description__stat-num">540+</span>
-              <span class="description__stat-label">Single-take samples</span>
-            </div>
-            <div class="description__stat">
-              <span class="description__stat-num">4</span>
-              <span class="description__stat-label">Mic positions per vocalist</span>
-            </div>
+            @endforeach
           </div>
 
         </aside>
@@ -783,111 +462,107 @@
          ──────────────────────────────── -->
     <section class="section" id="credits">
       <div class="section__head">
-        <span class="eyebrow" data-reveal>Library Credits</span>
-        <h2 class="section__title d1" data-reveal>The crew behind this library</h2>
+        <span class="eyebrow" data-reveal>{{ __('shop_detail_featured.credits.eyebrow') }}</span>
+        <h2 class="section__title d1" data-reveal>{{ __('shop_detail_featured.credits.title') }}</h2>
       </div>
 
       <div class="credits-list" data-reveal>
 
         <div class="credit-row">
-          <span class="credit-row__role">Produced by</span>
+          <span class="credit-row__role">{{ __('shop_detail_featured.credits.produced_by_role') }}</span>
           <div class="credit-row__body">
-            <strong>Sumit Kumar</strong>
-            <em>Founder · Crypto Cipher Audio Lab</em>
+            <strong>{{ __('shop_detail_featured.credits.produced_by_name') }}</strong>
+            <em>{{ __('shop_detail_featured.credits.produced_by_title') }}</em>
           </div>
         </div>
 
         <div class="credit-row">
-          <span class="credit-row__role">Performed by</span>
+          <span class="credit-row__role">{{ __('shop_detail_featured.credits.performed_by_role') }}</span>
           <div class="credit-row__body">
-            <strong>[Vocalist 1]</strong> <em>Sanskrit shlokas</em>
+            <strong>{{ __('shop_detail_featured.credits.performed_by_v1') }}</strong> <em>{{ __('shop_detail_featured.credits.performed_by_v1_style') }}</em>
             <span class="credit-row__sep">·</span>
-            <strong>[Vocalist 2]</strong> <em>Devotional alaap</em>
+            <strong>{{ __('shop_detail_featured.credits.performed_by_v2') }}</strong> <em>{{ __('shop_detail_featured.credits.performed_by_v2_style') }}</em>
             <span class="credit-row__sep">·</span>
-            <strong>[Vocalist 3]</strong> <em>Sufi qawwali</em>
+            <strong>{{ __('shop_detail_featured.credits.performed_by_v3') }}</strong> <em>{{ __('shop_detail_featured.credits.performed_by_v3_style') }}</em>
           </div>
         </div>
 
         <div class="credit-row">
-          <span class="credit-row__role">Recording</span>
+          <span class="credit-row__role">{{ __('shop_detail_featured.credits.recording_role') }}</span>
           <div class="credit-row__body">
-            <strong>[Engineer]</strong> <em>Lead</em>
+            <strong>{{ __('shop_detail_featured.credits.recording_lead') }}</strong> <em>{{ __('shop_detail_featured.credits.recording_lead_title') }}</em>
             <span class="credit-row__sep">·</span>
-            <strong>[Assistant]</strong> <em>Assistant</em>
+            <strong>{{ __('shop_detail_featured.credits.recording_assistant') }}</strong> <em>{{ __('shop_detail_featured.credits.recording_assistant_title') }}</em>
           </div>
         </div>
 
         <div class="credit-row">
-          <span class="credit-row__role">Studio</span>
+          <span class="credit-row__role">{{ __('shop_detail_featured.credits.studio_role') }}</span>
           <div class="credit-row__body">
-            <strong>Crypto Cipher Audio Lab</strong>
-            <em>India · Royer R-122 · Neumann TLM 49 · AKG C414 · Schoeps CMC6 · UAD preamps</em>
+            <strong>{{ __('shop_detail_featured.credits.studio_name') }}</strong>
+            <em>{{ __('shop_detail_featured.credits.studio_detail') }}</em>
           </div>
         </div>
 
         <div class="credit-row">
-          <span class="credit-row__role">Scripting</span>
+          <span class="credit-row__role">{{ __('shop_detail_featured.credits.scripting_role') }}</span>
           <div class="credit-row__body">
-            <strong>[Developer]</strong> <em>Kontakt</em>
+            <strong>{{ __('shop_detail_featured.credits.scripting_dev') }}</strong> <em>{{ __('shop_detail_featured.credits.scripting_dev_title') }}</em>
             <span class="credit-row__sep">·</span>
-            <strong>[KSP Coder]</strong> <em>KSP scripting</em>
+            <strong>{{ __('shop_detail_featured.credits.scripting_ksp') }}</strong> <em>{{ __('shop_detail_featured.credits.scripting_ksp_title') }}</em>
           </div>
         </div>
 
         <div class="credit-row">
-          <span class="credit-row__role">Sound Design</span>
+          <span class="credit-row__role">{{ __('shop_detail_featured.credits.sound_design_role') }}</span>
           <div class="credit-row__body">
-            <strong>[Sound Designer Name]</strong>
+            <strong>{{ __('shop_detail_featured.credits.sound_design_name') }}</strong>
           </div>
         </div>
 
         <div class="credit-row">
-          <span class="credit-row__role">Quality Testing</span>
+          <span class="credit-row__role">{{ __('shop_detail_featured.credits.quality_testing_role') }}</span>
           <div class="credit-row__body">
-            <em>Beta composers:</em>
-            <strong>[Name 1]</strong>, <strong>[Name 2]</strong>, <strong>[Name 3]</strong>
+            <em>{{ __('shop_detail_featured.credits.quality_testing_label') }}</em>
+            {{ __('shop_detail_featured.credits.quality_testing_names') }}
           </div>
         </div>
 
         <div class="credit-row">
-          <span class="credit-row__role">Demo Composers</span>
+          <span class="credit-row__role">{{ __('shop_detail_featured.credits.demo_composers_role') }}</span>
           <div class="credit-row__body">
-            <em>"Pyre at Dawn"</em> <strong>[Composer 1]</strong>
-            <span class="credit-row__sep">·</span>
-            <em>"Saffron Road"</em> <strong>[Composer 2]</strong>
-            <span class="credit-row__sep">·</span>
-            <em>"First Light"</em> <strong>[Composer 3]</strong>
-            <span class="credit-row__sep">·</span>
-            <em>"Saraswati"</em> <strong>[Composer 4]</strong>
+            @foreach ($demoComposerCopy as $i => $dc)
+            @if ($i > 0)<span class="credit-row__sep">·</span>@endif
+            <em>{{ $dc['title'] }}</em> <strong>{{ $dc['name'] }}</strong>
+            @endforeach
           </div>
         </div>
 
       </div>
     </section>
-@endverbatim
     @else
     <!-- Generic fallback — no rich per-product content authored yet for this instrument -->
     <section class="section" id="tech-details">
       <div class="tech-specs" data-reveal>
         <div class="tech-row">
-          <span class="tech-row__label">Format</span>
+          <span class="tech-row__label">{{ __('shop_detail.label_format') }}</span>
           <span class="tech-row__values">
             {{ $product->formatLabel() }}
             @if ($isKontaktFormat)
-            <span class="tech-row__sep">·</span> Free Kontakt Player not supported
+            <span class="tech-row__sep">·</span> {{ __('shop_detail.tech_format_note') }}
             @endif
           </span>
         </div>
         <div class="tech-row">
-          <span class="tech-row__label">Delivery</span>
-          <span class="tech-row__values">Instant digital download{{ $isKontaktFormat ? ' via Native Access' : '' }}</span>
+          <span class="tech-row__label">{{ __('shop_detail.label_delivery') }}</span>
+          <span class="tech-row__values">{{ __('shop_detail.tech_instant_download') }}{{ $isKontaktFormat ? ' '.__('shop_detail.tech_via_native_access') : '' }}</span>
         </div>
         <div class="tech-row">
-          <span class="tech-row__label">License</span>
-          <span class="tech-row__values">Royalty-free, all commercial use <span class="tech-row__sep">·</span> Sync-cleared, AI-training-free</span>
+          <span class="tech-row__label">{{ __('shop_detail.label_license') }}</span>
+          <span class="tech-row__values">{{ __('shop_detail.tech_royalty_free') }} <span class="tech-row__sep">·</span> {{ __('shop_detail.tech_sync_cleared') }}</span>
         </div>
         <div class="tech-row">
-          <span class="tech-row__label">Price</span>
+          <span class="tech-row__label">{{ __('shop_detail.label_price') }}</span>
           <span class="tech-row__values">{{ $product->priceDisplay() }}</span>
         </div>
       </div>
@@ -895,7 +570,7 @@
 
     <section class="section" id="description">
       <div class="section__head">
-        <span class="eyebrow" data-reveal>About this library</span>
+        <span class="eyebrow" data-reveal>{{ __('shop_detail.about_this_library') }}</span>
         <h2 class="section__title d1" data-reveal>{{ $product->name }}</h2>
       </div>
 
@@ -903,7 +578,7 @@
         <div class="description__prose">
           <p class="hvid__text-body--lead">{{ $product->tagline }}</p>
           @if ($product->artist)
-          <p>Performed by <strong>{{ $product->artist }}</strong>.</p>
+          <p>{{ __('shop_detail.performed_by') }} <strong>{{ $product->artist }}</strong>.</p>
           @endif
         </div>
       </div>
@@ -913,8 +588,8 @@
     <!-- §8 RECOMMENDED — dynamically pulled from the same instrument family -->
     <section class="section" id="recommended">
       <div class="section__head">
-        <span class="eyebrow" data-reveal>Composers Also Bought</span>
-        <h2 class="section__title d1" data-reveal>Pairs well with</h2>
+        <span class="eyebrow" data-reveal>{{ __('shop_detail.recommended_eyebrow') }}</span>
+        <h2 class="section__title d1" data-reveal>{{ __('shop_detail.recommended_title') }}</h2>
       </div>
 
       <div class="recommended" data-reveal>
@@ -946,23 +621,22 @@
     </section>
 
     @if ($isFeaturedProduct)
-@verbatim
     <section class="section" id="bundle">
       <div class="bundle-cta" data-reveal>
         <div class="bundle-cta__copy">
-          <span class="bundle-cta__eyebrow">Suite · 3 Instruments</span>
-          <h3 class="bundle-cta__title">The Voices Suite — includes this library</h3>
+          <span class="bundle-cta__eyebrow">{{ __('shop_detail_featured.bundle.eyebrow') }}</span>
+          <h3 class="bundle-cta__title">{{ __('shop_detail_featured.bundle.title') }}</h3>
           <div class="bundle-cta__price-row">
             <span class="bundle-cta__price-now">$199</span>
             <span class="bundle-cta__price-was">$277</span>
-            <span class="bundle-cta__save">Save 28%</span>
+            <span class="bundle-cta__save">{{ __('shop_detail_featured.bundle.save_badge') }}</span>
           </div>
           <p class="bundle-cta__note">
-            Already buying this library? A single-library purchase credits toward this suite within 60 days of your original purchase.
+            {{ __('shop_detail_featured.bundle.note') }}
           </p>
         </div>
         <div class="bundle-cta__action">
-          <a href="/bundle/voices-suite" class="cta cta--ghost">View Suite <span class="cta__arrow">→</span></a>
+          <a href="/bundle/voices-suite" class="cta cta--ghost">{{ __('shop_detail_featured.bundle.cta_label') }} <span class="cta__arrow">→</span></a>
         </div>
       </div>
     </section>
@@ -978,115 +652,75 @@
           </svg>
         </div>
         <div class="soft-cta__copy">
-          <h3 class="soft-cta__title">Want it played live for your cue?</h3>
+          <h3 class="soft-cta__title">{{ __('shop_detail_featured.recording_cta.title') }}</h3>
           <p class="soft-cta__sub">
-            We can record any of these vocalists for your specific project — direct the performance, request retakes, lock the take you need. 3-4 day delivery · sync-cleared · NDA-friendly · AI-training-free terms confirmed at booking.
+            {{ __('shop_detail_featured.recording_cta.sub') }}
           </p>
         </div>
         <a href="/recording-services" class="cta-pill" data-magnetic>
-          <span class="cta-pill__label">Book a session</span>
+          <span class="cta-pill__label">{{ __('shop_detail_featured.recording_cta.cta_label') }}</span>
           <span class="cta-pill__arrow" aria-hidden="true">→</span>
           <span class="cta-pill__meter" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
         </a>
       </div>
     </section>
-@endverbatim
     @endif
 
     <section class="section" id="faq">
       <div class="section__head">
-        <span class="eyebrow" data-reveal>Library Questions</span>
-        <h2 class="section__title d1" data-reveal>Before you buy</h2>
+        <span class="eyebrow" data-reveal>{{ __('shop_detail.faq_eyebrow') }}</span>
+        <h2 class="section__title d1" data-reveal>{{ __('shop_detail.faq_title') }}</h2>
         <p class="section__sub d2" data-reveal>
-          Specific questions about {{ $product->name }}. For catalogue-wide questions, see the FAQ on the library shop page.
+          {{ __('shop_detail.faq_sub', ['product' => $product->name]) }}
         </p>
       </div>
 
       <div class="faq" data-reveal>
         @if ($isFeaturedProduct)
-@verbatim
-
+        @foreach (__('shop_detail_featured.faq') as $item)
         <details class="faq__item">
           <summary class="faq__q">
-            What's the best Kontakt library for Indian devotional and spiritual cues?
+            {{ $item['q'] }}
             <span class="faq__icon"></span>
           </summary>
           <div class="faq__a-wrap"><div class="faq__a">
-            For sacred, devotional, and spiritual scoring, Voices of Ancient India is our deepest vocal library — three master vocalists across Sanskrit, Sufi, and devotional traditions, with full alaap phrasing and qawwali ensemble stems. For melodic ornamentation only (sargams, bandish), pair it with Voices of Ragas Vol 1 or 2. For instrumental backdrops, Bollywood Harmonium and Swarmandal are the most-used companions in spiritual cue scoring.
+            {{ $item['a'] }}
           </div></div>
         </details>
-
-        <details class="faq__item">
-          <summary class="faq__q">
-            Does this work with the free Kontakt Player?
-            <span class="faq__icon"></span>
-          </summary>
-          <div class="faq__a-wrap"><div class="faq__a">
-            <strong>No.</strong> This library requires <strong>Kontakt 6 Full</strong> (or higher) — a paid one-time purchase from Native Instruments. The free Kontakt Player will load the library but only for 30 minutes per session, which is a Native Instruments restriction across all third-party libraries, not specific to Crypto Cipher.
-          </div></div>
-        </details>
-
-        <details class="faq__item">
-          <summary class="faq__q">
-            What are the system requirements?
-            <span class="faq__icon"></span>
-          </summary>
-          <div class="faq__a-wrap"><div class="faq__a">
-            Kontakt 6.7 or higher · 8 GB RAM minimum (16 GB recommended for full multi-mic loading) · 12 GB free disk space during install (8.4 GB after) · macOS 10.14+ or Windows 10+. Authorization is one-time via Native Access and supports 2 active machines.
-          </div></div>
-        </details>
-
-        <details class="faq__item">
-          <summary class="faq__q">
-            Can I use this in OTT, Hollywood film, and sync placements?
-            <span class="faq__icon"></span>
-          </summary>
-          <div class="faq__a-wrap"><div class="faq__a">
-            <strong>Yes — globally.</strong> The single license covers all commercial use including theatrical film, OTT and streaming, broadcast television, advertising, sync placements, and games. The library is declared <strong>sync-cleared</strong> and <strong>AI-training-free</strong> at the performance contract level — meaning the original performances cannot be used to train AI models, including by you, your clients, or any downstream license holder.
-          </div></div>
-        </details>
-
-        <details class="faq__item">
-          <summary class="faq__q">
-            How is this different from other Indian vocal libraries?
-            <span class="faq__icon"></span>
-          </summary>
-          <div class="faq__a-wrap"><div class="faq__a">
-            Two differences. <strong>Lineage:</strong> our vocalists are working performers from named gharanas and Sufi traditions, not session singers — every recording carries inherited phrasing. <strong>Scripting depth:</strong> 32 ragas mapped chromatically with full alaap-style ornamentation, qawwali ensemble stems with call-and-response, and a sound-design layer for trailer use. The library is built for cue scoring, not just sample browsing.
-          </div></div>
-        </details>
-
-      @endverbatim
+        @endforeach
         @else
         @if ($isKontaktFormat)
         <details class="faq__item">
           <summary class="faq__q">
-            Does this work with the free Kontakt Player?
+            {{ __('shop_detail.faq_kontakt_player_q') }}
             <span class="faq__icon"></span>
           </summary>
           <div class="faq__a-wrap"><div class="faq__a">
-            <strong>No.</strong> This library requires <strong>Kontakt 6 Full</strong> (or higher) — a paid one-time purchase from Native Instruments. The free Kontakt Player will load the library but only for 30 minutes per session, which is a Native Instruments restriction across all third-party libraries, not specific to Crypto Cipher.
+            {{ __('shop_detail.faq_kontakt_player_a') }}
           </div></div>
         </details>
         @else
         <details class="faq__item">
           <summary class="faq__q">
-            What do I need to use this library?
+            {{ __('shop_detail.faq_non_kontakt_q') }}
             <span class="faq__icon"></span>
           </summary>
           <div class="faq__a-wrap"><div class="faq__a">
-            This library is delivered as a <strong>{{ $product->formatLabel() }}</strong> format. See the technical specs above for exact software/hardware requirements. If you're unsure whether it's compatible with your setup, <a href="{{ route('contact') }}">contact us</a> before purchasing.
+            {!! __('shop_detail.faq_non_kontakt_a', [
+                'format' => '<strong>'.$product->formatLabel().'</strong>',
+                'contact' => '<a href="'.route('contact').'">'.__('shop_detail.faq_non_kontakt_contact_link').'</a>',
+            ]) !!}
           </div></div>
         </details>
         @endif
 
         <details class="faq__item">
           <summary class="faq__q">
-            Can I use this in OTT, Hollywood film, and sync placements?
+            {{ __('shop_detail.faq_sync_q') }}
             <span class="faq__icon"></span>
           </summary>
           <div class="faq__a-wrap"><div class="faq__a">
-            <strong>Yes — globally.</strong> The single license covers all commercial use including theatrical film, OTT and streaming, broadcast television, advertising, sync placements, and games. The library is declared <strong>sync-cleared</strong> and <strong>AI-training-free</strong> at the performance contract level — meaning the original performances cannot be used to train AI models, including by you, your clients, or any downstream license holder.
+            {{ __('shop_detail.faq_sync_a') }}
           </div></div>
         </details>
         @endif

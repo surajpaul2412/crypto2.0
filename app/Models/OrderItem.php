@@ -15,6 +15,7 @@ class OrderItem extends Model
         'edition',
         'image',
         'price',
+        'currency',
         'quantity',
         'line_total',
     ];

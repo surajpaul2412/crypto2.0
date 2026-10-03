@@ -27,7 +27,8 @@ class WishlistController extends Controller
                 'name' => $product->name,
                 'edition' => ucfirst($product->format),
                 'label' => $product->flagship ? 'Flagship' : ucfirst($product->tags->first()->label ?? ''),
-                'price' => (float) $product->price,
+                'price' => $product->resolvedPrice(),
+                'currency' => $product->resolvedCurrencyCode(),
                 'image' => $product->imageUrl(),
             ];
         }

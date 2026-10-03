@@ -13,7 +13,10 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1",
         "laravel/ui": "^4.6",
+        "league/flysystem-aws-s3-v3": "^3.35",
         "mcamara/laravel-localization": "^2.3",
+        "parfaitementweb/filament-plugin-translatable-inline": "^4.1",
+        "spatie/laravel-translatable": "^6.14",
         "tightenco/ziggy": "^2.0"
     },
     "require-dev": {

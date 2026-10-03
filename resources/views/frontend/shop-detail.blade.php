@@ -14,6 +14,7 @@
     $pageStyleAssets = [];
     $pageScriptAssets = [
         'https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js',
+        ['src' => asset('frontend/assets/js/cc-demo-player.js'), 'defer' => true],
     ];
 @endphp
 

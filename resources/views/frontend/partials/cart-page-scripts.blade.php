@@ -91,18 +91,15 @@
     var meta = document.querySelector('meta[name="csrf-token"]');
     return meta ? meta.getAttribute('content') : '';
   }
-  function money(n) {
-    return '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  }
   function removeUrl(slug) {
     var tpl = (window.__CART_URLS__ && window.__CART_URLS__.remove) || '/cart/remove/__SLUG__';
     return tpl.replace('__SLUG__', encodeURIComponent(slug));
   }
-  function refreshSummary(subtotal) {
+  function refreshSummary(subtotalDisplay) {
     var subtotalEl = document.getElementById('cart-subtotal-display');
     var totalEl = document.getElementById('cart-total-display');
-    if (subtotalEl) subtotalEl.textContent = money(subtotal);
-    if (totalEl) totalEl.textContent = money(subtotal);
+    if (subtotalEl) subtotalEl.textContent = subtotalDisplay;
+    if (totalEl) totalEl.textContent = subtotalDisplay;
   }
   function refreshItemCountLabel() {
     var label = document.getElementById('cart-item-count-label');
@@ -139,7 +136,7 @@
               return;
             }
             refreshItemCountLabel();
-            refreshSummary(data.subtotal != null ? data.subtotal : 0);
+            refreshSummary(data.subtotalDisplay || '');
           }, 320);
           if (typeof data.cartCount === 'number') {
             document.querySelectorAll('[data-cart-count], [data-cart-total]').forEach(function (el) {

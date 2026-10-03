@@ -10,12 +10,15 @@ use App\Filament\Resources\ProductUsecases\Tables\ProductUsecasesTable;
 use App\Models\ProductUsecase;
 use BackedEnum;
 use Filament\Resources\Resource;
+use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class ProductUsecaseResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = ProductUsecase::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedLightBulb;

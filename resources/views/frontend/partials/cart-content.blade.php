@@ -36,11 +36,11 @@
           <div class="cart-item__body">
             <span class="cart-item__edition">For {{ $item['edition'] }}</span>
             <h3 class="cart-item__name"><a href="{{ route('shop.show', $item['slug']) }}">{{ $item['name'] }}</a></h3>
-            <span class="cart-item__price">${{ number_format($item['price'], 2) }} each</span>
+            <span class="cart-item__price">{{ \App\Support\Money::format($item['price'], $currency) }} each</span>
           </div>
 
           <div class="cart-item__aside">
-            <span class="cart-item__line-total" data-line-total>${{ number_format($item['line_total'], 2) }}</span>
+            <span class="cart-item__line-total" data-line-total>{{ \App\Support\Money::format($item['line_total'], $currency) }}</span>
 
             <button type="button" class="cart-item__remove" data-cart-remove>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -56,7 +56,7 @@
 
         <div class="cart-summary__row">
           <span id="cart-item-count-label">{{ count($items) }} {{ count($items) === 1 ? 'item' : 'items' }}</span>
-          <span id="cart-subtotal-display">${{ number_format($subtotal, 2) }}</span>
+          <span id="cart-subtotal-display">{{ \App\Support\Money::format($subtotal, $currency) }}</span>
         </div>
         <div class="cart-summary__row">
           <span>License</span>
@@ -67,7 +67,7 @@
 
         <div class="cart-summary__total">
           <span class="cart-summary__total-label">Total</span>
-          <span class="cart-summary__total-value" id="cart-total-display">${{ number_format($subtotal, 2) }}</span>
+          <span class="cart-summary__total-value" id="cart-total-display">{{ \App\Support\Money::format($subtotal, $currency) }}</span>
         </div>
 
         <a href="{{ route('checkout.index') }}" class="cart-summary__cta">

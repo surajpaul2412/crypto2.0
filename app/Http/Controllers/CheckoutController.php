@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Product;
+use App\Support\RegionPricing;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,6 +22,7 @@ class CheckoutController extends Controller
         return view('frontend.checkout', [
             'items' => $order['items'],
             'subtotal' => $order['subtotal'],
+            'currency' => $order['currency'],
             'customer' => [
                 'name' => old('name', optional($request->user())->name),
                 'email' => old('email', optional($request->user())->email),
@@ -59,6 +61,7 @@ class CheckoutController extends Controller
                 'country' => $customer['country'],
                 'payment_method' => $customer['payment_method'],
                 'subtotal' => $order['subtotal'],
+                'currency' => $order['currency'],
                 'placed_at' => $placedAt,
             ]);
 
@@ -70,6 +73,7 @@ class CheckoutController extends Controller
                     'edition' => $item['edition'],
                     'image' => $item['image'],
                     'price' => $item['price'],
+                    'currency' => $order['currency'],
                     'quantity' => $item['quantity'],
                     'line_total' => $item['line_total'],
                 ]);
@@ -81,6 +85,7 @@ class CheckoutController extends Controller
             'customer' => $customer,
             'items' => $order['items'],
             'subtotal' => $order['subtotal'],
+            'currency' => $order['currency'],
             'placed_at' => $placedAt->format('d M Y, h:i A'),
         ]);
 
@@ -107,6 +112,10 @@ class CheckoutController extends Controller
         $products = Product::whereIn('slug', array_keys($cart))->get()->keyBy('slug');
         $items = [];
         $subtotal = 0.0;
+        // Snapshotted onto the order at checkout time — this is what the
+        // customer actually pays, and it must stay fixed even if the
+        // product's price (or INR override) changes afterwards.
+        $currency = app(RegionPricing::class)->currencyCode($request);
 
         foreach ($cart as $slug => $entry) {
             $product = $products->get($slug);
@@ -115,7 +124,7 @@ class CheckoutController extends Controller
             }
 
             $quantity = 1; // digital licence: one per product
-            $lineTotal = (float) $product->price;
+            $lineTotal = $product->resolvedPrice();
             $subtotal += $lineTotal;
 
             $items[] = [
@@ -124,7 +133,7 @@ class CheckoutController extends Controller
                 'name' => $product->name,
                 'edition' => ucfirst($product->format),
                 'image' => $product->imageUrl(),
-                'price' => (float) $product->price,
+                'price' => $lineTotal,
                 'quantity' => $quantity,
                 'line_total' => $lineTotal,
             ];
@@ -133,6 +142,7 @@ class CheckoutController extends Controller
         return [
             'items' => $items,
             'subtotal' => $subtotal,
+            'currency' => $currency,
         ];
     }
 }

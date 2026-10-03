@@ -10,12 +10,15 @@ use App\Filament\Resources\ProductMoods\Tables\ProductMoodsTable;
 use App\Models\ProductMood;
 use BackedEnum;
 use Filament\Resources\Resource;
+use LaraZeus\SpatieTranslatable\Resources\Concerns\Translatable;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class ProductMoodResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = ProductMood::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedFaceSmile;

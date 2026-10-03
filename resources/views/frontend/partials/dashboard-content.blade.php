@@ -62,7 +62,7 @@
         <article class="rec-card">
           <a href="{{ route('shop.show', $item->slug) }}" class="rec-card__art">
             <img class="rec-card__art-bg" src="{{ $item->image }}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
-            <span class="rec-card__price">${{ number_format($item->price, 0) }}</span>
+            <span class="rec-card__price">{{ \App\Support\Money::format($item->price, $item->currency, 0) }}</span>
             <span class="cc-format-chip">For {{ $item->edition }}</span>
           </a>
           <div class="rec-card__body">
@@ -87,7 +87,7 @@
             <span class="dash-order__items">{{ $order->items->count() }} {{ $order->items->count() === 1 ? 'item' : 'items' }}</span>
           </div>
           <div class="dash-order__right">
-            <span class="dash-order__total">${{ number_format($order->subtotal, 2) }}</span>
+            <span class="dash-order__total">{{ \App\Support\Money::format($order->subtotal, $order->currency) }}</span>
             <span class="dash-order__status">{{ ucfirst($order->status) }}</span>
           </div>
         </div>

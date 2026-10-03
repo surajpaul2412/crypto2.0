@@ -107,7 +107,7 @@
 
       <div>
         <button type="submit" class="checkout-submit" id="checkout-submit-btn">
-          <span>Place order — ${{ number_format($subtotal, 2) }}</span>
+          <span>Place order — {{ \App\Support\Money::format($subtotal, $currency) }}</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
         </button>
         <p class="checkout-secure-note">
@@ -133,14 +133,14 @@
             <div class="checkout-summary__item-name">{{ $item['name'] }}</div>
             <div class="checkout-summary__item-edition">For {{ $item['edition'] }}</div>
           </div>
-          <div class="checkout-summary__item-price">${{ number_format($item['line_total'], 2) }}</div>
+          <div class="checkout-summary__item-price">{{ \App\Support\Money::format($item['line_total'], $currency) }}</div>
         </div>
         @endforeach
       </div>
 
       <div class="checkout-summary__row">
         <span>Subtotal</span>
-        <span>${{ number_format($subtotal, 2) }}</span>
+        <span>{{ \App\Support\Money::format($subtotal, $currency) }}</span>
       </div>
       <div class="checkout-summary__row">
         <span>License</span>
@@ -149,7 +149,7 @@
 
       <div class="checkout-summary__total">
         <span class="checkout-summary__total-label">Total</span>
-        <span class="checkout-summary__total-value">${{ number_format($subtotal, 2) }}</span>
+        <span class="checkout-summary__total-value">{{ \App\Support\Money::format($subtotal, $currency) }}</span>
       </div>
     </aside>
   </form>

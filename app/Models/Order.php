@@ -18,6 +18,7 @@ class Order extends Model
         'country',
         'payment_method',
         'subtotal',
+        'currency',
         'status',
         'placed_at',
     ];

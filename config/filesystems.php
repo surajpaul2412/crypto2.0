@@ -69,6 +69,33 @@ return [
             'report' => false,
         ],
 
+        // Cloudflare R2 — S3-compatible, used for product demo-track audio
+        // masters. Private bucket: nothing here is served by a public URL,
+        // only through the signed, time-limited preview route (see
+        // App\Http\Controllers\ProductTrackPreviewController), which also
+        // enforces the clipped-to-preview-length byte range.
+        //
+        // Outside production, with no R2 credentials configured yet, this
+        // quietly falls back to local disk storage (storage/app/r2-dev) so
+        // the upload → preview flow can be built and tested before an R2
+        // bucket exists. Production always requires real R2_* credentials.
+        'r2' => env('R2_ACCESS_KEY_ID') ? [
+            'driver' => 's3',
+            'key' => env('R2_ACCESS_KEY_ID'),
+            'secret' => env('R2_SECRET_ACCESS_KEY'),
+            'region' => env('R2_REGION', 'auto'),
+            'bucket' => env('R2_BUCKET'),
+            'endpoint' => env('R2_ENDPOINT'),
+            'use_path_style_endpoint' => true,
+            'throw' => false,
+            'report' => false,
+        ] : [
+            'driver' => 'local',
+            'root' => storage_path('app/r2-dev'),
+            'throw' => false,
+            'report' => false,
+        ],
+
     ],
 
     /*
